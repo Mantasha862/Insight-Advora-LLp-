@@ -7,6 +7,7 @@ import { z } from "zod";
 import { prisma } from "@/lib/db";
 import { createSession, destroySession, requireUser } from "@/lib/auth";
 import { rateLimit } from "@/lib/ratelimit";
+import { hasValidSecret } from "@/lib/session";
 import { deleteRow, saveRow, setRowStatus, ValidationError } from "@/lib/admin/crud";
 import { getResourceDef } from "@/lib/admin/resources";
 import { BUCKETS, deleteObject, uploadObject, validateUpload, type Bucket } from "@/lib/admin/storage";
@@ -33,9 +34,16 @@ export async function login(_prev: AdminFormState, fd: FormData): Promise<AdminF
   const pw = s(fd, "password");
   if (!email || !pw) return { status: "error", message: "Enter your email and password." };
   if (!(await rateLimit("login", email))) return { status: "error", message: "Too many attempts. Please wait and try again." };
-  if (!process.env.AUTH_SECRET || !process.env.DATABASE_URL) return { status: "error", message: "The admin panel is not configured (DATABASE_URL / AUTH_SECRET)." };
+  if (!hasValidSecret() || !process.env.DATABASE_URL)
+    return { status: "error", message: "The admin panel is not configured yet — see the setup notes above." };
 
-  const user = await prisma.user.findUnique({ where: { email } });
+  let user;
+  try {
+    user = await prisma.user.findUnique({ where: { email } });
+  } catch (e) {
+    console.error("[login] database error", e);
+    return { status: "error", message: "Could not reach the admin database. Check DATABASE_URL and that migrations have been run." };
+  }
   const ok = await bcrypt.compare(pw, user?.passwordHash ?? DUMMY_HASH);
   if (!user || !user.active || !ok) return { status: "error", message: "Invalid email or password." };
 

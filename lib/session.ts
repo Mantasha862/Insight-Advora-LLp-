@@ -32,3 +32,7 @@ export async function verifySession(token: string | undefined): Promise<SessionP
     return null;
   }
 }
+
+export function hasValidSecret() {
+  return (process.env.AUTH_SECRET ?? "").length >= 32;
+}
