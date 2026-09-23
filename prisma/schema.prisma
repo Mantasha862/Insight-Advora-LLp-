@@ -1,0 +1,416 @@
+// Insight Advora LLP — Prisma schema.
+// `leads` and `subscribers` already exist in the live Supabase database (see backend/schema.sql)
+// and are adopted by the 0_init baseline migration; never drop them.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum ContentStatus {
+  draft
+  review
+  published
+  archived
+
+  @@map("content_status")
+}
+
+enum Role {
+  admin
+  editor
+
+  @@map("user_role")
+}
+
+// ─── Existing tables (adopted) ──────────────────────────────────────────────
+
+model Lead {
+  id             String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  createdAt      DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  name           String
+  company        String?
+  designation    String?
+  email          String
+  phone          String?
+  areaOfInterest String   @default("Other") @map("area_of_interest")
+  message        String?
+  source         String   @default("website")
+  pageUrl        String?  @map("page_url")
+  status         String   @default("new")
+  internalNotes  String?  @map("internal_notes")
+
+  @@index([createdAt(sort: Desc)], map: "leads_created_at_idx")
+  @@index([status], map: "leads_status_idx")
+  @@index([areaOfInterest], map: "leads_area_idx")
+  @@map("leads")
+}
+
+model Subscriber {
+  id             String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  createdAt      DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  name           String?
+  email          String    @unique
+  organisation   String?
+  interest       String?
+  source         String    @default("knowledge-hub")
+  confirmed      Boolean   @default(false)
+  unsubscribedAt DateTime? @map("unsubscribed_at") @db.Timestamptz(6)
+
+  @@map("subscribers")
+}
+
+// ─── Admin users ────────────────────────────────────────────────────────────
+
+model User {
+  id           String    @id @default(cuid())
+  email        String    @unique
+  name         String?
+  passwordHash String    @map("password_hash")
+  role         Role      @default(editor)
+  active       Boolean   @default(true)
+  lastLoginAt  DateTime? @map("last_login_at")
+  createdAt    DateTime  @default(now()) @map("created_at")
+  updatedAt    DateTime  @updatedAt @map("updated_at")
+
+  @@map("users")
+}
+
+// ─── Team ───────────────────────────────────────────────────────────────────
+
+model TeamCategory {
+  id              String        @id @default(cuid())
+  slug            String        @unique
+  name            String
+  description     String?
+  status          ContentStatus @default(published)
+  displayOrder    Int           @default(0) @map("display_order")
+  seoTitle        String?       @map("seo_title")
+  metaDescription String?       @map("meta_description")
+  ogImage         String?       @map("og_image")
+  isDemo          Boolean       @default(false) @map("is_demo")
+  createdAt       DateTime      @default(now()) @map("created_at")
+  updatedAt       DateTime      @updatedAt @map("updated_at")
+  members         TeamMember[]
+
+  @@map("team_categories")
+}
+
+model TeamMember {
+  id              String        @id @default(cuid())
+  slug            String        @unique
+  name            String
+  designation     String
+  qualification   String?
+  categoryId      String?       @map("category_id")
+  category        TeamCategory? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  expertise       String[]
+  bio             String?
+  focus           String[]
+  photo           String?
+  linkedin        String?
+  featured        Boolean       @default(false)
+  status          ContentStatus @default(draft)
+  displayOrder    Int           @default(0) @map("display_order")
+  seoTitle        String?       @map("seo_title")
+  metaDescription String?       @map("meta_description")
+  ogImage         String?       @map("og_image")
+  isDemo          Boolean       @default(false) @map("is_demo")
+  createdAt       DateTime      @default(now()) @map("created_at")
+  updatedAt       DateTime      @updatedAt @map("updated_at")
+
+  @@index([status, displayOrder])
+  @@map("team_members")
+}
+
+// ─── Services & industries ──────────────────────────────────────────────────
+
+model Service {
+  id              String            @id @default(cuid())
+  slug            String            @unique
+  number          String
+  title           String
+  shortTitle      String            @map("short_title")
+  headline        String
+  description     String
+  icon            String            @default("strategy")
+  challenge       String?
+  capabilities    String[]
+  flow            String[]
+  challenges      String[]
+  perspective     String?
+  outcomes        String[]
+  related         String[]
+  faq             Json              @default("[]")
+  status          ContentStatus     @default(draft)
+  displayOrder    Int               @default(0) @map("display_order")
+  seoTitle        String?           @map("seo_title")
+  metaDescription String?           @map("meta_description")
+  ogImage         String?           @map("og_image")
+  isDemo          Boolean           @default(false) @map("is_demo")
+  createdAt       DateTime          @default(now()) @map("created_at")
+  updatedAt       DateTime          @updatedAt @map("updated_at")
+  industries      IndustryService[]
+  articles        ArticleService[]
+
+  @@index([status, displayOrder])
+  @@map("services")
+}
+
+model Industry {
+  id              String            @id @default(cuid())
+  slug            String            @unique
+  number          String
+  name            String
+  headline        String
+  summary         String
+  context         String
+  scopeNote       String?           @map("scope_note")
+  considerations  String[]
+  challenges      String[]
+  topics          String[]
+  status          ContentStatus     @default(draft)
+  displayOrder    Int               @default(0) @map("display_order")
+  seoTitle        String?           @map("seo_title")
+  metaDescription String?           @map("meta_description")
+  ogImage         String?           @map("og_image")
+  isDemo          Boolean           @default(false) @map("is_demo")
+  createdAt       DateTime          @default(now()) @map("created_at")
+  updatedAt       DateTime          @updatedAt @map("updated_at")
+  services        IndustryService[]
+  articles        ArticleIndustry[]
+
+  @@index([status, displayOrder])
+  @@map("industries")
+}
+
+model IndustryService {
+  industryId String   @map("industry_id")
+  serviceId  String   @map("service_id")
+  industry   Industry @relation(fields: [industryId], references: [id], onDelete: Cascade)
+  service    Service  @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+
+  @@id([industryId, serviceId])
+  @@map("industry_services")
+}
+
+// ─── Knowledge hub ──────────────────────────────────────────────────────────
+
+model Category {
+  id              String        @id @default(cuid())
+  slug            String        @unique
+  name            String
+  description     String?
+  status          ContentStatus @default(published)
+  displayOrder    Int           @default(0) @map("display_order")
+  seoTitle        String?       @map("seo_title")
+  metaDescription String?       @map("meta_description")
+  ogImage         String?       @map("og_image")
+  isDemo          Boolean       @default(false) @map("is_demo")
+  createdAt       DateTime      @default(now()) @map("created_at")
+  updatedAt       DateTime      @updatedAt @map("updated_at")
+  articles        Article[]
+
+  @@map("categories")
+}
+
+model ContentType {
+  id              String        @id @default(cuid())
+  slug            String        @unique
+  name            String
+  description     String?
+  status          ContentStatus @default(published)
+  displayOrder    Int           @default(0) @map("display_order")
+  seoTitle        String?       @map("seo_title")
+  metaDescription String?       @map("meta_description")
+  ogImage         String?       @map("og_image")
+  isDemo          Boolean       @default(false) @map("is_demo")
+  createdAt       DateTime      @default(now()) @map("created_at")
+  updatedAt       DateTime      @updatedAt @map("updated_at")
+  articles        Article[]
+
+  @@map("content_types")
+}
+
+model Author {
+  id              String        @id @default(cuid())
+  slug            String        @unique
+  name            String
+  role            String?
+  bio             String?
+  photo           String?
+  linkedin        String?
+  status          ContentStatus @default(published)
+  displayOrder    Int           @default(0) @map("display_order")
+  seoTitle        String?       @map("seo_title")
+  metaDescription String?       @map("meta_description")
+  ogImage         String?       @map("og_image")
+  isDemo          Boolean       @default(false) @map("is_demo")
+  createdAt       DateTime      @default(now()) @map("created_at")
+  updatedAt       DateTime      @updatedAt @map("updated_at")
+  articles        Article[]
+
+  @@map("authors")
+}
+
+model Tag {
+  id              String        @id @default(cuid())
+  slug            String        @unique
+  name            String
+  status          ContentStatus @default(published)
+  displayOrder    Int           @default(0) @map("display_order")
+  seoTitle        String?       @map("seo_title")
+  metaDescription String?       @map("meta_description")
+  ogImage         String?       @map("og_image")
+  isDemo          Boolean       @default(false) @map("is_demo")
+  createdAt       DateTime      @default(now()) @map("created_at")
+  updatedAt       DateTime      @updatedAt @map("updated_at")
+  articles        ArticleTag[]
+
+  @@map("tags")
+}
+
+model Article {
+  id              String                   @id @default(cuid())
+  slug            String                   @unique
+  title           String
+  subtitle        String?
+  excerpt         String
+  body            String
+  keyTakeaways    String[]                 @map("key_takeaways")
+  featuredImage   String?                  @map("featured_image")
+  readingTime     Int                      @default(5) @map("reading_time")
+  featured        Boolean                  @default(false)
+  publishedAt     DateTime?                @map("published_at")
+  categoryId      String?                  @map("category_id")
+  category        Category?                @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  contentTypeId   String?                  @map("content_type_id")
+  contentType     ContentType?             @relation(fields: [contentTypeId], references: [id], onDelete: SetNull)
+  authorId        String?                  @map("author_id")
+  author          Author?                  @relation(fields: [authorId], references: [id], onDelete: SetNull)
+  // Denormalised tag + category names so the generated search_vector can include them.
+  searchExtra     String                   @default("") @map("search_extra")
+  /// Generated column (see 1_cms migration) — the default below mirrors its expression so Prisma sees no drift.
+  searchVector    Unsupported("tsvector")? @default(dbgenerated("((((setweight(to_tsvector('english'::regconfig, COALESCE(title, ''::text)), 'A'::\"char\") || setweight(to_tsvector('english'::regconfig, COALESCE(subtitle, ''::text)), 'B'::\"char\")) || setweight(to_tsvector('english'::regconfig, COALESCE(excerpt, ''::text)), 'B'::\"char\")) || setweight(to_tsvector('english'::regconfig, COALESCE(search_extra, ''::text)), 'B'::\"char\")) || setweight(to_tsvector('english'::regconfig, regexp_replace(COALESCE(body, ''::text), '<[^>]+>'::text, ' '::text, 'g'::text)), 'C'::\"char\"))")) @map("search_vector")
+  status          ContentStatus            @default(draft)
+  displayOrder    Int                      @default(0) @map("display_order")
+  seoTitle        String?                  @map("seo_title")
+  metaDescription String?                  @map("meta_description")
+  ogImage         String?                  @map("og_image")
+  isDemo          Boolean                  @default(false) @map("is_demo")
+  createdAt       DateTime                 @default(now()) @map("created_at")
+  updatedAt       DateTime                 @updatedAt @map("updated_at")
+  industries      ArticleIndustry[]
+  services        ArticleService[]
+  tags            ArticleTag[]
+
+  @@index([status, publishedAt(sort: Desc)])
+  @@index([searchVector], type: Gin, map: "articles_search_idx")
+  @@map("articles")
+}
+
+model ArticleIndustry {
+  articleId  String   @map("article_id")
+  industryId String   @map("industry_id")
+  article    Article  @relation(fields: [articleId], references: [id], onDelete: Cascade)
+  industry   Industry @relation(fields: [industryId], references: [id], onDelete: Cascade)
+
+  @@id([articleId, industryId])
+  @@map("article_industries")
+}
+
+model ArticleService {
+  articleId String  @map("article_id")
+  serviceId String  @map("service_id")
+  article   Article @relation(fields: [articleId], references: [id], onDelete: Cascade)
+  service   Service @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+
+  @@id([articleId, serviceId])
+  @@map("article_services")
+}
+
+model ArticleTag {
+  articleId String  @map("article_id")
+  tagId     String  @map("tag_id")
+  article   Article @relation(fields: [articleId], references: [id], onDelete: Cascade)
+  tag       Tag     @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([articleId, tagId])
+  @@map("article_tags")
+}
+
+model Resource {
+  id              String        @id @default(cuid())
+  slug            String        @unique
+  title           String
+  description     String
+  resourceType    String        @default("Guide") @map("resource_type")
+  fileUrl         String?       @map("file_url")
+  gated           Boolean       @default(true)
+  status          ContentStatus @default(draft)
+  displayOrder    Int           @default(0) @map("display_order")
+  seoTitle        String?       @map("seo_title")
+  metaDescription String?       @map("meta_description")
+  ogImage         String?       @map("og_image")
+  isDemo          Boolean       @default(false) @map("is_demo")
+  createdAt       DateTime      @default(now()) @map("created_at")
+  updatedAt       DateTime      @updatedAt @map("updated_at")
+
+  @@map("resources")
+}
+
+// ─── Media, settings, SEO ───────────────────────────────────────────────────
+
+model Media {
+  id        String   @id @default(cuid())
+  bucket    String
+  path      String
+  url       String
+  name      String
+  mimeType  String   @map("mime_type")
+  size      Int
+  alt       String?
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@unique([bucket, path])
+  @@map("media")
+}
+
+model SiteSettings {
+  id            Int      @id @default(1)
+  firmName      String   @default("Insight Advora LLP") @map("firm_name")
+  logo          String?
+  tagline       String   @default("Partnering for Smarter Decisions")
+  email         String?
+  phone         String?
+  address       String?
+  officeHours   String?  @map("office_hours")
+  mapEmbedUrl   String?  @map("map_embed_url")
+  linkedin      String?
+  socialLinks   Json     @default("[]") @map("social_links")
+  footerText    String?  @map("footer_text")
+  copyrightYear Int      @default(2026) @map("copyright_year")
+  gaId          String?  @map("ga_id")
+  gtmId         String?  @map("gtm_id")
+  careersActive Boolean  @default(false) @map("careers_active")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  @@map("site_settings")
+}
+
+model PageSeo {
+  id          String   @id @default(cuid())
+  path        String   @unique
+  title       String?
+  description String?
+  ogImage     String?  @map("og_image")
+  canonical   String?
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@map("page_seo")
+}
