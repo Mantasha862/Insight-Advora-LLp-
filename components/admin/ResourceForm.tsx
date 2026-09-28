@@ -16,6 +16,7 @@ function toText(f: Field, v: unknown): string {
   if (v == null) return "";
   if (f.type === "list" && Array.isArray(v)) return v.join("\n");
   if (f.type === "faq" && Array.isArray(v)) return (v as { q: string; a: string }[]).map((x) => `${x.q}\n${x.a}`).join("\n\n");
+  if (f.type === "offerings" && Array.isArray(v)) return (v as { title: string; body: string }[]).map((x) => `${x.title}\n${x.body}`).join("\n\n");
   if (f.type === "date") return new Date(v as string).toISOString().slice(0, 10);
   return String(v);
 }
@@ -50,7 +51,8 @@ export function ResourceForm({
         break;
       case "list":
       case "faq":
-        input = <textarea id={id} name={f.name} defaultValue={toText(f, v)} rows={f.type === "faq" ? 10 : 6} className={cn(cls, "font-mono !text-[13px]")} />;
+      case "offerings":
+        input = <textarea id={id} name={f.name} defaultValue={toText(f, v)} rows={f.type === "list" ? 6 : 12} className={cn(cls, "font-mono !text-[13px]")} />;
         break;
       case "richtext":
         input = <RichTextEditor name={f.name} defaultValue={toText(f, v)} invalid={!!err} />;

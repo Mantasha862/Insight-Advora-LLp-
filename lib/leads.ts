@@ -14,7 +14,9 @@ async function restInsert(table: string, row: Record<string, unknown>): Promise<
     method: "POST",
     headers: {
       apikey: SB_ANON!,
-      Authorization: `Bearer ${SB_ANON}`,
+      // Legacy anon keys are JWTs and are also sent as a bearer token; the newer
+      // `sb_publishable_…` keys are not JWTs and must only go in the apikey header.
+      ...(SB_ANON!.startsWith("eyJ") ? { Authorization: `Bearer ${SB_ANON}` } : {}),
       "Content-Type": "application/json",
       Prefer: "return=minimal",
     },

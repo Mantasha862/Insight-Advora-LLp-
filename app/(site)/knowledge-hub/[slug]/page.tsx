@@ -8,7 +8,7 @@ import { ButtonLink } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Motion";
 import { Section } from "@/components/ui/Section";
 import { SITE_URL } from "@/content/site";
-import { getArticle, getArticles, getIndustries, getRelatedArticles, getServices } from "@/lib/data";
+import { getArticle, getArticles, getRelatedArticles, getServices } from "@/lib/data";
 import { sanitizeArticleHtml } from "@/lib/sanitize";
 import { pageMetadata } from "@/lib/seo";
 import { formatDate, withHeadingIds } from "@/lib/utils";
@@ -37,11 +37,10 @@ export default async function ArticlePage({ params }: PageProps<"/knowledge-hub/
   const article = await getArticle(slug);
   if (!article) notFound();
 
-  const [related, services, industries] = await Promise.all([getRelatedArticles(article, 3), getServices(), getIndustries()]);
+  const [related, services] = await Promise.all([getRelatedArticles(article, 3), getServices()]);
   const { html, toc } = withHeadingIds(sanitizeArticleHtml(article.body));
   const url = `${SITE_URL}/knowledge-hub/${article.slug}`;
   const relServices = services.filter((s) => article.services.includes(s.slug));
-  const relIndustries = industries.filter((i) => article.industries.includes(i.slug));
 
   const ld = {
     "@context": "https://schema.org",
@@ -125,7 +124,7 @@ export default async function ArticlePage({ params }: PageProps<"/knowledge-hub/
               </section>
             )}
 
-            {(relServices.length > 0 || relIndustries.length > 0) && (
+            {relServices.length > 0 && (
               <div className="mt-12 max-w-[68ch] space-y-5">
                 {relServices.length > 0 && (
                   <div className="flex flex-wrap items-center gap-2">
@@ -133,16 +132,6 @@ export default async function ArticlePage({ params }: PageProps<"/knowledge-hub/
                     {relServices.map((s) => (
                       <Link key={s.slug} href={`/services/${s.slug}`} className="chip hover:border-gold hover:text-gold-ink">
                         {s.title}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-                {relIndustries.length > 0 && (
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span className="mr-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-body-2">Industries</span>
-                    {relIndustries.map((i) => (
-                      <Link key={i.slug} href={`/industries/${i.slug}`} className="chip hover:border-gold hover:text-gold-ink">
-                        {i.name}
                       </Link>
                     ))}
                   </div>

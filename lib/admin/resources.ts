@@ -9,6 +9,7 @@ export type FieldType =
   | "boolean"
   | "list"
   | "faq"
+  | "offerings"
   | "select"
   | "image"
   | "date"
@@ -152,7 +153,9 @@ export const resources: ResourceDef[] = [
       { name: "shortTitle", label: "Short title", type: "text", required: true, max: 40 },
       { name: "number", label: "Number (e.g. 01)", type: "text", required: true, max: 4 },
       { name: "headline", label: "Italic headline", type: "text", required: true, max: 200 },
+      { name: "short", label: "Card summary", type: "text", max: 300, help: "One line shown on service cards." },
       { name: "description", label: "Description", type: "textarea", required: true, max: 2000 },
+      { name: "offerings", label: "Our Services (offerings)", type: "offerings", help: "Title line, description line, blank line between items." },
       { name: "challenge", label: "Challenge (for the selector)", type: "text", max: 200 },
       { name: "capabilities", label: "Capabilities", type: "list", help: "One per line." },
       { name: "flow", label: "How the work moves", type: "list", help: "Four states, one per line." },
@@ -160,6 +163,7 @@ export const resources: ResourceDef[] = [
       { name: "perspective", label: "Our perspective", type: "textarea", max: 2000 },
       { name: "outcomes", label: "What success can look like", type: "list", help: "Phrase as potential, never guaranteed." },
       { name: "related", label: "Related service slugs", type: "list", help: "One slug per line." },
+      { name: "sectors", label: "Sectors supported", type: "list", help: "Display names, one per line." },
       { name: "faq", label: "FAQ", type: "faq", help: "Question line, answer line, blank line between items." },
       { name: "icon", label: "Icon", type: "select", options: ["strategy", "operations", "growth", "transactions", "ehs", "esg"], side: true },
       ...common(),

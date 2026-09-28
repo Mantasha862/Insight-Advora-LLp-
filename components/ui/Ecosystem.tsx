@@ -31,8 +31,8 @@ export function Ecosystem({ nodes, dark = true, panelFirst = false }: { nodes: E
   const R = 190;
   const node = nodes[active];
 
-  const line = dark ? "rgba(250,249,245,0.22)" : "rgba(23,53,43,0.22)";
-  const labelColor = dark ? "rgba(250,249,245,0.82)" : "#17352B";
+  const line = dark ? "rgba(250,249,245,0.22)" : "rgba(23, 59, 47,0.22)";
+  const labelColor = dark ? "rgba(250,249,245,0.82)" : "#173B2F";
 
   return (
     <div ref={ref} className={cn("grid items-center gap-12 lg:grid-cols-[1.15fr_1fr]", panelFirst && "lg:grid-cols-[1fr_1.15fr]")}>
@@ -82,7 +82,7 @@ export function Ecosystem({ nodes, dark = true, panelFirst = false }: { nodes: E
                     cx={x}
                     cy={y}
                     r={on ? 7 : 5}
-                    fill={on ? "#C79A55" : dark ? "#FAF9F5" : "#17352B"}
+                    fill={on ? "#C79A55" : dark ? "#FAF9F5" : "#173B2F"}
                     stroke={on ? "rgba(199,154,85,0.35)" : "transparent"}
                     strokeWidth={8}
                     style={{ transition: "all 260ms" }}
@@ -101,7 +101,7 @@ export function Ecosystem({ nodes, dark = true, panelFirst = false }: { nodes: E
               </g>
             );
           })}
-          <circle cx={c} cy={c} r={50} fill={dark ? "#1B3327" : "#17352B"} stroke="#C79A55" />
+          <circle cx={c} cy={c} r={50} fill={dark ? "#1B3327" : "#173B2F"} stroke="#C79A55" />
           <text x={c} y={c - 7} textAnchor="middle" fill="#FAF9F5" style={{ font: "500 14px var(--font-serif)", letterSpacing: "0.18em" }}>
             INSIGHT
           </text>

@@ -25,7 +25,11 @@ async function main() {
   for (const [i, c] of contentTypes.entries())
     await prisma.contentType.upsert({ where: { slug: c.slug }, update: {}, create: { ...c, ...demo, displayOrder: i } });
   for (const [i, c] of teamCategories.entries())
-    await prisma.teamCategory.upsert({ where: { slug: c.slug }, update: {}, create: { ...c, ...demo, displayOrder: i } });
+    await prisma.teamCategory.upsert({
+      where: { slug: c.slug },
+      update: {},
+      create: { slug: c.slug, name: c.name, description: c.note ?? null, ...demo, displayOrder: i },
+    });
   for (const a of authors)
     await prisma.author.upsert({ where: { slug: a.slug }, update: {}, create: { slug: a.slug, name: a.name, role: a.role, bio: a.bio, linkedin: a.linkedin, ...demo } });
   const tagNames = [...new Set(articles.flatMap((a) => a.tags))];
@@ -34,9 +38,9 @@ async function main() {
   // Services
   for (const [i, s] of services.entries()) {
     const data = {
-      number: s.number, title: s.title, shortTitle: s.shortTitle, headline: s.headline, description: s.description, icon: s.icon,
-      challenge: s.challenge, capabilities: s.capabilities, flow: s.flow, challenges: s.challenges, perspective: s.perspective,
-      outcomes: s.outcomes, related: s.related, faq: s.faq, displayOrder: i,
+      number: s.number, title: s.title, shortTitle: s.shortTitle, headline: s.headline, short: s.short, description: s.description,
+      icon: s.icon, challenge: s.challenge, offerings: s.offerings, capabilities: s.capabilities, flow: s.flow, challenges: s.challenges,
+      perspective: s.perspective, outcomes: s.outcomes, related: s.related, sectors: s.industries, faq: s.faq, displayOrder: i,
     };
     await prisma.service.upsert({ where: { slug: s.slug }, update: {}, create: { slug: s.slug, ...data, ...demo } });
   }
@@ -72,6 +76,7 @@ async function main() {
 
   // Articles (+ joins)
   for (const a of articles) {
+    const status = a.status === "published" ? "published" : "draft";
     const [cat, type, author] = await Promise.all([
       prisma.category.findUnique({ where: { slug: a.category } }),
       prisma.contentType.findUnique({ where: { slug: a.contentType } }),
@@ -83,7 +88,7 @@ async function main() {
       create: {
         slug: a.slug, title: a.title, subtitle: a.subtitle, excerpt: a.excerpt, body: a.body, keyTakeaways: a.keyTakeaways,
         readingTime: a.readingTime, featured: a.featured, publishedAt: new Date(a.publishedAt), categoryId: cat?.id,
-        contentTypeId: type?.id, authorId: author?.id, searchExtra: [a.categoryName, ...a.tags].join(" "), ...demo,
+        contentTypeId: type?.id, authorId: author?.id, searchExtra: [a.categoryName, ...a.tags].join(" "), isDemo: true, status,
       },
     });
     const [inds, svcs, tags] = await Promise.all([

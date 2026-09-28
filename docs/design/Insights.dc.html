@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Knowledge Hub | Insight Advora LLP</title>
+<meta name="description" content="Perspectives, analysis and practical resources across strategy, operational excellence, business transformation, EHS, ESG and sustainability from Insight Advora LLP." />
+<meta property="og:title" content="Knowledge Hub | Insight Advora LLP" />
+<meta property="og:description" content="Knowledge that enables better decisions \u2014 insights, articles, research and resources from Insight Advora LLP." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="assets/logo-v.png" />
+<link rel="canonical" href="https://www.insightadvora.com/knowledge-hub" />
+<link rel="icon" href="assets/favicon-ia.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<script src="./insights.js"></script>
+<script src="./industries.js"></script>
+<script src="./supabase-config.js"></script>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; background: #FAF9F5; -webkit-font-smoothing: antialiased; }
+a { color: #173B2F; text-decoration: none; }
+a:hover { color: #8C6A2C; }
+input, select { font-family: 'Manrope', system-ui, sans-serif; }
+input:focus, select:focus { outline: none; border-color: #B58A3A; }
+@keyframes iaRise { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+@keyframes iaSpinner { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { * { animation-duration: 1ms !important; animation-iteration-count: 1 !important; transition-duration: 1ms !important; } }
+</style>
+<script src="./ia-emblem.js"></script>
+</helmet>
+<div style="background: #FAF9F5; font-family: 'Manrope', system-ui, sans-serif; color: #1E2522; overflow-x: hidden;">
+  <dc-import name="SiteNav" active="Insights" hint-size="100%,92px"></dc-import>
+
+  <section aria-labelledby="kh-title" style="position: relative; isolation: isolate; overflow: hidden; position: relative; border-bottom: 1px solid rgba(23,59,47,0.10); overflow: hidden;">
+    <ia-emblem variant="light" style="position: absolute; z-index: -1; right: -7%; top: 50%; margin-top: -200px; width: min(46%, 520px);"></ia-emblem>
+    <canvas id="ia-kh-net" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block; opacity: 0.5; pointer-events: none;"></canvas>
+    <div style="position: relative; max-width: 1360px; margin: 0 auto; padding: clamp(26px, 3.5vw, 44px) clamp(20px, 4vw, 56px) clamp(48px, 6vw, 80px);">
+      <nav aria-label="Breadcrumb" style="display: flex; align-items: center; gap: 10px; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #5C685F; margin-bottom: clamp(30px, 4vw, 50px);">
+        <a href="Home.dc.html" style="color: #5C685F;" style-hover="color: #8C6A2C;">Home</a>
+        <span style="color: rgba(181,138,58,0.75);">/</span>
+        <span style="color: #4B574F;">Knowledge Hub</span>
+      </nav>
+      <div style="animation: iaRise 900ms cubic-bezier(.2,.7,.2,1) both; max-width: 62ch;">
+        <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 24px;">
+          <span style="width: 34px; height: 1px; background: #B58A3A;"></span>
+          <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #8C6A2C;">Knowledge Hub</span>
+        </div>
+        <h1 id="kh-title" style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(35px, 4.6vw, 66px); line-height: 1.06; color: #173B2F;">Knowledge That Enables <span style="font-style: italic;">Better Decisions.</span></h1>
+        <p style="margin: 26px 0 0; max-width: 58ch; font-size: clamp(15.5px, 1.15vw, 17px); font-weight: 300; line-height: 1.82; color: #4B574F;">Explore perspectives, analysis and practical resources across strategy, operational excellence, business transformation, EHS, ESG and sustainability.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="Search and filters" style="background: #F3F1EA; border-bottom: 1px solid rgba(23,59,47,0.08);">
+    <div style="max-width: 1360px; margin: 0 auto; padding: clamp(26px, 3vw, 40px) clamp(20px, 4vw, 56px);">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px;">
+        <label style="display: flex; align-items: center; gap: 10px; background: #FAF9F5; border: 1px solid rgba(23,59,47,0.2); padding: 0 14px; grid-column: span 2; min-width: 0;">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#5C685F" stroke-width="1.4" stroke-linecap="round" aria-hidden="true" style="display: block; flex-shrink: 0;"><circle cx="10.5" cy="10.5" r="6.5"></circle><line x1="15.5" y1="15.5" x2="21" y2="21"></line></svg>
+          <input type="search" value="{{ f.q }}" onChange="{{ set.q }}" placeholder="Search Knowledge Hub..." aria-label="Search Knowledge Hub" style="border: 0; background: transparent; padding: 15px 0; font-size: 14.5px; color: #1E2522; width: 100%; min-width: 0;" />
+        </label>
+        <select value="{{ f.cat }}" onChange="{{ set.cat }}" aria-label="Filter by topic" style="background: #FAF9F5; border: 1px solid rgba(23,59,47,0.2); padding: 15px 14px; font-size: 13.5px; color: #1E2522; appearance: none; min-width: 0;">
+          <sc-for list="{{ catOptions }}" as="o" hint-placeholder-count="9">
+            <option value="{{ o }}">{{ o }}</option>
+          </sc-for>
+        </select>
+        <select value="{{ f.type }}" onChange="{{ set.type }}" aria-label="Filter by content type" style="background: #FAF9F5; border: 1px solid rgba(23,59,47,0.2); padding: 15px 14px; font-size: 13.5px; color: #1E2522; appearance: none; min-width: 0;">
+          <sc-for list="{{ typeOptions }}" as="o" hint-placeholder-count="7">
+            <option value="{{ o }}">{{ o }}</option>
+          </sc-for>
+        </select>
+        <select value="{{ f.ind }}" onChange="{{ set.ind }}" aria-label="Filter by industry" style="background: #FAF9F5; border: 1px solid rgba(23,59,47,0.2); padding: 15px 14px; font-size: 13.5px; color: #1E2522; appearance: none; min-width: 0;">
+          <sc-for list="{{ indOptions }}" as="o" hint-placeholder-count="9">
+            <option value="{{ o.value }}">{{ o.label }}</option>
+          </sc-for>
+        </select>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; margin-top: 18px;">
+        <span style="font-size: 12.5px; letter-spacing: 0.06em; color: #4B574F;">{{ resultLine }}</span>
+        <sc-if value="{{ filtered }}">
+          <button type="button" onClick="{{ clear }}" style="background: transparent; border: 0; padding: 0; font-family: 'Manrope', sans-serif; font-size: 11.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #8C6A2C; cursor: pointer; border-bottom: 1px solid rgba(181,138,58,0.5); padding-bottom: 4px;">Clear filters</button>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <sc-if value="{{ showFeatured }}" hint-placeholder-val="{{ true }}">
+    <section aria-labelledby="feat-title" style="background: #FAF9F5;">
+      <div style="max-width: 1360px; margin: 0 auto; padding: clamp(46px, 6vw, 88px) clamp(20px, 4vw, 56px);">
+        <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #8C6A2C;">Featured Insight</span>
+        <a data-reveal="1" data-card="1" href="{{ featured.href }}" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(28px, 4vw, 64px); align-items: center; margin-top: 26px; padding: clamp(26px, 3vw, 44px); border: 1px solid rgba(23,59,47,0.12); background: #FFFFFF; position: relative; overflow: hidden; transition: box-shadow 320ms ease, border-color 320ms ease;" style-hover="box-shadow: 0 28px 54px -34px rgba(23,59,47,0.42); border-color: rgba(181,138,58,0.5);">
+          <span data-gold-line="1" style="position: absolute; top: 0; left: 0; height: 2px; width: 0; background: #B58A3A; display: block; transition: width 520ms cubic-bezier(.2,.7,.2,1);"></span>
+          <div style="min-width: 0;">
+            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #8C6A2C;">
+              <span>{{ featured.category }}</span>
+              <span style="color: rgba(181,138,58,0.7);">|</span>
+              <span style="color: #5C685F;">{{ featured.contentType }}</span>
+            </div>
+            <h2 id="feat-title" style="margin: 20px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(28px, 3.2vw, 46px); line-height: 1.12; color: #173B2F;">{{ featured.title }}</h2>
+            <p style="margin: 16px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: clamp(18px, 1.7vw, 23px); line-height: 1.45; color: #8C6A2C;">{{ featured.subtitle }}</p>
+            <p style="margin: 18px 0 0; max-width: 56ch; font-size: 15px; font-weight: 300; line-height: 1.82; color: #4B574F;">{{ featured.excerpt }}</p>
+            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin-top: 24px; font-size: 12.5px; color: #5C685F;">
+              <span>{{ featured.author }}</span>
+              <span style="color: rgba(181,138,58,0.7);">&middot;</span>
+              <span>{{ featured.dateLabel }}</span>
+              <span style="color: rgba(181,138,58,0.7);">&middot;</span>
+              <span>{{ featured.readingTime }}</span>
+            </div>
+            <span style="display: inline-flex; align-items: center; gap: 12px; margin-top: 28px; background: #173B2F; color: #FAF9F5; padding: 17px 30px; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #173B2F;">Read Insight<span style="width: 18px; height: 1px; background: currentColor;"></span></span>
+          </div>
+          <div style="min-width: 0;">
+            <div style="width: 100%; height: clamp(240px, 30vw, 360px); border: 1px solid rgba(23,59,47,0.14); background-image: repeating-linear-gradient(135deg, rgba(23,59,47,0.07) 0 1px, transparent 1px 9px); display: flex; align-items: center; justify-content: center; text-align: center; padding: 20px;">
+              <span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11.5px; line-height: 1.8; color: #5C685F; max-width: 30ch;">featured image<br />1600 &times; 1000</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+  </sc-if>
+
+  <section aria-labelledby="latest-title" style="background: #FAF9F5;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 56px) clamp(52px, 6vw, 96px);">
+      <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px; padding-top: clamp(30px, 4vw, 54px); border-top: 1px solid rgba(23,59,47,0.12); margin-bottom: clamp(28px, 3.5vw, 44px);">
+        <h2 id="latest-title" style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(28px, 3.1vw, 44px); line-height: 1.14; color: #173B2F;">{{ listHeading }}</h2>
+        <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #5C685F;">{{ countLabel }}</span>
+      </div>
+      <sc-if value="{{ hasResults }}" hint-placeholder-val="{{ true }}">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(20px, 2.4vw, 32px);">
+          <sc-for list="{{ articles }}" as="a" hint-placeholder-count="6">
+            <a data-card="1" href="{{ a.href }}" style="display: flex; flex-direction: column; background: #FAF9F5; border: 1px solid rgba(23,59,47,0.12); position: relative; overflow: hidden; animation: iaRise 600ms cubic-bezier(.2,.7,.2,1) both; transition: transform 320ms cubic-bezier(.2,.7,.2,1), box-shadow 320ms ease, border-color 320ms ease;" style-hover="transform: translateY(-6px); box-shadow: 0 26px 50px -32px rgba(23,59,47,0.4); border-color: rgba(181,138,58,0.5);">
+              <span data-gold-line="1" style="position: absolute; top: 0; left: 0; height: 2px; width: 0; background: #B58A3A; display: block; transition: width 520ms cubic-bezier(.2,.7,.2,1); z-index: 2;"></span>
+              <div style="width: 100%; height: 176px; border-bottom: 1px solid rgba(23,59,47,0.1); background-image: repeating-linear-gradient(135deg, rgba(23,59,47,0.06) 0 1px, transparent 1px 9px); display: flex; align-items: center; justify-content: center;">
+                <span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; color: #5C685F;">article image</span>
+              </div>
+              <div style="padding: clamp(22px, 2.4vw, 32px); display: flex; flex-direction: column; flex: 1;">
+                <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #8C6A2C;">
+                  <span>{{ a.category }}</span>
+                  <span style="color: rgba(181,138,58,0.7);">|</span>
+                  <span style="color: #5C685F;">{{ a.contentType }}</span>
+                </div>
+                <h3 style="margin: 16px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 25px; line-height: 1.22; color: #173B2F;">{{ a.title }}</h3>
+                <p style="margin: 12px 0 20px; font-size: 14px; font-weight: 300; line-height: 1.75; color: #4B574F;">{{ a.excerpt }}</p>
+                <div style="margin-top: auto; padding-top: 18px; border-top: 1px solid rgba(23,59,47,0.1); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px;">
+                  <span style="font-size: 12px; color: #5C685F;">{{ a.meta }}</span>
+                  <span style="display: inline-flex; align-items: center; gap: 9px; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #173B2F;">Read More<span style="width: 14px; height: 1px; background: #B58A3A;"></span></span>
+                </div>
+              </div>
+            </a>
+          </sc-for>
+        </div>
+      </sc-if>
+      <sc-if value="{{ noResults }}">
+        <div style="border: 1px solid rgba(23,59,47,0.14); padding: clamp(36px, 5vw, 72px); text-align: center;">
+          <p style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 27px; color: #173B2F;">{{ emptyTitle }}</p>
+          <p style="margin: 12px 0 22px; font-size: 14px; line-height: 1.7; color: #5C685F;">{{ emptyBody }}</p>
+          <sc-if value="{{ filtered }}">
+            <button type="button" onClick="{{ clear }}" style="background: transparent; border: 1px solid rgba(181,138,58,0.6); padding: 14px 24px; font-family: 'Manrope', sans-serif; font-size: 11.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #173B2F; cursor: pointer;">Clear filters</button>
+          </sc-if>
+        </div>
+      </sc-if>
+      <sc-if value="{{ canLoadMore }}">
+        <div style="display: flex; justify-content: center; margin-top: clamp(30px, 3.5vw, 48px);">
+          <button type="button" onClick="{{ loadMore }}" style="background: transparent; border: 1px solid rgba(23,59,47,0.24); padding: 17px 32px; font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #173B2F; cursor: pointer; transition: border-color 260ms ease, color 260ms ease;" style-hover="border-color: #B58A3A; color: #8C6A2C;">Load more insights</button>
+        </div>
+      </sc-if>
+    </div>
+  </section>
+
+  <section aria-labelledby="res-title" style="background: #F3F1EA; border-top: 1px solid rgba(23,59,47,0.08);">
+    <div style="max-width: 1360px; margin: 0 auto; padding: clamp(52px, 6vw, 96px) clamp(20px, 4vw, 56px);">
+      <div data-reveal="1" style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px; margin-bottom: clamp(26px, 3vw, 42px);">
+        <div>
+          <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #8C6A2C;">Resources</span>
+          <h2 id="res-title" style="margin: 18px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(28px, 3.1vw, 44px); line-height: 1.14; color: #173B2F;">Frameworks, Guides and Templates</h2>
+        </div>
+        <p style="margin: 0; max-width: 42ch; font-size: 14px; font-weight: 300; line-height: 1.8; color: #4B574F;">Practical material intended for use inside an organization. Gated items ask for contact details first.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; background: rgba(23,59,47,0.12); border: 1px solid rgba(23,59,47,0.12);">
+        <sc-for list="{{ resources }}" as="r" hint-placeholder-count="4">
+          <div data-reveal="1" style="background: #FAF9F5; padding: clamp(24px, 2.6vw, 34px); display: flex; flex-direction: column; min-height: 230px; transition: background 280ms ease;" style-hover="background: #FFFFFF;">
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+              <span style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #8C6A2C;">{{ r.type }}</span>
+              <sc-if value="{{ r.gated }}">
+                <span style="font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #5C685F; border: 1px solid rgba(23,59,47,0.18); padding: 5px 9px;">Form required</span>
+              </sc-if>
+            </div>
+            <h3 style="margin: 18px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 22px; line-height: 1.24; color: #173B2F;">{{ r.title }}</h3>
+            <p style="margin: 12px 0 22px; font-size: 13.5px; font-weight: 300; line-height: 1.72; color: #4B574F;">{{ r.description }}</p>
+            <a href="{{ r.href }}" style="margin-top: auto; display: inline-flex; align-items: center; gap: 10px; font-size: 11.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #173B2F;" style-hover="color: #8C6A2C;">{{ r.action }}<span style="width: 14px; height: 1px; background: #B58A3A;"></span></a>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="news-title" style="background: #173B2F; color: #FAF9F5;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: clamp(52px, 6vw, 96px) clamp(20px, 4vw, 56px); display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(30px, 5vw, 76px); align-items: start;">
+      <div style="min-width: 0;">
+        <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #C79A55;">Newsletter</span>
+        <h2 id="news-title" style="margin: 18px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(28px, 3.2vw, 46px); line-height: 1.12; color: #FAF9F5;">Stay Ahead <span style="font-style: italic; color: #D4B478;">of the Curve.</span></h2>
+        <p style="margin: 20px 0 0; max-width: 48ch; font-size: clamp(15px, 1.1vw, 16.5px); font-weight: 300; line-height: 1.82; color: rgba(250,249,245,0.76);">Receive new perspectives and resources from Insight Advora.</p>
+        <p style="margin: 18px 0 0; max-width: 48ch; font-size: 12.5px; line-height: 1.7; color: rgba(250,249,245,0.55);">Subscriptions are stored in the firm&rsquo;s own database. No mail is sent until an email platform is connected.</p>
+      </div>
+      <form onSubmit="{{ subscribe }}" novalidate="novalidate" style="min-width: 0; display: flex; flex-direction: column; gap: 14px;">
+        <input type="text" value="{{ n.name }}" onChange="{{ setSub.name }}" placeholder="Name" aria-label="Name" style="background: rgba(250,249,245,0.06); border: 1px solid rgba(250,249,245,0.22); padding: 16px; font-size: 14.5px; color: #FAF9F5;" />
+        <input type="email" value="{{ n.email }}" onChange="{{ setSub.email }}" placeholder="Email" aria-label="Email" required="required" style="background: rgba(250,249,245,0.06); border: 1px solid rgba(250,249,245,0.22); padding: 16px; font-size: 14.5px; color: #FAF9F5;" />
+        <input type="text" value="{{ n.org }}" onChange="{{ setSub.org }}" placeholder="Organisation" aria-label="Organisation" style="background: rgba(250,249,245,0.06); border: 1px solid rgba(250,249,245,0.22); padding: 16px; font-size: 14.5px; color: #FAF9F5;" />
+        <sc-if value="{{ subError }}">
+          <div role="alert" style="border: 1px solid rgba(212,180,120,0.5); padding: 14px 16px; font-size: 13.5px; line-height: 1.6; color: #EFD9A8;">{{ subError }}</div>
+        </sc-if>
+        <sc-if value="{{ subDone }}">
+          <div role="status" style="border: 1px solid rgba(199,154,85,0.6); padding: 14px 16px; font-size: 13.5px; line-height: 1.6; color: #D4B478;">Thank you &mdash; you are on the list.</div>
+        </sc-if>
+        <button type="submit" style="display: inline-flex; align-items: center; justify-content: center; gap: 12px; background: #C79A55; color: #173B2F; padding: 18px 30px; font-family: 'Manrope', sans-serif; font-size: 12.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #C79A55; cursor: pointer; transition: background 280ms ease, color 280ms ease;" style-hover="background: transparent; color: #D4B478;">
+          {{ subLabel }}
+          <sc-if value="{{ subBusy }}"><span style="width: 13px; height: 13px; border: 1px solid currentColor; border-top-color: transparent; border-radius: 50%; display: block; animation: iaSpinner 760ms linear infinite;"></span></sc-if>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <section aria-labelledby="kh-cta-title" style="background: #FAF9F5;">
+    <div data-reveal="1" style="max-width: 1360px; margin: 0 auto; padding: clamp(52px, 6vw, 96px) clamp(20px, 4vw, 56px); display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(28px, 5vw, 76px); align-items: center;">
+      <div style="min-width: 0;">
+        <h2 id="kh-cta-title" style="margin: 0; max-width: 26ch; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(30px, 3.6vw, 50px); line-height: 1.1; color: #173B2F;">Have a Business Challenge in Mind?</h2>
+        <div data-rule="1" style="width: 62px; height: 1px; background: #B58A3A; margin: 26px 0;"></div>
+        <p style="margin: 0; max-width: 52ch; font-size: clamp(15px, 1.12vw, 17px); font-weight: 300; line-height: 1.82; color: #4B574F;">Let&rsquo;s explore the right perspective for your organization.</p>
+      </div>
+      <div style="min-width: 0;">
+        <a href="Contact.dc.html" style="display: inline-flex; align-items: center; gap: 14px; background: #173B2F; color: #FAF9F5; padding: 20px 34px; font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #173B2F; transition: background 300ms ease, color 300ms ease, border-color 300ms ease;" style-hover="background: #B58A3A; color: #173B2F; border-color: #B58A3A;">Start a Conversation<span style="width: 20px; height: 1px; background: currentColor;"></span></a>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="SiteFooter" hint-size="100%,460px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = {
+    q: '', cat: 'All Topics', type: 'All Content Types', ind: 'all', limit: 6,
+    sName: '', sEmail: '', sOrg: '', sStatus: 'idle', sError: ''
+  };
+
+  componentDidMount() {
+    this._cleanups = [];
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.initReveal(reduce);
+    this.initCards();
+    this.initNetwork(reduce);
+    if (!window.IA_ARTICLES) {
+      const id = setTimeout(() => this.forceUpdate(), 250);
+      this._cleanups.push(() => clearTimeout(id));
+    }
+  }
+  componentDidUpdate() { this.initCards(); }
+  componentWillUnmount() { (this._cleanups || []).forEach(fn => fn()); }
+
+  initReveal(reduce) {
+    if (!window.IntersectionObserver || reduce) return;
+    const els = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'none'; io.unobserve(e.target); }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -6% 0px' });
+    els.forEach((el, i) => {
+      const delay = (i % 3) * 70;
+      el.style.transition = 'opacity 740ms cubic-bezier(.2,.7,.2,1) ' + delay + 'ms, transform 740ms cubic-bezier(.2,.7,.2,1) ' + delay + 'ms';
+      if (el.getBoundingClientRect().top > window.innerHeight * 0.9) { el.style.opacity = '0'; el.style.transform = 'translateY(20px)'; }
+      io.observe(el);
+    });
+    const rules = Array.prototype.slice.call(document.querySelectorAll('[data-rule]'));
+    rules.forEach((el) => {
+      el.style.transformOrigin = 'left center'; el.style.transform = 'scaleX(0)';
+      el.style.transition = 'transform 900ms cubic-bezier(.2,.7,.2,1)';
+    });
+    const rio = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.style.transform = 'scaleX(1)'; rio.unobserve(e.target); } });
+    }, { threshold: 0.5 });
+    rules.forEach(el => rio.observe(el));
+  }
+
+  initCards() {
+    Array.prototype.slice.call(document.querySelectorAll('[data-card]')).forEach((card) => {
+      if (card.__iaBound) return;
+      card.__iaBound = true;
+      const line = card.querySelector('[data-gold-line]');
+      card.addEventListener('mouseenter', () => { if (line) line.style.width = '100%'; });
+      card.addEventListener('mouseleave', () => { if (line) line.style.width = '0'; });
+    });
+  }
+
+  initNetwork(reduce) {
+    const cv = document.getElementById('ia-kh-net');
+    if (!cv || !cv.getContext) return;
+    const ctx = cv.getContext('2d');
+    let w = 0, h = 0;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const small = window.innerWidth < 760;
+    const N = small ? 26 : 46;
+    const pts = [];
+    for (let i = 0; i < N; i++) pts.push({ x: Math.random(), y: Math.random(), vx: (Math.random() - 0.5) * 0.00005, vy: (Math.random() - 0.5) * 0.00005, ph: Math.random() * 6.28, gold: Math.random() < 0.2 });
+    const resize = () => {
+      w = cv.clientWidth || 900; h = cv.clientHeight || 420;
+      cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    };
+    resize();
+    window.addEventListener('resize', resize);
+    this._cleanups.push(() => window.removeEventListener('resize', resize));
+    let t0 = performance.now(), raf = 0;
+    const frame = (now) => {
+      const dt = Math.min(48, now - t0); t0 = now;
+      ctx.clearRect(0, 0, w, h);
+      for (let i = 0; i < N; i++) {
+        const p = pts[i];
+        if (!reduce) { p.x += p.vx * dt; p.y += p.vy * dt; }
+        if (p.x < 0 || p.x > 1) p.vx *= -1;
+        if (p.y < 0 || p.y > 1) p.vy *= -1;
+      }
+      ctx.lineWidth = 1;
+      const max = Math.min(w, h) * 0.3;
+      for (let i = 0; i < N; i++) {
+        for (let j = i + 1; j < N; j++) {
+          const a = pts[i], b = pts[j];
+          const d = Math.hypot((a.x - b.x) * w, (a.y - b.y) * h);
+          if (d > max) continue;
+          const alpha = (1 - d / max) * 0.18;
+          ctx.strokeStyle = (a.gold || b.gold) ? 'rgba(181,138,58,' + (alpha * 1.4).toFixed(3) + ')' : 'rgba(23,59,47,' + alpha.toFixed(3) + ')';
+          ctx.beginPath(); ctx.moveTo(a.x * w, a.y * h); ctx.lineTo(b.x * w, b.y * h); ctx.stroke();
+        }
+      }
+      for (let i = 0; i < N; i++) {
+        const p = pts[i];
+        const pulse = 0.6 + 0.4 * Math.sin(now * 0.0009 + p.ph);
+        ctx.beginPath(); ctx.arc(p.x * w, p.y * h, (p.gold ? 2 : 1.3) * (0.85 + pulse * 0.3), 0, Math.PI * 2);
+        ctx.fillStyle = p.gold ? 'rgba(181,138,58,' + (0.28 + pulse * 0.35).toFixed(3) + ')' : 'rgba(29,36,33,0.24)';
+        ctx.fill();
+      }
+      if (!reduce && !document.hidden) raf = requestAnimationFrame(frame);
+    };
+    const start = () => { if (!raf) { t0 = performance.now(); raf = requestAnimationFrame(frame); } };
+    const stop = () => { if (raf) { cancelAnimationFrame(raf); raf = 0; } };
+    const onVis = () => { if (document.hidden) stop(); else if (!reduce) start(); };
+    document.addEventListener('visibilitychange', onVis);
+    this._cleanups.push(() => { stop(); document.removeEventListener('visibilitychange', onVis); });
+    if (reduce) frame(performance.now()); else start();
+  }
+
+  async doSubscribe(ev) {
+    if (ev && ev.preventDefault) ev.preventDefault();
+    if (this.state.sStatus === 'sending') return;
+    const email = this.state.sEmail.trim();
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { this.setState({ sError: 'Please enter a valid email address.' }); return; }
+    const cfg = window.IA_SUPABASE;
+    if (!cfg || !cfg.url) { this.setState({ sError: 'Subscriptions are not configured yet.' }); return; }
+    this.setState({ sStatus: 'sending', sError: '' });
+    try {
+      const res = await fetch(cfg.url + '/rest/v1/subscribers', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', apikey: cfg.publishableKey, Authorization: 'Bearer ' + cfg.publishableKey, Prefer: 'return=minimal' },
+        body: JSON.stringify({
+          name: this.state.sName.trim() || null,
+          email: email,
+          organisation: this.state.sOrg.trim() || null,
+          source: 'knowledge-hub',
+          confirmed: false
+        })
+      });
+      if (res.status === 409) { this.setState({ sStatus: 'done', sError: '' }); return; }
+      if (!res.ok) {
+        let m = '';
+        try { const j = await res.json(); m = j.message || ''; } catch (e) { m = ''; }
+        throw new Error(m || ('Request failed (' + res.status + ')'));
+      }
+      this.setState({ sStatus: 'done', sError: '', sName: '', sEmail: '', sOrg: '' });
+    } catch (err) {
+      this.setState({ sStatus: 'idle', sError: 'We could not record the subscription just now. Please try again shortly.' });
+    }
+  }
+
+  field(key) { return (ev) => this.setState({ [key]: ev.target.value, limit: 6 }); }
+  subField(key) { return (ev) => this.setState({ [key]: ev.target.value, sError: '' }); }
+
+  renderVals() {
+    const s = this.state;
+    const all = (window.IA_ARTICLES || []).filter(a => a.status === 'published');
+    const authors = {};
+    (window.IA_AUTHORS || []).forEach(a => { authors[a.slug] = a; });
+    const indList = window.IA_INDUSTRIES || [];
+    const indName = (slug) => {
+      const hit = indList.filter(i => i.slug === slug)[0];
+      return hit ? hit.name : slug;
+    };
+    const fmt = (iso) => {
+      try {
+        const d = new Date(iso + 'T00:00:00');
+        return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+      } catch (e) { return iso; }
+    };
+    const q = s.q.trim().toLowerCase();
+    const matches = (a) => {
+      if (s.cat !== 'All Topics' && a.category !== s.cat) return false;
+      if (s.type !== 'All Content Types' && a.contentType !== s.type) return false;
+      if (s.ind !== 'all' && a.industry !== s.ind) return false;
+      if (!q) return true;
+      const hay = [a.title, a.subtitle, a.excerpt, a.category, a.contentType, (a.tags || []).join(' '),
+        (a.sections || []).map(x => x.h + ' ' + (x.p || []).join(' ')).join(' ')].join(' ').toLowerCase();
+      return hay.indexOf(q) >= 0;
+    };
+    const filteredList = all.filter(matches).sort((a, b) => (a.date < b.date ? 1 : -1));
+    const isFiltered = !!q || s.cat !== 'All Topics' || s.type !== 'All Content Types' || s.ind !== 'all';
+    const feat = all.filter(a => a.featured)[0] || all[0];
+    const shown = filteredList.slice(0, s.limit);
+    const authorName = (slug) => (authors[slug] ? authors[slug].name : 'Insight Advora LLP');
+    return {
+      f: { q: s.q, cat: s.cat, type: s.type, ind: s.ind },
+      set: { q: this.field('q'), cat: this.field('cat'), type: this.field('type'), ind: this.field('ind') },
+      clear: () => this.setState({ q: '', cat: 'All Topics', type: 'All Content Types', ind: 'all', limit: 6 }),
+      loadMore: () => this.setState(st => ({ limit: st.limit + 6 })),
+      catOptions: ['All Topics'].concat(window.IA_CATEGORIES || []),
+      typeOptions: ['All Content Types'].concat(window.IA_CONTENT_TYPES || []),
+      indOptions: [{ value: 'all', label: 'All Industries' }].concat(indList.map(i => ({ value: i.slug, label: i.name }))),
+      filtered: isFiltered,
+      showFeatured: !isFiltered && !!feat,
+      featured: feat ? {
+        href: 'Article.dc.html?slug=' + feat.slug, category: feat.category, contentType: feat.contentType,
+        title: feat.title, subtitle: feat.subtitle, excerpt: feat.excerpt,
+        author: authorName(feat.author), dateLabel: fmt(feat.date), readingTime: feat.readingTime
+      } : {},
+      listHeading: isFiltered ? 'Results' : 'Latest Insights',
+      countLabel: isFiltered ? (filteredList.length + (filteredList.length === 1 ? ' result' : ' results')) : (all.length + ' published'),
+      resultLine: isFiltered
+        ? (filteredList.length + (filteredList.length === 1 ? ' result' : ' results') + (q ? ' for \u201C' + s.q.trim() + '\u201D' : ''))
+        : 'Showing all published insights, articles, research and resources.',
+      hasResults: shown.length > 0,
+      noResults: shown.length === 0,
+      emptyTitle: all.length === 0 ? 'No insights have been published yet.' : 'No results found.',
+      emptyBody: all.length === 0
+        ? 'Published articles will appear here as they are released.'
+        : 'Try a different search term, or clear the filters to see everything.',
+      canLoadMore: filteredList.length > shown.length,
+      articles: shown.map(a => ({
+        href: 'Article.dc.html?slug=' + a.slug, category: a.category, contentType: a.contentType,
+        title: a.title, excerpt: a.excerpt,
+        meta: fmt(a.date) + ' \u00B7 ' + a.readingTime + (a.industry ? ' \u00B7 ' + indName(a.industry) : '')
+      })),
+      resources: (window.IA_RESOURCES || []).map(r => ({
+        type: r.type, title: r.title, description: r.description, gated: !!r.gated,
+        action: r.gated ? 'Request Access' : 'Download',
+        href: r.gated ? 'Contact.dc.html' : (r.file || 'Contact.dc.html')
+      })),
+      n: { name: s.sName, email: s.sEmail, org: s.sOrg },
+      setSub: { name: this.subField('sName'), email: this.subField('sEmail'), org: this.subField('sOrg') },
+      subscribe: (ev) => this.doSubscribe(ev),
+      subBusy: s.sStatus === 'sending',
+      subDone: s.sStatus === 'done',
+      subError: s.sError,
+      subLabel: s.sStatus === 'sending' ? 'Subscribing' : 'Subscribe'
+    };
+  }
+}
+</script>
+</body>
+</html>

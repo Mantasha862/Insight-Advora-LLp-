@@ -19,6 +19,13 @@ const nextConfig: NextConfig = {
   experimental: {
     serverActions: { bodySizeLimit: "12mb" },
   },
+  // Industry pages were retired in the design update; send visitors to Services.
+  async redirects() {
+    return [
+      { source: "/industries", destination: "/services", permanent: false },
+      { source: "/industries/:slug*", destination: "/services", permanent: false },
+    ];
+  },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },

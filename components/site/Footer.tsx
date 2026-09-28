@@ -5,7 +5,6 @@ import { LinkedInIcon } from "@/components/ui/Icons";
 
 const company = [
   { href: "/about", label: "About Us" },
-  { href: "/industries", label: "Industries" },
   { href: "/team", label: "Our Team" },
   { href: "/knowledge-hub", label: "Knowledge Hub" },
   { href: "/contact", label: "Contact" },
@@ -18,7 +17,7 @@ export async function Footer() {
   const [settings, services] = await Promise.all([getSettings(), getServices()]);
 
   return (
-    <footer className="border-t-2 border-gold bg-forest text-ivory">
+    <footer className="border-t-2 border-gold bg-forest-deep text-ivory">
       <div className="container-site grid gap-12 py-[clamp(56px,7vw,96px)]" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))" }}>
         <div>
           <p className="font-serif text-[28px] leading-tight tracking-[0.12em] text-ivory">

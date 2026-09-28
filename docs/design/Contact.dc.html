@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Contact | Insight Advora LLP</title>
+<meta name="description" content="Tell us about your business challenge, strategic priority or transformation objective. Insight Advora LLP \u2014 consulting and advisory across strategy, operations, EHS and ESG." />
+<meta property="og:title" content="Let's Start a Conversation | Insight Advora LLP" />
+<meta property="og:description" content="Submit an enquiry to Insight Advora LLP \u2014 strategy, operational excellence, transactions, EHS and ESG advisory." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="assets/logo-v.png" />
+<link rel="canonical" href="https://www.insightadvora.com/contact" />
+<link rel="icon" href="assets/favicon-ia.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<script src="./supabase-config.js"></script>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; background: #FAF9F5; -webkit-font-smoothing: antialiased; }
+a { color: #173B2F; text-decoration: none; }
+a:hover { color: #8C6A2C; }
+input, select, textarea { font-family: 'Manrope', system-ui, sans-serif; }
+input:focus, select:focus, textarea:focus { outline: none; border-color: #B58A3A; }
+@keyframes iaRise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+@keyframes iaSpinner { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { * { animation-duration: 1ms !important; transition-duration: 1ms !important; } }
+</style>
+<script src="./ia-emblem.js"></script>
+</helmet>
+<div style="background: #FAF9F5; font-family: 'Manrope', system-ui, sans-serif; color: #1E2522; overflow-x: hidden;">
+  <dc-import name="SiteNav" active="Contact" hint-size="100%,92px"></dc-import>
+
+  <section aria-labelledby="contact-title" style="position: relative; isolation: isolate; overflow: hidden; border-bottom: 1px solid rgba(23,59,47,0.10);">
+    <ia-emblem variant="light" style="position: absolute; z-index: -1; right: -7%; top: 50%; margin-top: -200px; width: min(46%, 520px);"></ia-emblem>
+    <div style="max-width: 1360px; margin: 0 auto; padding: clamp(28px, 4vw, 44px) clamp(20px, 4vw, 56px) clamp(44px, 5vw, 72px);">
+      <nav aria-label="Breadcrumb" style="display: flex; align-items: center; gap: 10px; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #5C685F; margin-bottom: clamp(30px, 4vw, 52px);">
+        <a href="Home.dc.html" style="color: #5C685F;" style-hover="color: #8C6A2C;">Home</a>
+        <span style="color: rgba(181,138,58,0.75);">/</span>
+        <span style="color: #4B574F;">Contact</span>
+      </nav>
+      <div style="animation: iaRise 900ms cubic-bezier(.2,.7,.2,1) both; max-width: 60ch;">
+        <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 26px;">
+          <span style="width: 34px; height: 1px; background: #B58A3A;"></span>
+          <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #8C6A2C;">Contact Us</span>
+        </div>
+        <h1 id="contact-title" style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(36px, 4.8vw, 68px); line-height: 1.06; color: #173B2F;">Let&rsquo;s Start a <span style="font-style: italic;">Conversation.</span></h1>
+        <p style="margin: 26px 0 0; max-width: 56ch; font-size: clamp(15.5px, 1.15vw, 17.5px); font-weight: 300; line-height: 1.82; color: #4B574F;">Tell us about your business challenge, strategic priority or transformation objective.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: #FAF9F5;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: clamp(48px, 6vw, 92px) clamp(20px, 4vw, 56px); display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(36px, 5vw, 84px); align-items: start;">
+      <div style="min-width: 0;">
+        <h2 style="margin: 0 0 30px; font-size: 11.5px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #173B2F;">Enquiry Form</h2>
+        <form onSubmit="{{ submit }}" novalidate="novalidate" style="display: flex; flex-direction: column; gap: 22px;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 22px;">
+            <label style="display: flex; flex-direction: column; gap: 9px;">
+              <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #4B574F;">Name <span style="color: #B58A3A;">*</span></span>
+              <input type="text" name="name" value="{{ f.name }}" onChange="{{ set.name }}" required="required" autocomplete="name" style="background: #FFFFFF; border: 1px solid rgba(23,59,47,0.2); padding: 15px 16px; font-size: 15px; color: #1E2522; transition: border-color 220ms ease;" />
+            </label>
+            <label style="display: flex; flex-direction: column; gap: 9px;">
+              <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #4B574F;">Company</span>
+              <input type="text" name="company" value="{{ f.company }}" onChange="{{ set.company }}" autocomplete="organization" style="background: #FFFFFF; border: 1px solid rgba(23,59,47,0.2); padding: 15px 16px; font-size: 15px; color: #1E2522; transition: border-color 220ms ease;" />
+            </label>
+            <label style="display: flex; flex-direction: column; gap: 9px;">
+              <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #4B574F;">Designation</span>
+              <input type="text" name="designation" value="{{ f.designation }}" onChange="{{ set.designation }}" autocomplete="organization-title" style="background: #FFFFFF; border: 1px solid rgba(23,59,47,0.2); padding: 15px 16px; font-size: 15px; color: #1E2522; transition: border-color 220ms ease;" />
+            </label>
+            <label style="display: flex; flex-direction: column; gap: 9px;">
+              <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #4B574F;">Email <span style="color: #B58A3A;">*</span></span>
+              <input type="email" name="email" value="{{ f.email }}" onChange="{{ set.email }}" required="required" autocomplete="email" style="background: #FFFFFF; border: 1px solid rgba(23,59,47,0.2); padding: 15px 16px; font-size: 15px; color: #1E2522; transition: border-color 220ms ease;" />
+            </label>
+            <label style="display: flex; flex-direction: column; gap: 9px;">
+              <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #4B574F;">Phone</span>
+              <input type="tel" name="phone" value="{{ f.phone }}" onChange="{{ set.phone }}" autocomplete="tel" style="background: #FFFFFF; border: 1px solid rgba(23,59,47,0.2); padding: 15px 16px; font-size: 15px; color: #1E2522; transition: border-color 220ms ease;" />
+            </label>
+            <label style="display: flex; flex-direction: column; gap: 9px;">
+              <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #4B574F;">Area of Interest</span>
+              <select name="area" value="{{ f.area }}" onChange="{{ set.area }}" style="background: #FFFFFF; border: 1px solid rgba(23,59,47,0.2); padding: 15px 16px; font-size: 15px; color: #1E2522; transition: border-color 220ms ease; appearance: none;">
+                <sc-for list="{{ areas }}" as="a" hint-placeholder-count="7">
+                  <option value="{{ a }}">{{ a }}</option>
+                </sc-for>
+              </select>
+            </label>
+          </div>
+          <label style="display: flex; flex-direction: column; gap: 9px;">
+            <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #4B574F;">Message</span>
+            <textarea name="message" rows="6" value="{{ f.message }}" onChange="{{ set.message }}" placeholder="What are you trying to solve, improve or build?" style="background: #FFFFFF; border: 1px solid rgba(23,59,47,0.2); padding: 15px 16px; font-size: 15px; line-height: 1.7; color: #1E2522; resize: vertical; transition: border-color 220ms ease;"></textarea>
+          </label>
+
+          <sc-if value="{{ errorMsg }}">
+            <div role="alert" style="border: 1px solid rgba(140,58,40,0.4); background: rgba(140,58,40,0.06); padding: 16px 18px; font-size: 14px; line-height: 1.6; color: #6E3020;">{{ errorMsg }}</div>
+          </sc-if>
+          <sc-if value="{{ sent }}">
+            <div role="status" style="border: 1px solid rgba(181,138,58,0.55); background: rgba(181,138,58,0.08); padding: 20px; display: flex; flex-direction: column; gap: 8px;">
+              <span style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 23px; color: #173B2F;">Thank you &mdash; your enquiry has been received.</span>
+              <span style="font-size: 14px; line-height: 1.7; color: #4B574F;">A member of the firm will respond to the email address you provided. Submitted {{ reference }}.</span>
+            </div>
+          </sc-if>
+
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 18px; margin-top: 4px;">
+            <button type="submit" disabled="{{ busy }}" style="display: inline-flex; align-items: center; gap: 12px; background: #173B2F; color: #FAF9F5; padding: 19px 34px; font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #173B2F; cursor: pointer; transition: background 300ms ease, color 300ms ease, border-color 300ms ease;" style-hover="background: #B58A3A; color: #173B2F; border-color: #B58A3A;">
+              {{ buttonLabel }}
+              <sc-if value="{{ busy }}"><span style="width: 13px; height: 13px; border: 1px solid currentColor; border-top-color: transparent; border-radius: 50%; display: block; animation: iaSpinner 760ms linear infinite;"></span></sc-if>
+              <sc-if value="{{ idle }}" hint-placeholder-val="{{ true }}"><span style="width: 18px; height: 1px; background: currentColor;"></span></sc-if>
+            </button>
+            <span style="font-size: 12.5px; line-height: 1.6; color: #6B776F; max-width: 40ch;">Submitted enquiries are stored securely in the firm&rsquo;s own database. Only the details you provide here are recorded.</span>
+          </div>
+        </form>
+      </div>
+
+      <div style="min-width: 0;">
+        <h2 style="margin: 0 0 30px; font-size: 11.5px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #173B2F;">Firm Details</h2>
+        <div style="display: flex; flex-direction: column; border-top: 1px solid rgba(23,59,47,0.12);">
+          <div style="display: grid; grid-template-columns: auto 1fr; gap: 18px; padding: 22px 0; border-bottom: 1px solid rgba(23,59,47,0.1); align-items: baseline;">
+            <span style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #5C685F; min-width: 74px;">Email</span>
+            <span style="font-size: 15px; color: #1E2522;">{{ contact.email }}</span>
+          </div>
+          <div style="display: grid; grid-template-columns: auto 1fr; gap: 18px; padding: 22px 0; border-bottom: 1px solid rgba(23,59,47,0.1); align-items: baseline;">
+            <span style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #5C685F; min-width: 74px;">Phone</span>
+            <span style="font-size: 15px; color: #1E2522;">{{ contact.phone }}</span>
+          </div>
+          <div style="display: grid; grid-template-columns: auto 1fr; gap: 18px; padding: 22px 0; border-bottom: 1px solid rgba(23,59,47,0.1); align-items: baseline;">
+            <span style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #5C685F; min-width: 74px;">Office</span>
+            <span style="font-size: 15px; line-height: 1.7; color: #1E2522;">{{ contact.address }}</span>
+          </div>
+          <div style="display: grid; grid-template-columns: auto 1fr; gap: 18px; padding: 22px 0; border-bottom: 1px solid rgba(23,59,47,0.1); align-items: baseline;">
+            <span style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #5C685F; min-width: 74px;">Hours</span>
+            <span style="font-size: 15px; color: #1E2522;">{{ contact.hours }}</span>
+          </div>
+          <div style="display: grid; grid-template-columns: auto 1fr; gap: 18px; padding: 22px 0; border-bottom: 1px solid rgba(23,59,47,0.1); align-items: baseline;">
+            <span style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #5C685F; min-width: 74px;">LinkedIn</span>
+            <a href="{{ contact.linkedin }}" style="font-size: 15px; color: #173B2F; border-bottom: 1px solid rgba(181,138,58,0.5); padding-bottom: 3px;" style-hover="color: #8C6A2C;">Company page</a>
+          </div>
+        </div>
+        <div style="margin-top: clamp(30px, 3vw, 44px);">
+          <div style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #5C685F; margin-bottom: 14px;">Location</div>
+          <div style="position: relative; width: 100%; height: 280px; border: 1px solid rgba(23,59,47,0.14); background-image: repeating-linear-gradient(135deg, rgba(23,59,47,0.07) 0 1px, transparent 1px 9px); display: flex; align-items: center; justify-content: center; text-align: center; padding: 20px;">
+            <span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; line-height: 1.8; color: #6B776F; max-width: 34ch;">Google Maps embed<br />paste the iframe URL into<br />IA_CONTACT.mapEmbedUrl</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="Practice areas" style="background: #F3F1EA; border-top: 1px solid rgba(23,59,47,0.08);">
+    <div style="max-width: 1360px; margin: 0 auto; padding: clamp(44px, 5vw, 76px) clamp(20px, 4vw, 56px);">
+      <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px; margin-bottom: 30px;">
+        <h2 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(26px, 2.6vw, 38px); line-height: 1.16; color: #173B2F;">Not sure where your challenge sits?</h2>
+        <a href="Services.dc.html" style="display: inline-flex; align-items: center; gap: 12px; font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #173B2F; border-bottom: 1px solid rgba(181,138,58,0.5); padding-bottom: 8px;" style-hover="color: #8C6A2C;">Browse Services<span style="width: 18px; height: 1px; background: currentColor;"></span></a>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1px; background: rgba(23,59,47,0.12); border: 1px solid rgba(23,59,47,0.12);">
+        <sc-for list="{{ areas }}" as="a" hint-placeholder-count="7">
+          <div style="background: #FAF9F5; padding: 20px; font-size: 13.5px; font-weight: 500; color: #173B2F;">{{ a }}</div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="SiteFooter" hint-size="100%,460px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = {
+    name: '', company: '', designation: '', email: '', phone: '',
+    area: 'Operational Excellence', message: '',
+    status: 'idle', error: '', reference: ''
+  };
+
+  field(key) {
+    return (ev) => this.setState({ [key]: ev.target.value, error: '' });
+  }
+
+  validate() {
+    const s = this.state;
+    if (s.name.trim().length < 2) return 'Please enter your name.';
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(s.email.trim())) return 'Please enter a valid email address.';
+    if (s.message.length > 4000) return 'Please shorten the message to 4000 characters or fewer.';
+    return '';
+  }
+
+  async send(ev) {
+    if (ev && ev.preventDefault) ev.preventDefault();
+    if (this.state.status === 'sending') return;
+    const problem = this.validate();
+    if (problem) { this.setState({ error: problem, status: 'idle' }); return; }
+    const cfg = window.IA_SUPABASE;
+    if (!cfg || !cfg.url) { this.setState({ error: 'The enquiry service is not configured. Please email us directly.', status: 'idle' }); return; }
+    this.setState({ status: 'sending', error: '' });
+    const s = this.state;
+    const row = {
+      name: s.name.trim(),
+      company: s.company.trim() || null,
+      designation: s.designation.trim() || null,
+      email: s.email.trim(),
+      phone: s.phone.trim() || null,
+      area_of_interest: s.area,
+      message: s.message.trim() || null,
+      source: 'website',
+      page_url: (typeof window !== 'undefined' && window.location) ? String(window.location.href).slice(0, 500) : null
+    };
+    try {
+      const res = await fetch(cfg.url + '/rest/v1/' + (cfg.table || 'leads'), {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': cfg.publishableKey,
+          'Authorization': 'Bearer ' + cfg.publishableKey,
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify(row)
+      });
+      if (!res.ok) {
+        let detail = '';
+        try { const j = await res.json(); detail = j.message || j.hint || ''; } catch (e) { detail = ''; }
+        throw new Error(detail || ('Request failed (' + res.status + ')'));
+      }
+      this.setState({
+        status: 'sent', reference: new Date().toISOString().slice(0, 10),
+        name: '', company: '', designation: '', email: '', phone: '', message: ''
+      });
+    } catch (err) {
+      this.setState({ status: 'idle', error: 'We could not submit the enquiry just now. Please try again, or email us directly at ' + ((window.IA_CONTACT && window.IA_CONTACT.email) || 'the address listed') + '. (' + (err && err.message ? err.message : 'network error') + ')' });
+    }
+  }
+
+  renderVals() {
+    const s = this.state;
+    const busy = s.status === 'sending';
+    const contact = window.IA_CONTACT || { email: '', phone: '', address: '', linkedin: '#', hours: '' };
+    return {
+      f: { name: s.name, company: s.company, designation: s.designation, email: s.email, phone: s.phone, area: s.area, message: s.message },
+      set: {
+        name: this.field('name'), company: this.field('company'), designation: this.field('designation'),
+        email: this.field('email'), phone: this.field('phone'), area: this.field('area'), message: this.field('message')
+      },
+      submit: (ev) => this.send(ev),
+      busy: busy,
+      idle: !busy,
+      buttonLabel: busy ? 'Submitting' : 'Submit Enquiry',
+      errorMsg: s.error || '',
+      sent: s.status === 'sent',
+      reference: s.reference,
+      contact: contact,
+      areas: ['Operational Excellence', 'Business Growth', 'M&A / Transactions', 'EHS', 'ESG & Sustainability', 'Strategy & Advisory', 'Other']
+    };
+  }
+}
+</script>
+</body>
+</html>

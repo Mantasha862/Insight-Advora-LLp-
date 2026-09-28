@@ -10,7 +10,7 @@ export default async function PanelLayout({ children }: { children: React.ReactN
     <div className="min-h-screen lg:grid lg:grid-cols-[250px_1fr]">
       <aside className="bg-forest text-ivory lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto">
         <div className="flex items-center gap-3 border-b border-ivory/10 px-5 py-5">
-          <Image src="/assets/monogram-alpha.png" alt="" width={582} height={471} className="h-9 w-auto" />
+          <Image src="/assets/monogram-mark.png" alt="" width={670} height={534} className="h-9 w-auto" />
           <div>
             <p className="font-serif text-[17px] leading-none tracking-[0.08em]">INSIGHT ADVORA</p>
             <p className="mt-1 text-[10px] uppercase tracking-[0.2em] text-gold-light">Admin</p>

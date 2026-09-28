@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+a { color: #173B2F; text-decoration: none; }
+a:hover { color: #8C6A2C; }
+</style>
+</helmet>
+<header style="position: sticky; top: 0; z-index: 60; background: rgba(250,249,245,0.92); backdrop-filter: saturate(140%) blur(10px); border-bottom: 1px solid rgba(23,59,47,0.10); transition: box-shadow 320ms ease, border-color 320ms ease; font-family: 'Manrope', system-ui, sans-serif;">
+  <div id="ia-nav-bar" style="max-width: 1360px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 56px); height: 92px; transition: height 300ms cubic-bezier(.2,.7,.2,1); display: flex; align-items: center; justify-content: space-between; gap: 32px;">
+    <a href="Home.dc.html" aria-label="Insight Advora LLP — home" style="display: flex; align-items: center; flex-shrink: 0;">
+      <sc-if value="{{ desktop }}" hint-placeholder-val="{{ true }}">
+        <img src="assets/logo-h.png" alt="Insight Advora LLP — Partnering for Smarter Decisions" style="height: 50px; width: auto; display: block; transition: height 300ms cubic-bezier(.2,.7,.2,1);" />
+      </sc-if>
+      <sc-if value="{{ mobile }}">
+        <img src="assets/logo-monogram.png" alt="Insight Advora LLP" style="height: 40px; width: auto; display: block;" />
+      </sc-if>
+    </a>
+    <sc-if value="{{ desktop }}" hint-placeholder-val="{{ true }}">
+      <div style="display: flex; align-items: center; gap: clamp(18px, 2.4vw, 38px);">
+        <nav style="display: flex; align-items: center; gap: clamp(16px, 2.2vw, 34px);">
+          <sc-for list="{{ links }}" as="link" hint-placeholder-count="6">
+            <a href="{{ link.href }}" style="position: relative; display: block; padding: 8px 0; font-size: 13.5px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: #22322A; transition: color 220ms ease;" style-hover="color: #8C6A2C;">
+              {{ link.label }}
+              <sc-if value="{{ link.active }}">
+                <span style="position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: #B58A3A;"></span>
+              </sc-if>
+            </a>
+          </sc-for>
+        </nav>
+        <a href="Contact.dc.html" style="display: inline-flex; align-items: center; gap: 10px; background: #173B2F; color: #FAF9F5; padding: 13px 24px; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid #173B2F; transition: background 220ms ease, color 220ms ease;" style-hover="background: #FAF9F5; color: #173B2F;">
+          Let&rsquo;s Talk
+          <span style="width: 16px; height: 1px; background: currentColor; display: inline-block;"></span>
+        </a>
+      </div>
+    </sc-if>
+    <sc-if value="{{ mobile }}">
+      <button type="button" onClick="{{ toggle }}" aria-label="Menu" style="width: 48px; height: 48px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; background: transparent; border: 1px solid rgba(23,59,47,0.18); cursor: pointer;">
+        <span style="width: 20px; height: 1px; background: #173B2F; display: block;"></span>
+        <span style="width: 20px; height: 1px; background: #173B2F; display: block;"></span>
+        <span style="width: 20px; height: 1px; background: #B58A3A; display: block;"></span>
+      </button>
+    </sc-if>
+  </div>
+  <sc-if value="{{ open }}">
+    <div style="border-top: 1px solid rgba(23,59,47,0.10); background: #FAF9F5; padding: 8px clamp(20px, 5vw, 32px) 28px;">
+      <sc-for list="{{ links }}" as="link" hint-placeholder-count="6">
+        <a href="{{ link.href }}" style="display: block; padding: 18px 2px; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 24px; color: #173B2F; border-bottom: 1px solid rgba(23,59,47,0.08);">{{ link.label }}</a>
+      </sc-for>
+      <a href="Contact.dc.html" style="display: block; margin-top: 22px; text-align: center; background: #173B2F; color: #FAF9F5; padding: 18px 24px; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;">Let&rsquo;s Talk</a>
+    </div>
+  </sc-if>
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Home&quot;,&quot;About&quot;,&quot;Services&quot;,&quot;Industries&quot;,&quot;Insights&quot;,&quot;Contact&quot;],&quot;default&quot;:&quot;Home&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { w: 1280, open: false };
+  componentDidMount() {
+    const set = () => this.setState({ w: window.innerWidth, open: false });
+    set();
+    window.addEventListener('resize', set);
+    const bar = document.getElementById('ia-nav-bar');
+    const onScroll = () => {
+      if (!bar) return;
+      const s = window.scrollY > 40;
+      bar.style.height = s ? '68px' : '92px';
+      bar.parentNode.style.boxShadow = s ? '0 1px 24px -12px rgba(23,59,47,0.45)' : 'none';
+      bar.parentNode.style.borderBottomColor = s ? 'rgba(181,138,58,0.38)' : 'rgba(23,59,47,0.10)';
+      const logo = bar.querySelector('img');
+      if (logo) logo.style.height = s ? '40px' : '50px';
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    this._off = () => { window.removeEventListener('resize', set); window.removeEventListener('scroll', onScroll); };
+  }
+  componentWillUnmount() { if (this._off) this._off(); }
+  renderVals() {
+    const active = this.props.active || 'Home';
+    const map = [
+      { key: 'About', label: 'About Us', href: 'About.dc.html' },
+      { key: 'Services', label: 'Our Services', href: 'Services.dc.html' },
+      { key: 'Team', label: 'Our Team', href: 'Team.dc.html' },
+      { key: 'Insights', label: 'Knowledge Hub', href: 'Insights.dc.html' },
+      { key: 'Contact', label: 'Contact', href: 'Contact.dc.html' }
+    ];
+    const navLinks = map.map(m => ({ label: m.label, href: m.href, active: m.key === active }));
+    const desktop = this.state.w >= 1080;
+    return {
+      links: navLinks, desktop, mobile: !desktop, open: this.state.open && !desktop,
+      toggle: () => this.setState(s => ({ open: !s.open }))
+    };
+  }
+}
+</script>
+</body>
+</html>

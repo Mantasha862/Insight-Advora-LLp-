@@ -7,7 +7,7 @@ import { prisma } from "@/lib/db";
 
 export const metadata = { title: "SEO settings" };
 
-const PATHS = ["/", "/about", "/services", "/industries", "/team", "/knowledge-hub", "/contact", "/privacy-policy", "/terms-of-use", "/disclaimer"];
+const PATHS = ["/", "/about", "/services", "/team", "/knowledge-hub", "/contact", "/privacy-policy", "/terms-of-use", "/disclaimer"];
 
 export default async function SeoPage({ searchParams }: PageProps<"/admin/seo">) {
   await requireUser();

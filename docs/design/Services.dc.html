@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Services | Insight Advora LLP</title>
+<meta name="description" content="Explore Insight Advora LLP's advisory services across operational excellence, business growth, M&amp;A support, EHS, ESG, sustainability and corporate strategy." />
+<meta property="og:title" content="Services | Insight Advora LLP" />
+<meta property="og:description" content="Six connected practices: operational excellence, business growth and transformation, M&amp;A support, EHS advisory, ESG and sustainability, strategy and corporate advisory." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="assets/logo-v.png" />
+<link rel="canonical" href="https://www.insightadvora.com/services" />
+<link rel="icon" href="assets/favicon-ia.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<script src="./services.js"></script>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; background: #FAF9F5; -webkit-font-smoothing: antialiased; }
+a { color: #173B2F; text-decoration: none; }
+a:hover { color: #8C6A2C; }
+@keyframes iaRise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+@keyframes iaDrift { from { transform: translate3d(0,0,0); } to { transform: translate3d(-140px,-140px,0); } }
+@media (prefers-reduced-motion: reduce) { * { animation-duration: 1ms !important; animation-iteration-count: 1 !important; transition-duration: 1ms !important; } }
+</style>
+<script src="./ia-emblem.js"></script>
+</helmet>
+<div style="background: #FAF9F5; font-family: 'Manrope', system-ui, sans-serif; color: #1E2522; overflow-x: hidden;">
+  <dc-import name="SiteNav" active="Services" hint-size="100%,92px"></dc-import>
+
+  <section aria-labelledby="svc-hero-title" style="position: relative; isolation: isolate; overflow: hidden; position: relative; border-bottom: 1px solid rgba(23,59,47,0.10); overflow: hidden;">
+    <ia-emblem variant="light" style="position: absolute; z-index: -1; right: -7%; top: 50%; margin-top: -200px; width: min(46%, 520px);"></ia-emblem>
+    <canvas id="ia-svc-net" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block; opacity: 0.6; pointer-events: none;"></canvas>
+    <div style="position: relative; max-width: 1360px; margin: 0 auto; padding: clamp(28px, 4vw, 46px) clamp(20px, 4vw, 56px) clamp(60px, 7vw, 100px); min-height: min(80vh, 760px); display: flex; flex-direction: column; justify-content: center;">
+      <nav aria-label="Breadcrumb" style="display: flex; align-items: center; gap: 10px; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #5C685F; margin-bottom: clamp(32px, 5vw, 56px);">
+        <a href="Home.dc.html" style="color: #5C685F;" style-hover="color: #8C6A2C;">Home</a>
+        <span style="color: rgba(181,138,58,0.75);">/</span>
+        <span style="color: #4B574F;">Services</span>
+      </nav>
+      <div style="animation: iaRise 1000ms cubic-bezier(.2,.7,.2,1) both; max-width: 64ch;">
+        <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 26px;">
+          <span style="width: 34px; height: 1px; background: #B58A3A;"></span>
+          <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #8C6A2C;">Our Services</span>
+        </div>
+        <h1 id="svc-hero-title" style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(35px, 4.8vw, 68px); line-height: 1.06; color: #173B2F;">Expertise Designed Around <span style="font-style: italic;">Your Business Challenges.</span></h1>
+        <p style="margin: 28px 0 0; max-width: 60ch; font-size: clamp(15.5px, 1.15vw, 17.5px); font-weight: 300; line-height: 1.82; color: #4B574F;">From operational excellence and business transformation to EHS, ESG and strategic advisory, Insight Advora brings together multidisciplinary perspectives to help organizations navigate complexity and create sustainable value.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 38px;">
+          <button type="button" onClick="{{ scrollToEcosystem }}" style="display: inline-flex; align-items: center; gap: 12px; background: #173B2F; color: #FAF9F5; padding: 18px 32px; font-family: 'Manrope', sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #173B2F; cursor: pointer; transition: background 300ms ease, color 300ms ease, border-color 300ms ease;" style-hover="background: #B58A3A; color: #173B2F; border-color: #B58A3A;">Explore Our Services<span style="width: 18px; height: 1px; background: currentColor;"></span></button>
+          <a href="Contact.dc.html" style="display: inline-flex; align-items: center; gap: 12px; color: #173B2F; padding: 18px 32px; font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid rgba(181,138,58,0.65); transition: background 300ms ease, color 300ms ease;" style-hover="background: rgba(181,138,58,0.12); color: #8C6A2C;">Discuss Your Requirement</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="svc-intro-title" style="background: #FAF9F5;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: clamp(60px, 7vw, 112px) clamp(20px, 4vw, 56px);">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: clamp(36px, 6vw, 92px); align-items: start;">
+        <div data-reveal="1" style="min-width: 0;">
+          <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #8C6A2C;">Our Approach</span>
+          <h2 id="svc-intro-title" style="margin: 22px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(30px, 3.4vw, 50px); line-height: 1.12; color: #173B2F;">More Than Advice. A Perspective Built Around <span style="font-style: italic;">Your Context.</span></h2>
+          <div style="width: 62px; height: 1px; background: #B58A3A; margin-top: 30px;"></div>
+        </div>
+        <div data-reveal="1" style="min-width: 0;">
+          <p style="margin: 0; font-size: clamp(15.5px, 1.15vw, 17px); font-weight: 300; line-height: 1.86; color: #4B574F;">Every organization has a different operating environment, strategic ambition and set of challenges.</p>
+          <p style="margin: 22px 0 0; font-size: clamp(15.5px, 1.15vw, 17px); font-weight: 300; line-height: 1.86; color: #4B574F;">Our advisory approach brings together strategy, operational understanding, sustainability considerations and practical execution to develop solutions aligned with the realities of each business.</p>
+        </div>
+      </div>
+      <div id="ia-ladder" style="margin-top: clamp(44px, 5vw, 76px); display: grid; grid-template-columns: repeat(auto-fit, minmax(146px, 1fr)); border-top: 1px solid rgba(23,59,47,0.12);">
+        <sc-for list="{{ ladder }}" as="l" hint-placeholder-count="5">
+          <div data-rung="1" style="min-width: 0; padding: 26px clamp(12px, 1.6vw, 24px) 30px 0; position: relative;">
+            <span data-rung-dot="1" style="position: absolute; top: -4px; left: 0; width: 8px; height: 8px; border-radius: 50%; background: #CFD6CF; display: block; transition: background 420ms ease, transform 420ms cubic-bezier(.2,.7,.2,1);"></span>
+            <span style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.2em; color: #B58A3A;">{{ l.num }}</span>
+            <div data-rung-label="1" style="margin-top: 12px; font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(21px, 2vw, 29px); letter-spacing: 0.03em; text-transform: uppercase; color: #5C685F; line-height: 1.16; transition: color 420ms ease;">{{ l.label }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="ecosystem" aria-labelledby="svc-eco-title" style="background: #173B2F; color: #FAF9F5; overflow: hidden;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: clamp(60px, 7vw, 112px) clamp(20px, 4vw, 56px);">
+      <div data-reveal="1" style="max-width: 58ch; margin-bottom: clamp(24px, 3vw, 42px);">
+        <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #C79A55;">Services Ecosystem</span>
+        <h2 id="svc-eco-title" style="margin: 20px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(32px, 3.7vw, 54px); line-height: 1.1; color: #FAF9F5;">Our Areas of Expertise</h2>
+      </div>
+      <div id="ia-eco" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(26px, 3vw, 54px); align-items: center;">
+        <div style="min-width: 0; order: 2;">
+          <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #C79A55;">Hover a practice</div>
+          <div data-eco-title="1" style="margin-top: 16px; font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(26px, 2.7vw, 38px); line-height: 1.16; color: #FAF9F5;">Six connected practices</div>
+          <p data-eco-desc="1" style="margin: 16px 0 0; max-width: 46ch; font-size: 15px; font-weight: 300; line-height: 1.8; color: rgba(250,249,245,0.74);">Each practice stands on its own, and most engagements draw on more than one. The combination is chosen around the challenge rather than around a service catalogue.</p>
+          <div data-eco-tags="1" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; min-height: 30px;"></div>
+          <a data-eco-link="1" href="#practices" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 22px; font-size: 11.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #D4B478; border-bottom: 1px solid rgba(181,138,58,0.45); padding-bottom: 7px;" style-hover="color: #FAF9F5;">Explore Service<span style="width: 16px; height: 1px; background: currentColor;"></span></a>
+        </div>
+        <div style="min-width: 0; order: 1;">
+          <svg viewBox="0 0 900 580" role="img" aria-label="Insight Advora at the centre, connected to six practices" style="width: 100%; max-width: 900px; height: auto; display: block; font-family: 'Manrope', sans-serif;">
+            <g stroke="rgba(250,249,245,0.13)" stroke-width="1" fill="none">
+              <circle cx="450" cy="290" r="206" stroke-dasharray="2 9"></circle>
+              <circle cx="450" cy="290" r="166"></circle>
+            </g>
+            <g data-eco-item="1" data-slug="operational-excellence">
+              <line data-eco-line="1" x1="450" y1="192" x2="450" y2="132" stroke="rgba(181,138,58,0.55)" stroke-width="1"></line>
+              <circle data-eco-dot="1" cx="450" cy="100" r="5" fill="rgba(250,249,245,0.5)"></circle>
+              <text x="450" y="72" text-anchor="middle" fill="#FAF9F5" style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.16em;">01 OPERATIONS</text>
+            </g>
+            <g data-eco-item="1" data-slug="business-growth-transformation">
+              <line data-eco-line="1" x1="534.9" y1="241" x2="586.8" y2="211" stroke="rgba(181,138,58,0.55)" stroke-width="1"></line>
+              <circle data-eco-dot="1" cx="614.5" cy="195" r="5" fill="rgba(250,249,245,0.5)"></circle>
+              <text x="634" y="200" text-anchor="start" fill="#FAF9F5" style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.16em;">02 GROWTH</text>
+            </g>
+            <g data-eco-item="1" data-slug="ma-corporate-transactions">
+              <line data-eco-line="1" x1="534.9" y1="339" x2="586.8" y2="369" stroke="rgba(181,138,58,0.55)" stroke-width="1"></line>
+              <circle data-eco-dot="1" cx="614.5" cy="385" r="5" fill="rgba(250,249,245,0.5)"></circle>
+              <text x="634" y="390" text-anchor="start" fill="#FAF9F5" style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.16em;">03 TRANSACTIONS</text>
+            </g>
+            <g data-eco-item="1" data-slug="ehs-advisory">
+              <line data-eco-line="1" x1="450" y1="388" x2="450" y2="448" stroke="rgba(181,138,58,0.55)" stroke-width="1"></line>
+              <circle data-eco-dot="1" cx="450" cy="480" r="5" fill="rgba(250,249,245,0.5)"></circle>
+              <text x="450" y="510" text-anchor="middle" fill="#FAF9F5" style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.16em;">04 EHS</text>
+            </g>
+            <g data-eco-item="1" data-slug="esg-sustainability">
+              <line data-eco-line="1" x1="365.1" y1="339" x2="313.2" y2="369" stroke="rgba(181,138,58,0.55)" stroke-width="1"></line>
+              <circle data-eco-dot="1" cx="285.5" cy="385" r="5" fill="rgba(250,249,245,0.5)"></circle>
+              <text x="266" y="390" text-anchor="end" fill="#FAF9F5" style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.16em;">05 ESG</text>
+            </g>
+            <g data-eco-item="1" data-slug="strategy-corporate-advisory">
+              <line data-eco-line="1" x1="365.1" y1="241" x2="313.2" y2="211" stroke="rgba(181,138,58,0.55)" stroke-width="1"></line>
+              <circle data-eco-dot="1" cx="285.5" cy="195" r="5" fill="rgba(250,249,245,0.5)"></circle>
+              <text x="266" y="200" text-anchor="end" fill="#FAF9F5" style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.16em;">06 STRATEGY</text>
+            </g>
+            <circle cx="450" cy="290" r="98" fill="#173B2F" stroke="#C79A55" stroke-width="1"></circle>
+            <text x="450" y="282" text-anchor="middle" fill="#FAF9F5" style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 23px; letter-spacing: 0.06em;">INSIGHT</text>
+            <text x="450" y="312" text-anchor="middle" fill="#C79A55" style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 23px; letter-spacing: 0.06em;">ADVORA</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="practices" aria-label="Practice areas in detail" style="background: #FAF9F5;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: clamp(60px, 7vw, 100px) clamp(20px, 4vw, 56px) clamp(20px, 3vw, 40px);">
+      <sc-for list="{{ services }}" as="s" hint-placeholder-count="6">
+        <article id="{{ s.slug }}" data-reveal="1" style="padding: clamp(36px, 4vw, 62px) 0; border-top: 1px solid rgba(23,59,47,0.14);">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(28px, 4vw, 72px); align-items: start;">
+            <div style="min-width: 0;">
+              <div style="display: flex; align-items: baseline; gap: 16px;">
+                <span style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(38px, 4vw, 58px); line-height: 1; color: #C79A55;">{{ s.number }}</span>
+                <span style="width: 40px; height: 1px; background: #B58A3A; display: block;"></span>
+              </div>
+              <h2 style="margin: 22px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(28px, 3vw, 44px); line-height: 1.12; color: #173B2F;">{{ s.title }}</h2>
+              <p style="margin: 18px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: clamp(19px, 1.8vw, 25px); line-height: 1.4; color: #8C6A2C;">{{ s.headline }}</p>
+              <p style="margin: 22px 0 0; max-width: 52ch; font-size: clamp(15px, 1.1vw, 16.5px); font-weight: 300; line-height: 1.85; color: #4B574F;">{{ s.description }}</p>
+              <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 30px;">
+                <a href="{{ s.href }}" style="display: inline-flex; align-items: center; gap: 12px; background: #173B2F; color: #FAF9F5; padding: 16px 28px; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #173B2F; transition: background 280ms ease, color 280ms ease, border-color 280ms ease;" style-hover="background: #B58A3A; color: #173B2F; border-color: #B58A3A;">Explore {{ s.shortLabel }}<span style="width: 16px; height: 1px; background: currentColor;"></span></a>
+                <a href="Contact.dc.html" style="display: inline-flex; align-items: center; gap: 10px; font-size: 11.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #173B2F; border-bottom: 1px solid rgba(181,138,58,0.5); padding-bottom: 7px;" style-hover="color: #8C6A2C;">Discuss Your Requirement</a>
+              </div>
+            </div>
+            <div style="min-width: 0;">
+              <div style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #5C685F;">What we help with</div>
+              <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px;">
+                <sc-for list="{{ s.capabilities }}" as="c" hint-placeholder-count="10">
+                  <span style="border: 1px solid rgba(23,59,47,0.16); padding: 8px 13px; font-size: 11.5px; font-weight: 500; letter-spacing: 0.03em; color: #4B574F; transition: border-color 240ms ease, color 240ms ease;" style-hover="border-color: #B58A3A; color: #173B2F;">{{ c }}</span>
+                </sc-for>
+              </div>
+              <div style="margin-top: 30px; padding-top: 22px; border-top: 1px solid rgba(23,59,47,0.1);">
+                <div style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #5C685F;">How the work moves</div>
+                <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-top: 16px;">
+                  <sc-for list="{{ s.flowParts }}" as="p" hint-placeholder-count="4">
+                    <span style="display: inline-flex; align-items: center; gap: 12px; font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(17px, 1.5vw, 21px); letter-spacing: 0.03em; color: #173B2F;">
+                      {{ p.label }}
+                      <sc-if value="{{ p.arrow }}"><span style="color: #B58A3A;">&rarr;</span></sc-if>
+                    </span>
+                  </sc-for>
+                </div>
+              </div>
+            </div>
+          </div>
+          <sc-if value="{{ s.hasOfferings }}">
+            <div style="margin-top: clamp(34px, 4vw, 54px);">
+              <div style="display: flex; align-items: center; gap: 14px;">
+                <span style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #8C6A2C;">Our Services</span>
+                <span style="flex: 1; height: 1px; background: rgba(181,138,58,0.4); display: block;"></span>
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; background: rgba(23,59,47,0.12); border: 1px solid rgba(23,59,47,0.12); margin-top: 20px;">
+                <sc-for list="{{ s.offerings }}" as="o" hint-placeholder-count="6">
+                  <div style="background: #FAF9F5; padding: clamp(22px, 2.4vw, 32px); display: flex; flex-direction: column; gap: 12px; transition: background 280ms ease, transform 280ms cubic-bezier(.2,.7,.2,1), box-shadow 280ms ease;" style-hover="background: #FFFFFF; transform: translateY(-3px); box-shadow: 0 0 0 1px rgba(181,138,58,0.5), 0 22px 44px -30px rgba(23,59,47,0.4);">
+                    <span style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 26px; line-height: 1; color: #C79A55;">{{ o.num }}</span>
+                    <h3 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 22px; line-height: 1.24; color: #173B2F;">{{ o.title }}</h3>
+                    <p style="margin: 0; font-size: 14px; font-weight: 300; line-height: 1.72; color: #4B574F;">{{ o.body }}</p>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </sc-if>
+        </article>
+      </sc-for>
+    </div>
+  </section>
+
+  <section aria-labelledby="ch-title" style="background: #F3F1EA; border-top: 1px solid rgba(23,59,47,0.08);">
+    <div style="max-width: 1360px; margin: 0 auto; padding: clamp(60px, 7vw, 112px) clamp(20px, 4vw, 56px);">
+      <div data-reveal="1" style="max-width: 56ch; margin-bottom: clamp(30px, 4vw, 48px);">
+        <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #8C6A2C;">Find Your Need</span>
+        <h2 id="ch-title" style="margin: 20px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(32px, 3.7vw, 54px); line-height: 1.1; color: #173B2F;">What Are You Looking to Solve?</h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(26px, 3vw, 56px); align-items: start;">
+        <div style="min-width: 0; display: flex; flex-direction: column; gap: 10px;">
+          <sc-for list="{{ challenges }}" as="c" hint-placeholder-count="6">
+            <button type="button" onClick="{{ c.select }}" style="display: flex; align-items: center; justify-content: space-between; gap: 14px; text-align: left; background: #FAF9F5; border: 1px solid rgba(23,59,47,0.16); padding: 19px 22px; font-family: 'Manrope', sans-serif; font-size: 14.5px; font-weight: 500; color: #173B2F; cursor: pointer; transition: border-color 240ms ease, background 240ms ease, color 240ms ease;" style-hover="border-color: #B58A3A; color: #8C6A2C;">
+              {{ c.label }}
+              <sc-if value="{{ c.active }}"><span style="width: 7px; height: 7px; border-radius: 50%; background: #B58A3A; display: block; flex-shrink: 0;"></span></sc-if>
+            </button>
+          </sc-for>
+        </div>
+        <div style="min-width: 0; background: #173B2F; color: #FAF9F5; padding: clamp(28px, 3vw, 44px);">
+          <div style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #C79A55;">Relevant practice</div>
+          <div style="display: flex; align-items: baseline; gap: 14px; margin-top: 18px;">
+            <span style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 34px; line-height: 1; color: #C79A55;">{{ picked.number }}</span>
+            <h3 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(25px, 2.4vw, 34px); line-height: 1.16; color: #FAF9F5;">{{ picked.title }}</h3>
+          </div>
+          <p style="margin: 18px 0 0; font-size: 15px; font-weight: 300; line-height: 1.8; color: rgba(250,249,245,0.76);">{{ picked.perspective }}</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px;">
+            <a href="{{ picked.href }}" style="display: inline-flex; align-items: center; gap: 12px; background: #C79A55; color: #173B2F; padding: 16px 28px; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #C79A55; transition: background 280ms ease, color 280ms ease;" style-hover="background: transparent; color: #D4B478;">Explore Service<span style="width: 16px; height: 1px; background: currentColor;"></span></a>
+            <a href="Contact.dc.html" style="display: inline-flex; align-items: center; gap: 10px; font-size: 11.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #D4B478; border-bottom: 1px solid rgba(181,138,58,0.45); padding-bottom: 7px;" style-hover="color: #FAF9F5;">Start a Conversation</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="int-title" style="background: #FAF9F5;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: clamp(60px, 7vw, 112px) clamp(20px, 4vw, 56px); display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: clamp(34px, 5vw, 86px); align-items: start;">
+      <div data-reveal="1" style="min-width: 0;">
+        <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #8C6A2C;">Integrated Advisory</span>
+        <h2 id="int-title" style="margin: 22px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(30px, 3.4vw, 50px); line-height: 1.12; color: #173B2F;">Where Disciplines <span style="font-style: italic;">Come Together.</span></h2>
+        <p style="margin: 26px 0 0; font-size: clamp(15px, 1.1vw, 16.5px); font-weight: 300; line-height: 1.86; color: #4B574F;">Many business challenges sit at the intersection of multiple disciplines.</p>
+        <p style="margin: 20px 0 0; font-size: clamp(15px, 1.1vw, 16.5px); font-weight: 300; line-height: 1.86; color: #4B574F;">A growth initiative may require operational redesign. A transaction may require EHS or ESG assessment. A transformation programme may require changes across people, processes and governance.</p>
+        <p style="margin: 20px 0 0; font-size: clamp(15px, 1.1vw, 16.5px); font-weight: 300; line-height: 1.86; color: #4B574F;">Our multidisciplinary approach enables us to bring together relevant perspectives around the challenge.</p>
+        <a href="Contact.dc.html" style="display: inline-flex; align-items: center; gap: 12px; margin-top: 30px; font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #173B2F; border-bottom: 1px solid rgba(181,138,58,0.5); padding-bottom: 8px;" style-hover="color: #8C6A2C;">Discuss a Complex Challenge<span style="width: 18px; height: 1px; background: currentColor;"></span></a>
+      </div>
+      <div data-reveal="1" style="min-width: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: rgba(23,59,47,0.12); border: 1px solid rgba(23,59,47,0.12);">
+        <sc-for list="{{ intersections }}" as="i" hint-placeholder-count="6">
+          <div style="background: #FAF9F5; padding: 26px 20px; min-height: 118px; display: flex; flex-direction: column; justify-content: space-between; gap: 14px; transition: background 260ms ease;" style-hover="background: #F3F1EA;">
+            <span style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 21px; letter-spacing: 0.03em; text-transform: uppercase; color: #173B2F; line-height: 1.2;">{{ i }}</span>
+            <span style="width: 22px; height: 1px; background: #B58A3A; display: block;"></span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="del-title" style="background: #F3F1EA; border-top: 1px solid rgba(23,59,47,0.08);">
+    <div style="max-width: 1360px; margin: 0 auto; padding: clamp(60px, 7vw, 112px) clamp(20px, 4vw, 56px);">
+      <div data-reveal="1" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(24px, 5vw, 78px); align-items: end; margin-bottom: clamp(38px, 5vw, 64px);">
+        <div style="min-width: 0;">
+          <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #8C6A2C;">Our Delivery Approach</span>
+          <h2 id="del-title" style="margin: 20px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(32px, 3.7vw, 54px); line-height: 1.1; color: #173B2F;">How We Work</h2>
+        </div>
+        <p style="margin: 0; max-width: 48ch; font-size: clamp(15px, 1.1vw, 16.5px); font-weight: 300; line-height: 1.85; color: #4B574F;">Five stages, each with a defined output, so management always knows what has been decided and what comes next.</p>
+      </div>
+      <div id="ia-timeline" style="position: relative;">
+        <div style="position: relative; height: 1px; background: rgba(23,59,47,0.14); margin-bottom: 30px;">
+          <span data-progress="1" style="position: absolute; left: 0; top: 0; height: 1px; width: 0; background: #B58A3A; display: block; transition: width 2400ms cubic-bezier(.3,.7,.2,1);"></span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(176px, 1fr));">
+          <sc-for list="{{ steps }}" as="s" hint-placeholder-count="5">
+            <div data-stage="1" style="min-width: 0; padding: 0 clamp(14px, 1.6vw, 26px) 0 0; position: relative;">
+              <span data-stage-dot="1" style="position: absolute; top: -34px; left: 0; width: 9px; height: 9px; border-radius: 50%; background: #CFD6CF; display: block; transition: background 400ms ease, transform 400ms ease;"></span>
+              <div data-stage-num="1" style="font-size: 11px; font-weight: 600; letter-spacing: 0.2em; color: #5C685F; transition: color 400ms ease;">{{ s.num }}</div>
+              <h3 style="margin: 12px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(23px, 2.1vw, 31px); line-height: 1.18; letter-spacing: 0.02em; text-transform: uppercase; color: #173B2F;">{{ s.title }}</h3>
+              <p style="margin: 12px 0 40px; font-size: 13.5px; font-weight: 300; line-height: 1.7; color: #5C685F;">{{ s.body }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="sec-title" style="background: #FAF9F5;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: clamp(60px, 7vw, 112px) clamp(20px, 4vw, 56px);">
+      <div data-reveal="1" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(24px, 5vw, 78px); align-items: end; margin-bottom: clamp(32px, 4vw, 52px);">
+        <div style="min-width: 0;">
+          <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #8C6A2C;">Sectors</span>
+          <h2 id="sec-title" style="margin: 20px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(30px, 3.4vw, 50px); line-height: 1.12; color: #173B2F;">Advisory Across Business Contexts.</h2>
+        </div>
+        <p style="margin: 0; max-width: 50ch; font-size: 15px; font-weight: 300; line-height: 1.8; color: #4B574F;">Our multidisciplinary capabilities can be adapted to organizations across sectors and operating environments.</p>
+      </div>
+      <div data-reveal="1" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1px; background: rgba(23,59,47,0.12); border: 1px solid rgba(23,59,47,0.12);">
+        <sc-for list="{{ sectors }}" as="x" hint-placeholder-count="8">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 14px; background: #FAF9F5; padding: 26px clamp(18px, 2vw, 26px); font-family: 'Cormorant Garamond', Georgia, serif; font-size: 21px; color: #173B2F; transition: background 260ms ease, color 260ms ease;" style-hover="background: #173B2F; color: #D4B478;">
+            {{ x }}
+            <span style="width: 14px; height: 1px; background: #B58A3A; display: block; flex-shrink: 0;"></span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="kn-title" style="background: #F3F1EA; border-top: 1px solid rgba(23,59,47,0.08);">
+    <div data-reveal="1" style="max-width: 1360px; margin: 0 auto; padding: clamp(50px, 6vw, 88px) clamp(20px, 4vw, 56px); display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(26px, 5vw, 76px); align-items: center;">
+      <div style="min-width: 0;">
+        <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #8C6A2C;">Knowledge Hub</span>
+        <h2 id="kn-title" style="margin: 20px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(28px, 3.1vw, 44px); line-height: 1.14; color: #173B2F;">Go Deeper.</h2>
+        <p style="margin: 20px 0 0; max-width: 54ch; font-size: clamp(15px, 1.1vw, 16.5px); font-weight: 300; line-height: 1.85; color: #4B574F;">Explore our perspectives on strategy, operational excellence, ESG, EHS, transformation and emerging business challenges.</p>
+      </div>
+      <div style="min-width: 0;">
+        <a href="Insights.dc.html" style="display: inline-flex; align-items: center; gap: 12px; border: 1px solid rgba(181,138,58,0.7); color: #173B2F; padding: 19px 32px; font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; transition: background 280ms ease, color 280ms ease;" style-hover="background: rgba(181,138,58,0.14); color: #8C6A2C;">Explore Knowledge Hub<span style="width: 18px; height: 1px; background: currentColor;"></span></a>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="svc-cta-title" style="position: relative; background: #173B2F; color: #FAF9F5; overflow: hidden;">
+    <div aria-hidden="true" style="position: absolute; inset: -160px; opacity: 0.13; background-image: repeating-linear-gradient(45deg, rgba(181,138,58,0.9) 0 1px, transparent 1px 74px), repeating-linear-gradient(-45deg, rgba(181,138,58,0.5) 0 1px, transparent 1px 116px); animation: iaDrift 28s linear infinite alternate; pointer-events: none;"></div>
+    <div data-reveal="1" style="position: relative; max-width: 1360px; margin: 0 auto; padding: clamp(60px, 8vw, 118px) clamp(20px, 4vw, 56px); display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(30px, 5vw, 80px); align-items: center;">
+      <div style="min-width: 0;">
+        <h2 id="svc-cta-title" style="margin: 0; max-width: 26ch; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(32px, 4vw, 56px); line-height: 1.1; color: #FAF9F5;">Have a Challenge <span style="font-style: italic; color: #D4B478;">in Mind?</span></h2>
+        <div style="width: 62px; height: 1px; background: #C79A55; margin: 28px 0;"></div>
+        <p style="margin: 0; max-width: 54ch; font-size: clamp(15.5px, 1.15vw, 17px); font-weight: 300; line-height: 1.8; color: rgba(250,249,245,0.78);">Tell us what you are trying to solve, improve or build. Let&rsquo;s explore the right path forward.</p>
+      </div>
+      <div style="min-width: 0; display: flex; flex-wrap: wrap; gap: 14px;">
+        <a href="Contact.dc.html" style="display: inline-flex; align-items: center; gap: 14px; background: #C79A55; color: #173B2F; padding: 21px 34px; font-size: 12.5px; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase; border: 1px solid #C79A55; transition: background 300ms ease, color 300ms ease, letter-spacing 300ms ease;" style-hover="background: transparent; color: #D4B478; letter-spacing: 0.16em;">Start a Conversation<span style="width: 20px; height: 1px; background: currentColor;"></span></a>
+        <a href="Contact.dc.html" style="display: inline-flex; align-items: center; gap: 12px; color: #FAF9F5; padding: 21px 34px; font-size: 12.5px; font-weight: 600; letter-spacing: 0.11em; text-transform: uppercase; border: 1px solid rgba(250,249,245,0.32); transition: border-color 280ms ease, color 280ms ease;" style-hover="border-color: #C79A55; color: #D4B478;">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="SiteFooter" hint-size="100%,460px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { pick: 'operational-excellence' };
+
+  componentDidMount() {
+    this._cleanups = [];
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.initReveal(reduce);
+    this.initLadder(reduce);
+    this.initEcosystem();
+    this.initTimeline(reduce);
+    this.initNetwork(reduce);
+    if (!window.IA_SERVICES) {
+      const id = setTimeout(() => this.forceUpdate(), 250);
+      this._cleanups.push(() => clearTimeout(id));
+    }
+  }
+  componentWillUnmount() { (this._cleanups || []).forEach(fn => fn()); }
+
+  initReveal(reduce) {
+    const els = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+    if (!els.length || !window.IntersectionObserver || reduce) return;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'none'; io.unobserve(e.target); }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -6% 0px' });
+    els.forEach((el, i) => {
+      const delay = (i % 3) * 70;
+      el.style.transition = 'opacity 760ms cubic-bezier(.2,.7,.2,1) ' + delay + 'ms, transform 760ms cubic-bezier(.2,.7,.2,1) ' + delay + 'ms';
+      if (el.getBoundingClientRect().top > window.innerHeight * 0.9) {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(22px)';
+      }
+      io.observe(el);
+    });
+  }
+
+  initLadder(reduce) {
+    const wrap = document.getElementById('ia-ladder');
+    if (!wrap || !window.IntersectionObserver) return;
+    const rungs = Array.prototype.slice.call(wrap.querySelectorAll('[data-rung]'));
+    const light = (st) => {
+      const dot = st.querySelector('[data-rung-dot]');
+      const label = st.querySelector('[data-rung-label]');
+      if (dot) { dot.style.background = '#B58A3A'; dot.style.transform = 'scale(1.25)'; }
+      if (label) label.style.color = '#173B2F';
+    };
+    if (reduce) { rungs.forEach(light); return; }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        rungs.forEach((st, i) => setTimeout(() => light(st), 180 + i * 260));
+        io.disconnect();
+      });
+    }, { threshold: 0.3 });
+    io.observe(wrap);
+  }
+
+  initEcosystem() {
+    const wrap = document.getElementById('ia-eco');
+    if (!wrap) return;
+    const titleEl = wrap.querySelector('[data-eco-title]');
+    const descEl = wrap.querySelector('[data-eco-desc]');
+    const tagsEl = wrap.querySelector('[data-eco-tags]');
+    const linkEl = wrap.querySelector('[data-eco-link]');
+    const defTitle = titleEl ? titleEl.textContent : '';
+    const defDesc = descEl ? descEl.textContent : '';
+    const defHref = linkEl ? linkEl.getAttribute('href') : '#practices';
+    const bySlug = {};
+    (window.IA_SERVICES || []).forEach(s => { bySlug[s.slug] = s; });
+    Array.prototype.slice.call(wrap.querySelectorAll('[data-eco-item]')).forEach((g) => {
+      const dot = g.querySelector('[data-eco-dot]');
+      const line = g.querySelector('[data-eco-line]');
+      const label = g.querySelector('text');
+      g.setAttribute('tabindex', '0');
+      const on = () => {
+        const s = bySlug[g.getAttribute('data-slug')];
+        if (dot) { dot.setAttribute('r', '7'); dot.setAttribute('fill', '#C79A55'); }
+        if (line) { line.setAttribute('stroke', '#D4B478'); line.setAttribute('stroke-width', '1.6'); }
+        if (label) label.setAttribute('fill', '#D4B478');
+        if (!s) return;
+        if (titleEl) titleEl.textContent = s.title;
+        if (descEl) descEl.textContent = s.description;
+        if (linkEl) linkEl.setAttribute('href', 'ServiceDetail.dc.html?slug=' + s.slug);
+        if (tagsEl) {
+          tagsEl.textContent = '';
+          (s.capabilities || []).slice(0, 5).forEach((c) => {
+            const chip = document.createElement('span');
+            chip.textContent = c;
+            chip.style.cssText = 'border:1px solid rgba(199,154,85,0.45);padding:7px 12px;font-size:10.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(250,249,245,0.82)';
+            tagsEl.appendChild(chip);
+          });
+        }
+      };
+      const off = () => {
+        if (dot) { dot.setAttribute('r', '5'); dot.setAttribute('fill', 'rgba(250,249,245,0.5)'); }
+        if (line) { line.setAttribute('stroke', 'rgba(181,138,58,0.55)'); line.setAttribute('stroke-width', '1'); }
+        if (label) label.setAttribute('fill', '#FAF9F5');
+        if (titleEl) titleEl.textContent = defTitle;
+        if (descEl) descEl.textContent = defDesc;
+        if (linkEl) linkEl.setAttribute('href', defHref);
+        if (tagsEl) tagsEl.textContent = '';
+      };
+      g.addEventListener('mouseenter', on);
+      g.addEventListener('focus', on);
+      g.addEventListener('mouseleave', off);
+      g.addEventListener('blur', off);
+    });
+  }
+
+  initTimeline(reduce) {
+    const wrap = document.getElementById('ia-timeline');
+    if (!wrap || !window.IntersectionObserver) return;
+    const bar = wrap.querySelector('[data-progress]');
+    const stages = Array.prototype.slice.call(wrap.querySelectorAll('[data-stage]'));
+    const light = (st) => {
+      const dot = st.querySelector('[data-stage-dot]');
+      const num = st.querySelector('[data-stage-num]');
+      if (dot) { dot.style.background = '#B58A3A'; dot.style.transform = 'scale(1.25)'; }
+      if (num) num.style.color = '#8C6A2C';
+    };
+    if (reduce) { if (bar) bar.style.width = '100%'; stages.forEach(light); return; }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        if (bar) bar.style.width = '100%';
+        stages.forEach((st, i) => setTimeout(() => light(st), 220 + i * 380));
+        io.disconnect();
+      });
+    }, { threshold: 0.25 });
+    io.observe(wrap);
+  }
+
+  initNetwork(reduce) {
+    const cv = document.getElementById('ia-svc-net');
+    if (!cv || !cv.getContext) return;
+    const ctx = cv.getContext('2d');
+    let w = 0, h = 0;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const small = window.innerWidth < 760;
+    const N = small ? 34 : 60;
+    const pts = [];
+    for (let i = 0; i < N; i++) {
+      pts.push({ x: Math.random(), y: Math.random(), vx: (Math.random() - 0.5) * 0.00006, vy: (Math.random() - 0.5) * 0.00006, ph: Math.random() * Math.PI * 2, gold: Math.random() < 0.2 });
+    }
+    const mouse = { x: 0.5, y: 0.5, tx: 0.5, ty: 0.5 };
+    const onMove = (ev) => {
+      const r = cv.getBoundingClientRect();
+      mouse.tx = (ev.clientX - r.left) / Math.max(1, r.width);
+      mouse.ty = (ev.clientY - r.top) / Math.max(1, r.height);
+    };
+    if (!small) {
+      window.addEventListener('mousemove', onMove, { passive: true });
+      this._cleanups.push(() => window.removeEventListener('mousemove', onMove));
+    }
+    const resize = () => {
+      w = cv.clientWidth || 900; h = cv.clientHeight || 600;
+      cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    };
+    resize();
+    window.addEventListener('resize', resize);
+    this._cleanups.push(() => window.removeEventListener('resize', resize));
+    let t0 = performance.now(), raf = 0;
+    const frame = (now) => {
+      const dt = Math.min(48, now - t0); t0 = now;
+      mouse.x += (mouse.tx - mouse.x) * 0.04;
+      mouse.y += (mouse.ty - mouse.y) * 0.04;
+      ctx.clearRect(0, 0, w, h);
+      for (let i = 0; i < N; i++) {
+        const p = pts[i];
+        if (!reduce) { p.x += p.vx * dt; p.y += p.vy * dt; }
+        if (p.x < 0 || p.x > 1) p.vx *= -1;
+        if (p.y < 0 || p.y > 1) p.vy *= -1;
+      }
+      ctx.lineWidth = 1;
+      const max = Math.min(w, h) * 0.26;
+      for (let i = 0; i < N; i++) {
+        for (let j = i + 1; j < N; j++) {
+          const a = pts[i], b = pts[j];
+          const d = Math.hypot((a.x - b.x) * w, (a.y - b.y) * h);
+          if (d > max) continue;
+          let alpha = (1 - d / max) * 0.22;
+          if (Math.hypot((a.x - mouse.x) * w, (a.y - mouse.y) * h) < max) alpha = Math.min(0.55, alpha * 2);
+          ctx.strokeStyle = (a.gold || b.gold) ? 'rgba(181,138,58,' + Math.min(0.5, alpha * 1.4).toFixed(3) + ')' : 'rgba(23,59,47,' + alpha.toFixed(3) + ')';
+          ctx.beginPath(); ctx.moveTo(a.x * w, a.y * h); ctx.lineTo(b.x * w, b.y * h); ctx.stroke();
+        }
+      }
+      for (let i = 0; i < N; i++) {
+        const p = pts[i];
+        const pulse = 0.6 + 0.4 * Math.sin(now * 0.001 + p.ph);
+        ctx.beginPath(); ctx.arc(p.x * w, p.y * h, (p.gold ? 2.2 : 1.4) * (0.85 + pulse * 0.35), 0, Math.PI * 2);
+        ctx.fillStyle = p.gold ? 'rgba(181,138,58,' + (0.3 + pulse * 0.4).toFixed(3) + ')' : 'rgba(29,36,33,0.28)';
+        ctx.fill();
+      }
+      if (!reduce && !document.hidden) raf = requestAnimationFrame(frame);
+    };
+    const start = () => { if (!raf) { t0 = performance.now(); raf = requestAnimationFrame(frame); } };
+    const stop = () => { if (raf) { cancelAnimationFrame(raf); raf = 0; } };
+    const onVis = () => { if (document.hidden) stop(); else if (!reduce) start(); };
+    document.addEventListener('visibilitychange', onVis);
+    this._cleanups.push(() => { stop(); document.removeEventListener('visibilitychange', onVis); });
+    if (reduce) frame(performance.now()); else start();
+  }
+
+  renderVals() {
+    const all = window.IA_SERVICES || [];
+    const challenges = window.IA_CHALLENGES || [];
+    const pickedSlug = this.state.pick;
+    const picked = all.filter(s => s.slug === pickedSlug)[0] || all[0] || { number: '', title: '', perspective: '', slug: '' };
+    const shortLabel = (t) => String(t).split(' & ')[0].split(' ').slice(0, 2).join(' ');
+    return {
+      scrollToEcosystem: () => {
+        const el = document.getElementById('ecosystem');
+        if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 70, behavior: 'smooth' });
+      },
+      ladder: [
+        { num: '01', label: 'Challenge' }, { num: '02', label: 'Insight' }, { num: '03', label: 'Strategy' },
+        { num: '04', label: 'Action' }, { num: '05', label: 'Progress' }
+      ],
+      services: all.map(s => ({
+        slug: s.slug, number: s.number, title: s.title, headline: s.headline, description: s.description,
+        capabilities: s.capabilities || [], shortLabel: shortLabel(s.title),
+        offerings: (s.offerings || []).map((o, i) => ({ num: String(i + 1).padStart(2, '0'), title: o.title, body: o.body })),
+        hasOfferings: (s.offerings || []).length > 0,
+        href: 'ServiceDetail.dc.html?slug=' + s.slug,
+        flowParts: (s.flow || []).map((label, i, arr) => ({ label: label, arrow: i < arr.length - 1 }))
+      })),
+      challenges: challenges.map(c => ({
+        label: c.label, active: c.slug === pickedSlug, select: () => this.setState({ pick: c.slug })
+      })),
+      picked: {
+        number: picked.number, title: picked.title, perspective: picked.perspective,
+        href: 'ServiceDetail.dc.html?slug=' + picked.slug
+      },
+      intersections: ['Strategy', 'Operations', 'Transactions', 'EHS', 'ESG', 'Transformation'],
+      steps: [
+        { num: '01', title: 'Understand', body: 'Understand the business, context and objectives.' },
+        { num: '02', title: 'Diagnose', body: 'Identify challenges, risks and opportunities.' },
+        { num: '03', title: 'Design', body: 'Develop practical recommendations and strategic options.' },
+        { num: '04', title: 'Enable', body: 'Support implementation, capability building and transformation.' },
+        { num: '05', title: 'Sustain', body: 'Help establish mechanisms for continuous improvement.' }
+      ],
+      sectors: ['Manufacturing', 'Infrastructure', 'Energy & Environment', 'Technology & Services', 'Healthcare', 'Consumer & Retail', 'Financial & Professional Services', 'Diversified Enterprises']
+    };
+  }
+}
+</script>
+</body>
+</html>

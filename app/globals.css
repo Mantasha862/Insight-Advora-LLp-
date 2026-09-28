@@ -1,9 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-  --color-forest: #17352b;
+  --color-forest: #173B2F;
   --color-forest-2: #1b3327;
-  --color-charcoal: #1d2421;
+  --color-forest-deep: #0E2921;
+  --color-sage: #879B87;
+  --color-sage-dot: #2C4A3F;
+  --color-charcoal: #1E2522;
   --color-gold: #b58a3a;
   --color-gold-light: #c79a55;
   --color-gold-pale: #d4b478;
@@ -14,8 +17,8 @@
   --color-body: #4b574f;
   --color-body-2: #5c685f;
   --color-body-deep: #35403a;
-  --color-hairline: rgba(23, 53, 43, 0.12);
-  --color-hairline-strong: rgba(23, 53, 43, 0.16);
+  --color-hairline: rgba(23, 59, 47, 0.12);
+  --color-hairline-strong: rgba(23, 59, 47, 0.16);
   --color-on-dark: rgba(250, 249, 245, 0.76);
   --color-danger: #8a3b32;
 
@@ -23,8 +26,8 @@
   --font-sans: var(--font-manrope), "Manrope", system-ui, sans-serif;
 
   --ease-brand: cubic-bezier(0.2, 0.7, 0.2, 1);
-  --shadow-hover: 0 26px 50px -30px rgba(23, 53, 43, 0.45);
-  --shadow-header: 0 1px 24px -12px rgba(23, 53, 43, 0.45);
+  --shadow-hover: 0 26px 50px -30px rgba(23, 59, 47, 0.45);
+  --shadow-header: 0 1px 24px -12px rgba(23, 59, 47, 0.45);
 
   --animate-ticker: ticker 46s linear infinite;
   --animate-lattice: lattice 27s ease-in-out infinite alternate;
@@ -267,3 +270,20 @@
     transition-duration: 0.001ms !important;
   }
 }
+
+/* IA emblem animations (see components/ui/Emblem.tsx) */
+@keyframes ia-emblem-in { from { opacity: 0; transform: scale(.965); } to { opacity: 1; transform: none; } }
+@keyframes ia-emblem-breathe { 0%, 100% { filter: brightness(1); } 50% { filter: brightness(1.12); } }
+@keyframes ia-emblem-glow { 0%, 100% { opacity: 0; } 50% { opacity: var(--glow); } }
+@keyframes ia-emblem-sweep { 0% { background-position: 175% 0; } 46%, 100% { background-position: -75% 0; } }
+.ia-emblem { position: absolute; }
+.ia-emblem-plate { animation: ia-emblem-in 2400ms cubic-bezier(.2,.7,.2,1) both; }
+.ia-emblem-body { animation: ia-emblem-breathe 10s ease-in-out 2.4s infinite; }
+.ia-emblem-glow { animation: ia-emblem-glow 10s ease-in-out 2.4s infinite; }
+.ia-emblem-sheen { animation: ia-emblem-sweep 9s cubic-bezier(.45,.05,.35,1) 3s infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .ia-emblem-plate, .ia-emblem-body { animation: none; }
+  .ia-emblem-sheen, .ia-emblem-glow { display: none; }
+}
+
+@keyframes cta-drift { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-140px, -140px, 0); } }

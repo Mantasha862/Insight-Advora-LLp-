@@ -6,6 +6,7 @@ import type {
   ArticleItem,
   Faq,
   IndustryItem,
+  Offering,
   ResourceItem,
   ServiceItem,
   SiteSettingsItem,
@@ -60,7 +61,7 @@ export const getPageSeo = cache(async (path: string) => {
 
 // ─── Services ───────────────────────────────────────────────────────────────
 
-type DbService = Prisma.ServiceGetPayload<{ include: { industries: { include: { industry: true } } } }>;
+type DbService = Prisma.ServiceGetPayload<object>;
 
 function mapService(s: DbService): ServiceItem {
   return {
@@ -69,16 +70,18 @@ function mapService(s: DbService): ServiceItem {
     title: s.title,
     shortTitle: s.shortTitle,
     headline: s.headline,
+    short: s.short ?? "",
     description: s.description,
     icon: s.icon,
     challenge: s.challenge ?? "",
+    offerings: (Array.isArray(s.offerings) ? (s.offerings as unknown as Offering[]) : []).filter((o) => o && o.title),
     capabilities: s.capabilities,
     flow: s.flow,
     challenges: s.challenges,
     perspective: s.perspective ?? "",
     outcomes: s.outcomes,
     related: s.related,
-    industries: s.industries.filter((i) => i.industry.status === "published").map((i) => i.industry.slug),
+    industries: s.sectors,
     faq: (Array.isArray(s.faq) ? (s.faq as unknown as Faq[]) : []).filter((f) => f && f.q),
     seoTitle: s.seoTitle,
     metaDescription: s.metaDescription,
@@ -90,7 +93,6 @@ export const getServices = cache(async (): Promise<ServiceItem[]> => {
   const rows = await prisma.service.findMany({
     where: PUBLISHED,
     orderBy: [{ displayOrder: "asc" }, { number: "asc" }],
-    include: { industries: { include: { industry: true } } },
   });
   return rows.map(mapService);
 });
@@ -134,7 +136,7 @@ export async function getIndustry(slug: string) {
 export const getTeamCategories = cache(async (): Promise<TeamCategoryItem[]> => {
   if (!hasDb) return seedTeamCategories;
   const rows = await prisma.teamCategory.findMany({ where: PUBLISHED, orderBy: { displayOrder: "asc" } });
-  return rows.map((r) => ({ slug: r.slug, name: r.name }));
+  return rows.map((r) => ({ slug: r.slug, name: r.name, note: r.description }));
 });
 
 export const getTeam = cache(async (): Promise<TeamMemberItem[]> => {
@@ -212,7 +214,11 @@ function mapArticle(a: DbArticle): ArticleItem {
 }
 
 export const getArticles = cache(async (): Promise<ArticleItem[]> => {
-  if (!hasDb) return [...seedArticles].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+  if (!hasDb)
+    return seedArticles
+      .filter((a) => a.status === "published")
+      .map(({ status: _status, ...a }) => a)
+      .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
   const rows = await prisma.article.findMany({
     where: PUBLISHED,
     orderBy: [{ publishedAt: "desc" }, { createdAt: "desc" }],

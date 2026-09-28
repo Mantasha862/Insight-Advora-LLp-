@@ -2,23 +2,30 @@ export type Status = "draft" | "review" | "published" | "archived";
 
 export type Faq = { q: string; a: string };
 
+export type Offering = { title: string; body: string };
+
 export type ServiceItem = {
   slug: string;
   number: string;
   title: string;
   shortTitle: string;
   headline: string;
+  /** One-line summary used on cards. */
+  short: string;
   description: string;
   icon: string;
   /** The problem statement used by the "What Are You Looking to Solve?" selector. */
   challenge: string;
+  /** "Our Services" — detailed offerings shown under each practice. */
+  offerings: Offering[];
   capabilities: string[];
-  /** "How the work moves" — four states. */
+  /** "How the work moves" — the stages of an engagement. */
   flow: string[];
   challenges: string[];
   perspective: string;
   outcomes: string[];
   related: string[];
+  /** Sector names this practice commonly supports (display only). */
   industries: string[];
   faq: Faq[];
   seoTitle?: string | null;
@@ -41,7 +48,7 @@ export type IndustryItem = {
   metaDescription?: string | null;
 };
 
-export type TeamCategoryItem = { slug: string; name: string };
+export type TeamCategoryItem = { slug: string; name: string; note?: string | null };
 
 export type TeamMemberItem = {
   slug: string;
@@ -83,6 +90,8 @@ export type ArticleItem = {
   seoTitle?: string | null;
   metaDescription?: string | null;
 };
+
+export type SeedArticle = ArticleItem & { status: Status };
 
 export type ResourceItem = {
   slug: string;

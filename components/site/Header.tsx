@@ -45,16 +45,16 @@ export function Header() {
           <Image
             src="/assets/logo-h.png"
             alt="Insight Advora LLP — Partnering for Smarter Decisions"
-            width={1275}
-            height={220}
+            width={1810}
+            height={400}
             priority
             className={cn("hidden w-auto transition-all duration-300 min-[1080px]:block", scrolled ? "h-10" : "h-[50px]")}
           />
           <Image
-            src="/assets/monogram-alpha.png"
+            src="/assets/monogram-mark.png"
             alt="Insight Advora LLP"
-            width={582}
-            height={471}
+            width={670}
+            height={534}
             priority
             className={cn("w-auto transition-all duration-300 min-[1080px]:hidden", scrolled ? "h-10" : "h-[50px]")}
           />

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Insight | Insight Advora LLP</title>
+<meta name="description" content="A perspective from Insight Advora LLP on strategy, operational excellence, transactions, EHS, ESG and business transformation." />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="assets/logo-v.png" />
+<link rel="icon" href="assets/favicon-ia.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<script src="./insights.js"></script>
+<script src="./industries.js"></script>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; background: #FAF9F5; -webkit-font-smoothing: antialiased; }
+a { color: #173B2F; text-decoration: none; }
+a:hover { color: #8C6A2C; }
+@keyframes iaRise { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { * { animation-duration: 1ms !important; transition-duration: 1ms !important; } }
+</style>
+<script src="./ia-emblem.js"></script>
+</helmet>
+<div style="background: #FAF9F5; font-family: 'Manrope', system-ui, sans-serif; color: #1E2522; overflow-x: hidden;">
+  <dc-import name="SiteNav" active="Insights" hint-size="100%,92px"></dc-import>
+
+  <article style="max-width: 1360px; margin: 0 auto; padding: clamp(26px, 3.5vw, 42px) clamp(20px, 4vw, 56px) clamp(50px, 6vw, 90px);">
+    <nav aria-label="Breadcrumb" style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #5C685F; margin-bottom: clamp(28px, 4vw, 48px);">
+      <a href="Home.dc.html" style="color: #5C685F;" style-hover="color: #8C6A2C;">Home</a>
+      <span style="color: rgba(181,138,58,0.75);">/</span>
+      <a href="Insights.dc.html" style="color: #5C685F;" style-hover="color: #8C6A2C;">Knowledge Hub</a>
+      <span style="color: rgba(181,138,58,0.75);">/</span>
+      <span style="color: #4B574F;">{{ category }}</span>
+    </nav>
+
+    <header style="max-width: 62ch; animation: iaRise 800ms cubic-bezier(.2,.7,.2,1) both;">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #8C6A2C;">
+        <span>{{ category }}</span>
+        <span style="color: rgba(181,138,58,0.7);">|</span>
+        <span style="color: #5C685F;">{{ contentType }}</span>
+      </div>
+      <h1 style="margin: 22px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(32px, 4.2vw, 60px); line-height: 1.08; color: #173B2F;">{{ title }}</h1>
+      <p style="margin: 20px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: clamp(19px, 1.9vw, 26px); line-height: 1.45; color: #8C6A2C;">{{ subtitle }}</p>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin-top: 28px; padding-top: 22px; border-top: 1px solid rgba(23,59,47,0.12); font-size: 13px; color: #4B574F;">
+        <span>{{ authorName }}</span>
+        <span style="color: rgba(181,138,58,0.7);">&middot;</span>
+        <span>{{ dateLabel }}</span>
+        <span style="color: rgba(181,138,58,0.7);">&middot;</span>
+        <span>{{ readingTime }}</span>
+      </div>
+    </header>
+
+    <div style="width: 100%; height: clamp(240px, 32vw, 420px); margin-top: clamp(30px, 4vw, 52px); border: 1px solid rgba(23,59,47,0.14); background-image: repeating-linear-gradient(135deg, rgba(23,59,47,0.07) 0 1px, transparent 1px 9px); display: flex; align-items: center; justify-content: center; text-align: center; padding: 20px;">
+      <span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11.5px; line-height: 1.8; color: #5C685F;">featured image &mdash; 1600 &times; 900</span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: clamp(30px, 4vw, 72px); margin-top: clamp(38px, 5vw, 68px); align-items: start;">
+      <aside style="min-width: 0; position: sticky; top: 108px; align-self: start;">
+        <div style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #5C685F;">On this page</div>
+        <nav aria-label="Table of contents" style="display: flex; flex-direction: column; gap: 2px; margin-top: 16px; border-left: 1px solid rgba(23,59,47,0.14);">
+          <sc-for list="{{ toc }}" as="t" hint-placeholder-count="4">
+            <a href="{{ t.href }}" style="padding: 10px 0 10px 16px; font-size: 13.5px; line-height: 1.5; color: #4B574F; border-left: 1px solid transparent; margin-left: -1px; transition: color 240ms ease, border-color 240ms ease;" style-hover="color: #8C6A2C; border-color: #B58A3A;">{{ t.label }}</a>
+          </sc-for>
+        </nav>
+        <div style="margin-top: 30px; padding-top: 22px; border-top: 1px solid rgba(23,59,47,0.12);">
+          <div style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #5C685F;">Share</div>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px;">
+            <a href="{{ shareLinkedIn }}" target="_blank" rel="noopener" style="border: 1px solid rgba(23,59,47,0.18); padding: 10px 14px; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #173B2F; transition: border-color 240ms ease, color 240ms ease;" style-hover="border-color: #B58A3A; color: #8C6A2C;">LinkedIn</a>
+            <a href="{{ shareEmail }}" style="border: 1px solid rgba(23,59,47,0.18); padding: 10px 14px; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #173B2F; transition: border-color 240ms ease, color 240ms ease;" style-hover="border-color: #B58A3A; color: #8C6A2C;">Email</a>
+            <button type="button" onClick="{{ copyLink }}" style="background: transparent; border: 1px solid rgba(23,59,47,0.18); padding: 10px 14px; font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #173B2F; cursor: pointer; transition: border-color 240ms ease, color 240ms ease;" style-hover="border-color: #B58A3A; color: #8C6A2C;">{{ copyLabel }}</button>
+          </div>
+        </div>
+      </aside>
+
+      <div style="min-width: 0; grid-column: span 2;">
+        <sc-for list="{{ sections }}" as="sec" hint-placeholder-count="4">
+          <section id="{{ sec.id }}" style="position: relative; isolation: isolate; overflow: hidden; margin-bottom: clamp(32px, 4vw, 52px); scroll-margin-top: 120px;">
+    <ia-emblem variant="light" style="position: absolute; z-index: -1; right: -7%; top: 50%; margin-top: -200px; width: min(46%, 520px);"></ia-emblem>
+            <h2 style="margin: 0 0 18px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(25px, 2.5vw, 36px); line-height: 1.16; color: #173B2F;">{{ sec.h }}</h2>
+            <sc-for list="{{ sec.p }}" as="para" hint-placeholder-count="2">
+              <p style="margin: 0 0 18px; max-width: 68ch; font-size: clamp(15.5px, 1.15vw, 17.5px); font-weight: 300; line-height: 1.88; color: #35403A;">{{ para }}</p>
+            </sc-for>
+          </section>
+        </sc-for>
+
+        <sc-if value="{{ hasTakeaways }}" hint-placeholder-val="{{ true }}">
+          <section style="border: 1px solid rgba(181,138,58,0.5); background: rgba(181,138,58,0.06); padding: clamp(26px, 3vw, 40px); margin-bottom: clamp(32px, 4vw, 52px);">
+            <h2 style="margin: 0 0 20px; font-size: 11.5px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #173B2F;">Key Takeaways</h2>
+            <div style="display: flex; flex-direction: column; gap: 14px;">
+              <sc-for list="{{ takeaways }}" as="t" hint-placeholder-count="4">
+                <div style="display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: baseline;">
+                  <span style="width: 6px; height: 6px; border-radius: 50%; background: #B58A3A; display: block;"></span>
+                  <span style="font-size: 15px; font-weight: 300; line-height: 1.75; color: #35403A;">{{ t }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </section>
+        </sc-if>
+
+        <section style="padding-top: clamp(26px, 3vw, 40px); border-top: 1px solid rgba(23,59,47,0.12);">
+          <h2 style="margin: 0 0 18px; font-size: 11.5px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #173B2F;">Related Services &amp; Industries</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 9px;">
+            <sc-for list="{{ related }}" as="r" hint-placeholder-count="4">
+              <a href="{{ r.href }}" style="border: 1px solid rgba(23,59,47,0.18); padding: 10px 15px; font-size: 11.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #4B574F; transition: border-color 240ms ease, color 240ms ease;" style-hover="border-color: #B58A3A; color: #8C6A2C;">{{ r.label }}</a>
+            </sc-for>
+          </div>
+        </section>
+
+        <section style="margin-top: clamp(30px, 4vw, 48px); padding: clamp(24px, 3vw, 36px); border: 1px solid rgba(23,59,47,0.12); display: grid; grid-template-columns: auto 1fr; gap: clamp(18px, 2vw, 28px); align-items: start;">
+          <div style="width: 74px; height: 74px; border: 1px solid rgba(23,59,47,0.16); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; letter-spacing: 0.06em; color: #8C6A2C;">IA</div>
+          <div style="min-width: 0;">
+            <div style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #5C685F;">Author</div>
+            <div style="margin-top: 10px; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 23px; color: #173B2F;">{{ authorName }}</div>
+            <div style="margin-top: 4px; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #8C6A2C;">{{ authorRole }}</div>
+            <p style="margin: 14px 0 0; max-width: 60ch; font-size: 14px; font-weight: 300; line-height: 1.75; color: #4B574F;">{{ authorBio }}</p>
+          </div>
+        </section>
+
+        <a href="Contact.dc.html" style="display: inline-flex; align-items: center; gap: 12px; margin-top: clamp(30px, 4vw, 48px); background: #173B2F; color: #FAF9F5; padding: 19px 32px; font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #173B2F; transition: background 300ms ease, color 300ms ease, border-color 300ms ease;" style-hover="background: #B58A3A; color: #173B2F; border-color: #B58A3A;">Discuss This Topic With Our Team<span style="width: 18px; height: 1px; background: currentColor;"></span></a>
+      </div>
+    </div>
+  </article>
+
+  <sc-if value="{{ hasMore }}" hint-placeholder-val="{{ true }}">
+    <section aria-labelledby="rel-title" style="background: #F3F1EA; border-top: 1px solid rgba(23,59,47,0.08);">
+      <div style="max-width: 1360px; margin: 0 auto; padding: clamp(48px, 6vw, 88px) clamp(20px, 4vw, 56px);">
+        <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px; margin-bottom: clamp(24px, 3vw, 40px);">
+          <h2 id="rel-title" style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(27px, 3vw, 42px); line-height: 1.14; color: #173B2F;">Related Insights</h2>
+          <a href="Insights.dc.html" style="display: inline-flex; align-items: center; gap: 12px; font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #173B2F; border-bottom: 1px solid rgba(181,138,58,0.5); padding-bottom: 8px;" style-hover="color: #8C6A2C;">All Insights<span style="width: 18px; height: 1px; background: currentColor;"></span></a>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(20px, 2.4vw, 32px);">
+          <sc-for list="{{ more }}" as="m" hint-placeholder-count="3">
+            <a href="{{ m.href }}" style="display: flex; flex-direction: column; background: #FAF9F5; border: 1px solid rgba(23,59,47,0.12); padding: clamp(24px, 2.6vw, 34px); min-height: 220px; transition: transform 320ms cubic-bezier(.2,.7,.2,1), box-shadow 320ms ease, border-color 320ms ease;" style-hover="transform: translateY(-5px); box-shadow: 0 24px 46px -30px rgba(23,59,47,0.4); border-color: rgba(181,138,58,0.5);">
+              <span style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #8C6A2C;">{{ m.category }}</span>
+              <h3 style="margin: 16px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 24px; line-height: 1.22; color: #173B2F;">{{ m.title }}</h3>
+              <p style="margin: 12px 0 20px; font-size: 13.5px; font-weight: 300; line-height: 1.72; color: #4B574F;">{{ m.excerpt }}</p>
+              <span style="margin-top: auto; display: inline-flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #173B2F;">Read More<span style="width: 14px; height: 1px; background: #B58A3A;"></span></span>
+            </a>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
+  <dc-import name="SiteFooter" hint-size="100%,460px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { copied: false, tick: 0 };
+
+  componentDidMount() {
+    if (!window.IA_ARTICLES) {
+      this._t = setTimeout(() => this.setState({ tick: 1 }), 250);
+    }
+    const a = this.article();
+    if (a) {
+      document.title = a.title + ' | Insight Advora LLP';
+      const md = document.querySelector('meta[name="description"]');
+      if (md && a.excerpt) md.setAttribute('content', a.excerpt);
+    }
+  }
+  componentWillUnmount() { if (this._t) clearTimeout(this._t); }
+
+  article() {
+    const all = (window.IA_ARTICLES || []).filter(a => a.status === 'published');
+    let slug = '';
+    try { slug = new URLSearchParams(window.location.search).get('slug') || ''; } catch (e) { slug = ''; }
+    return all.filter(a => a.slug === slug)[0] || all[0] || null;
+  }
+
+  renderVals() {
+    const a = this.article();
+    const authors = {};
+    (window.IA_AUTHORS || []).forEach(x => { authors[x.slug] = x; });
+    const indList = window.IA_INDUSTRIES || [];
+    const fmt = (iso) => {
+      try { return new Date(iso + 'T00:00:00').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }); }
+      catch (e) { return iso; }
+    };
+    const label = (slug) => String(slug).split('-').map(w => w === 'ma' ? 'M&A' : w === 'ehs' ? 'EHS' : w === 'esg' ? 'ESG' : w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+    if (!a) {
+      return {
+        category: 'Knowledge Hub', contentType: '', title: 'No insights have been published yet.',
+        subtitle: '', authorName: 'Insight Advora LLP', authorRole: '', authorBio: '',
+        dateLabel: '', readingTime: '', toc: [], sections: [], takeaways: [], hasTakeaways: false,
+        related: [], more: [], hasMore: false, shareLinkedIn: '#', shareEmail: '#', copyLabel: 'Copy Link', copyLink: () => {}
+      };
+    }
+    const author = authors[a.author] || { name: 'Insight Advora LLP', designation: 'Firm perspective', bio: '' };
+    const sections = (a.sections || []).map((s, i) => ({
+      id: 'section-' + (i + 1), h: s.h, p: s.p || []
+    }));
+    const url = (typeof window !== 'undefined' && window.location) ? window.location.href : '';
+    const others = (window.IA_ARTICLES || [])
+      .filter(x => x.status === 'published' && x.slug !== a.slug)
+      .map(x => {
+        let score = 0;
+        if (x.category === a.category) score += 3;
+        if (x.industry === a.industry) score += 2;
+        score += (x.services || []).filter(s => (a.services || []).indexOf(s) >= 0).length;
+        score += (x.tags || []).filter(t => (a.tags || []).indexOf(t) >= 0).length;
+        return { x: x, score: score };
+      })
+      .sort((p, q) => q.score - p.score || (p.x.date < q.x.date ? 1 : -1))
+      .slice(0, 3)
+      .map(r => ({ href: 'Article.dc.html?slug=' + r.x.slug, category: r.x.category, title: r.x.title, excerpt: r.x.excerpt }));
+    const relatedChips = (a.services || []).map(s => ({ label: label(s), href: 'ServiceDetail.dc.html?slug=' + s }));
+    const indHit = indList.filter(i => i.slug === a.industry)[0];
+    return {
+      category: a.category, contentType: a.contentType, title: a.title, subtitle: a.subtitle,
+      authorName: author.name, authorRole: author.designation, authorBio: author.bio,
+      dateLabel: fmt(a.date), readingTime: a.readingTime,
+      toc: sections.map(s => ({ href: '#' + s.id, label: s.h })),
+      sections: sections,
+      takeaways: a.takeaways || [],
+      hasTakeaways: (a.takeaways || []).length > 0,
+      related: relatedChips,
+      more: others, hasMore: others.length > 0,
+      shareLinkedIn: 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(url),
+      shareEmail: 'mailto:?subject=' + encodeURIComponent(a.title) + '&body=' + encodeURIComponent(url),
+      copyLabel: this.state.copied ? 'Copied' : 'Copy Link',
+      copyLink: () => {
+        const done = () => {
+          this.setState({ copied: true });
+          setTimeout(() => this.setState({ copied: false }), 1800);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(url).then(done).catch(done);
+        } else { done(); }
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

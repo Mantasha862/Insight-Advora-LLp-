@@ -24,7 +24,7 @@ With **no `DATABASE_URL`** the public site renders from the seed content in `con
    ```
 4. Create the CMS tables, full-text search column/GIN index and RLS policies:
    ```bash
-   npm run db:deploy        # applies 1_cms
+   npm run db:deploy        # applies 1_cms and later migrations
    ```
 5. Seed content and the first admin (set `ADMIN_BOOTSTRAP_EMAIL`, optionally `ADMIN_BOOTSTRAP_PASSWORD`):
    ```bash
@@ -83,9 +83,17 @@ components/ui           Design-system primitives (buttons, sections, timeline, e
 
 All `[ bracketed ]` values are client-supplied placeholders (team profiles, contact details, legal pages, author). Do not replace them with invented content — see "Critical credibility rule" in docs/HANDOFF.md. Contact details are edited in **Admin → Website Settings**.
 
-## Design sources not in this repository
+## Design reference
 
-The handoff references `design/*.dc.html`, `data/*.js` and derived logo files that were not included in the repo. The build follows the README specification; logo assets were derived from the client's supplied logo (`assets/logo-source.png`). If the prototypes become available, compare pages against them and update copy in `content/`.
+The client's latest HTML prototypes and data files are in `docs/design/` (open any `.dc.html` in a browser with internet access; they load React from a CDN). The site content in `content/*.ts` is generated from `docs/design/{services,industries,team,insights,home-content}.js`.
+
+Changes adopted from the September 2026 design update:
+- Brand green `#173B2F`, deep green `#0E2921` (footer, dark bands), sage `#879B87`.
+- Industry pages retired: `/industries` and `/industries/*` redirect to `/services`; the industry list still powers the Knowledge Hub filter.
+- Each service has an "Our Services" offerings grid (`Service.offerings`, migration `2_service_offerings`).
+- Animated IA emblem (`components/ui/Emblem.tsx`, port of `ia-emblem.js`) in page heroes; it uses `public/assets/monogram-mark.png` — the official `monogram-alpha.png` with the stray wordmark strip trimmed.
+- New Home page: hero, About + integrated philosophy, "Advisory in Session", expertise, philosophy, approach, team, Knowledge Hub, ticker, CTA.
+- Advisory-meeting video: add licensed footage to `public/videos/` and set the paths in `content/home.ts`. The placeholder frame supplied with the prototype was a third-party screenshot and is intentionally not published.
 
 ## Deployment
 

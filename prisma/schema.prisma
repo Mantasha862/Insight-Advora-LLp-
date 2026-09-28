@@ -137,15 +137,18 @@ model Service {
   title           String
   shortTitle      String            @map("short_title")
   headline        String
+  short           String            @default("")
   description     String
   icon            String            @default("strategy")
   challenge       String?
+  offerings       Json              @default("[]")
   capabilities    String[]
   flow            String[]
   challenges      String[]
   perspective     String?
   outcomes        String[]
   related         String[]
+  sectors         String[]
   faq             Json              @default("[]")
   status          ContentStatus     @default(draft)
   displayOrder    Int               @default(0) @map("display_order")

@@ -1,81 +1,112 @@
 "use client";
 
-import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { ButtonLink } from "@/components/ui/Button";
+import { Emblem } from "@/components/ui/Emblem";
 import { NetworkCanvas } from "@/components/ui/NetworkCanvas";
-import { RotatingWord } from "@/components/site/RotatingWord";
+import { cn } from "@/lib/utils";
 
 const EASE = [0.2, 0.7, 0.2, 1] as const;
 
-export function HomeHero() {
+export function HomeHero({ phrase }: { phrase: readonly string[] }) {
   const reduce = useReducedMotion();
-  const lift = (i: number) =>
-    reduce
-      ? {}
-      : { initial: { opacity: 0, y: 34 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.9, ease: EASE, delay: 0.15 + i * 0.14 } };
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    if (reduce) return;
+    const id = setInterval(() => setActive((i) => (i + 1) % phrase.length), 1700);
+    return () => clearInterval(id);
+  }, [reduce, phrase.length]);
+
+  const rise = (delay: number) =>
+    reduce ? {} : { initial: { opacity: 0, y: 26 }, animate: { opacity: 1, y: 0 }, transition: { duration: 1, ease: EASE, delay } };
+
+  const scrollNext = () => {
+    const el = document.getElementById("about");
+    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 60, behavior: reduce ? "auto" : "smooth" });
+  };
 
   return (
-    <section className="relative overflow-hidden bg-ivory">
-      <div className="container-hero grid min-h-[calc(90vh-92px)] items-center gap-10 py-14 lg:grid-cols-[1.02fr_1fr] lg:py-10">
-        <div className="relative z-10">
-          <motion.p className="eyebrow" {...lift(0)}>
-            Consulting &amp; Corporate Advisory
-          </motion.p>
-          <h1 className="h-hero mt-7 uppercase">
-            <motion.span className="block" {...lift(1)}>Turning Insight</motion.span>
-            <motion.span className="block" {...lift(2)}>Into Measurable</motion.span>
-            <motion.span className="block font-normal italic text-charcoal" {...lift(3)}>Progress.</motion.span>
-          </h1>
-          <motion.p className="relative mt-7 inline-block font-serif text-[clamp(20px,1.9vw,26px)] italic tracking-[0.02em] text-gold-ink" {...lift(4)}>
-            Partnering for Smarter Decisions
-            <motion.span
-              aria-hidden
-              className="absolute -bottom-1 left-0 h-px w-full origin-left bg-gold"
-              initial={reduce ? false : { scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 1, ease: EASE, delay: 0.95 }}
-            />
-          </motion.p>
-          <motion.p className="body-copy mt-7 max-w-[560px]" {...lift(5)}>
-            Insight Advora LLP is a multidisciplinary consulting and advisory firm. We work alongside leadership teams to bring
-            clarity to complex decisions and turn them into practical, measurable action.
-          </motion.p>
-          <motion.p className="mt-6 flex items-center gap-3 text-[12px] font-semibold uppercase tracking-[0.16em] text-body-2" {...lift(5)}>
-            <span>Focused on</span>
-            <RotatingWord words={["Strategy", "Transformation", "Growth", "Sustainability", "Progress"]} />
-          </motion.p>
-          <motion.div className="mt-10 flex flex-wrap gap-4" {...lift(6)}>
-            <ButtonLink href="/services">Explore Our Services</ButtonLink>
-            <ButtonLink href="/contact" variant="secondary">
-              Let&apos;s Talk
-            </ButtonLink>
-          </motion.div>
+    <section id="hero" aria-labelledby="hero-title" className="relative isolate overflow-hidden border-b border-hairline bg-ivory">
+      <Emblem
+        variant="hero"
+        className="-z-10 hidden lg:block"
+        style={{ width: "min(48vw, 700px)", top: "50%", right: "5%", transform: "translateY(-50%)" }}
+      />
+      <div className="grid min-h-[min(88vh,860px)] lg:grid-cols-[1.15fr_1fr]">
+        <div className="relative flex min-w-0 flex-col justify-center py-[clamp(44px,6vw,92px)] pb-[clamp(96px,9vw,120px)] pl-[max(clamp(20px,4vw,56px),calc((100vw-1360px)/2+56px))] pr-[clamp(20px,4vw,64px)]">
+          <div className="relative z-10">
+            <motion.div className="mb-7 flex items-center gap-3.5" {...rise(0)}>
+              <span aria-hidden className="h-px w-[34px] bg-gold" />
+              <span className="text-[11px] font-semibold uppercase tracking-[0.26em] text-forest">Insight Advora LLP</span>
+            </motion.div>
+            <h1 id="hero-title" className="text-[clamp(30px,4.4vw,68px)] uppercase leading-[1.05] tracking-[0.006em] [&>span]:whitespace-nowrap">
+              <motion.span className="block" {...rise(0.12)}>Turning Insight</motion.span>
+              <motion.span className="block" {...rise(0.26)}>Into Measurable</motion.span>
+              <motion.span className="block font-normal italic text-charcoal" {...rise(0.4)}>Progress.</motion.span>
+            </h1>
+            <motion.div className="mt-6 inline-flex flex-col gap-2" {...rise(0.56)}>
+              <span className="font-serif text-[clamp(20px,1.9vw,26px)] italic tracking-[0.02em] text-gold-ink">Partnering for Smarter Decisions</span>
+              <motion.span
+                aria-hidden
+                className="h-px origin-left bg-gradient-to-r from-gold to-gold/10"
+                initial={reduce ? false : { scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 1.4, ease: EASE, delay: 1.1 }}
+              />
+            </motion.div>
+            <motion.p className="mt-6 max-w-[50ch] text-[clamp(15.5px,1.15vw,17.5px)] font-light leading-[1.8] text-body" {...rise(0.7)}>
+              Strategic advisory, operational excellence and sustainability solutions for organizations navigating growth and
+              transformation.
+            </motion.p>
+            <motion.ul
+              aria-label="Areas of focus"
+              className="mt-7 flex flex-wrap items-center gap-x-3.5 gap-y-2 text-[11.5px] font-semibold uppercase tracking-[0.18em]"
+              {...rise(0.82)}
+            >
+              {phrase.map((w, i) => (
+                <li key={w} className="inline-flex items-center gap-3.5">
+                  {i > 0 && <span aria-hidden className="h-1 w-1 rounded-full bg-sage" />}
+                  <span className={cn("transition-colors duration-500", i === active ? "text-gold-ink" : "text-sage")}>{w}</span>
+                </li>
+              ))}
+            </motion.ul>
+            <motion.div className="mt-9 flex flex-wrap gap-3.5" {...rise(0.94)}>
+              <ButtonLink href="/services">Explore Our Services</ButtonLink>
+              <ButtonLink href="/contact" variant="secondary">
+                Let&apos;s Talk
+              </ButtonLink>
+            </motion.div>
+          </div>
+          <button
+            type="button"
+            onClick={scrollNext}
+            aria-label="Scroll to explore"
+            className="absolute bottom-0 left-[max(clamp(20px,4vw,56px),calc((100vw-1360px)/2+56px))] z-10 flex items-end gap-3.5 pb-6"
+          >
+            <span aria-hidden className="relative block h-[46px] w-px overflow-hidden bg-hairline-strong">
+              <span className="absolute inset-0 animate-scroll-line bg-gold" />
+            </span>
+            <span className="text-[10.5px] font-semibold uppercase tracking-[0.24em] text-body-2">Scroll to Explore</span>
+          </button>
         </div>
 
-        <div className="relative aspect-square w-full max-lg:mx-auto max-lg:max-w-[560px]">
-          <Image
-            src="/assets/monogram-alpha.png"
-            alt=""
-            aria-hidden
-            width={582}
-            height={471}
-            priority
-            className="pointer-events-none absolute left-1/2 top-1/2 w-[62%] -translate-x-1/2 -translate-y-1/2 select-none opacity-[0.055]"
-          />
-          <NetworkCanvas variant="sphere" />
-        </div>
+        <motion.div
+          className="relative min-h-[clamp(340px,56vw,660px)] min-w-0"
+          initial={reduce ? false : { opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.6, delay: 0.2 }}
+        >
+          <div className="absolute inset-0">
+            <NetworkCanvas variant="sphere" />
+          </div>
+          <div className="pointer-events-none absolute bottom-[clamp(24px,3vw,40px)] right-[clamp(20px,3vw,44px)] flex items-center gap-3">
+            <span aria-hidden className="block h-[7px] w-[7px] rounded-full bg-gold shadow-[0_0_0_5px_rgba(181,138,58,0.16)]" />
+            <span className="text-[10.5px] font-semibold uppercase tracking-[0.22em] text-body-2">People · Process · Planet · Progress</span>
+          </div>
+        </motion.div>
       </div>
-
-      <a
-        href="#who-we-are"
-        className="group absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-3 text-[10.5px] font-semibold uppercase tracking-[0.22em] text-body-2 hover:text-gold-ink md:flex"
-      >
-        Scroll to Explore
-        <span className="relative block h-10 w-px overflow-hidden bg-hairline-strong">
-          <span className="absolute inset-0 animate-scroll-line bg-gold" />
-        </span>
-      </a>
     </section>
   );
 }

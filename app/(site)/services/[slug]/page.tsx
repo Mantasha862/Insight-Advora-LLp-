@@ -1,16 +1,16 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArticleCard } from "@/components/site/Cards";
+import { Offerings } from "@/components/site/Offerings";
 import { Accordion, CtaBand, PageHero } from "@/components/ui/Blocks";
 import { ButtonLink } from "@/components/ui/Button";
 import { NumberedCard } from "@/components/ui/Cards";
 import { ServiceIcon } from "@/components/ui/Icons";
 import { Reveal } from "@/components/ui/Motion";
-import { Section, SectionIntro } from "@/components/ui/Section";
+import { Chips, Section, SectionIntro } from "@/components/ui/Section";
 import { Timeline } from "@/components/ui/Timeline";
 import { howWeWork } from "@/content/site";
 import { serviceArea } from "@/lib/areas";
-import { getIndustries, getService, getServiceArticles, getServices } from "@/lib/data";
+import { getService, getServiceArticles, getServices } from "@/lib/data";
 import { pageMetadata } from "@/lib/seo";
 
 export const revalidate = 300;
@@ -45,9 +45,8 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
   const service = await getService(slug);
   if (!service) notFound();
 
-  const [allServices, allIndustries, articles] = await Promise.all([getServices(), getIndustries(), getServiceArticles(slug, 3)]);
+  const [allServices, articles] = await Promise.all([getServices(), getServiceArticles(slug, 3)]);
   const related = service.related.map((r) => allServices.find((s) => s.slug === r)).filter((s): s is NonNullable<typeof s> => Boolean(s));
-  const industries = allIndustries.filter((i) => service.industries.includes(i.slug) || i.services.includes(service.slug));
   const contactHref = `/contact?area=${encodeURIComponent(serviceArea(service.slug))}`;
 
   return (
@@ -103,7 +102,9 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
         <Numbered n="03">
           <h2 id="what" className="h-section">What We Do</h2>
         </Numbered>
-        <ul className="ruled-grid mt-12 sm:grid-cols-2">
+        <Offerings items={service.offerings} className="mt-12" />
+        <p className="mt-12 text-[10.5px] font-semibold uppercase tracking-[0.18em] text-gold-ink">Capabilities</p>
+        <ul className="ruled-grid mt-5 sm:grid-cols-2">
           {service.capabilities.map((c, i) => (
             <Reveal as="li" key={c} index={i} className="flex items-center gap-4 p-6">
               <span aria-hidden className="h-px w-5 flex-none bg-gold" />
@@ -157,18 +158,10 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
         </Section>
       )}
 
-      {industries.length > 0 && (
+      {service.industries.length > 0 && (
         <Section tone="ivory-2" labelledBy="rel-ind">
-          <SectionIntro eyebrow="Related Industries" lead="Where This" accent="Practice Applies." id="rel-ind" />
-          <ul className="mt-10 flex flex-wrap gap-3">
-            {industries.map((i) => (
-              <li key={i.slug}>
-                <Link href={`/industries/${i.slug}`} className="chip transition-colors hover:border-gold hover:text-gold-ink">
-                  {i.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <SectionIntro eyebrow="Sectors" lead="Where This" accent="Practice Applies." id="rel-ind" />
+          <Chips items={service.industries} className="mt-10" />
         </Section>
       )}
 

@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { ButtonLink } from "@/components/ui/Button";
+import { Emblem } from "@/components/ui/Emblem";
 import { NetworkCanvas } from "@/components/ui/NetworkCanvas";
 import { Reveal } from "@/components/ui/Motion";
 import { cn } from "@/lib/utils";
@@ -52,20 +52,16 @@ export function PageHero({
   aside?: ReactNode;
 }) {
   return (
-    <section className={cn("relative overflow-hidden", dark ? "bg-forest text-ivory" : "bg-ivory")}>
+    <section className={cn("relative isolate overflow-hidden border-b border-hairline", dark ? "bg-forest text-ivory" : "bg-ivory")}>
       {network && !aside && (
         <div aria-hidden className="pointer-events-none absolute inset-y-0 right-0 w-full opacity-70 md:w-[62%]">
           <NetworkCanvas variant="drift" tone={dark ? "dark" : "light"} weightRight interactive={false} />
         </div>
       )}
-      <Image
-        src="/assets/monogram-alpha.png"
-        alt=""
-        aria-hidden
-        width={582}
-        height={471}
-        className="pointer-events-none absolute -right-10 top-10 hidden w-[440px] select-none opacity-[0.055] md:block"
-        priority={false}
+      <Emblem
+        variant={dark ? "dark" : "light"}
+        className="-z-10 hidden md:block"
+        style={{ right: "-7%", top: "50%", transform: "translateY(-50%)", width: "min(46%, 520px)" }}
       />
       <div className="container-site relative pb-[clamp(56px,7vw,104px)] pt-[clamp(40px,5vw,72px)]">
         <Breadcrumb items={crumbs} dark={dark} />
@@ -131,20 +127,30 @@ export function CtaBand({
   );
 }
 
-export function Ticker({ items }: { items: string[] }) {
+export function Ticker({ items, tone = "light" }: { items: string[]; tone?: "light" | "dark" }) {
+  const dark = tone === "dark";
   const row = (hidden: boolean) => (
     <ul aria-hidden={hidden} className="flex shrink-0 items-center">
       {items.map((t, i) => (
-        <li key={i} className="flex items-center font-serif text-[clamp(20px,2vw,28px)] uppercase tracking-[0.08em] text-forest">
-          <span className="px-8">{t}</span>
-          <span aria-hidden className="h-[7px] w-[7px] rounded-full bg-gold" />
+        <li
+          key={i}
+          className={cn(
+            "flex items-center whitespace-nowrap font-serif uppercase",
+            dark ? "text-[20px] tracking-[0.14em] text-ivory" : "text-[clamp(20px,2vw,28px)] tracking-[0.08em] text-forest",
+          )}
+        >
+          <span className={dark ? "px-[13px]" : "px-8"}>{t}</span>
+          <span aria-hidden className={cn("rounded-full", dark ? "mx-[13px] h-[5px] w-[5px] bg-gold-light" : "h-[7px] w-[7px] bg-gold")} />
         </li>
       ))}
     </ul>
   );
   return (
-    <div className="overflow-hidden border-y border-hairline bg-ivory-2 py-6">
-      <div className="flex w-max animate-ticker motion-reduce:animate-none">
+    <div
+      aria-hidden={dark || undefined}
+      className={cn("overflow-hidden", dark ? "border-b border-gold/35 bg-forest py-[18px]" : "border-y border-hairline bg-ivory-2 py-6")}
+    >
+      <div className={cn("flex w-max motion-reduce:animate-none", dark ? "animate-[ticker_52s_linear_infinite]" : "animate-ticker")}>
         {row(false)}
         {row(true)}
       </div>

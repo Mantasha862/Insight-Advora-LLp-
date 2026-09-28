@@ -48,3 +48,18 @@ export function GoldRule({ className = "", width = 62, dark = false }: { classNa
     />
   );
 }
+
+/** A line that draws from the left when scrolled into view. */
+export function DrawLine({ className = "", duration = 1.8 }: { className?: string; duration?: number }) {
+  const reduce = useReducedMotion();
+  return (
+    <motion.span
+      aria-hidden
+      className={`block origin-left ${className}`}
+      initial={reduce ? false : { scaleX: 0 }}
+      whileInView={{ scaleX: 1 }}
+      viewport={{ once: true, amount: 0.4 }}
+      transition={{ duration, ease: EASE }}
+    />
+  );
+}

@@ -49,7 +49,7 @@ export function NetworkCanvas({ variant = "sphere", tone = "light", weightRight 
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const mobile = window.matchMedia("(max-width: 767px)").matches;
     const allowMouse = interactive && !mobile && variant === "sphere";
-    const ink = tone === "dark" ? "250,249,245" : "23,53,43";
+    const ink = tone === "dark" ? "250,249,245" : "23,59,47";
     const rand = rng(7);
 
     let w = 0;
@@ -331,7 +331,7 @@ export function NetworkCanvas({ variant = "sphere", tone = "light", weightRight 
 
 /** Static SVG fallback. */
 export function StaticNetwork({ tone = "light", className = "" }: { tone?: "light" | "dark"; className?: string }) {
-  const ink = tone === "dark" ? "rgba(250,249,245,0.35)" : "rgba(23,53,43,0.3)";
+  const ink = tone === "dark" ? "rgba(250,249,245,0.35)" : "rgba(23, 59, 47,0.3)";
   const r = rng(3);
   const nodes = Array.from({ length: 40 }, () => ({ x: 20 + r() * 360, y: 20 + r() * 360 }));
   return (

@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>About Us | Insight Advora LLP &mdash; Where Insight Meets Action</title>
+<meta name="description" content="Insight Advora LLP is a multidisciplinary consulting and advisory firm helping organizations strengthen performance, navigate transformation and pursue sustainable growth through strategy, operational excellence, EHS and ESG advisory." />
+<meta property="og:title" content="About Insight Advora LLP | Where Insight Meets Action" />
+<meta property="og:description" content="Our purpose, vision, mission, philosophy and way of working \u2014 Insight Advora LLP, partnering for smarter decisions." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="assets/logo-v.png" />
+<link rel="canonical" href="https://insightadvora.com/about" />
+<link rel="icon" href="assets/favicon-ia.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<script src="./image-slot.js"></script>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; background: #FAF9F5; -webkit-font-smoothing: antialiased; }
+a { color: #173B2F; text-decoration: none; }
+a:hover { color: #8C6A2C; }
+@keyframes iaRise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+@keyframes iaFade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes iaPulse { 0%, 100% { opacity: 0.35; r: 4; } 50% { opacity: 1; r: 6; } }
+@keyframes iaSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes iaSpinBack { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
+@keyframes iaDrift { from { transform: translate3d(0,0,0); } to { transform: translate3d(-140px,-140px,0); } }
+@keyframes iaCue { 0%, 100% { transform: translateY(0); opacity: 0.9; } 50% { transform: translateY(6px); opacity: 0.45; } }
+@media (prefers-reduced-motion: reduce) { * { animation-duration: 1ms !important; animation-iteration-count: 1 !important; transition-duration: 1ms !important; } }
+</style>
+<script src="./ia-emblem.js"></script>
+</helmet>
+<div style="background: #FAF9F5; font-family: 'Manrope', system-ui, sans-serif; color: #1E2522; overflow-x: hidden;">
+  <dc-import name="SiteNav" active="About" hint-size="100%,92px"></dc-import>
+
+  <section aria-labelledby="about-hero-title" style="position: relative; isolation: isolate; border-bottom: 1px solid rgba(23,59,47,0.10); overflow: hidden;">
+    <canvas id="ia-about-net" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block; opacity: 0.6; pointer-events: none;"></canvas>
+    <ia-emblem variant="light" style="position: absolute; z-index: -1; right: -7%; top: 50%; margin-top: -230px; width: min(50%, 580px);"></ia-emblem>
+    <div style="position: relative; max-width: 1360px; margin: 0 auto; padding: clamp(30px, 4vw, 48px) clamp(20px, 4vw, 56px) clamp(64px, 7vw, 104px); min-height: min(74vh, 700px); display: flex; flex-direction: column; justify-content: center;">
+      <nav aria-label="Breadcrumb" style="display: flex; align-items: center; gap: 10px; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #5C685F; margin-bottom: clamp(34px, 5vw, 62px);">
+        <a href="Home.dc.html" style="color: #5C685F;" style-hover="color: #8C6A2C;">Home</a>
+        <span style="color: rgba(181,138,58,0.75);">/</span>
+        <span style="color: #4B574F;">About Us</span>
+      </nav>
+      <div style="animation: iaRise 1000ms cubic-bezier(.2,.7,.2,1) both; max-width: 62ch;">
+        <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 28px;">
+          <span style="width: 34px; height: 1px; background: #B58A3A;"></span>
+          <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #8C6A2C;">About Insight Advora</span>
+        </div>
+        <h1 id="about-hero-title" style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(38px, 5.2vw, 76px); line-height: 1.05; color: #173B2F;">Where Insight <span style="font-style: italic;">Meets Action.</span></h1>
+        <p style="margin: 30px 0 0; max-width: 56ch; font-size: clamp(15.5px, 1.15vw, 17.5px); font-weight: 300; line-height: 1.82; color: #4B574F;">Helping organizations navigate complexity, improve performance and create sustainable value through strategy, operational excellence and informed decision-making.</p>
+        <button type="button" onClick="{{ scrollToApproach }}" style="display: inline-flex; align-items: center; gap: 14px; margin-top: 40px; background: transparent; border: 1px solid rgba(181,138,58,0.65); color: #173B2F; padding: 18px 30px; font-family: 'Manrope', sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background 300ms ease, color 300ms ease;" style-hover="background: rgba(181,138,58,0.12); color: #8C6A2C;">Explore Our Approach<span style="display: inline-block; animation: iaCue 2000ms ease-in-out infinite;">&darr;</span></button>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="who-title" style="background: #FAF9F5;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: clamp(64px, 8vw, 118px) clamp(20px, 4vw, 56px); display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: clamp(36px, 6vw, 92px); align-items: start;">
+      <div data-reveal="1" style="min-width: 0;">
+        <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #8C6A2C;">Who We Are</span>
+        <h2 id="who-title" style="margin: 22px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(30px, 3.4vw, 50px); line-height: 1.12; color: #173B2F;">Insight to Understand.<br />Strategy to Navigate.<br /><span style="font-style: italic;">Action to Transform.</span></h2>
+        <div style="width: 62px; height: 1px; background: #B58A3A; margin-top: 30px;"></div>
+      </div>
+      <div data-reveal="1" style="min-width: 0;">
+        <p style="margin: 0; font-size: clamp(15.5px, 1.15vw, 17px); font-weight: 300; line-height: 1.86; color: #4B574F;">Insight Advora LLP is a multidisciplinary consulting and advisory firm focused on helping organizations strengthen performance, navigate transformation and pursue sustainable growth.</p>
+        <p style="margin: 22px 0 0; font-size: clamp(15.5px, 1.15vw, 17px); font-weight: 300; line-height: 1.86; color: #4B574F;">We bring together strategic thinking, operational understanding and sustainability-focused perspectives to help businesses address complex challenges and turn informed decisions into practical action.</p>
+        <p style="margin: 22px 0 0; font-size: clamp(15.5px, 1.15vw, 17px); font-weight: 300; line-height: 1.86; color: #4B574F;">Our approach is designed around the realities of each organization &mdash; its objectives, operating environment, people, processes and long-term ambitions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="purpose-title" style="background: #F3F1EA; border-top: 1px solid rgba(23,59,47,0.08);">
+    <div style="max-width: 1360px; margin: 0 auto; padding: clamp(64px, 8vw, 118px) clamp(20px, 4vw, 56px);">
+      <div data-reveal="1" style="max-width: 68ch;">
+        <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #8C6A2C;">Our Purpose</span>
+        <h2 id="purpose-title" style="margin: 20px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(32px, 3.7vw, 54px); line-height: 1.1; color: #173B2F;">Why We Exist</h2>
+        <p style="margin: 30px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: clamp(22px, 2.3vw, 33px); line-height: 1.42; color: #1E2522;">&ldquo;To help organizations make smarter decisions and translate those decisions into meaningful, measurable progress.&rdquo;</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(36px, 6vw, 88px); margin-top: clamp(44px, 5vw, 72px); align-items: start;">
+        <div data-reveal="1" style="min-width: 0;">
+          <p style="margin: 0; font-size: clamp(15px, 1.1vw, 16.5px); font-weight: 300; line-height: 1.86; color: #4B574F;">Organizations today operate in an environment shaped by changing markets, evolving regulations, technological disruption, sustainability expectations and increasing stakeholder demands.</p>
+          <p style="margin: 22px 0 0; font-size: clamp(15px, 1.1vw, 16.5px); font-weight: 300; line-height: 1.86; color: #4B574F;">We aim to bring clarity to this complexity by combining insight, strategy and practical execution.</p>
+        </div>
+        <div id="ia-ladder" style="min-width: 0;">
+          <sc-for list="{{ ladder }}" as="l" hint-placeholder-count="5">
+            <div data-rung="1" style="display: flex; align-items: center; gap: clamp(16px, 2vw, 26px); padding: 16px 0; border-bottom: 1px solid rgba(23,59,47,0.10);">
+              <span data-rung-dot="1" style="width: 9px; height: 9px; border-radius: 50%; background: #CFD6CF; flex-shrink: 0; display: block; transition: background 420ms ease, transform 420ms cubic-bezier(.2,.7,.2,1);"></span>
+              <span data-rung-label="1" style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(24px, 2.4vw, 34px); letter-spacing: 0.04em; text-transform: uppercase; color: #5C685F; line-height: 1.2; transition: color 420ms ease;">{{ l.label }}</span>
+              <span style="flex: 1; height: 1px; background: rgba(23,59,47,0.08); display: block;"></span>
+              <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.18em; color: #B58A3A;">{{ l.num }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="vision-title" style="background: #173B2F; color: #FAF9F5; overflow: hidden;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: clamp(64px, 8vw, 118px) clamp(20px, 4vw, 56px); display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: clamp(36px, 5vw, 80px); align-items: center;">
+      <div data-reveal="1" style="min-width: 0;">
+        <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #C79A55;">Our Vision</span>
+        <p style="margin: 26px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(27px, 3vw, 44px); line-height: 1.26; color: #FAF9F5;">To become a trusted partner for organizations seeking <span style="font-style: italic; color: #D4B478;">smarter strategies, stronger operations and sustainable growth.</span></p>
+        <div style="width: 62px; height: 1px; background: #C79A55; margin-top: 34px;"></div>
+      </div>
+      <div style="min-width: 0; display: flex; justify-content: center;">
+        <svg viewBox="0 0 420 420" role="img" aria-label="Abstract graphic of interconnected growth" style="width: 100%; max-width: 420px; height: auto; display: block;">
+          <g style="transform-origin: 210px 210px; animation: iaSpin 84s linear infinite;">
+            <circle cx="210" cy="210" r="186" fill="none" stroke="rgba(250,249,245,0.12)" stroke-width="1" stroke-dasharray="2 10"></circle>
+            <circle cx="210" cy="24" r="4" fill="#C79A55"></circle>
+            <circle cx="371" cy="303" r="3" fill="rgba(250,249,245,0.5)"></circle>
+            <circle cx="49" cy="303" r="3" fill="rgba(250,249,245,0.5)"></circle>
+          </g>
+          <g style="transform-origin: 210px 210px; animation: iaSpinBack 56s linear infinite;">
+            <circle cx="210" cy="210" r="132" fill="none" stroke="rgba(181,138,58,0.34)" stroke-width="1"></circle>
+            <circle cx="342" cy="210" r="4" fill="#C79A55"></circle>
+            <circle cx="78" cy="210" r="4" fill="rgba(250,249,245,0.6)"></circle>
+          </g>
+          <g stroke="rgba(250,249,245,0.16)" stroke-width="1" fill="none">
+            <line x1="210" y1="78" x2="210" y2="342"></line>
+            <line x1="78" y1="210" x2="342" y2="210"></line>
+            <line x1="117" y1="117" x2="303" y2="303"></line>
+            <line x1="303" y1="117" x2="117" y2="303"></line>
+          </g>
+          <circle cx="210" cy="210" r="78" fill="none" stroke="rgba(199,154,85,0.55)" stroke-width="1"></circle>
+          <circle cx="210" cy="210" r="6" fill="#C79A55" style="animation: iaFade 3200ms ease-in-out infinite alternate;"></circle>
+          <circle cx="210" cy="132" r="4" fill="rgba(250,249,245,0.75)"></circle>
+          <circle cx="288" cy="210" r="4" fill="rgba(250,249,245,0.75)"></circle>
+          <circle cx="210" cy="288" r="4" fill="rgba(250,249,245,0.75)"></circle>
+          <circle cx="132" cy="210" r="4" fill="rgba(250,249,245,0.75)"></circle>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="mission-title" style="background: #FAF9F5;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: clamp(64px, 8vw, 118px) clamp(20px, 4vw, 56px);">
+      <div data-reveal="1" style="max-width: 66ch;">
+        <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #8C6A2C;">Our Mission</span>
+        <h2 id="mission-title" style="margin: 20px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(30px, 3.4vw, 50px); line-height: 1.16; color: #173B2F;">To provide practical, insight-led advisory that helps organizations improve performance, navigate change and create <span style="font-style: italic;">long-term value.</span></h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(258px, 1fr)); gap: 1px; background: rgba(23,59,47,0.12); margin-top: clamp(44px, 5vw, 72px);">
+        <sc-for list="{{ pillars }}" as="p" hint-placeholder-count="3">
+          <div data-reveal="1" style="min-width: 0; background: #FAF9F5; padding: clamp(28px, 3vw, 44px); transition: background 300ms ease;" style-hover="background: #F3F1EA;">
+            <div style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 40px; line-height: 1; color: #C79A55;">{{ p.num }}</div>
+            <h3 style="margin: 20px 0 0; font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #173B2F;">{{ p.title }}</h3>
+            <p style="margin: 14px 0 0; font-size: 14.5px; font-weight: 300; line-height: 1.78; color: #4B574F;">{{ p.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="phil-title" style="background: #F3F1EA; border-top: 1px solid rgba(23,59,47,0.08);">
+    <div style="max-width: 1360px; margin: 0 auto; padding: clamp(64px, 8vw, 118px) clamp(20px, 4vw, 56px);">
+      <div data-reveal="1" style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: clamp(36px, 4vw, 58px);">
+        <div>
+          <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #8C6A2C;">What We Believe</span>
+          <h2 id="phil-title" style="margin: 20px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(32px, 3.7vw, 54px); line-height: 1.1; color: #173B2F;">Our Philosophy</h2>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #6B776F;">
+          <span>People</span><span style="color: #B58A3A;">|</span><span>Process</span><span style="color: #B58A3A;">|</span><span>Planet</span><span style="color: #B58A3A;">|</span><span>Progress</span>
+        </div>
+      </div>
+      <div id="ia-phil" style="position: relative;">
+        <div style="position: relative; height: 1px; background: rgba(23,59,47,0.14); margin-bottom: 0;">
+          <span data-phil-line="1" style="position: absolute; left: 0; top: 0; height: 1px; width: 0; background: #B58A3A; display: block; transition: width 1800ms cubic-bezier(.3,.7,.2,1);"></span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1px; background: rgba(23,59,47,0.12);">
+          <sc-for list="{{ philosophy }}" as="p" hint-placeholder-count="4">
+            <div data-reveal="1" style="min-width: 0; background: #FAF9F5; padding: clamp(28px, 3vw, 42px); min-height: 268px; display: flex; flex-direction: column; position: relative; transition: background 320ms ease, box-shadow 320ms ease, transform 320ms cubic-bezier(.2,.7,.2,1);" style-hover="background: #FFFFFF; box-shadow: 0 0 0 1px rgba(181,138,58,0.55), 0 26px 50px -32px rgba(23,59,47,0.45); transform: translateY(-5px);">
+              <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #5C685F;">{{ p.num }}</span>
+              <h3 style="margin: 18px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(28px, 2.6vw, 38px); line-height: 1.1; letter-spacing: 0.03em; text-transform: uppercase; color: #173B2F;">{{ p.title }}</h3>
+              <p style="margin: 18px 0 0; font-size: 14.5px; font-weight: 300; line-height: 1.78; color: #4B574F;">{{ p.body }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="eco-title" style="background: #173B2F; color: #FAF9F5; overflow: hidden;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: clamp(64px, 8vw, 118px) clamp(20px, 4vw, 56px);">
+      <div data-reveal="1" style="max-width: 62ch; margin-bottom: clamp(26px, 4vw, 44px);">
+        <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #C79A55;">What We Bring to the Table</span>
+        <h2 id="eco-title" style="margin: 20px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(32px, 3.7vw, 54px); line-height: 1.1; color: #FAF9F5;">An Integrated Perspective</h2>
+        <p style="margin: 22px 0 0; font-size: clamp(15px, 1.1vw, 16.5px); font-weight: 300; line-height: 1.85; color: rgba(250,249,245,0.74);">Our multidisciplinary perspective allows us to look beyond individual functions and understand how strategy, operations, people, risk and sustainability interact within an organization.</p>
+      </div>
+      <div id="ia-eco" style="display: flex; justify-content: center;">
+        <svg viewBox="0 0 900 580" role="img" aria-label="Insight Advora at the centre, connected to strategy, operations, transactions, EHS, ESG, sustainability and transformation" style="width: 100%; max-width: 900px; height: auto; display: block; font-family: 'Manrope', sans-serif;">
+          <g stroke="rgba(250,249,245,0.14)" stroke-width="1" fill="none">
+            <circle cx="450" cy="290" r="200" stroke-dasharray="2 9"></circle>
+            <circle cx="450" cy="290" r="160"></circle>
+          </g>
+          <g data-eco-line="1" stroke="#B58A3A" stroke-width="1" stroke-linecap="round" fill="none">
+            <line x1="450" y1="198" x2="450" y2="130"></line>
+          </g>
+          <g data-eco-line="1" stroke="#B58A3A" stroke-width="1" stroke-linecap="round" fill="none">
+            <line x1="521.9" y1="232.6" x2="575.1" y2="190.2"></line>
+          </g>
+          <g data-eco-line="1" stroke="#B58A3A" stroke-width="1" stroke-linecap="round" fill="none">
+            <line x1="539.7" y1="310.5" x2="606" y2="325.6"></line>
+          </g>
+          <g data-eco-line="1" stroke="#B58A3A" stroke-width="1" stroke-linecap="round" fill="none">
+            <line x1="489.9" y1="371.7" x2="519.4" y2="434.2"></line>
+          </g>
+          <g data-eco-line="1" stroke="#B58A3A" stroke-width="1" stroke-linecap="round" fill="none">
+            <line x1="410.1" y1="371.7" x2="380.6" y2="434.2"></line>
+          </g>
+          <g data-eco-line="1" stroke="#B58A3A" stroke-width="1" stroke-linecap="round" fill="none">
+            <line x1="360.3" y1="310.5" x2="294" y2="325.6"></line>
+          </g>
+          <g data-eco-line="1" stroke="#B58A3A" stroke-width="1" stroke-linecap="round" fill="none">
+            <line x1="378.1" y1="232.6" x2="324.9" y2="190.2"></line>
+          </g>
+          <circle cx="450" cy="290" r="92" fill="none" stroke="#C79A55" stroke-width="1"></circle>
+          <text x="450" y="282" text-anchor="middle" fill="#FAF9F5" style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 23px; letter-spacing: 0.06em;">INSIGHT</text>
+          <text x="450" y="312" text-anchor="middle" fill="#C79A55" style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 23px; letter-spacing: 0.06em;">ADVORA</text>
+          <g data-eco-node="1"><circle cx="450" cy="90" r="5" fill="#C79A55"></circle><text x="450" y="64" text-anchor="middle" fill="#FAF9F5" style="font-size: 13px; font-weight: 600; letter-spacing: 0.18em;">STRATEGY</text></g>
+          <g data-eco-node="1"><circle cx="606.4" cy="165.3" r="5" fill="#C79A55"></circle><text x="626" y="170" text-anchor="start" fill="#FAF9F5" style="font-size: 13px; font-weight: 600; letter-spacing: 0.18em;">OPERATIONS</text></g>
+          <g data-eco-node="1"><circle cx="645" cy="334.5" r="5" fill="#C79A55"></circle><text x="665" y="339" text-anchor="start" fill="#FAF9F5" style="font-size: 13px; font-weight: 600; letter-spacing: 0.18em;">TRANSACTIONS</text></g>
+          <g data-eco-node="1"><circle cx="536.8" cy="470.2" r="5" fill="#C79A55"></circle><text x="537" y="500" text-anchor="middle" fill="#FAF9F5" style="font-size: 13px; font-weight: 600; letter-spacing: 0.18em;">EHS</text></g>
+          <g data-eco-node="1"><circle cx="363.2" cy="470.2" r="5" fill="#C79A55"></circle><text x="363" y="500" text-anchor="middle" fill="#FAF9F5" style="font-size: 13px; font-weight: 600; letter-spacing: 0.18em;">ESG</text></g>
+          <g data-eco-node="1"><circle cx="255" cy="334.5" r="5" fill="#C79A55"></circle><text x="235" y="339" text-anchor="end" fill="#FAF9F5" style="font-size: 13px; font-weight: 600; letter-spacing: 0.18em;">SUSTAINABILITY</text></g>
+          <g data-eco-node="1"><circle cx="293.6" cy="165.3" r="5" fill="#C79A55"></circle><text x="274" y="170" text-anchor="end" fill="#FAF9F5" style="font-size: 13px; font-weight: 600; letter-spacing: 0.18em;">TRANSFORMATION</text></g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="exp-title" style="background: #FAF9F5;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: clamp(64px, 8vw, 118px) clamp(20px, 4vw, 56px);">
+      <div data-reveal="1" style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: clamp(36px, 5vw, 60px);">
+        <div>
+          <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #8C6A2C;">Our Areas of Expertise</span>
+          <h2 id="exp-title" style="margin: 20px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(32px, 3.7vw, 54px); line-height: 1.1; color: #173B2F;">Built Around Business Priorities</h2>
+        </div>
+        <a href="Services.dc.html" style="display: inline-flex; align-items: center; gap: 12px; font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #173B2F; border-bottom: 1px solid rgba(181,138,58,0.5); padding-bottom: 8px;" style-hover="color: #8C6A2C;">All Services<span style="width: 20px; height: 1px; background: currentColor;"></span></a>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1px; background: rgba(23,59,47,0.12);">
+        <sc-for list="{{ services }}" as="s" hint-placeholder-count="6">
+          <a data-reveal="1" href="{{ s.href }}" style="display: flex; flex-direction: column; background: #FAF9F5; padding: clamp(28px, 3vw, 42px); min-height: 262px; transition: transform 320ms cubic-bezier(.2,.7,.2,1), box-shadow 320ms ease, background 320ms ease;" style-hover="transform: translateY(-6px); box-shadow: 0 26px 50px -30px rgba(23,59,47,0.45); background: #FFFFFF;">
+            <div style="display: flex; align-items: baseline; gap: 14px;">
+              <span style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 32px; line-height: 1; color: #C79A55;">{{ s.num }}</span>
+              <span style="width: 22px; height: 1px; background: rgba(181,138,58,0.7); display: block;"></span>
+            </div>
+            <h3 style="margin: 24px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 26px; line-height: 1.2; color: #173B2F;">{{ s.title }}</h3>
+            <p style="margin: 14px 0 24px; font-size: 14.5px; font-weight: 300; line-height: 1.75; color: #4B574F;">{{ s.body }}</p>
+            <span style="margin-top: auto; display: inline-flex; align-items: center; gap: 10px; font-size: 11.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #8C6A2C;">Explore<span style="width: 16px; height: 1px; background: currentColor;"></span></span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="approach" aria-labelledby="approach-title" style="background: #F3F1EA; border-top: 1px solid rgba(23,59,47,0.08);">
+    <div style="max-width: 1360px; margin: 0 auto; padding: clamp(64px, 8vw, 118px) clamp(20px, 4vw, 56px);">
+      <div data-reveal="1" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(24px, 5vw, 80px); align-items: end; margin-bottom: clamp(40px, 5vw, 68px);">
+        <div style="min-width: 0;">
+          <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #8C6A2C;">How We Work</span>
+          <h2 id="approach-title" style="margin: 20px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(32px, 3.7vw, 54px); line-height: 1.1; color: #173B2F;">From Insight to Impact</h2>
+        </div>
+        <p style="margin: 0; max-width: 50ch; font-size: clamp(15px, 1.1vw, 16.5px); font-weight: 300; line-height: 1.85; color: #4B574F;">Five stages, each with a clear output &mdash; so management always knows what has been decided and what comes next.</p>
+      </div>
+      <div id="ia-timeline" style="position: relative;">
+        <div style="position: relative; height: 1px; background: rgba(23,59,47,0.14); margin-bottom: 30px;">
+          <span data-progress="1" style="position: absolute; left: 0; top: 0; height: 1px; width: 0; background: #B58A3A; display: block; transition: width 2400ms cubic-bezier(.3,.7,.2,1);"></span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(178px, 1fr));">
+          <sc-for list="{{ steps }}" as="s" hint-placeholder-count="5">
+            <div data-stage="1" style="min-width: 0; padding: 0 clamp(14px, 1.6vw, 28px) 0 0; position: relative;">
+              <span data-stage-dot="1" style="position: absolute; top: -34px; left: 0; width: 9px; height: 9px; border-radius: 50%; background: #CFD6CF; display: block; transition: background 400ms ease, transform 400ms ease;"></span>
+              <div data-stage-num="1" style="font-size: 11.5px; font-weight: 600; letter-spacing: 0.2em; color: #5C685F; transition: color 400ms ease;">{{ s.num }}</div>
+              <h3 style="margin: 12px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(25px, 2.3vw, 33px); line-height: 1.15; letter-spacing: 0.02em; text-transform: uppercase; color: #173B2F;">{{ s.title }}</h3>
+              <p style="margin: 12px 0 40px; font-size: 13.5px; font-weight: 300; line-height: 1.7; color: #5C685F;">{{ s.body }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="work-title" style="background: #FAF9F5;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: clamp(64px, 8vw, 118px) clamp(20px, 4vw, 56px); display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: clamp(36px, 6vw, 88px); align-items: start;">
+      <div data-reveal="1" style="min-width: 0;">
+        <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #8C6A2C;">Our Way of Working</span>
+        <h2 id="work-title" style="margin: 22px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(30px, 3.4vw, 50px); line-height: 1.12; color: #173B2F;">Partnership, <span style="font-style: italic;">Not Prescription.</span></h2>
+        <p style="margin: 28px 0 0; font-size: clamp(15.5px, 1.15vw, 17px); font-weight: 300; line-height: 1.86; color: #4B574F;">We believe effective advisory is not simply about presenting recommendations. It is about understanding the organization, engaging the right stakeholders and developing solutions that can work in practice.</p>
+        <p style="margin: 22px 0 0; font-size: clamp(15.5px, 1.15vw, 17px); font-weight: 300; line-height: 1.86; color: #4B574F;">We seek to work collaboratively with management and teams to move from identifying challenges to implementing meaningful improvements.</p>
+      </div>
+      <div style="min-width: 0; display: flex; flex-direction: column;">
+        <sc-for list="{{ principles }}" as="p" hint-placeholder-count="3">
+          <div data-reveal="1" style="display: grid; grid-template-columns: auto 1fr; gap: clamp(16px, 2vw, 28px); align-items: baseline; padding: 28px 0; border-top: 1px solid rgba(23,59,47,0.12); transition: border-color 300ms ease;" style-hover="border-color: #B58A3A;">
+            <span style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(26px, 2.4vw, 34px); letter-spacing: 0.06em; text-transform: uppercase; color: #173B2F;">{{ p.title }}</span>
+            <span style="font-size: 14.5px; font-weight: 300; line-height: 1.78; color: #4B574F;">{{ p.body }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="team" aria-labelledby="team-title" style="background: #F3F1EA; border-top: 1px solid rgba(23,59,47,0.08);">
+    <div style="max-width: 1360px; margin: 0 auto; padding: clamp(64px, 8vw, 118px) clamp(20px, 4vw, 56px);">
+      <div data-reveal="1" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(24px, 5vw, 80px); align-items: end; margin-bottom: clamp(38px, 5vw, 58px);">
+        <div style="min-width: 0;">
+          <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #8C6A2C;">Our Team</span>
+          <h2 id="team-title" style="margin: 20px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(32px, 3.7vw, 54px); line-height: 1.1; color: #173B2F;">People Behind the Insight</h2>
+        </div>
+        <p style="margin: 0; max-width: 50ch; font-size: 15px; font-weight: 300; line-height: 1.8; color: #4B574F;">Insight Advora brings together professionals and specialists with perspectives across strategy, operations, sustainability, EHS and corporate advisory.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(258px, 1fr)); gap: clamp(20px, 2.4vw, 32px);">
+        <div data-reveal="1" style="border: 1px solid rgba(23,59,47,0.12); background: #FAF9F5; transition: border-color 300ms ease, transform 320ms cubic-bezier(.2,.7,.2,1), box-shadow 320ms ease;" style-hover="border-color: #B58A3A; transform: translateY(-5px); box-shadow: 0 24px 46px -30px rgba(23,59,47,0.4);">
+          <div style="position: relative; width: 100%; height: 300px; background: #EDEAE1;"><image-slot id="ia-about-team-1" shape="rect" fit="cover" placeholder="Drop team photograph"></image-slot></div>
+          <div style="padding: 26px clamp(18px, 2vw, 28px) 28px;">
+            <div style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 25px; color: #173B2F; line-height: 1.2;">[ Team Member Name ]</div>
+            <div style="margin-top: 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #8C6A2C;">[ Designation ]</div>
+            <p style="margin: 16px 0 0; font-size: 13.5px; font-weight: 300; line-height: 1.7; color: #5C685F;">[ Area of expertise ]</p>
+            <a href="#" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 20px; font-size: 11.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #173B2F;" style-hover="color: #8C6A2C;">LinkedIn<span style="width: 14px; height: 1px; background: #B58A3A;"></span></a>
+          </div>
+        </div>
+        <div data-reveal="1" style="border: 1px solid rgba(23,59,47,0.12); background: #FAF9F5; transition: border-color 300ms ease, transform 320ms cubic-bezier(.2,.7,.2,1), box-shadow 320ms ease;" style-hover="border-color: #B58A3A; transform: translateY(-5px); box-shadow: 0 24px 46px -30px rgba(23,59,47,0.4);">
+          <div style="position: relative; width: 100%; height: 300px; background: #EDEAE1;"><image-slot id="ia-about-team-2" shape="rect" fit="cover" placeholder="Drop team photograph"></image-slot></div>
+          <div style="padding: 26px clamp(18px, 2vw, 28px) 28px;">
+            <div style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 25px; color: #173B2F; line-height: 1.2;">[ Team Member Name ]</div>
+            <div style="margin-top: 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #8C6A2C;">[ Designation ]</div>
+            <p style="margin: 16px 0 0; font-size: 13.5px; font-weight: 300; line-height: 1.7; color: #5C685F;">[ Area of expertise ]</p>
+            <a href="#" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 20px; font-size: 11.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #173B2F;" style-hover="color: #8C6A2C;">LinkedIn<span style="width: 14px; height: 1px; background: #B58A3A;"></span></a>
+          </div>
+        </div>
+        <div data-reveal="1" style="border: 1px solid rgba(23,59,47,0.12); background: #FAF9F5; transition: border-color 300ms ease, transform 320ms cubic-bezier(.2,.7,.2,1), box-shadow 320ms ease;" style-hover="border-color: #B58A3A; transform: translateY(-5px); box-shadow: 0 24px 46px -30px rgba(23,59,47,0.4);">
+          <div style="position: relative; width: 100%; height: 300px; background: #EDEAE1;"><image-slot id="ia-about-team-3" shape="rect" fit="cover" placeholder="Drop team photograph"></image-slot></div>
+          <div style="padding: 26px clamp(18px, 2vw, 28px) 28px;">
+            <div style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 25px; color: #173B2F; line-height: 1.2;">[ Team Member Name ]</div>
+            <div style="margin-top: 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #8C6A2C;">[ Designation ]</div>
+            <p style="margin: 16px 0 0; font-size: 13.5px; font-weight: 300; line-height: 1.7; color: #5C685F;">[ Area of expertise ]</p>
+            <a href="#" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 20px; font-size: 11.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #173B2F;" style-hover="color: #8C6A2C;">LinkedIn<span style="width: 14px; height: 1px; background: #B58A3A;"></span></a>
+          </div>
+        </div>
+      </div>
+      <a href="Team.dc.html" style="display: inline-flex; align-items: center; gap: 12px; margin-top: clamp(30px, 3vw, 44px); font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #173B2F; border-bottom: 1px solid rgba(181,138,58,0.5); padding-bottom: 8px;" style-hover="color: #8C6A2C;">Meet Our Team<span style="width: 20px; height: 1px; background: currentColor;"></span></a>
+    </div>
+  </section>
+
+  <section aria-labelledby="kn-title" style="background: #FAF9F5;">
+    <div style="max-width: 1360px; margin: 0 auto; padding: clamp(64px, 8vw, 118px) clamp(20px, 4vw, 56px);">
+      <div data-reveal="1" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(24px, 5vw, 80px); align-items: end; margin-bottom: clamp(38px, 5vw, 58px);">
+        <div style="min-width: 0;">
+          <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #8C6A2C;">Knowledge Hub</span>
+          <h2 id="kn-title" style="margin: 20px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(32px, 3.7vw, 54px); line-height: 1.1; color: #173B2F;">Knowledge That Enables Better Decisions</h2>
+        </div>
+        <p style="margin: 0; max-width: 50ch; font-size: 15px; font-weight: 300; line-height: 1.8; color: #4B574F;">We believe better decisions begin with better understanding. Our Knowledge Hub brings together perspectives, articles, research and practical resources across strategy, operations, EHS, ESG and sustainability.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: clamp(20px, 2.4vw, 32px);">
+        <sc-for list="{{ insights }}" as="a" hint-placeholder-count="3">
+          <a data-reveal="1" href="Insights.dc.html" style="display: flex; flex-direction: column; background: #FAF9F5; border: 1px solid rgba(23,59,47,0.10); padding: clamp(26px, 2.6vw, 38px); min-height: 250px; transition: transform 320ms cubic-bezier(.2,.7,.2,1), box-shadow 320ms ease, border-color 320ms ease;" style-hover="transform: translateY(-6px); box-shadow: 0 26px 50px -30px rgba(23,59,47,0.4); border-color: rgba(181,138,58,0.55);">
+            <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #8C6A2C;">{{ a.cat }}</span>
+            <h3 style="margin: 20px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 26px; line-height: 1.24; color: #173B2F;">{{ a.title }}</h3>
+            <p style="margin: 14px 0 26px; font-size: 14.5px; font-weight: 300; line-height: 1.75; color: #4B574F;">{{ a.body }}</p>
+            <span style="margin-top: auto; display: inline-flex; align-items: center; gap: 10px; font-size: 11.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #173B2F;">Read More<span style="width: 16px; height: 1px; background: #B58A3A;"></span></span>
+          </a>
+        </sc-for>
+      </div>
+      <a href="Insights.dc.html" style="display: inline-flex; align-items: center; gap: 12px; margin-top: clamp(30px, 3vw, 44px); font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #173B2F; border-bottom: 1px solid rgba(181,138,58,0.5); padding-bottom: 8px;" style-hover="color: #8C6A2C;">Explore Knowledge Hub<span style="width: 20px; height: 1px; background: currentColor;"></span></a>
+    </div>
+  </section>
+
+  <section aria-labelledby="close-title" style="position: relative; background: #173B2F; color: #FAF9F5; overflow: hidden;">
+    <div aria-hidden="true" style="position: absolute; inset: -160px; opacity: 0.13; background-image: repeating-linear-gradient(45deg, rgba(181,138,58,0.9) 0 1px, transparent 1px 74px), repeating-linear-gradient(-45deg, rgba(181,138,58,0.5) 0 1px, transparent 1px 116px); animation: iaDrift 28s linear infinite alternate; pointer-events: none;"></div>
+    <div data-reveal="1" style="position: relative; max-width: 1360px; margin: 0 auto; padding: clamp(64px, 8vw, 122px) clamp(20px, 4vw, 56px); display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(30px, 5vw, 80px); align-items: center;">
+      <div style="min-width: 0;">
+        <h2 id="close-title" style="margin: 0; max-width: 28ch; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(32px, 4vw, 56px); line-height: 1.1; color: #FAF9F5;">Better Decisions. Stronger Organizations. <span style="font-style: italic; color: #D4B478;">Sustainable Progress.</span></h2>
+        <div style="width: 62px; height: 1px; background: #C79A55; margin: 30px 0;"></div>
+        <p style="margin: 0; max-width: 54ch; font-size: clamp(15.5px, 1.15vw, 17px); font-weight: 300; line-height: 1.8; color: rgba(250,249,245,0.78);">Whether the challenge is operational, strategic, transactional or sustainability-focused, Insight Advora brings an integrated perspective to help organizations move forward.</p>
+      </div>
+      <div style="min-width: 0;">
+        <a href="Contact.dc.html" style="display: inline-flex; align-items: center; gap: 14px; background: #C79A55; color: #173B2F; padding: 21px 36px; font-size: 12.5px; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase; border: 1px solid #C79A55; transition: background 300ms ease, color 300ms ease, letter-spacing 300ms ease;" style-hover="background: transparent; color: #D4B478; letter-spacing: 0.16em;">Let&rsquo;s Start a Conversation<span style="width: 20px; height: 1px; background: currentColor;"></span></a>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="SiteFooter" hint-size="100%,460px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  componentDidMount() {
+    this._cleanups = [];
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.initReveal(reduce);
+    this.initLadder(reduce);
+    this.initEcosystem(reduce);
+    this.initTimeline(reduce);
+    this.initPhilLine(reduce);
+    this.initNetwork(reduce);
+  }
+  componentWillUnmount() { (this._cleanups || []).forEach(fn => fn()); }
+
+  initReveal(reduce) {
+    const els = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+    if (!els.length || !window.IntersectionObserver || reduce) return;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'none'; io.unobserve(e.target); }
+      });
+    }, { threshold: 0.06, rootMargin: '0px 0px -7% 0px' });
+    els.forEach((el, i) => {
+      const delay = (i % 3) * 80;
+      el.style.transition = 'opacity 780ms cubic-bezier(.2,.7,.2,1) ' + delay + 'ms, transform 780ms cubic-bezier(.2,.7,.2,1) ' + delay + 'ms';
+      if (el.getBoundingClientRect().top > window.innerHeight * 0.9) {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(24px)';
+      }
+      io.observe(el);
+    });
+  }
+
+  initLadder(reduce) {
+    const wrap = document.getElementById('ia-ladder');
+    if (!wrap || !window.IntersectionObserver) return;
+    const rungs = Array.prototype.slice.call(wrap.querySelectorAll('[data-rung]'));
+    const light = (st) => {
+      const dot = st.querySelector('[data-rung-dot]');
+      const label = st.querySelector('[data-rung-label]');
+      if (dot) { dot.style.background = '#B58A3A'; dot.style.transform = 'scale(1.25)'; }
+      if (label) label.style.color = '#173B2F';
+    };
+    if (reduce) { rungs.forEach(light); return; }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        rungs.forEach((st, i) => setTimeout(() => light(st), 200 + i * 300));
+        io.disconnect();
+      });
+    }, { threshold: 0.25 });
+    io.observe(wrap);
+  }
+
+  initEcosystem(reduce) {
+    const wrap = document.getElementById('ia-eco');
+    if (!wrap || !window.IntersectionObserver) return;
+    const lines = Array.prototype.slice.call(wrap.querySelectorAll('[data-eco-line] line'));
+    const nodes = Array.prototype.slice.call(wrap.querySelectorAll('[data-eco-node]'));
+    if (reduce) return;
+    lines.forEach((l) => {
+      const len = l.getTotalLength ? l.getTotalLength() : 90;
+      l.style.strokeDasharray = len;
+      l.style.strokeDashoffset = len;
+      l.style.transition = 'stroke-dashoffset 900ms cubic-bezier(.3,.7,.2,1)';
+    });
+    nodes.forEach((n) => { n.style.opacity = '0'; n.style.transition = 'opacity 700ms ease'; });
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        lines.forEach((l, i) => setTimeout(() => { l.style.strokeDashoffset = '0'; }, 160 + i * 150));
+        nodes.forEach((n, i) => setTimeout(() => { n.style.opacity = '1'; }, 400 + i * 150));
+        io.disconnect();
+      });
+    }, { threshold: 0.2 });
+    io.observe(wrap);
+  }
+
+  initTimeline(reduce) {
+    const wrap = document.getElementById('ia-timeline');
+    if (!wrap || !window.IntersectionObserver) return;
+    const bar = wrap.querySelector('[data-progress]');
+    const stages = Array.prototype.slice.call(wrap.querySelectorAll('[data-stage]'));
+    const light = (st) => {
+      const dot = st.querySelector('[data-stage-dot]');
+      const num = st.querySelector('[data-stage-num]');
+      if (dot) { dot.style.background = '#B58A3A'; dot.style.transform = 'scale(1.25)'; }
+      if (num) num.style.color = '#8C6A2C';
+    };
+    if (reduce) { if (bar) bar.style.width = '100%'; stages.forEach(light); return; }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        if (bar) bar.style.width = '100%';
+        stages.forEach((st, i) => setTimeout(() => light(st), 240 + i * 400));
+        io.disconnect();
+      });
+    }, { threshold: 0.25 });
+    io.observe(wrap);
+  }
+
+  initPhilLine(reduce) {
+    const wrap = document.getElementById('ia-phil');
+    if (!wrap || !window.IntersectionObserver) return;
+    const line = wrap.querySelector('[data-phil-line]');
+    if (!line) return;
+    if (reduce) { line.style.width = '100%'; return; }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { line.style.width = '100%'; io.disconnect(); } });
+    }, { threshold: 0.3 });
+    io.observe(wrap);
+  }
+
+  initNetwork(reduce) {
+    const cv = document.getElementById('ia-about-net');
+    if (!cv || !cv.getContext) return;
+    const ctx = cv.getContext('2d');
+    let w = 0, h = 0;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const small = window.innerWidth < 760;
+    const N = small ? 42 : 76;
+    const pts = [];
+    for (let i = 0; i < N; i++) {
+      const y = 1 - (i / (N - 1)) * 2;
+      const r = Math.sqrt(Math.max(0, 1 - y * y));
+      const theta = i * 2.39996323;
+      pts.push({ x: Math.cos(theta) * r, y: y, z: Math.sin(theta) * r, ph: Math.random() * Math.PI * 2 });
+    }
+    const edges = [];
+    for (let i = 0; i < N; i++) {
+      const d = [];
+      for (let j = 0; j < N; j++) {
+        if (i === j) continue;
+        const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y, dz = pts[i].z - pts[j].z;
+        d.push({ j: j, d: dx * dx + dy * dy + dz * dz });
+      }
+      d.sort((a, b) => a.d - b.d);
+      for (let k = 0; k < 2; k++) {
+        const j = d[k].j;
+        if (!edges.some(e => (e.a === j && e.b === i))) edges.push({ a: i, b: j, gold: Math.random() < 0.18 });
+      }
+    }
+    const travellers = [];
+    for (let i = 0; i < (small ? 4 : 8); i++) travellers.push({ e: Math.floor(Math.random() * edges.length), t: Math.random(), sp: 0.0014 + Math.random() * 0.002 });
+
+    const mouse = { x: 0, y: 0, tx: 0, ty: 0 };
+    const onMove = (ev) => {
+      const r = cv.getBoundingClientRect();
+      mouse.tx = ((ev.clientX - r.left) / Math.max(1, r.width) - 0.5) * 2;
+      mouse.ty = ((ev.clientY - r.top) / Math.max(1, r.height) - 0.5) * 2;
+    };
+    if (!small) {
+      window.addEventListener('mousemove', onMove, { passive: true });
+      this._cleanups.push(() => window.removeEventListener('mousemove', onMove));
+    }
+    const resize = () => {
+      w = cv.clientWidth || 900; h = cv.clientHeight || 600;
+      cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    };
+    resize();
+    window.addEventListener('resize', resize);
+    this._cleanups.push(() => window.removeEventListener('resize', resize));
+
+    const cxOf = () => w * (w > 900 ? 0.74 : 0.5);
+    const project = (p, yaw, pitch, scale) => {
+      const cy = Math.cos(yaw), sy = Math.sin(yaw);
+      let x = p.x * cy + p.z * sy;
+      let z = -p.x * sy + p.z * cy;
+      const cp = Math.cos(pitch), sp = Math.sin(pitch);
+      const y = p.y * cp - z * sp;
+      z = p.y * sp + z * cp;
+      const k = 3.1 / (3.1 + z);
+      const R = Math.min(w * 0.42, h * 0.46) * scale;
+      return { sx: cxOf() + x * R * k, sy: h / 2 + y * R * k, depth: z, k: k };
+    };
+
+    let yaw = 0, t0 = performance.now(), raf = 0;
+    const frame = (now) => {
+      const dt = Math.min(48, now - t0); t0 = now;
+      if (!reduce) yaw += dt * 0.00007;
+      mouse.x += (mouse.tx - mouse.x) * 0.04;
+      mouse.y += (mouse.ty - mouse.y) * 0.04;
+      const pitch = -0.26 + Math.sin(now * 0.00011) * 0.08 + mouse.y * 0.1;
+      const scale = 1 + Math.sin(now * 0.00026) * 0.02;
+      const yawT = yaw + mouse.x * 0.16;
+      ctx.clearRect(0, 0, w, h);
+      const proj = pts.map(p => project(p, yawT, pitch, scale));
+      ctx.lineWidth = 1;
+      for (let i = 0; i < edges.length; i++) {
+        const e = edges[i], a = proj[e.a], b = proj[e.b];
+        const dep = (a.depth + b.depth) / 2;
+        let alpha = (1 - (dep + 1) / 2) * 0.34 + 0.04;
+        alpha *= 0.75 + 0.25 * Math.sin(now * 0.0008 + i);
+        ctx.strokeStyle = e.gold ? 'rgba(181,138,58,' + Math.min(0.75, alpha * 1.6).toFixed(3) + ')' : 'rgba(23,59,47,' + alpha.toFixed(3) + ')';
+        ctx.beginPath(); ctx.moveTo(a.sx, a.sy); ctx.lineTo(b.sx, b.sy); ctx.stroke();
+      }
+      for (let i = 0; i < proj.length; i++) {
+        const q = proj[i], dep = 1 - (q.depth + 1) / 2;
+        const pulse = 0.6 + 0.4 * Math.sin(now * 0.001 + pts[i].ph);
+        const r = (i % 8 === 0 ? 2.4 : 1.4) * q.k * (0.85 + pulse * 0.3);
+        ctx.beginPath(); ctx.arc(q.sx, q.sy, Math.max(0.5, r), 0, Math.PI * 2);
+        ctx.fillStyle = i % 8 === 0 ? 'rgba(181,138,58,' + (0.3 + dep * 0.5).toFixed(3) + ')' : 'rgba(29,36,33,' + (0.1 + dep * 0.4).toFixed(3) + ')';
+        ctx.fill();
+      }
+      for (let i = 0; i < travellers.length; i++) {
+        const tr = travellers[i];
+        tr.t += tr.sp * (dt / 16);
+        if (tr.t > 1) { tr.t = 0; tr.e = Math.floor(Math.random() * edges.length); }
+        const e = edges[tr.e], a = proj[e.a], b = proj[e.b];
+        const x = a.sx + (b.sx - a.sx) * tr.t, y = a.sy + (b.sy - a.sy) * tr.t;
+        ctx.beginPath(); ctx.arc(x, y, 1.9, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(199,154,85,0.8)'; ctx.fill();
+      }
+      if (!reduce && !document.hidden) raf = requestAnimationFrame(frame);
+    };
+    const start = () => { if (!raf) { t0 = performance.now(); raf = requestAnimationFrame(frame); } };
+    const stop = () => { if (raf) { cancelAnimationFrame(raf); raf = 0; } };
+    const onVis = () => { if (document.hidden) stop(); else if (!reduce) start(); };
+    document.addEventListener('visibilitychange', onVis);
+    this._cleanups.push(() => { stop(); document.removeEventListener('visibilitychange', onVis); });
+    if (reduce) frame(performance.now()); else start();
+  }
+
+  renderVals() {
+    return {
+      scrollToApproach: () => {
+        const el = document.getElementById('approach');
+        if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 70, behavior: 'smooth' });
+      },
+      ladder: [
+        { num: '01', label: 'Complexity' },
+        { num: '02', label: 'Insight' },
+        { num: '03', label: 'Strategy' },
+        { num: '04', label: 'Action' },
+        { num: '05', label: 'Progress' }
+      ],
+      pillars: [
+        { num: '01', title: 'Clarity', body: 'Helping organizations understand challenges and opportunities.' },
+        { num: '02', title: 'Action', body: 'Turning strategic thinking into practical initiatives.' },
+        { num: '03', title: 'Impact', body: 'Supporting sustainable and measurable progress.' }
+      ],
+      philosophy: [
+        { num: '01', title: 'People', body: 'Strong organizations are built around capable, engaged and empowered people.' },
+        { num: '02', title: 'Process', body: 'Efficient processes create consistency, clarity and better performance.' },
+        { num: '03', title: 'Planet', body: 'Sustainable thinking should be integrated into the way organizations create value.' },
+        { num: '04', title: 'Progress', body: 'Meaningful progress comes from turning insight into sustained action.' }
+      ],
+      services: [
+        { num: '01', title: 'Operational Excellence', body: 'Process improvement, organizational efficiency and performance optimization.', href: 'Services.dc.html#operational-excellence' },
+        { num: '02', title: 'Business Growth & Transformation', body: 'Strategic expansion, growth planning and transformation initiatives.', href: 'Services.dc.html#business-growth' },
+        { num: '03', title: 'M&A & Corporate Transactions', body: 'Due diligence, restructuring, transaction support and integration.', href: 'Services.dc.html#business-growth' },
+        { num: '04', title: 'EHS Advisory', body: 'Environment, health and safety compliance, audits, training and risk management.', href: 'Services.dc.html#ehs-advisory' },
+        { num: '05', title: 'ESG & Sustainability', body: 'ESG frameworks, sustainability strategy, stakeholder engagement and corporate responsibility.', href: 'Services.dc.html#esg-sustainability' },
+        { num: '06', title: 'Strategy & Corporate Advisory', body: 'Business strategy, management consulting and strategic decision support.', href: 'Services.dc.html#strategy-advisory' }
+      ],
+      steps: [
+        { num: '01', title: 'Understand', body: 'Listen to the business, its context and objectives.' },
+        { num: '02', title: 'Diagnose', body: 'Identify challenges, opportunities and priorities.' },
+        { num: '03', title: 'Strategize', body: 'Develop practical and focused recommendations.' },
+        { num: '04', title: 'Transform', body: 'Support implementation and organizational change.' },
+        { num: '05', title: 'Sustain', body: 'Build mechanisms for continuous improvement and long-term value.' }
+      ],
+      principles: [
+        { title: 'Listen', body: 'Understand before advising.' },
+        { title: 'Collaborate', body: 'Work alongside the people who make change happen.' },
+        { title: 'Enable', body: 'Build capabilities that support sustained progress.' }
+      ],
+      insights: [
+        { cat: 'Strategy', title: 'Turning Strategic Priorities Into Action', body: 'Why strategy stalls between decision and delivery \u2014 and the mechanisms that close the gap.' },
+        { cat: 'Operational Excellence', title: 'Building a Culture of Continuous Improvement', body: 'Moving beyond one-off efficiency projects to a way of working that compounds.' },
+        { cat: 'ESG & Sustainability', title: 'From ESG Compliance to Sustainable Value', body: 'Treating ESG as an operating discipline rather than a reporting obligation.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

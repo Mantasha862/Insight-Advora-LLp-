@@ -12,7 +12,7 @@ export default async function LoginPage() {
   return (
     <main className="flex min-h-screen items-center justify-center bg-forest p-6">
       <div className="w-full max-w-[420px] border-t-2 border-gold bg-ivory p-10">
-        <Image src="/assets/logo-h.png" alt="Insight Advora LLP" width={1275} height={220} className="h-12 w-auto" priority />
+        <Image src="/assets/logo-h.png" alt="Insight Advora LLP" width={1810} height={400} className="h-12 w-auto" priority />
         <h1 className="mt-8 text-[30px]">Admin sign in</h1>
         <span aria-hidden className="mt-4 block h-px w-[62px] bg-gold" />
         {problems.length > 0 && (

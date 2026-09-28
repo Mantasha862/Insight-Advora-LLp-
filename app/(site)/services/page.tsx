@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArticleCard } from "@/components/site/Cards";
 import { ChallengeSelector } from "@/components/site/ChallengeSelector";
+import { Offerings } from "@/components/site/Offerings";
 import { CtaBand, PageHero } from "@/components/ui/Blocks";
 import { TextLink } from "@/components/ui/Button";
 import { Ecosystem } from "@/components/ui/Ecosystem";
@@ -109,6 +110,7 @@ export default async function ServicesPage() {
               </div>
             </Reveal>
           </div>
+          <Offerings items={s.offerings} className="mt-[clamp(34px,4vw,54px)]" />
         </Section>
       ))}
 
@@ -151,11 +153,9 @@ export default async function ServicesPage() {
         <SectionIntro eyebrow="Sectors" lead="Industries" accent="We Serve." id="sectors" />
         <ul className="ruled-grid mt-14 sm:grid-cols-2 lg:grid-cols-4">
           {industries.map((ind) => (
-            <li key={ind.slug}>
-              <Link href={`/industries/${ind.slug}`} className="group flex h-full items-center justify-between gap-4 bg-ivory p-7 transition-colors hover:bg-forest">
-                <span className="font-serif text-[22px] text-forest group-hover:text-gold-pale">{ind.name}</span>
-                <span className="numeral text-[22px] text-gold">{ind.number}</span>
-              </Link>
+            <li key={ind.slug} className="flex items-center justify-between gap-4 bg-ivory p-7 transition-colors hover:bg-forest [&:hover>span:first-child]:text-gold-pale">
+              <span className="font-serif text-[22px] text-forest transition-colors">{ind.name}</span>
+              <span className="numeral text-[22px] text-gold">{ind.number}</span>
             </li>
           ))}
         </ul>
@@ -179,7 +179,7 @@ export default async function ServicesPage() {
         accent="to Start?"
         text="Share the challenge in front of you. We will help identify the right combination of expertise."
         primary={{ href: "/contact", label: "Discuss Your Requirement" }}
-        secondary={{ href: "/industries", label: "Explore Industries" }}
+        secondary={{ href: "/knowledge-hub", label: "Explore Insights" }}
       />
     </>
   );

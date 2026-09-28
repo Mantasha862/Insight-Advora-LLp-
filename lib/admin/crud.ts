@@ -80,13 +80,16 @@ function parseField(f: Field, fd: FormData, errors: Record<string, string>): unk
         .slice(0, 50)
         .map((x) => x.slice(0, 300));
     case "faq":
-      return s
+    case "offerings": {
+      const pairs = s
         .split(/\r?\n\s*\r?\n/)
         .map((block) => {
-          const [q, ...a] = block.split(/\r?\n/);
-          return { q: (q ?? "").trim().slice(0, 300), a: a.join(" ").trim().slice(0, 2000) };
+          const [head, ...rest] = block.split(/\r?\n/);
+          return [(head ?? "").trim().slice(0, 300), rest.join(" ").trim().slice(0, 2000)] as const;
         })
-        .filter((x) => x.q && x.a);
+        .filter(([h, b]) => h && b);
+      return f.type === "faq" ? pairs.map(([q, a]) => ({ q, a })) : pairs.map(([title, body]) => ({ title, body }));
+    }
     case "select":
       if (s && f.options && !f.options.includes(s)) errors[f.name] = "Invalid option.";
       return s || f.options?.[0] || null;
