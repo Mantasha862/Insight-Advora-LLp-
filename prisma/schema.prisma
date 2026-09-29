@@ -385,23 +385,33 @@ model Media {
 }
 
 model SiteSettings {
-  id            Int      @id @default(1)
-  firmName      String   @default("Insight Advora LLP") @map("firm_name")
-  logo          String?
-  tagline       String   @default("Partnering for Smarter Decisions")
-  email         String?
-  phone         String?
-  address       String?
-  officeHours   String?  @map("office_hours")
-  mapEmbedUrl   String?  @map("map_embed_url")
-  linkedin      String?
-  socialLinks   Json     @default("[]") @map("social_links")
-  footerText    String?  @map("footer_text")
-  copyrightYear Int      @default(2026) @map("copyright_year")
-  gaId          String?  @map("ga_id")
-  gtmId         String?  @map("gtm_id")
-  careersActive Boolean  @default(false) @map("careers_active")
-  updatedAt     DateTime @updatedAt @map("updated_at")
+  id                 Int      @id @default(1)
+  firmName           String   @default("Insight Advora LLP") @map("firm_name")
+  logo               String?
+  tagline            String   @default("Partnering for Smarter Decisions")
+  email              String?
+  phone              String?
+  address            String?
+  officeHours        String?  @map("office_hours")
+  mapEmbedUrl        String?  @map("map_embed_url")
+  linkedin           String?
+  socialLinks        Json     @default("[]") @map("social_links")
+  footerText         String?  @map("footer_text")
+  copyrightYear      Int      @default(2026) @map("copyright_year")
+  gaId               String?  @map("ga_id")
+  gtmId              String?  @map("gtm_id")
+  careersActive      Boolean  @default(false) @map("careers_active")
+  // Admin-editable homepage content (empty = use the defaults in content/home.ts)
+  meetingVideoUrl    String?  @map("meeting_video_url")
+  meetingVideoPoster String?  @map("meeting_video_poster")
+  watermarkUrl       String?  @map("watermark_url")
+  heroPhrase         String[] @map("hero_phrase")
+  aboutParagraphs    String[] @map("about_paragraphs")
+  aboutPillars       Json     @default("[]") @map("about_pillars")
+  ctaHeading         String?  @map("cta_heading")
+  ctaBody            String?  @map("cta_body")
+  ctaButton          String?  @map("cta_button")
+  updatedAt          DateTime @updatedAt @map("updated_at")
 
   @@map("site_settings")
 }

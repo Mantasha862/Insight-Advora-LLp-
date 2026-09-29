@@ -1,15 +1,15 @@
 import Link from "next/link";
 import { AdvisoryMedia } from "@/components/site/AdvisoryMedia";
 import { HomeHero } from "@/components/site/HomeHero";
+import { PhilosophyPanels } from "@/components/site/PhilosophyPanels";
 import { JsonLd, Ticker } from "@/components/ui/Blocks";
 import { PhotoPlaceholder } from "@/components/ui/Cards";
 import { Emblem } from "@/components/ui/Emblem";
 import { LinkedInIcon } from "@/components/ui/Icons";
 import { DrawLine, Reveal } from "@/components/ui/Motion";
 import { Timeline } from "@/components/ui/Timeline";
-import { home } from "@/content/home";
 import { approach, SITE_URL } from "@/content/site";
-import { getArticles, getFeaturedTeam, getServices, getSettings } from "@/lib/data";
+import { getArticles, getFeaturedTeam, getHome, getServices, getSettings } from "@/lib/data";
 import { pageMetadata } from "@/lib/seo";
 import { formatDate, isPlaceholder } from "@/lib/utils";
 
@@ -36,58 +36,14 @@ const cardLine = (
   />
 );
 
-const philosophy = [
-  {
-    title: "People",
-    body: "Building capable teams, stronger collaboration and organizational confidence.",
-    icon: (
-      <>
-        <circle cx="17" cy="17" r="6" />
-        <circle cx="32" cy="19" r="5" />
-        <path d="M6 40c1.5-7 6-11 11-11s9.5 4 11 11" />
-        <path d="M27 29.5c1.6-1 3.3-1.5 5-1.5 4.4 0 8 3.4 9.3 10" />
-      </>
-    ),
-  },
-  {
-    title: "Process",
-    body: "Creating efficient systems, clarity and consistency.",
-    icon: (
-      <>
-        <rect x="5" y="18" width="10" height="10" />
-        <rect x="19" y="8" width="10" height="10" />
-        <rect x="33" y="28" width="10" height="10" />
-        <path d="M15 23h4v-5M29 13h4v15" />
-      </>
-    ),
-  },
-  {
-    title: "Planet",
-    body: "Integrating environmental responsibility and sustainability into business thinking.",
-    icon: (
-      <>
-        <circle cx="24" cy="24" r="18" />
-        <path d="M24 36c-7-3.5-9-10-6-17 6 1 9.5 5 9 11" />
-        <path d="M24 36c1-6 4.5-10 11-11-0.5 6-4.5 10-11 11z" />
-        <path d="M24 36V22" />
-      </>
-    ),
-  },
-  {
-    title: "Progress",
-    body: "Turning insight into meaningful and sustainable advancement.",
-    icon: (
-      <>
-        <path d="M5 40h38" />
-        <path d="M8 34l10-9 7 5 15-16" />
-        <path d="M32 14h8v8" />
-      </>
-    ),
-  },
-];
-
 export default async function HomePage() {
-  const [services, team, articles, settings] = await Promise.all([getServices(), getFeaturedTeam(3), getArticles(), getSettings()]);
+  const [services, team, articles, settings, home] = await Promise.all([
+    getServices(),
+    getFeaturedTeam(3),
+    getArticles(),
+    getSettings(),
+    getHome(),
+  ]);
   const latest = articles.slice(0, 3);
 
   const org = {
@@ -105,7 +61,7 @@ export default async function HomePage() {
   return (
     <>
       <JsonLd data={org} />
-      <HomeHero phrase={home.heroPhrase} />
+      <HomeHero phrase={home.heroPhrase} watermark={home.watermark} />
 
       {/* 02 About */}
       <section id="about" aria-labelledby="about-title" className="relative isolate overflow-hidden bg-ivory">
@@ -166,8 +122,9 @@ export default async function HomePage() {
 
       {/* 03 Advisory in session */}
       <section id="advisory" aria-labelledby="adv-title" className="overflow-hidden bg-forest-deep text-ivory">
-        <div className="container-hero section-y flex flex-wrap items-center gap-[clamp(36px,5vw,80px)]">
-          <Reveal className="min-w-0 max-w-[520px] flex-[1_1_320px]">
+        {/* Mobile: heading, text, video, button. Desktop: text + button left, video right. */}
+        <div className="container-hero section-y grid items-center gap-x-[clamp(36px,5vw,80px)] gap-y-9 lg:grid-cols-[minmax(0,480px)_minmax(0,1fr)]">
+          <Reveal className="min-w-0 lg:col-start-1 lg:row-start-1 lg:self-end">
             <p className="eyebrow eyebrow-dark">Advisory in Session</p>
             <h2 id="adv-title" className="mt-[22px] text-[clamp(34px,4vw,58px)] leading-[1.08] text-ivory">
               Where Insight <em className="font-normal italic text-gold-pale">Meets Action.</em>
@@ -176,14 +133,18 @@ export default async function HomePage() {
             <p className="mt-7 max-w-[46ch] text-[clamp(15.5px,1.15vw,17px)] font-light leading-[1.86] text-ivory/80">
               Better decisions are shaped through collaboration, informed perspectives and a clear understanding of the challenge.
             </p>
+          </Reveal>
+          <div className="min-w-0 lg:col-start-2 lg:row-span-2 lg:row-start-1">
+            <AdvisoryMedia media={home.meetingVideo} />
+          </div>
+          <div className="min-w-0 lg:col-start-1 lg:row-start-2 lg:self-start">
             <Link
               href="/contact"
-              className="group mt-9 inline-flex items-center gap-3 border border-gold-light bg-gold-light px-[30px] py-[17px] text-[12.5px] font-bold uppercase tracking-[0.1em] text-forest-deep transition-colors duration-300 hover:bg-transparent hover:text-gold-pale"
+              className="group inline-flex items-center gap-3 border border-gold-light bg-gold-light px-[30px] py-[17px] text-[12.5px] font-bold uppercase tracking-[0.1em] text-forest-deep transition-colors duration-300 hover:bg-transparent hover:text-gold-pale"
             >
               Start a Conversation {lineArrow}
             </Link>
-          </Reveal>
-          <AdvisoryMedia media={home.meetingVideo} />
+          </div>
         </div>
       </section>
 
@@ -244,39 +205,7 @@ export default async function HomePage() {
               processes, respect the planet they operate in — and turn all three into lasting progress.
             </p>
           </Reveal>
-          <div className="relative h-px bg-ivory/14">
-            <DrawLine className="absolute inset-0 h-px bg-gradient-to-r from-sage to-gold-light" duration={2} />
-          </div>
-          <ul className="grid gap-px bg-ivory/8 sm:grid-cols-2 lg:grid-cols-4">
-            {philosophy.map((p, i) => (
-              <li
-                key={p.title}
-                tabIndex={0}
-                className="group relative flex min-h-[330px] min-w-0 flex-col bg-forest-deep px-[clamp(24px,2.6vw,36px)] pb-[clamp(34px,3vw,46px)] pt-[clamp(30px,3vw,44px)] outline-none transition-colors duration-500 hover:bg-forest focus-visible:bg-forest"
-              >
-                <span
-                  aria-hidden
-                  className="absolute -top-[5px] left-[clamp(24px,2.6vw,36px)] block h-[9px] w-[9px] rounded-full bg-sage-dot transition-all duration-500 group-hover:bg-gold-light group-hover:shadow-[0_0_0_5px_rgba(199,154,85,0.18)] group-focus-visible:bg-gold-light"
-                />
-                <svg
-                  viewBox="0 0 48 48"
-                  width="46"
-                  height="46"
-                  fill="none"
-                  strokeWidth="1.3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden
-                  className="stroke-sage transition-colors duration-500 group-hover:stroke-gold-light group-focus-visible:stroke-gold-light"
-                >
-                  {p.icon}
-                </svg>
-                <span className="mt-[26px] text-[11px] font-semibold tracking-[0.2em] text-sage">{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="mt-2.5 text-[clamp(30px,2.8vw,40px)] uppercase tracking-[0.06em] text-ivory">{p.title}</h3>
-                <p className="mt-4 text-[14.5px] font-light leading-[1.78] text-ivory/74">{p.body}</p>
-              </li>
-            ))}
-          </ul>
+          <PhilosophyPanels />
         </div>
       </section>
 

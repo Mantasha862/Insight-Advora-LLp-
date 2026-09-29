@@ -22,8 +22,8 @@ const nextConfig: NextConfig = {
   // Industry pages were retired in the design update; send visitors to Services.
   async redirects() {
     return [
-      { source: "/industries", destination: "/services", permanent: false },
-      { source: "/industries/:slug*", destination: "/services", permanent: false },
+      { source: "/industries", destination: "/services", permanent: true },
+      { source: "/industries/:slug*", destination: "/services", permanent: true },
     ];
   },
   async headers() {

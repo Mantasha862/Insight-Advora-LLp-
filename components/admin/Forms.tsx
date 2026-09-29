@@ -24,9 +24,13 @@ export function SettingsForm({ values }: { values: SettingsValues }) {
   const [state, action, pending] = useAdminAction(saveSettings);
   const fe = state.fieldErrors ?? {};
   const v = (k: string) => (values[k] == null ? "" : String(values[k]));
-  const text = (k: string, label: string, help?: string, area = false) => (
+  const text = (k: string, label: string, help?: string, area: boolean | number = false) => (
     <F label={label} name={k} error={fe[k]} help={help}>
-      {area ? <textarea id={k} name={k} defaultValue={v(k)} rows={3} className={input} /> : <input id={k} name={k} defaultValue={v(k)} className={input} />}
+      {area ? (
+        <textarea id={k} name={k} defaultValue={v(k)} rows={area === true ? 3 : area} className={input} />
+      ) : (
+        <input id={k} name={k} defaultValue={v(k)} className={input} />
+      )}
     </F>
   );
   return (
@@ -48,6 +52,19 @@ export function SettingsForm({ values }: { values: SettingsValues }) {
         {text("officeHours", "Office hours")}
         {text("linkedin", "LinkedIn URL")}
         <div className="sm:col-span-2">{text("mapEmbedUrl", "Google Maps embed URL", "Google Maps → Share → Embed a map → copy the src URL.")}</div>
+      </fieldset>
+      <fieldset className="grid gap-5 sm:grid-cols-2">
+        <legend className="mb-4 font-serif text-[22px] text-forest">Homepage</legend>
+        <p className="text-[13px] text-body-2 sm:col-span-2">Leave a field empty to use the built-in default copy.</p>
+        <div className="sm:col-span-2">{text("heroPhrase", "Hero focus words", "One per line (e.g. Strategy, Operations, EHS…).", 5)}</div>
+        <div className="sm:col-span-2">{text("aboutParagraphs", "About paragraphs", "One paragraph per line.", 5)}</div>
+        <div className="sm:col-span-2">{text("aboutPillars", "About pillars", "One per line: Title | description", 5)}</div>
+        {text("ctaHeading", "Closing CTA heading")}
+        {text("ctaButton", "Closing CTA button")}
+        <div className="sm:col-span-2">{text("ctaBody", "Closing CTA text", undefined, true)}</div>
+        {text("meetingVideoUrl", "Advisory video (MP4)", "Licensed footage only. /videos/… or https://… — 16:9, muted loop, <5 MB.")}
+        {text("meetingVideoPoster", "Advisory video poster", "Still image shown before playback and for reduced motion.")}
+        {text("watermarkUrl", "Hero monogram image", "Transparent PNG drawn inside the hero globe. Default /assets/monogram-mark.png")}
       </fieldset>
       <fieldset className="grid gap-5 sm:grid-cols-2">
         <legend className="mb-4 font-serif text-[22px] text-forest">Analytics & features</legend>

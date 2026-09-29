@@ -9,7 +9,16 @@ export default async function SettingsPage() {
   await requireUser("admin");
   const s = await prisma.siteSettings.findUnique({ where: { id: 1 } });
   const values = s
-    ? { ...s, socialLinks: null, updatedAt: null }
+    ? {
+        ...s,
+        socialLinks: null,
+        updatedAt: null,
+        heroPhrase: s.heroPhrase.join("\n"),
+        aboutParagraphs: s.aboutParagraphs.join("\n"),
+        aboutPillars: (Array.isArray(s.aboutPillars) ? (s.aboutPillars as { title?: string; body?: string }[]) : [])
+          .map((p) => `${p.title ?? ""} | ${p.body ?? ""}`)
+          .join("\n"),
+      }
     : { firmName: "Insight Advora LLP", tagline: "Partnering for Smarter Decisions", copyrightYear: 2026, careersActive: false };
   return (
     <>

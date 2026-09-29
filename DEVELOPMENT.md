@@ -95,6 +95,22 @@ Changes adopted from the September 2026 design update:
 - New Home page: hero, About + integrated philosophy, "Advisory in Session", expertise, philosophy, approach, team, Knowledge Hub, ticker, CTA.
 - Advisory-meeting video: add licensed footage to `public/videos/` and set the paths in `content/home.ts`. The placeholder frame supplied with the prototype was a third-party screenshot and is intentionally not published.
 
+## Homepage content & media
+
+- **Admin → Website settings → Homepage** edits the hero focus words, About paragraphs and pillars,
+  closing CTA, advisory video/poster and hero monogram (migration `3_homepage_settings`). Empty
+  fields fall back to `content/home.ts`.
+- Contact details (registered office, phone, email, map) live in the same settings row; the seed
+  fills them only where empty.
+- **Advisory video:** use licensed footage only. Put it at `public/videos/advisory-meeting.mp4`
+  (+ `advisory-meeting-poster.jpg`), where it is picked up automatically, or set URLs in admin.
+  Stock footage with a visible watermark must not be cropped or scaled to hide it — buy the
+  licence and use the clean file.
+- `/industries` and `/industries/*` permanently redirect to `/services`; the Industry model and
+  its admin screens remain.
+- Reduced motion: `MotionProvider` (site layout) sets `reducedMotion="user"`. Don't branch on
+  `useReducedMotion()` to drop `initial` — the server can't know the preference.
+
 ## Deployment
 
 Any Node 20.9+ host (Vercel, Netlify, a VM). Set the env vars, run `npm run build` and `npm start`. Point both `insightadvora.com` and `www.insightadvora.com` at the app; the proxy 301-redirects apex → www.

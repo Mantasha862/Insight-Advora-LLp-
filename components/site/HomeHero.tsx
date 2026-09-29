@@ -3,13 +3,12 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { ButtonLink } from "@/components/ui/Button";
-import { Emblem } from "@/components/ui/Emblem";
 import { NetworkCanvas } from "@/components/ui/NetworkCanvas";
 import { cn } from "@/lib/utils";
 
 const EASE = [0.2, 0.7, 0.2, 1] as const;
 
-export function HomeHero({ phrase }: { phrase: readonly string[] }) {
+export function HomeHero({ phrase, watermark }: { phrase: readonly string[]; watermark: string }) {
   const reduce = useReducedMotion();
   const [active, setActive] = useState(0);
 
@@ -19,8 +18,12 @@ export function HomeHero({ phrase }: { phrase: readonly string[] }) {
     return () => clearInterval(id);
   }, [reduce, phrase.length]);
 
-  const rise = (delay: number) =>
-    reduce ? {} : { initial: { opacity: 0, y: 26 }, animate: { opacity: 1, y: 0 }, transition: { duration: 1, ease: EASE, delay } };
+  // Always animate (see Reveal); under reduced motion MotionProvider drops the slide, keeping the fade.
+  const rise = (delay: number) => ({
+    initial: { opacity: 0, y: 26 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 1, ease: EASE, delay },
+  });
 
   const scrollNext = () => {
     const el = document.getElementById("about");
@@ -29,11 +32,6 @@ export function HomeHero({ phrase }: { phrase: readonly string[] }) {
 
   return (
     <section id="hero" aria-labelledby="hero-title" className="relative isolate overflow-hidden border-b border-hairline bg-ivory">
-      <Emblem
-        variant="hero"
-        className="-z-10 hidden lg:block"
-        style={{ width: "min(48vw, 700px)", top: "50%", right: "5%", transform: "translateY(-50%)" }}
-      />
       <div className="grid min-h-[min(88vh,860px)] lg:grid-cols-[1.15fr_1fr]">
         <div className="relative flex min-w-0 flex-col justify-center py-[clamp(44px,6vw,92px)] pb-[clamp(96px,9vw,120px)] pl-[max(clamp(20px,4vw,56px),calc((100vw-1360px)/2+56px))] pr-[clamp(20px,4vw,64px)]">
           <div className="relative z-10">
@@ -99,7 +97,7 @@ export function HomeHero({ phrase }: { phrase: readonly string[] }) {
           transition={{ duration: 1.6, delay: 0.2 }}
         >
           <div className="absolute inset-0">
-            <NetworkCanvas variant="sphere" />
+            <NetworkCanvas variant="sphere" monogram={watermark} />
           </div>
           <div className="pointer-events-none absolute bottom-[clamp(24px,3vw,40px)] right-[clamp(20px,3vw,44px)] flex items-center gap-3">
             <span aria-hidden className="block h-[7px] w-[7px] rounded-full bg-gold shadow-[0_0_0_5px_rgba(181,138,58,0.16)]" />

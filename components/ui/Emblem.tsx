@@ -139,3 +139,6 @@ export function Emblem({
     </div>
   );
 }
+
+/** Brand alias used in the design spec: `<IAEmblem variant="hero|light|dark" />`. */
+export { Emblem as IAEmblem };

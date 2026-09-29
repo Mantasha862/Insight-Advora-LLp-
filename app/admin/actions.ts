@@ -115,7 +115,13 @@ export async function updateLead(id: string, _prev: AdminFormState, fd: FormData
 // ─── Settings & SEO ─────────────────────────────────────────────────────────
 
 const optUrl = z.union([z.literal(""), z.url().max(500)]);
-const SETTINGS_KEYS = ["firmName", "tagline", "logo", "email", "phone", "address", "officeHours", "mapEmbedUrl", "linkedin", "footerText", "copyrightYear", "gaId", "gtmId"];
+const SETTINGS_KEYS = [
+  "firmName", "tagline", "logo", "email", "phone", "address", "officeHours", "mapEmbedUrl", "linkedin", "footerText", "copyrightYear", "gaId", "gtmId",
+  "meetingVideoUrl", "meetingVideoPoster", "watermarkUrl", "heroPhrase", "aboutParagraphs", "aboutPillars", "ctaHeading", "ctaBody", "ctaButton",
+];
+/** Site-relative path (/videos/x.mp4) or an https:// URL. */
+const optMedia = z.union([z.literal(""), z.string().max(500).regex(/^(\/[\w\-./]+|https:\/\/\S+)$/, "Use a /path or an https:// URL")]);
+const lines = (v: string) => v.split(/\r?\n/).map((l) => l.trim()).filter(Boolean);
 
 export async function saveSettings(_prev: AdminFormState, fd: FormData): Promise<AdminFormState> {
   await requireUser("admin");
@@ -134,6 +140,18 @@ export async function saveSettings(_prev: AdminFormState, fd: FormData): Promise
       copyrightYear: z.coerce.number().int().min(2020).max(2100),
       gaId: z.string().regex(/^(G-[A-Z0-9]+)?$/i, "GA4 IDs look like G-XXXXXXX"),
       gtmId: z.string().regex(/^(GTM-[A-Z0-9]+)?$/i, "GTM IDs look like GTM-XXXXXX"),
+      meetingVideoUrl: optMedia,
+      meetingVideoPoster: optMedia,
+      watermarkUrl: optMedia,
+      heroPhrase: z.string().max(400),
+      aboutParagraphs: z.string().max(4000),
+      aboutPillars: z
+        .string()
+        .max(3000)
+        .refine((v) => lines(v).every((l) => l.includes("|")), "One pillar per line: Title | description"),
+      ctaHeading: z.string().max(160),
+      ctaBody: z.string().max(400),
+      ctaButton: z.string().max(60),
     })
     .safeParse(Object.fromEntries(SETTINGS_KEYS.map((k) => [k, s(fd, k)])));
   if (!parsed.success) {
@@ -158,6 +176,20 @@ export async function saveSettings(_prev: AdminFormState, fd: FormData): Promise
     gaId: nul(d.gaId),
     gtmId: nul(d.gtmId),
     careersActive: fd.get("careersActive") === "on",
+    meetingVideoUrl: nul(d.meetingVideoUrl),
+    meetingVideoPoster: nul(d.meetingVideoPoster),
+    watermarkUrl: nul(d.watermarkUrl),
+    heroPhrase: lines(d.heroPhrase).slice(0, 8),
+    aboutParagraphs: lines(d.aboutParagraphs).slice(0, 6),
+    aboutPillars: lines(d.aboutPillars)
+      .slice(0, 6)
+      .map((l) => {
+        const [title, ...rest] = l.split("|");
+        return { title: title.trim(), body: rest.join("|").trim() };
+      }),
+    ctaHeading: nul(d.ctaHeading),
+    ctaBody: nul(d.ctaBody),
+    ctaButton: nul(d.ctaButton),
   };
   await prisma.siteSettings.upsert({ where: { id: 1 }, update: data, create: { id: 1, ...data } });
   refreshSite();

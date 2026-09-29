@@ -17,9 +17,9 @@ export function Reveal({
   className?: string;
   as?: "div" | "li" | "article" | "section";
 }) {
-  const reduce = useReducedMotion();
+  // No reduced-motion branch here: the server can't know the preference, and dropping `initial`
+  // after hydration would leave the SSR'd opacity:0 in place. MotionProvider handles it instead.
   const Comp = motion[as];
-  if (reduce) return <Comp className={className}>{children}</Comp>;
   return (
     <Comp
       className={className}

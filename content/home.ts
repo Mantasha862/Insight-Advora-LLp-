@@ -47,5 +47,9 @@ export const home = {
     "webm": "",
     "poster": "",
     "playOnMobile": false
-  }
+  },
+  "watermark": "/assets/monogram-mark.png"
 } as const;
+
+/** Conventional locations picked up automatically when the files exist in /public. */
+export const DEFAULT_VIDEO = { mp4: "/videos/advisory-meeting.mp4", poster: "/videos/advisory-meeting-poster.jpg" };

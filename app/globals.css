@@ -4,6 +4,11 @@
   --color-forest: #173B2F;
   --color-forest-2: #1b3327;
   --color-forest-deep: #0E2921;
+  /* Brand palette aliases (forestDark, goldLight, goldPale, ivory2) */
+  --color-forestDark: #0E2921;
+  --color-goldLight: #C79A55;
+  --color-goldPale: #D4B478;
+  --color-ivory2: #F3F1EA;
   --color-sage: #879B87;
   --color-sage-dot: #2C4A3F;
   --color-charcoal: #1E2522;

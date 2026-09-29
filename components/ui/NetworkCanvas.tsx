@@ -10,6 +10,8 @@ type Props = {
   weightRight?: boolean;
   className?: string;
   interactive?: boolean;
+  /** Sphere variant: monogram image drawn inside the globe with a gold tint. */
+  monogram?: string;
 };
 
 type V3 = { x: number; y: number; z: number };
@@ -33,7 +35,14 @@ function rng(seed: number) {
  * Pauses when hidden/off-screen; renders a single static frame under prefers-reduced-motion;
  * falls back to a static SVG if canvas is unavailable.
  */
-export function NetworkCanvas({ variant = "sphere", tone = "light", weightRight = false, className = "", interactive = true }: Props) {
+export function NetworkCanvas({
+  variant = "sphere",
+  tone = "light",
+  weightRight = false,
+  className = "",
+  interactive = true,
+  monogram,
+}: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [fallback, setFallback] = useState(false);
 
@@ -119,6 +128,30 @@ export function NetworkCanvas({ variant = "sphere", tone = "light", weightRight 
       { tilt: -0.7, yaw: 2.2, r: 1.46 },
     ];
 
+    // Monogram tinted with a gold gradient via an offscreen canvas (source-in keeps the logo's alpha).
+    let mark: HTMLCanvasElement | null = null;
+    if (variant === "sphere" && monogram) {
+      const img = new Image();
+      img.onload = () => {
+        const off = document.createElement("canvas");
+        off.width = img.naturalWidth;
+        off.height = img.naturalHeight;
+        const o = off.getContext("2d");
+        if (!o) return;
+        o.drawImage(img, 0, 0);
+        o.globalCompositeOperation = "source-in";
+        const g = o.createLinearGradient(0, 0, off.width, off.height);
+        g.addColorStop(0, "#C79A55");
+        g.addColorStop(0.5, "#B58A3A");
+        g.addColorStop(1, "#8C6A2C");
+        o.fillStyle = g;
+        o.fillRect(0, 0, off.width, off.height);
+        mark = off;
+        if (!running) drawSphere(0);
+      };
+      img.src = monogram;
+    }
+
     let mouse = { x: 0, y: 0, px: -9999, py: -9999, active: false };
     const par = { x: 0, y: 0 };
 
@@ -160,6 +193,17 @@ export function NetworkCanvas({ variant = "sphere", tone = "light", weightRight 
       const pitch = Math.sin(t * 0.00021) * 0.22 + par.y * 0.12;
       const scale = 1 + Math.sin(t * 0.0006) * 0.022;
       const P = pts.map((p) => project(p, yaw, pitch, scale));
+
+      // Gold-tinted IA monogram inside the globe, beneath the network.
+      if (mark) {
+        const size = Math.min(w, h) * 0.5 * scale;
+        const ratio = mark.height / mark.width;
+        const pulse = 0.2 + Math.sin(t * 0.0011) * 0.035;
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, pulse);
+        ctx.drawImage(mark, w / 2 + par.x * 10 - size / 2, h / 2 + par.y * 8 - (size * ratio) / 2, size, size * ratio);
+        ctx.restore();
+      }
 
       // Orbital rings
       for (const ring of rings) {
@@ -323,7 +367,7 @@ export function NetworkCanvas({ variant = "sphere", tone = "light", weightRight 
       window.removeEventListener("pointermove", onMove);
       canvas.removeEventListener("pointerleave", onLeave);
     };
-  }, [variant, tone, weightRight, interactive]);
+  }, [variant, tone, weightRight, interactive, monogram]);
 
   if (fallback) return <StaticNetwork tone={tone} className={className} />;
   return <canvas ref={canvasRef} aria-hidden className={`block h-full w-full ${className}`} />;

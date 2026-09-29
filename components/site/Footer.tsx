@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getServices, getSettings } from "@/lib/data";
 import { isPlaceholder } from "@/lib/utils";
 import { LinkedInIcon } from "@/components/ui/Icons";
+import { MAPS_LINK, telHref } from "@/content/site";
 
 const company = [
   { href: "/about", label: "About Us" },
@@ -62,9 +63,20 @@ export async function Footer() {
               <li>{isPlaceholder(settings.email) ? settings.email : <a className={linkCls} href={`mailto:${settings.email}`}>{settings.email}</a>}</li>
             )}
             {settings.phone && (
-              <li>{isPlaceholder(settings.phone) ? settings.phone : <a className={linkCls} href={`tel:${settings.phone.replace(/\s+/g, "")}`}>{settings.phone}</a>}</li>
+              <li>{isPlaceholder(settings.phone) ? settings.phone : <a className={linkCls} href={telHref(settings.phone)}>{settings.phone}</a>}</li>
             )}
-            {settings.address && <li className="whitespace-pre-line">{settings.address}</li>}
+            {settings.address && (
+              <li className="whitespace-pre-line">
+                {isPlaceholder(settings.address) ? (
+                  settings.address
+                ) : (
+                  <a className={linkCls} href={MAPS_LINK} target="_blank" rel="noopener noreferrer">
+                    <span className="block text-[11px] font-semibold uppercase tracking-[0.14em] text-gold-light/80">Registered Office</span>
+                    {settings.address}
+                  </a>
+                )}
+              </li>
+            )}
             {settings.linkedin && !isPlaceholder(settings.linkedin) && (
               <li>
                 <a href={settings.linkedin} target="_blank" rel="noopener noreferrer" className={`${linkCls} inline-flex items-center gap-2`}>

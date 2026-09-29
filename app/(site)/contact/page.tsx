@@ -6,6 +6,7 @@ import { Reveal } from "@/components/ui/Motion";
 import { Section } from "@/components/ui/Section";
 import { getServices, getSettings } from "@/lib/data";
 import { pageMetadata } from "@/lib/seo";
+import { MAPS_LINK, telHref } from "@/content/site";
 import { isPlaceholder } from "@/lib/utils";
 
 export const revalidate = 300;
@@ -71,8 +72,8 @@ export default async function ContactPage({ searchParams }: PageProps<"/contact"
             </h2>
             <dl className="mt-6 border-t border-hairline">
               {settings.email && <Detail label="Email">{link(settings.email, `mailto:${settings.email}`)}</Detail>}
-              {settings.phone && <Detail label="Phone">{link(settings.phone, `tel:${settings.phone.replace(/\s+/g, "")}`)}</Detail>}
-              {settings.address && <Detail label="Office">{settings.address}</Detail>}
+              {settings.phone && <Detail label="Phone">{link(settings.phone, telHref(settings.phone))}</Detail>}
+              {settings.address && <Detail label="Registered Office">{settings.address}</Detail>}
               {settings.officeHours && <Detail label="Hours">{settings.officeHours}</Detail>}
               {settings.linkedin && !isPlaceholder(settings.linkedin) && (
                 <Detail label="LinkedIn">
@@ -82,15 +83,32 @@ export default async function ContactPage({ searchParams }: PageProps<"/contact"
                 </Detail>
               )}
             </dl>
-            <div className="mt-8 aspect-[4/3] w-full bg-card-alt">
+            <div className="mt-8 aspect-[4/3] w-full border border-hairline-strong bg-card-alt">
               {map ? (
-                <iframe title="Office location map" src={map} className="h-full w-full border-0" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+                <iframe
+                  title="Map: Insight Advora LLP registered office"
+                  src={map}
+                  className="h-full w-full border-0"
+                  style={{ filter: "grayscale(0.35) sepia(0.12)" }}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
               ) : (
                 <div className="flex h-full items-center justify-center text-[11px] font-semibold uppercase tracking-[0.14em] text-body-2/70">
                   [ Map embed — add in Website Settings ]
                 </div>
               )}
             </div>
+            {settings.address && !isPlaceholder(settings.address) && (
+              <a
+                href={MAPS_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group mt-4 inline-flex items-center gap-3 text-[12px] font-semibold uppercase tracking-[0.1em] text-forest underline decoration-gold underline-offset-8 hover:text-gold-ink"
+              >
+                Open in Google Maps <span aria-hidden className="h-px w-[18px] bg-current transition-transform group-hover:translate-x-2" />
+              </a>
+            )}
           </Reveal>
         </div>
       </Section>

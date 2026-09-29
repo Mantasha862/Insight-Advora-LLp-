@@ -13,6 +13,7 @@ import { services } from "../content/services";
 import { industries } from "../content/industries";
 import { team, teamCategories } from "../content/team";
 import { articles, authors, categories, contentTypes, resources } from "../content/insights";
+import { defaultSettings } from "../content/site";
 import { slugify } from "../lib/utils";
 
 const prisma = new PrismaClient();
@@ -108,7 +109,21 @@ async function main() {
       create: { slug: r.slug, title: r.title, description: r.description, resourceType: r.resourceType, fileUrl: r.fileUrl, gated: r.gated, displayOrder: i, ...demo },
     });
 
-  await prisma.siteSettings.upsert({ where: { id: 1 }, update: {}, create: { id: 1 } });
+  // Contact defaults fill empty fields only; edits made in Admin → Website settings are kept.
+  const contact = {
+    email: defaultSettings.email,
+    phone: defaultSettings.phone,
+    address: defaultSettings.address,
+    officeHours: defaultSettings.officeHours,
+    mapEmbedUrl: defaultSettings.mapEmbedUrl,
+    footerText: defaultSettings.footerText,
+  };
+  const current = await prisma.siteSettings.findUnique({ where: { id: 1 } });
+  if (!current) await prisma.siteSettings.create({ data: { id: 1, ...contact, careersActive: defaultSettings.careersActive } });
+  else {
+    const missing = Object.fromEntries(Object.entries(contact).filter(([k]) => !current[k as keyof typeof contact]));
+    if (Object.keys(missing).length) await prisma.siteSettings.update({ where: { id: 1 }, data: missing });
+  }
 
   // First admin
   const email = process.env.ADMIN_BOOTSTRAP_EMAIL?.trim().toLowerCase();

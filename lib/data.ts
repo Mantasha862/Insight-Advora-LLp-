@@ -24,6 +24,9 @@ import {
   resources as seedResources,
 } from "@/content/insights";
 import { defaultSettings } from "@/content/site";
+import { DEFAULT_VIDEO, home as defaultHome } from "@/content/home";
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 
 // Every public read goes through this module. When DATABASE_URL is not set the
 // site renders from the seed content in /content so it can be previewed before
@@ -44,13 +47,54 @@ export const getSettings = cache(async (): Promise<SiteSettingsItem> => {
     phone: s.phone ?? defaultSettings.phone,
     address: s.address ?? defaultSettings.address,
     officeHours: s.officeHours ?? defaultSettings.officeHours,
-    mapEmbedUrl: s.mapEmbedUrl,
+    mapEmbedUrl: s.mapEmbedUrl ?? defaultSettings.mapEmbedUrl,
     linkedin: s.linkedin,
     footerText: s.footerText ?? defaultSettings.footerText,
     copyrightYear: s.copyrightYear,
     gaId: s.gaId || process.env.NEXT_PUBLIC_GA_ID || null,
     gtmId: s.gtmId || process.env.NEXT_PUBLIC_GTM_ID || null,
     careersActive: s.careersActive,
+  };
+});
+
+export type HomeContent = {
+  heroPhrase: string[];
+  about: { paragraphs: string[]; pillars: { title: string; body: string }[] };
+  cta: { heading: string; body: string; button: string };
+  meetingVideo: { mp4: string; webm: string; poster: string; playOnMobile: boolean };
+  watermark: string;
+};
+
+/** Homepage copy and media: admin values from SiteSettings, falling back to content/home.ts. */
+export const getHome = cache(async (): Promise<HomeContent> => {
+  const inPublic = (p: string) => existsSync(join(process.cwd(), "public", p));
+  const d: HomeContent = {
+    heroPhrase: [...defaultHome.heroPhrase],
+    about: { paragraphs: [...defaultHome.about.paragraphs], pillars: defaultHome.about.pillars.map((p) => ({ ...p })) },
+    cta: { ...defaultHome.cta },
+    meetingVideo: {
+      ...defaultHome.meetingVideo,
+      mp4: defaultHome.meetingVideo.mp4 || (inPublic(DEFAULT_VIDEO.mp4) ? DEFAULT_VIDEO.mp4 : ""),
+      poster: defaultHome.meetingVideo.poster || (inPublic(DEFAULT_VIDEO.poster) ? DEFAULT_VIDEO.poster : ""),
+    },
+    watermark: defaultHome.watermark,
+  };
+  if (!hasDb) return d;
+  const s = await prisma.siteSettings.findUnique({ where: { id: 1 } });
+  if (!s) return d;
+  const pillars = (Array.isArray(s.aboutPillars) ? (s.aboutPillars as unknown as { title: string; body: string }[]) : []).filter(
+    (p) => p && p.title,
+  );
+  return {
+    heroPhrase: s.heroPhrase.length ? s.heroPhrase : d.heroPhrase,
+    about: { paragraphs: s.aboutParagraphs.length ? s.aboutParagraphs : d.about.paragraphs, pillars: pillars.length ? pillars : d.about.pillars },
+    cta: { heading: s.ctaHeading || d.cta.heading, body: s.ctaBody || d.cta.body, button: s.ctaButton || d.cta.button },
+    meetingVideo: {
+      ...d.meetingVideo,
+      mp4: s.meetingVideoUrl || d.meetingVideo.mp4,
+      poster: s.meetingVideoPoster || d.meetingVideo.poster,
+    },
+    watermark: s.watermarkUrl || d.watermark,
   };
 });
 

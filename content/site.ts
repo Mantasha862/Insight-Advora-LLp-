@@ -8,11 +8,11 @@ export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.insigh
 export const defaultSettings: SiteSettingsItem = {
   firmName: "Insight Advora LLP",
   tagline: "Partnering for Smarter Decisions",
-  email: "[ Firm email ]",
-  phone: "[ Firm phone ]",
-  address: "[ Office address ]",
+  email: "info@insightjuris.in",
+  phone: "+91 124-4462410",
+  address: "363A, JMD Empire, 3rd Floor, Block D,\nSector 62, Gurugram, Haryana 122102",
   officeHours: "Monday to Friday, 10:00 – 18:00 IST",
-  mapEmbedUrl: null,
+  mapEmbedUrl: "https://maps.google.com/maps?q=JMD%20Empire%2C%20Sector%2062%2C%20Gurugram%2C%20Haryana%20122102&z=16&output=embed",
   linkedin: null,
   footerText:
     "Strategic advisory, operational excellence and sustainability solutions for organizations navigating growth and transformation.",
@@ -22,9 +22,17 @@ export const defaultSettings: SiteSettingsItem = {
   careersActive,
 };
 
+/** "Open in Google Maps" link for the registered office. */
+export const MAPS_LINK =
+  "https://www.google.com/maps/search/?api=1&query=JMD%20Empire%2C%20Sector%2062%2C%20Gurugram%2C%20Haryana%20122102";
+
+/** tel: href from a display phone number, e.g. "+91 124-4462410" → "tel:+911244462410". */
+export const telHref = (phone: string) => `tel:${phone.replace(/[^\d+]/g, "")}`;
+
 export const nav = [
+  { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },
-  { href: "/services", label: "Our Services" },
+  { href: "/services", label: "Services" },
   { href: "/team", label: "Our Team" },
   { href: "/knowledge-hub", label: "Knowledge Hub" },
   { href: "/contact", label: "Contact" },
