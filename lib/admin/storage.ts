@@ -14,6 +14,9 @@ function config() {
   return { url, key };
 }
 
+/** `sb_secret_…` keys are not JWTs and go only in the apikey header; legacy service_role JWTs also as Bearer. */
+const authHeaders = (key: string) => ({ apikey: key, ...(key.startsWith("eyJ") ? { Authorization: `Bearer ${key}` } : {}) });
+
 export function validateUpload(file: File): string | null {
   if (!ALLOWED.has(file.type)) return "Only PNG, JPEG, WebP, GIF, SVG or PDF files are allowed.";
   if (file.size > MAX_UPLOAD_BYTES) return "Files must be 10 MB or smaller.";
@@ -24,7 +27,7 @@ export async function uploadObject(bucket: Bucket, path: string, file: File) {
   const { url, key } = config();
   const res = await fetch(`${url}/storage/v1/object/${bucket}/${encodeURI(path)}`, {
     method: "POST",
-    headers: { Authorization: `Bearer ${key}`, apikey: key, "Content-Type": file.type, "x-upsert": "false", "cache-control": "31536000" },
+    headers: { ...authHeaders(key), "Content-Type": file.type, "x-upsert": "false", "cache-control": "31536000" },
     body: Buffer.from(await file.arrayBuffer()),
   });
   if (!res.ok) throw new Error(`Upload failed (${res.status}): ${await res.text()}`);
@@ -35,7 +38,7 @@ export async function deleteObject(bucket: Bucket, path: string) {
   const { url, key } = config();
   const res = await fetch(`${url}/storage/v1/object/${bucket}`, {
     method: "DELETE",
-    headers: { Authorization: `Bearer ${key}`, apikey: key, "Content-Type": "application/json" },
+    headers: { ...authHeaders(key), "Content-Type": "application/json" },
     body: JSON.stringify({ prefixes: [path] }),
   });
   if (!res.ok) throw new Error(`Delete failed (${res.status})`);
