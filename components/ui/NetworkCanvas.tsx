@@ -10,7 +10,7 @@ type Props = {
   weightRight?: boolean;
   className?: string;
   interactive?: boolean;
-  /** Sphere variant: monogram image drawn inside the globe with a gold tint. */
+  /** Sphere variant: monogram image drawn at the centre of the globe on an ivory halo. */
   monogram?: string;
 };
 
@@ -128,25 +128,12 @@ export function NetworkCanvas({
       { tilt: -0.7, yaw: 2.2, r: 1.46 },
     ];
 
-    // Monogram tinted with a gold gradient via an offscreen canvas (source-in keeps the logo's alpha).
-    let mark: HTMLCanvasElement | null = null;
+    // Full-colour monogram drawn at the centre of the globe on a soft ivory halo.
+    let mark: HTMLImageElement | null = null;
     if (variant === "sphere" && monogram) {
       const img = new Image();
       img.onload = () => {
-        const off = document.createElement("canvas");
-        off.width = img.naturalWidth;
-        off.height = img.naturalHeight;
-        const o = off.getContext("2d");
-        if (!o) return;
-        o.drawImage(img, 0, 0);
-        o.globalCompositeOperation = "source-in";
-        const g = o.createLinearGradient(0, 0, off.width, off.height);
-        g.addColorStop(0, "#C79A55");
-        g.addColorStop(0.5, "#B58A3A");
-        g.addColorStop(1, "#8C6A2C");
-        o.fillStyle = g;
-        o.fillRect(0, 0, off.width, off.height);
-        mark = off;
+        mark = img;
         if (!running) drawSphere(0);
       };
       img.src = monogram;
@@ -194,14 +181,24 @@ export function NetworkCanvas({
       const scale = 1 + Math.sin(t * 0.0006) * 0.022;
       const P = pts.map((p) => project(p, yaw, pitch, scale));
 
-      // Gold-tinted IA monogram inside the globe, beneath the network.
+      // IA monogram at the centre of the globe, on an ivory halo, beneath the network.
       if (mark) {
-        const size = Math.min(w, h) * 0.5 * scale;
-        const ratio = mark.height / mark.width;
-        const pulse = 0.2 + Math.sin(t * 0.0011) * 0.035;
+        const R = Math.min(w, h) * 0.38 * scale;
+        const ar = mark.naturalWidth / mark.naturalHeight;
+        const mh = (1.36 * R) / Math.sqrt(1 + ar * ar);
+        const mw = mh * ar;
+        const cx = w / 2, cy = h / 2;
         ctx.save();
-        ctx.globalAlpha = Math.max(0, pulse);
-        ctx.drawImage(mark, w / 2 + par.x * 10 - size / 2, h / 2 + par.y * 8 - (size * ratio) / 2, size, size * ratio);
+        const halo = ctx.createRadialGradient(cx, cy, R * 0.1, cx, cy, R * 0.82);
+        halo.addColorStop(0, "rgba(250,249,245,0.92)");
+        halo.addColorStop(0.7, "rgba(250,249,245,0.6)");
+        halo.addColorStop(1, "rgba(250,249,245,0)");
+        ctx.fillStyle = halo;
+        ctx.beginPath();
+        ctx.arc(cx, cy, R * 0.82, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.globalAlpha = 0.9 + Math.sin(t * 0.0006) * 0.06;
+        ctx.drawImage(mark, cx - mw / 2, cy - mh / 2, mw, mh);
         ctx.restore();
       }
 

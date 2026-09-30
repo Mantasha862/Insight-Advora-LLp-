@@ -38,7 +38,7 @@ export function AdvisoryMedia({ media }: { media: Media }) {
   }, [playVideo]);
 
   return (
-    <div ref={ref} className="relative aspect-video w-full min-w-0 overflow-hidden rounded-lg bg-forest shadow-[0_50px_90px_-50px_rgba(0,0,0,0.7)]">
+    <div ref={ref} className="relative aspect-video min-h-[200px] w-full min-w-0 overflow-hidden rounded-lg border border-gold/50 bg-forest shadow-[0_50px_90px_-50px_rgba(0,0,0,0.7)]">
       <motion.div
         className="absolute inset-0"
         initial={reduce ? false : { scale: 1.05 }}
@@ -71,6 +71,7 @@ export function AdvisoryMedia({ media }: { media: Media }) {
       </motion.div>
       {/* Faint bottom shade only — no text over the footage. */}
       <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-forest-deep/45 to-transparent" />
+      <span aria-hidden className="pointer-events-none absolute inset-[14px] rounded border border-gold-light/35" />
     </div>
   );
 }

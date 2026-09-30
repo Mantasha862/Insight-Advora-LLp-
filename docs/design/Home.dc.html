@@ -52,9 +52,8 @@ a:hover { color: #8C6A2C; }
   <dc-import name="SiteNav" active="Home" hint-size="100%,92px"></dc-import>
 
   <section id="hero" data-screen-label="01 Hero" aria-labelledby="hero-title" style="position: relative; isolation: isolate; background: #FAF9F5; border-bottom: 1px solid rgba(23,59,47,0.12); overflow: hidden;">
-    <ia-emblem id="ia-mark" variant="hero" style="position: absolute; z-index: -1; width: min(48vw, 700px); top: 50%; right: 5%;"></ia-emblem>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 480px), 1fr)); min-height: min(88vh, 860px);">
-      <div style="position: relative; min-width: 0; padding: clamp(44px, 6vw, 92px) clamp(20px, 4vw, 64px) clamp(96px, 9vw, 120px) max(clamp(20px, 4vw, 56px), calc((100vw - 1360px) / 2 + 56px)); display: flex; flex-direction: column; justify-content: center;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 480px), 1fr)); align-items: end;">
+      <div style="position: relative; min-width: 0; padding: clamp(40px, 5vw, 76px) clamp(20px, 4vw, 64px) clamp(28px, 3vw, 44px) max(clamp(20px, 4vw, 56px), calc((100vw - 1360px) / 2 + 56px)); display: flex; flex-direction: column; justify-content: center;">
         <div style="position: relative; z-index: 2;">
           <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 28px; animation: iaRise 900ms cubic-bezier(.2,.7,.2,1) both;">
             <span style="width: 34px; height: 1px; background: #B58A3A; transform-origin: left; animation: iaDraw 900ms cubic-bezier(.2,.7,.2,1) 200ms both;"></span>
@@ -83,19 +82,35 @@ a:hover { color: #8C6A2C; }
             <a href="Contact.dc.html" style="display: inline-flex; align-items: center; gap: 12px; color: #173B2F; padding: 18px 32px; font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid rgba(181,138,58,0.7); transition: background 300ms ease, color 300ms ease;" style-hover="background: rgba(23,59,47,0.06); color: #8C6A2C;">Let’s Talk</a>
           </div>
         </div>
-        <button type="button" onClick="{{ scrollNext }}" aria-label="Scroll to explore" style="position: absolute; left: max(clamp(20px, 4vw, 56px), calc((100vw - 1360px) / 2 + 56px)); bottom: 0; z-index: 2; display: flex; align-items: flex-end; gap: 14px; background: transparent; border: 0; padding: 0 0 24px; cursor: pointer; font-family: 'Manrope', sans-serif;">
-          <span style="position: relative; width: 1px; height: 46px; background: rgba(23,59,47,0.16); overflow: hidden; display: block;"><span style="position: absolute; left: 0; top: 0; width: 1px; height: 100%; background: #B58A3A; animation: iaScrollLine 2600ms cubic-bezier(.6,.05,.3,.95) infinite;"></span></span>
-          <span style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: #5C685F;">Scroll to Explore</span>
-        </button>
       </div>
 
-      <div style="position: relative; min-width: 0; min-height: clamp(340px, 56vw, 660px); animation: iaFade 1600ms ease 200ms both;">
+      <div style="position: relative; min-width: 0; min-height: clamp(340px, 44vw, 600px); margin-bottom: clamp(-20px, -1vw, 0px); animation: iaFade 1600ms ease 200ms both;">
         <canvas id="ia-net" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block;"></canvas>
-        <div style="position: absolute; right: clamp(20px, 3vw, 44px); bottom: clamp(24px, 3vw, 40px); display: flex; align-items: center; gap: 12px; pointer-events: none;">
+        <div style="position: absolute; z-index: 1; right: clamp(20px, 3vw, 44px); bottom: clamp(10px, 1.2vw, 16px); display: flex; align-items: center; gap: 12px; pointer-events: none;">
           <span style="width: 7px; height: 7px; border-radius: 50%; background: #B58A3A; box-shadow: 0 0 0 5px rgba(181,138,58,0.16); display: block;"></span>
           <span style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #5C685F;">People · Process · Planet · Progress</span>
         </div>
       </div>
+    </div>
+    <div style="position: relative; z-index: 2; max-width: 1600px; margin: 0 auto; padding: clamp(8px, 1.4vw, 20px) clamp(16px, 3vw, 44px) clamp(56px, 6vw, 88px); animation: iaRise 1200ms cubic-bezier(.2,.7,.2,1) 600ms both;">
+        <div id="ia-adv" style="position: relative; width: 100%; aspect-ratio: 16 / 9; min-height: 200px; border: 1px solid rgba(181,138,58,0.5); background: #173B2F; overflow: hidden; border-radius: 8px; box-shadow: 0 50px 90px -50px rgba(0,0,0,0.7);">
+          <div data-adv-zoom="1" style="position: absolute; inset: 0; transition: transform 1600ms cubic-bezier(.2,.7,.2,1);">
+            <div id="ia-adv-video" style="position: absolute; inset: 0;"></div>
+            <sc-if value="{{ showSlot }}" hint-placeholder-val="{{ true }}">
+              <div style="position: absolute; inset: 0;"><image-slot id="ia-advisory-meeting" shape="rect" fit="cover" placeholder="Drop an advisory-meeting poster image, or add the video in home-content.js"></image-slot></div>
+            </sc-if>
+          </div>
+          <div aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none; background: {{ advOverlay }};"></div>
+          <span aria-hidden="true" style="position: absolute; inset: 14px; border: 1px solid rgba(199,154,85,0.35); border-radius: 4px; pointer-events: none;"></span>
+          <sc-if value="{{ advShowWords }}" hint-placeholder-val="{{ false }}">
+          <div style="position: absolute; left: clamp(26px, 3.4vw, 52px); bottom: clamp(26px, 3.4vw, 50px); display: flex; flex-direction: column; gap: 2px; pointer-events: none;">
+            <sc-for list="{{ advWords }}" as="w" hint-placeholder-count="4">
+              <span data-adv-word="1" style="font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(24px, 2.6vw, 38px); line-height: 1.14; letter-spacing: 0.02em; color: #FAF9F5;">{{ w }}</span>
+            </sc-for>
+            <span data-adv-rule="1" style="display: block; width: 46px; height: 1px; margin-top: 14px; background: #C79A55; transform-origin: left;"></span>
+          </div>
+          </sc-if>
+        </div>
     </div>
   </section>
 
@@ -143,40 +158,6 @@ a:hover { color: #8C6A2C; }
             <div style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #879B87;">Partnering for Smarter Decisions</div>
             <div style="margin-top: 10px; font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 22px; line-height: 1.3; color: #FAF9F5;">Responsible Growth. <span style="color: #D4B478;">Sustainable Progress.</span></div>
           </div></div>
-  </section>
-
-  <section id="advisory" data-screen-label="03 Advisory Meeting" aria-labelledby="adv-title" style="background: #0E2921; color: #FAF9F5; overflow: hidden;">
-    <div style="max-width: 1440px; margin: 0 auto; padding: clamp(64px, 8vw, 118px) clamp(20px, 4vw, 56px); display: flex; flex-wrap: wrap; align-items: center; gap: clamp(36px, 5vw, 80px);">
-      <div data-adv-text="1" style="flex: 1 1 320px; min-width: 0; max-width: 520px;">
-        <div style="display: flex; align-items: center; gap: 14px;">
-          <span style="width: 34px; height: 1px; background: #C79A55;"></span>
-          <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #D4B478;">Advisory in Session</span>
-        </div>
-        <h2 id="adv-title" style="margin: 22px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(34px, 4vw, 58px); line-height: 1.08; color: #FAF9F5;">Where Insight <span style="font-style: italic; color: #D4B478;">Meets Action.</span></h2>
-        <span data-adv-rule="1" style="display: block; width: 72px; height: 1px; margin-top: 30px; background: #C79A55; transform-origin: left;"></span>
-        <p style="margin: 28px 0 0; max-width: 46ch; font-size: clamp(15.5px, 1.15vw, 17px); font-weight: 300; line-height: 1.86; color: rgba(250,249,245,0.8);">Better decisions are shaped through collaboration, informed perspectives and a clear understanding of the challenge.</p>
-        <sc-if value="{{ advWide }}" hint-placeholder-val="{{ true }}"><a href="Contact.dc.html" style="display: inline-flex; align-items: center; gap: 12px; margin-top: 36px; background: #C79A55; color: #0E2921; padding: 17px 30px; font-size: 12.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #C79A55; transition: background 300ms ease, color 300ms ease;" style-hover="background: transparent; color: #D4B478;">Start a Conversation<span style="width: 18px; height: 1px; background: currentColor;"></span></a></sc-if>
-      </div>
-      <div id="ia-adv" style="flex: 1.7 1 480px; min-width: 0; position: relative; aspect-ratio: 16 / 9; min-height: 220px; background: #173B2F; overflow: hidden; border-radius: 8px; box-shadow: 0 50px 90px -50px rgba(0,0,0,0.7);">
-        <div data-adv-zoom="1" style="position: absolute; inset: 0; transition: transform 1600ms cubic-bezier(.2,.7,.2,1);">
-          <div id="ia-adv-video" style="position: absolute; inset: 0;"></div>
-          <sc-if value="{{ showSlot }}" hint-placeholder-val="{{ true }}">
-            <div style="position: absolute; inset: 0;"><image-slot id="ia-advisory-meeting" shape="rect" fit="cover" placeholder="Drop an advisory-meeting poster image, or add the video in home-content.js"></image-slot></div>
-          </sc-if>
-        </div>
-        <div aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none; background: {{ advOverlay }};"></div>
-        <span aria-hidden="true" style="position: absolute; inset: 14px; border: 1px solid rgba(199,154,85,0.35); border-radius: 4px; pointer-events: none;"></span>
-        <sc-if value="{{ advShowWords }}" hint-placeholder-val="{{ false }}">
-        <div style="position: absolute; left: clamp(26px, 3.4vw, 52px); bottom: clamp(26px, 3.4vw, 50px); display: flex; flex-direction: column; gap: 2px; pointer-events: none;">
-          <sc-for list="{{ advWords }}" as="w" hint-placeholder-count="4">
-            <span data-adv-word="1" style="font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(24px, 2.6vw, 38px); line-height: 1.14; letter-spacing: 0.02em; color: #FAF9F5;">{{ w }}</span>
-          </sc-for>
-          <span data-adv-rule="1" style="display: block; width: 46px; height: 1px; margin-top: 14px; background: #C79A55; transform-origin: left;"></span>
-        </div>
-        </sc-if>
-      </div>
-      <sc-if value="{{ advStack }}"><div style="flex: 1 1 100%;"><a href="Contact.dc.html" style="display: inline-flex; align-items: center; gap: 12px; margin-top: 0; background: #C79A55; color: #0E2921; padding: 17px 30px; font-size: 12.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #C79A55; transition: background 300ms ease, color 300ms ease;" style-hover="background: transparent; color: #D4B478;">Start a Conversation<span style="width: 18px; height: 1px; background: currentColor;"></span></a></div></sc-if>
-    </div>
   </section>
 
   <section id="expertise" data-screen-label="04 Services" aria-labelledby="exp-title" style="background: #F3F1EA; border-top: 1px solid rgba(23,59,47,0.08);">
@@ -630,9 +611,7 @@ class Component extends DCLogic {
     };
     if (!vid.mp4 && !vid.webm && !vid.poster) return;
     if (!window.IntersectionObserver) { mount(); return; }
-    const io = new IntersectionObserver((es) => { es.forEach((e) => { if (e.isIntersecting) { mount(); io.disconnect(); } }); }, { rootMargin: '400px 0px' });
-    io.observe(host);
-    this._cleanups.push(() => io.disconnect());
+    mount();
   }
 
   initAboutLine(reduce) {
@@ -657,7 +636,7 @@ class Component extends DCLogic {
       box.addEventListener('mouseenter', () => { zoom.style.transform = 'scale(1.035)'; });
       box.addEventListener('mouseleave', () => { zoom.style.transform = 'none'; });
     }
-    if (reduce || !window.IntersectionObserver) return;
+    return;
     const ease = 'cubic-bezier(.2,.7,.2,1)';
     box.style.opacity = '0'; box.style.transform = 'scale(0.98)';
     box.style.transition = 'opacity 1400ms ease, transform 1600ms ' + ease;
@@ -730,7 +709,7 @@ class Component extends DCLogic {
       const g = ox.createLinearGradient(0, 0, oc.width, oc.height);
       g.addColorStop(0, '#C79A55'); g.addColorStop(0.55, '#B58A3A'); g.addColorStop(1, '#8C6A2C');
       ox.fillStyle = g; ox.fillRect(0, 0, oc.width, oc.height);
-      mark.cv = oc; mark.ar = oc.width / oc.height;
+      mark.cv = oc; mark.img = markImg; mark.ar = oc.width / oc.height;
       if (reduce) frame(performance.now());
     };
     markImg.src = (window.IA_HOME && window.IA_HOME.watermark) || 'assets/monogram-alpha.png';
@@ -757,11 +736,17 @@ class Component extends DCLogic {
       }
       if (mark.cv) {
         const R = Math.min(w, h) * 0.38 * sc;
-        const mh = R * 1.08, mw = mh * mark.ar;
-        const cx = w / 2 + mouse.x * R * 0.05, cy = h / 2 + mouse.y * R * 0.05 + R * 0.02;
+        const mh = (1.36 * R) / Math.sqrt(1 + mark.ar * mark.ar), mw = mh * mark.ar;
+        const cx = w / 2, cy = h / 2;
         ctx.save();
-        ctx.globalAlpha = 0.2 + Math.sin(now * 0.0006) * 0.035;
-        ctx.drawImage(mark.cv, cx - mw / 2, cy - mh / 2, mw, mh);
+        const halo = ctx.createRadialGradient(cx, cy, R * 0.1, cx, cy, R * 0.82);
+        halo.addColorStop(0, 'rgba(250,249,245,0.92)');
+        halo.addColorStop(0.7, 'rgba(250,249,245,0.6)');
+        halo.addColorStop(1, 'rgba(250,249,245,0)');
+        ctx.fillStyle = halo;
+        ctx.beginPath(); ctx.arc(cx, cy, R * 0.82, 0, 6.283); ctx.fill();
+        ctx.globalAlpha = 0.9 + Math.sin(now * 0.0006) * 0.06;
+        ctx.drawImage(mark.img || mark.cv, cx - mw / 2, cy - mh / 2, mw, mh);
         ctx.restore();
       }
       const pr = pts.map(p => project(p, yt, pitch, sc));

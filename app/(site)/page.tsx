@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { AdvisoryMedia } from "@/components/site/AdvisoryMedia";
 import { HomeHero } from "@/components/site/HomeHero";
 import { PhilosophyPanels } from "@/components/site/PhilosophyPanels";
 import { JsonLd, Ticker } from "@/components/ui/Blocks";
@@ -62,7 +61,7 @@ export default async function HomePage() {
   return (
     <>
       <JsonLd data={org} />
-      <HomeHero phrase={home.heroPhrase} watermark={home.watermark} />
+      <HomeHero phrase={home.heroPhrase} watermark={home.watermark} media={home.meetingVideo} />
 
       {/* 02 About */}
       <section id="about" aria-labelledby="about-title" className="relative isolate overflow-hidden bg-ivory">
@@ -126,34 +125,6 @@ export default async function HomePage() {
               ))}
             </ul>
           </Reveal>
-        </div>
-      </section>
-
-      {/* 03 Advisory in session */}
-      <section id="advisory" aria-labelledby="adv-title" className="overflow-hidden bg-forest-deep text-ivory">
-        {/* Mobile: heading, text, video, button. Desktop: text + button left, video right. */}
-        <div className="container-hero section-y grid items-center gap-x-[clamp(36px,5vw,80px)] gap-y-9 lg:grid-cols-[minmax(0,480px)_minmax(0,1fr)]">
-          <Reveal className="min-w-0 lg:col-start-1 lg:row-start-1 lg:self-end">
-            <p className="eyebrow eyebrow-dark">Advisory in Session</p>
-            <h2 id="adv-title" className="mt-[22px] text-[clamp(34px,4vw,58px)] leading-[1.08] text-ivory">
-              Where Insight <em className="font-normal italic text-gold-pale">Meets Action.</em>
-            </h2>
-            <DrawLine className="mt-[30px] h-px w-[72px] bg-gold-light" duration={0.9} />
-            <p className="mt-7 max-w-[46ch] text-[clamp(15.5px,1.15vw,17px)] font-light leading-[1.86] text-ivory/80">
-              Better decisions are shaped through collaboration, informed perspectives and a clear understanding of the challenge.
-            </p>
-          </Reveal>
-          <div className="min-w-0 lg:col-start-2 lg:row-span-2 lg:row-start-1">
-            <AdvisoryMedia media={home.meetingVideo} />
-          </div>
-          <div className="min-w-0 lg:col-start-1 lg:row-start-2 lg:self-start">
-            <Link
-              href="/contact"
-              className="group inline-flex items-center gap-3 border border-gold-light bg-gold-light px-[30px] py-[17px] text-[12.5px] font-bold uppercase tracking-[0.1em] text-forest-deep transition-colors duration-300 hover:bg-transparent hover:text-gold-pale"
-            >
-              Start a Conversation {lineArrow}
-            </Link>
-          </div>
         </div>
       </section>
 

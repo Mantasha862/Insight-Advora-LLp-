@@ -2,13 +2,16 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { AdvisoryMedia } from "@/components/site/AdvisoryMedia";
 import { ButtonLink } from "@/components/ui/Button";
 import { NetworkCanvas } from "@/components/ui/NetworkCanvas";
 import { cn } from "@/lib/utils";
 
 const EASE = [0.2, 0.7, 0.2, 1] as const;
 
-export function HomeHero({ phrase, watermark }: { phrase: readonly string[]; watermark: string }) {
+type Media = { mp4: string; webm: string; poster: string; playOnMobile: boolean };
+
+export function HomeHero({ phrase, watermark, media }: { phrase: readonly string[]; watermark: string; media: Media }) {
   const reduce = useReducedMotion();
   const [active, setActive] = useState(0);
 
@@ -25,15 +28,10 @@ export function HomeHero({ phrase, watermark }: { phrase: readonly string[]; wat
     transition: { duration: 1, ease: EASE, delay },
   });
 
-  const scrollNext = () => {
-    const el = document.getElementById("about");
-    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 60, behavior: reduce ? "auto" : "smooth" });
-  };
-
   return (
     <section id="hero" aria-labelledby="hero-title" className="relative isolate overflow-hidden border-b border-hairline bg-ivory">
-      <div className="grid min-h-[min(88vh,860px)] lg:grid-cols-[1.15fr_1fr]">
-        <div className="relative flex min-w-0 flex-col justify-center py-[clamp(44px,6vw,92px)] pb-[clamp(96px,9vw,120px)] pl-[max(clamp(20px,4vw,56px),calc((100vw-1360px)/2+56px))] pr-[clamp(20px,4vw,64px)]">
+      <div className="grid items-end lg:grid-cols-[1.15fr_1fr]">
+        <div className="relative flex min-w-0 flex-col justify-center pt-[clamp(40px,5vw,76px)] pb-[clamp(28px,3vw,44px)] pl-[max(clamp(20px,4vw,56px),calc((100vw-1360px)/2+56px))] pr-[clamp(20px,4vw,64px)]">
           <div className="relative z-10">
             <motion.div className="mb-7 flex items-center gap-3.5" {...rise(0)}>
               <span aria-hidden className="h-px w-[34px] bg-gold" />
@@ -77,21 +75,10 @@ export function HomeHero({ phrase, watermark }: { phrase: readonly string[]; wat
               </ButtonLink>
             </motion.div>
           </div>
-          <button
-            type="button"
-            onClick={scrollNext}
-            aria-label="Scroll to explore"
-            className="absolute bottom-0 left-[max(clamp(20px,4vw,56px),calc((100vw-1360px)/2+56px))] z-10 flex items-end gap-3.5 pb-6"
-          >
-            <span aria-hidden className="relative block h-[46px] w-px overflow-hidden bg-hairline-strong">
-              <span className="absolute inset-0 animate-scroll-line bg-gold" />
-            </span>
-            <span className="text-[10.5px] font-semibold uppercase tracking-[0.24em] text-body-2">Scroll to Explore</span>
-          </button>
         </div>
 
         <motion.div
-          className="relative min-h-[clamp(340px,56vw,660px)] min-w-0"
+          className="relative mb-[clamp(-20px,-1vw,0px)] min-h-[clamp(340px,44vw,600px)] min-w-0"
           initial={reduce ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.6, delay: 0.2 }}
@@ -99,12 +86,18 @@ export function HomeHero({ phrase, watermark }: { phrase: readonly string[]; wat
           <div className="absolute inset-0">
             <NetworkCanvas variant="sphere" monogram={watermark} />
           </div>
-          <div className="pointer-events-none absolute bottom-[clamp(24px,3vw,40px)] right-[clamp(20px,3vw,44px)] flex items-center gap-3">
+          <div className="pointer-events-none absolute bottom-[clamp(10px,1.2vw,16px)] right-[clamp(20px,3vw,44px)] z-[1] flex items-center gap-3">
             <span aria-hidden className="block h-[7px] w-[7px] rounded-full bg-gold shadow-[0_0_0_5px_rgba(181,138,58,0.16)]" />
             <span className="text-[10.5px] font-semibold uppercase tracking-[0.22em] text-body-2">People · Process · Planet · Progress</span>
           </div>
         </motion.div>
       </div>
+      <motion.div
+        className="relative z-[2] mx-auto max-w-[1600px] px-[clamp(16px,3vw,44px)] pb-[clamp(56px,6vw,88px)] pt-[clamp(8px,1.4vw,20px)]"
+        {...rise(0.6)}
+      >
+        <AdvisoryMedia media={media} />
+      </motion.div>
     </section>
   );
 }
