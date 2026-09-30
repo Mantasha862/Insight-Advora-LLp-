@@ -43,9 +43,9 @@ export const home = {
     "button": "Start a Conversation"
   },
   "meetingVideo": {
-    "mp4": "",
+    "mp4": "/videos/advisory-meeting.mp4",
     "webm": "",
-    "poster": "",
+    "poster": "/videos/advisory-meeting-poster.jpg",
     "playOnMobile": false
   },
   "watermark": "/assets/monogram-mark.png"
