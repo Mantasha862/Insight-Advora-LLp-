@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { AdvisoryMedia } from "@/components/site/AdvisoryMedia";
 import { HomeHero } from "@/components/site/HomeHero";
@@ -88,8 +89,16 @@ export default async function HomePage() {
             </Reveal>
             <Reveal index={1} className="relative min-w-0 pb-[clamp(26px,3vw,40px)] pr-[clamp(0px,2vw,26px)]">
               <span aria-hidden className="absolute bottom-0 left-[clamp(18px,2.4vw,32px)] right-0 top-[clamp(18px,2.4vw,32px)] border border-gold/55" />
-              <PhotoPlaceholder label="Team or office photograph to be supplied" className="relative h-[clamp(360px,40vw,540px)] w-full !bg-forest [&_svg]:text-ivory/10 [&>span]:text-ivory/50" />
-              <div className="absolute bottom-0 left-0 max-w-[300px] bg-forest-deep px-[26px] py-6 shadow-[0_26px_50px_-30px_rgba(14,41,33,0.7)]">
+              <div className="group relative h-[clamp(360px,40vw,540px)] w-full overflow-hidden bg-forest">
+                <Image
+                  src="/assets/about-advisory.jpg"
+                  alt="Consultant presenting a strategy review to a leadership team"
+                  fill
+                  sizes="(min-width: 1024px) 45vw, 100vw"
+                  className="object-cover object-[42%_40%] transition-transform duration-[1200ms] ease-[cubic-bezier(.2,.7,.2,1)] group-hover:scale-[1.04] motion-reduce:transition-none"
+                />
+              </div>
+              <div className="absolute bottom-0 right-0 max-w-[300px] bg-forest-deep px-[26px] py-6 shadow-[0_26px_50px_-30px_rgba(14,41,33,0.7)]">
                 <p className="text-[10.5px] font-semibold uppercase tracking-[0.22em] text-sage">Partnering for Smarter Decisions</p>
                 <p className="mt-2.5 font-serif text-[22px] italic leading-[1.3] text-ivory">
                   Responsible Growth. <span className="text-gold-pale">Sustainable Progress.</span>

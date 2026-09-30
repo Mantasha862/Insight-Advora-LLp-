@@ -46,7 +46,7 @@ export const home = {
     "mp4": "/videos/advisory-meeting.mp4",
     "webm": "",
     "poster": "/videos/advisory-meeting-poster.jpg",
-    "playOnMobile": false
+    "playOnMobile": true
   },
   "watermark": "/assets/monogram-mark.png"
 } as const;

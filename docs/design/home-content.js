@@ -5,10 +5,10 @@
    It lazy-loads as the section approaches. Leave mp4/webm empty to show the poster / photo slot instead. */
 window.IA_HOME = {
   meetingVideo: {
-    mp4: '',            // e.g. 'videos/advisory-meeting.mp4'  (production: /public/videos/advisory-meeting.mp4)
+    mp4: 'videos/advisory-meeting.mp4',  // production: /public/videos/advisory-meeting.mp4
     webm: '',           // e.g. 'videos/advisory-meeting.webm'
-    poster: 'videos/advisory-meeting-poster.png', // TEMPORARY placeholder frame — replace with your licensed footage's poster
-    playOnMobile: false // false = show the poster only on phones for speed
+    poster: 'videos/advisory-meeting-poster.jpg', // frame from the video; shown while it loads and for reduced motion
+    playOnMobile: true  // plays muted on phones too
   },
   watermark: 'assets/monogram-alpha.png',
   heroPhrase: ['Strategy', 'Operations', 'EHS', 'ESG', 'Transformation'],
