@@ -18,6 +18,9 @@ const nextConfig: NextConfig = {
   },
   experimental: {
     serverActions: { bodySizeLimit: "12mb" },
+    // Pages are prerendered from a remote database: fewer at once, and retry a slow one.
+    staticGenerationMaxConcurrency: 4,
+    staticGenerationRetryCount: 2,
   },
   // Industry pages were retired in the design update; send visitors to Services.
   async redirects() {
