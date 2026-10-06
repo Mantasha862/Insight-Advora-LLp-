@@ -88,6 +88,13 @@ export default async function TeamProfilePage({ params }: PageProps<"/team/[slug
               <p className="mt-4 text-[18px] font-medium text-body">{member.designation}</p>
               {member.qualification && <p className="mt-1 text-[15px] text-body-2">{member.qualification}</p>}
               <GoldRule className="mt-8" />
+              {member.bio && <p className="body-copy mt-8 max-w-[62ch] whitespace-pre-line">{member.bio}</p>}
+              {member.expertise.length > 0 && (
+                <div className="mt-8">
+                  <h2 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-gold-ink">Areas of Expertise</h2>
+                  <Chips items={member.expertise} className="mt-4" />
+                </div>
+              )}
               <div className="mt-10 flex flex-wrap items-center gap-4">
                 {hasLinkedIn && (
                   <a
@@ -106,20 +113,22 @@ export default async function TeamProfilePage({ params }: PageProps<"/team/[slug
         </div>
       </section>
 
+      {(member.focus.length > 0 || practices.length > 0) && (
       <Section tone="ivory-2" labelledBy="about-member">
+        <h2 id="about-member" className="sr-only">
+          More about {firstName}
+        </h2>
         <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr]">
           <Reveal>
-            <h2 id="about-member" className="h-section">About {firstName}</h2>
-            <p className="body-copy mt-6 whitespace-pre-line">{member.bio}</p>
             {member.focus.length > 0 && !highlights && (
               <>
-                <h3 className="mt-10 text-[11px] font-semibold uppercase tracking-[0.18em] text-gold-ink">At Insight Advora</h3>
+                <h3 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-gold-ink">At Insight Advora</h3>
                 <p className="body-copy mt-4">{member.focus[0]}</p>
               </>
             )}
             {highlights && (
               <>
-                <h3 className="mt-10 text-[11px] font-semibold uppercase tracking-[0.18em] text-gold-ink">Strategy &amp; Execution Highlights</h3>
+                <h3 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-gold-ink">Strategy &amp; Execution Highlights</h3>
                 <ul className="mt-5 space-y-4">
                   {member.focus.map((f, i) => (
                     <li key={i} className="flex items-start gap-4 text-[15.5px] leading-[1.7] text-body">
@@ -131,26 +140,7 @@ export default async function TeamProfilePage({ params }: PageProps<"/team/[slug
               </>
             )}
           </Reveal>
-          <Reveal index={1} className="space-y-10">
-            <div>
-              <h3 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-gold-ink">Role &amp; Credentials</h3>
-              <dl className="mt-4 space-y-3 text-[15px] text-body">
-                <div>
-                  <dt className="text-[12px] uppercase tracking-[0.1em] text-body-2">Role</dt>
-                  <dd>{member.designation}, Insight Advora LLP</dd>
-                </div>
-                {member.qualification && (
-                  <div>
-                    <dt className="text-[12px] uppercase tracking-[0.1em] text-body-2">Qualifications</dt>
-                    <dd>{member.qualification}</dd>
-                  </div>
-                )}
-              </dl>
-            </div>
-            <div>
-              <h3 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-gold-ink">Areas of Expertise</h3>
-              <Chips items={member.expertise} className="mt-4" />
-            </div>
+          <Reveal index={1}>
             {practices.length > 0 && (
               <div>
                 <h3 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-gold-ink">Practice Areas</h3>
@@ -168,10 +158,15 @@ export default async function TeamProfilePage({ params }: PageProps<"/team/[slug
             )}
           </Reveal>
         </div>
+      </Section>
+      )}
+      <section className="bg-ivory">
+        <div className="container-site pt-10">
         <Link href="/team" className="group mt-14 inline-flex items-center gap-3 text-[12.5px] font-semibold uppercase tracking-[0.1em] text-forest hover:text-gold-ink">
           <span aria-hidden className="h-px w-[18px] bg-current transition-transform group-hover:-translate-x-2" /> Back to Our Team
         </Link>
-      </Section>
+        </div>
+      </section>
 
       {others.length > 0 && (
         <Section labelledBy="others">

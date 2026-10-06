@@ -142,7 +142,7 @@ export const team: TeamMemberItem[] = [
     "slug": "ashish",
     "name": "Ashish",
     "designation": "Associate",
-    "qualification": "Corporate Governance • Compliance & Advisory",
+    "qualification": "CS • Corporate Governance • Compliance & Advisory",
     "category": "associates",
     "categoryName": "Associates",
     "expertise": [
