@@ -39,7 +39,7 @@ const cardLine = (
 export default async function HomePage() {
   const [services, team, articles, settings, home] = await Promise.all([
     getServices(),
-    getFeaturedTeam(3),
+    getFeaturedTeam(5),
     getArticles(),
     getSettings(),
     getHome(),

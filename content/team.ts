@@ -121,7 +121,7 @@ export const team: TeamMemberItem[] = [
     ],
     "photo": "/team/mohammad-sazid.jpg",
     "linkedin": null,
-    "featured": false
+    "featured": true
   },
   {
     "slug": "syed-mantasha-abid",
@@ -146,7 +146,7 @@ export const team: TeamMemberItem[] = [
     ],
     "photo": "/team/syed-mantasha-abid.jpg",
     "linkedin": null,
-    "featured": false
+    "featured": true
   },
   {
     "slug": "ashish",
