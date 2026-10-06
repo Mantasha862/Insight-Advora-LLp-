@@ -136,10 +136,11 @@ export const team: TeamMemberItem[] = [
       "Secretarial Advisory",
       "Risk & Compliance Assessment",
       "ESG & Sustainability Support",
-      "Policy Development & Training",
+      "Workplace Policy Development",
+      "Policy & Compliance Training",
       "POSH Training & Ethics Awareness"
     ],
-    "bio": "A qualified legal and compliance professional with LL.B., B.Com. and M.Com. degrees, currently pursuing CS (Professional stage). Experienced in corporate legal, secretarial and compliance functions, assisting organizations with regulatory compliance, corporate governance and secretarial advisory matters, with an analytical, detail-oriented and business-focused approach.\n\n## POSH & Workplace Governance\n\nAn accomplished POSH (Prevention of Sexual Harassment) trainer, experienced in awareness programmes, employee workshops and compliance training, and in helping organizations put effective POSH frameworks and ethical, inclusive workplaces in place.",
+    "bio": "A qualified legal and compliance professional with LL.B., B.Com. and M.Com. degrees, currently pursuing CS (Professional stage). Experienced in corporate legal, secretarial and compliance functions, assisting organizations with regulatory compliance, corporate governance and secretarial advisory matters, with an analytical, detail-oriented and business-focused approach.\n\n## Policy Development & Training\n\nDevelops and helps implement workplace policies and compliance frameworks, including POSH policies, and delivers policy and compliance training that embeds ethics, safety and inclusion.\n\n## POSH & Workplace Governance\n\nAn accomplished POSH (Prevention of Sexual Harassment) trainer, experienced in awareness programmes, employee workshops and compliance training, and in helping organizations put effective POSH frameworks and ethical, inclusive workplaces in place.",
     "focus": [
       "At Insight Advora she supports governance, regulatory compliance, risk, and ESG and sustainability work. She also develops workplace policies and delivers policy and compliance training, including POSH and ethics awareness programmes, that strengthen ethics, safety and inclusion within client organisations."
     ],
