@@ -25,7 +25,7 @@ export const teamCategories: TeamCategoryItem[] = [
 export const team: TeamMemberItem[] = [
   {
     "slug": "vinod-hans",
-    "name": "Vinod Hans",
+    "name": "Vinod Kumar Hans",
     "designation": "Managing Partner",
     "qualification": "B.E., MBA, GMP INSEAD (France), Leadership Cranefield (UK)",
     "category": "leadership",
@@ -37,7 +37,7 @@ export const team: TeamMemberItem[] = [
       "Operational Excellence",
       "M&A / Joint Ventures"
     ],
-    "bio": "Automotive and manufacturing leader with 40 years of experience, P&L management, strategic transactions, business turnaround and growth. Combines engineering depth with commercial leadership and operational improvement. P&L responsibility for a ₹4,000 Cr automotive business vertical (JBM) and a ₹2,200 Cr Powertrain vertical (Tenneco) during last assignments.",
+    "bio": "Automotive and manufacturing leader with 40 years of experience in P&L management, strategic transactions, business turnaround and growth. Combines engineering depth with commercial leadership and operational improvement. Held P&L responsibility for a ₹4,000 Cr automotive business vertical (JBM) and a ₹2,200 Cr Powertrain vertical (Tenneco) in his last assignments.\n\n## At Insight Advora\n\nAs Managing Partner, brings operating and transaction experience to the firm's Strategy, Growth, Operational Excellence and M&A work.",
     "focus": [
       "Secured 100% ownership of two joint ventures and managed transitions across 2 ownership changes and 3 JVs",
       "Built a stable leadership culture with no strikes or industrial relations issues over a 5-year period",
@@ -53,17 +53,20 @@ export const team: TeamMemberItem[] = [
     "slug": "khalid-iqbal-khan",
     "name": "Dr. Khalid Iqbal Khan",
     "designation": "Advisor",
-    "qualification": "Advocate • FCS • Ph.D. in Corporate Governance",
+    "qualification": "Advocate • FCS • Ph.D. in Corporate Governance • Member, Chartered Governance Institute (UK & Ireland)",
     "category": "advisory",
     "categoryName": "Advisory Team",
     "expertise": [
       "IPO & Capital Markets",
-      "M&A, Joint Ventures & Restructuring",
-      "ESG & Sustainability Governance",
-      "Corporate Governance & Boards",
-      "Ethics & Compliance"
+      "ESG & Sustainability Oversight",
+      "Mergers, Acquisitions & Strategic Transactions",
+      "SEBI & Listed Company Regulations",
+      "Corporate Governance & Board Effectiveness",
+      "Joint Ventures & Strategic Alliances",
+      "Enterprise Risk Management",
+      "Ethics, Compliance & Whistleblower Frameworks"
     ],
-    "bio": "Over 33 years of experience across IPOs and capital markets, M&A, corporate governance, ESG and compliance, including more than a decade as Whole-time Director of a listed company and General Counsel of a global automotive group.",
+    "bio": "Over 33 years of experience across IPOs and capital markets, M&A, corporate governance, ESG and compliance, including more than a decade as Whole-time Director of a listed company and General Counsel of a global automotive group. Fellow Member of the Institute of Company Secretaries of India and member of the Chartered Governance Institute (UK & Ireland), with a doctorate in corporate governance.\n\n## IPO & Capital Markets\n\nPlayed a significant leadership role in the Initial Public Offering of Tenneco Clean Air Limited, valued at approximately ₹4,040 crore, overseeing its governance, regulatory and stakeholder aspects. Experienced across mergers and acquisitions, divestitures, joint ventures, restructurings, rights issues, offers for sale and open offers.\n\n## ESG & Sustainability Governance\n\nAdvances ESG principles in board decision-making, with experience overseeing environmental compliance, workplace safety, ethical conduct, diversity and inclusion and stakeholder engagement. Member of Corporate Social Responsibility Committees overseeing education, healthcare, skill development and community initiatives.\n\n## Recognitions\n\n- In-House Counsel of the Year (Manufacturing), Indian Business Law Journal, 2025–26\n- Most Influential Corporate Counsel, Alliance for Corporate Counsel and Company Secretaries, 2026 and 2019",
     "focus": [
       "At Insight Advora his work centres on taking companies to market and through transactions: IPO readiness and listing strategy, mergers, acquisitions and restructurings, and the governance and ESG foundations that listed companies and investors expect."
     ],
@@ -101,13 +104,18 @@ export const team: TeamMemberItem[] = [
     "category": "advisory",
     "categoryName": "Advisory Team",
     "expertise": [
-      "Corporate Governance",
+      "Corporate Governance & Secretarial Advisory",
+      "SEBI (LODR) & Listed Company Compliance",
+      "IPO Due Diligence & Pre-IPO Compliance Reviews",
+      "Board, Committee & AGM Management",
+      "Rights Issues & Capital Restructuring",
+      "FEMA, FDI & ODI Compliance",
+      "UAE (Dubai) Secretarial Compliance",
+      "Secretarial Audits & Compliance Certifications",
       "Risk Management & Internal Controls",
-      "Regulatory Compliance & Assurance",
-      "Sustainability & ESG Governance",
-      "Due Diligence & Transaction Readiness"
+      "Sustainability & ESG Governance"
     ],
-    "bio": "A Company Secretary with over 10 years of experience in corporate compliance, secretarial governance and regulatory affairs across large corporate groups.",
+    "bio": "A Fellow Member of the Institute of Company Secretaries of India with over 10 years of experience in corporate compliance, secretarial governance and regulatory affairs; also holds LL.B. and B.Com. degrees. Has worked with Federal-Mogul Goetze India Limited (Tenneco Group), Jaiprakash Associates Limited (Jaypee Group) and Matrix Cellular.\n\n## Capital Markets & Transactions\n\nExperienced in IPO due diligence, pre-IPO compliance reviews, post-listing governance frameworks, rights issues, preferential allotments and capital restructuring, with working knowledge of SEBI regulations, listing requirements and disclosure obligations.\n\n## Governance & Cross-Border Compliance\n\nExperienced in Companies Act, SEBI, FEMA and RBI compliance, including Board and Committee processes, secretarial audits and FDI and ODI reporting, with working exposure to Dubai (UAE) secretarial compliance for businesses operating across jurisdictions.",
     "focus": [
       "At Insight Advora he supports governance, risk, compliance and sustainability work: regulatory compliance and governance frameworks, enterprise risk and internal-control reviews, sustainability and ESG governance, transaction readiness and due diligence, and cross-border compliance, helping boards and management build sound, resilient and sustainable systems."
     ],
@@ -119,18 +127,19 @@ export const team: TeamMemberItem[] = [
     "slug": "syed-mantasha-abid",
     "name": "Syed Mantasha Abid",
     "designation": "Advisor",
-    "qualification": "LL.B. • M.Com. • B.Com. • Governance, Risk, Compliance & Sustainability",
+    "qualification": "LL.B. • M.Com. • B.Com. • Pursuing CS (Professional) • Governance, Risk, Compliance & Sustainability",
     "category": "advisory",
     "categoryName": "Advisory Team",
     "expertise": [
       "Regulatory Compliance",
       "Corporate Governance",
+      "Secretarial Advisory",
       "Risk & Compliance Assessment",
       "ESG & Sustainability Support",
       "Policy Development & Training",
-      "POSH & Ethics Awareness"
+      "POSH Training & Ethics Awareness"
     ],
-    "bio": "A legal and compliance professional experienced in corporate legal, secretarial and compliance functions.",
+    "bio": "A qualified legal and compliance professional with LL.B., B.Com. and M.Com. degrees, currently pursuing CS (Professional stage). Experienced in corporate legal, secretarial and compliance functions, assisting organizations with regulatory compliance, corporate governance and secretarial advisory matters, with an analytical, detail-oriented and business-focused approach.\n\n## POSH & Workplace Governance\n\nAn accomplished POSH (Prevention of Sexual Harassment) trainer, experienced in awareness programmes, employee workshops and compliance training, and in helping organizations put effective POSH frameworks and ethical, inclusive workplaces in place.",
     "focus": [
       "At Insight Advora she supports governance, regulatory compliance, risk, and ESG and sustainability work. She also develops workplace policies and delivers policy and compliance training, including POSH and ethics awareness programmes, that strengthen ethics, safety and inclusion within client organisations."
     ],
@@ -142,15 +151,17 @@ export const team: TeamMemberItem[] = [
     "slug": "ashish",
     "name": "Ashish",
     "designation": "Associate",
-    "qualification": "CS • Corporate Governance • Compliance & Advisory",
+    "qualification": "Corporate Governance • Compliance & Advisory",
     "category": "associates",
     "categoryName": "Associates",
     "expertise": [
       "Compliance Management",
       "Governance Documentation",
+      "Regulatory Filings",
+      "Board & Shareholder Compliances",
       "Advisory Research"
     ],
-    "bio": "Supports Insight Advora's advisory engagements with research, compliance mapping and governance documentation, bringing a practical, detail-focused approach to helping clients strengthen their compliance and governance frameworks.",
+    "bio": "A qualified Company Secretary with a strong foundation in corporate laws, regulatory compliance and secretarial practices, currently pursuing law. Has exposure to corporate governance, regulatory filings, board and shareholder compliances and compliance management, and takes a practical, detail-focused, business-oriented approach.\n\n## At Insight Advora\n\nSupports advisory engagements with research, compliance mapping and governance documentation.",
     "focus": [],
     "photo": "/team/ashish.jpg",
     "linkedin": null,
@@ -160,15 +171,17 @@ export const team: TeamMemberItem[] = [
     "slug": "mansi-yadav",
     "name": "Mansi Yadav",
     "designation": "Associate",
-    "qualification": "Governance • Compliance & Sustainability Advisory",
+    "qualification": "Pursuing Law & CS (Professional Level) • Governance • Compliance & Sustainability Advisory",
     "category": "associates",
     "categoryName": "Associates",
     "expertise": [
       "Compliance Reviews",
       "Corporate Governance",
+      "Secretarial Practices",
+      "Statutory Compliance & Regulatory Filings",
       "Research & Reporting"
     ],
-    "bio": "Supports Insight Advora's advisory engagements with compliance reviews, research and reporting, helping clients strengthen governance processes and promote transparency and accountability.",
+    "bio": "Pursuing law and CS (Professional Level), with a strong foundation in corporate laws, governance and regulatory compliance. Has knowledge of secretarial practices, with experience in compliance management, regulatory filings and statutory obligations, and works with precision and efficiency.\n\n## At Insight Advora\n\nSupports advisory engagements with compliance reviews, research and reporting, helping clients strengthen governance, transparency and accountability.",
     "focus": [],
     "photo": "/team/mansi-yadav.jpg",
     "linkedin": null,

@@ -10,6 +10,7 @@ import { GoldRule, Reveal } from "@/components/ui/Motion";
 import { Chips, Section } from "@/components/ui/Section";
 import { SITE_URL } from "@/content/site";
 import { getServices, getTeam, getTeamMember } from "@/lib/data";
+import { parseBio } from "@/lib/team-bio";
 import { pageMetadata } from "@/lib/seo";
 import { isPlaceholder } from "@/lib/utils";
 
@@ -52,6 +53,7 @@ export default async function TeamProfilePage({ params }: PageProps<"/team/[slug
     .map((sl) => allServices.find((x) => x.slug === sl))
     .filter((x): x is NonNullable<typeof x> => Boolean(x));
   const highlights = member.focus.length > 1;
+  const bio = parseBio(member.bio);
   const hasLinkedIn = member.linkedin && !isPlaceholder(member.linkedin);
 
   const person = {
@@ -88,7 +90,7 @@ export default async function TeamProfilePage({ params }: PageProps<"/team/[slug
               <p className="mt-4 text-[18px] font-medium text-body">{member.designation}</p>
               {member.qualification && <p className="mt-1 text-[15px] text-body-2">{member.qualification}</p>}
               <GoldRule className="mt-8" />
-              {member.bio && <p className="body-copy mt-8 max-w-[62ch] whitespace-pre-line">{member.bio}</p>}
+              {bio.lead && <p className="body-copy mt-8 max-w-[62ch]">{bio.lead}</p>}
               {member.expertise.length > 0 && (
                 <div className="mt-8">
                   <h2 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-gold-ink">Areas of Expertise</h2>
@@ -113,22 +115,42 @@ export default async function TeamProfilePage({ params }: PageProps<"/team/[slug
         </div>
       </section>
 
-      {(member.focus.length > 0 || practices.length > 0) && (
+      {(member.focus.length > 0 || bio.blocks.length > 0 || practices.length > 0) && (
       <Section tone="ivory-2" labelledBy="about-member">
         <h2 id="about-member" className="sr-only">
           More about {firstName}
         </h2>
         <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr]">
           <Reveal>
+            {bio.blocks.map((b, i) =>
+              b.kind === "heading" ? (
+                <h3 key={i} className="mt-10 text-[11px] font-semibold uppercase tracking-[0.18em] text-gold-ink first:mt-0">
+                  {b.text}
+                </h3>
+              ) : b.kind === "list" ? (
+                <ul key={i} className="mt-4 space-y-3">
+                  {b.items.map((it, j) => (
+                    <li key={j} className="flex items-start gap-4 text-[15.5px] leading-[1.7] text-body">
+                      <span aria-hidden className="mt-[0.8em] h-px w-5 flex-none bg-gold" />
+                      {it}
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p key={i} className="body-copy mt-4">
+                  {b.text}
+                </p>
+              ),
+            )}
             {member.focus.length > 0 && !highlights && (
               <>
-                <h3 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-gold-ink">At Insight Advora</h3>
+                <h3 className="mt-10 text-[11px] font-semibold uppercase tracking-[0.18em] text-gold-ink first:mt-0">At Insight Advora</h3>
                 <p className="body-copy mt-4">{member.focus[0]}</p>
               </>
             )}
             {highlights && (
               <>
-                <h3 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-gold-ink">Strategy &amp; Execution Highlights</h3>
+                <h3 className="mt-10 text-[11px] font-semibold uppercase tracking-[0.18em] text-gold-ink first:mt-0">Strategy &amp; Execution Highlights</h3>
                 <ul className="mt-5 space-y-4">
                   {member.focus.map((f, i) => (
                     <li key={i} className="flex items-start gap-4 text-[15.5px] leading-[1.7] text-body">

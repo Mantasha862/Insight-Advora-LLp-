@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { parseBio } from "@/lib/team-bio";
 import Link from "next/link";
 import type { ArticleItem, TeamMemberItem } from "@/lib/types";
 import { formatDate, isPlaceholder } from "@/lib/utils";
@@ -6,7 +7,7 @@ import { PhotoPlaceholder } from "@/components/ui/Cards";
 import { LinkedInIcon } from "@/components/ui/Icons";
 
 export function TeamCard({ member, compact = false }: { member: TeamMemberItem; compact?: boolean }) {
-  const bio = member.bio ?? "";
+  const bio = parseBio(member.bio).lead;
   return (
     <article className="group relative flex h-full flex-col border border-hairline bg-ivory transition-all duration-300 hover:-translate-y-[6px] hover:border-gold/60 hover:shadow-[var(--shadow-hover)]">
       <span aria-hidden className="absolute inset-x-0 top-0 z-10 h-[2px] w-0 bg-gold transition-[width] duration-[520ms] group-hover:w-full" />
