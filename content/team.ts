@@ -25,7 +25,7 @@ export const teamCategories: TeamCategoryItem[] = [
 export const team: TeamMemberItem[] = [
   {
     "slug": "vinod-hans",
-    "name": "Vinod Kumar Hans",
+    "name": "Vinod Hans",
     "designation": "Managing Partner",
     "qualification": "B.E., MBA, GMP INSEAD (France), Leadership Cranefield (UK)",
     "category": "leadership",
