@@ -226,7 +226,13 @@ export default async function HomePage() {
               {team.map((m, i) => (
                 <Reveal as="article" key={m.slug} index={i} className="group relative flex flex-col overflow-hidden border border-forest/13 bg-white transition-all duration-300 hover:-translate-y-[5px] hover:border-gold hover:shadow-[0_24px_46px_-30px_rgba(14,41,33,0.45)]">
                   {cardLine}
-                  <PhotoPlaceholder className="h-[300px]" />
+                  {m.photo ? (
+                    <div className="relative aspect-[4/5] overflow-hidden bg-card-alt">
+                      <Image src={m.photo} alt={m.name} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover object-top" />
+                    </div>
+                  ) : (
+                    <PhotoPlaceholder className="aspect-[4/5]" />
+                  )}
                   <div className="flex flex-1 flex-col px-[clamp(18px,2vw,26px)] pb-[26px] pt-6">
                     <h3 className="text-[25px] leading-[1.2]">{m.name}</h3>
                     <p className="mt-2 text-[11.5px] font-semibold uppercase tracking-[0.14em] text-gold-ink">{m.designation}</p>

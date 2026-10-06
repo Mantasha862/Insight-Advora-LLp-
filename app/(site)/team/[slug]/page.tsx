@@ -9,11 +9,21 @@ import { LinkedInIcon } from "@/components/ui/Icons";
 import { GoldRule, Reveal } from "@/components/ui/Motion";
 import { Chips, Section } from "@/components/ui/Section";
 import { SITE_URL } from "@/content/site";
-import { getTeam, getTeamMember } from "@/lib/data";
+import { getServices, getTeam, getTeamMember } from "@/lib/data";
 import { pageMetadata } from "@/lib/seo";
 import { isPlaceholder } from "@/lib/utils";
 
 export const revalidate = 300;
+
+/** Practices each person is stated to work in, per the firm profile. */
+const PRACTICES: Record<string, string[]> = {
+  "vinod-hans": ["strategy-corporate-advisory", "business-growth-transformation", "operational-excellence", "ma-corporate-transactions"],
+  "khalid-iqbal-khan": ["ma-corporate-transactions", "esg-sustainability"],
+  "prasanna-kumar-dh": ["ehs-advisory", "esg-sustainability"],
+  "mohammad-sazid": ["esg-sustainability", "ma-corporate-transactions"],
+  "syed-mantasha-abid": ["esg-sustainability"],
+  "mansi-yadav": ["esg-sustainability"],
+};
 
 export async function generateStaticParams() {
   return (await getTeam()).map((m) => ({ slug: m.slug }));
@@ -36,7 +46,12 @@ export default async function TeamProfilePage({ params }: PageProps<"/team/[slug
   const member = await getTeamMember(slug);
   if (!member) notFound();
   const others = (await getTeam()).filter((m) => m.slug !== slug).slice(0, 3);
-  const firstName = isPlaceholder(member.name) ? member.name : member.name.split(" ")[0];
+  const firstName = isPlaceholder(member.name) ? member.name : member.name.replace(/^(Dr\.|FCS|CS|Adv\.)\s+/i, "").split(" ")[0];
+  const allServices = await getServices();
+  const practices = (PRACTICES[member.slug] ?? [])
+    .map((sl) => allServices.find((x) => x.slug === sl))
+    .filter((x): x is NonNullable<typeof x> => Boolean(x));
+  const highlights = member.focus.length > 1;
   const hasLinkedIn = member.linkedin && !isPlaceholder(member.linkedin);
 
   const person = {
@@ -96,20 +111,56 @@ export default async function TeamProfilePage({ params }: PageProps<"/team/[slug
           <Reveal>
             <h2 id="about-member" className="h-section">About {firstName}</h2>
             <p className="body-copy mt-6 whitespace-pre-line">{member.bio}</p>
+            {member.focus.length > 0 && !highlights && (
+              <>
+                <h3 className="mt-10 text-[11px] font-semibold uppercase tracking-[0.18em] text-gold-ink">At Insight Advora</h3>
+                <p className="body-copy mt-4">{member.focus[0]}</p>
+              </>
+            )}
+            {highlights && (
+              <>
+                <h3 className="mt-10 text-[11px] font-semibold uppercase tracking-[0.18em] text-gold-ink">Strategy &amp; Execution Highlights</h3>
+                <ul className="mt-5 space-y-4">
+                  {member.focus.map((f, i) => (
+                    <li key={i} className="flex items-start gap-4 text-[15.5px] leading-[1.7] text-body">
+                      <span aria-hidden className="mt-[0.8em] h-px w-5 flex-none bg-gold" />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
           </Reveal>
           <Reveal index={1} className="space-y-10">
+            <div>
+              <h3 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-gold-ink">Role &amp; Credentials</h3>
+              <dl className="mt-4 space-y-3 text-[15px] text-body">
+                <div>
+                  <dt className="text-[12px] uppercase tracking-[0.1em] text-body-2">Role</dt>
+                  <dd>{member.designation}, Insight Advora LLP</dd>
+                </div>
+                {member.qualification && (
+                  <div>
+                    <dt className="text-[12px] uppercase tracking-[0.1em] text-body-2">Qualifications</dt>
+                    <dd>{member.qualification}</dd>
+                  </div>
+                )}
+              </dl>
+            </div>
             <div>
               <h3 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-gold-ink">Areas of Expertise</h3>
               <Chips items={member.expertise} className="mt-4" />
             </div>
-            {member.focus.length > 0 && (
+            {practices.length > 0 && (
               <div>
-                <h3 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-gold-ink">Professional Focus</h3>
+                <h3 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-gold-ink">Practice Areas</h3>
                 <ul className="mt-4 space-y-3">
-                  {member.focus.map((f, i) => (
-                    <li key={i} className="flex items-center gap-4 text-[15px] text-body">
-                      <span aria-hidden className="h-px w-5 bg-gold" />
-                      {f}
+                  {practices.map((x) => (
+                    <li key={x.slug}>
+                      <Link href={`/services/${x.slug}`} className="group inline-flex items-center gap-4 text-[15px] text-forest hover:text-gold-ink">
+                        <span aria-hidden className="h-px w-5 bg-gold transition-transform group-hover:translate-x-1" />
+                        {x.title}
+                      </Link>
                     </li>
                   ))}
                 </ul>

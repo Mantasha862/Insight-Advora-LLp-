@@ -11,11 +11,11 @@ export function TeamCard({ member, compact = false }: { member: TeamMemberItem; 
     <article className="group relative flex h-full flex-col border border-hairline bg-ivory transition-all duration-300 hover:-translate-y-[6px] hover:border-gold/60 hover:shadow-[var(--shadow-hover)]">
       <span aria-hidden className="absolute inset-x-0 top-0 z-10 h-[2px] w-0 bg-gold transition-[width] duration-[520ms] group-hover:w-full" />
       {member.photo ? (
-        <div className="relative h-[304px] overflow-hidden bg-card-alt">
+        <div className="relative aspect-[4/5] overflow-hidden bg-card-alt">
           <Image src={member.photo} alt={member.name} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover object-top" />
         </div>
       ) : (
-        <PhotoPlaceholder className="h-[304px]" />
+        <PhotoPlaceholder className="aspect-[4/5]" />
       )}
       <div className="flex flex-1 flex-col p-7">
         {member.categoryName && <p className="text-[10.5px] font-semibold uppercase tracking-[0.16em] text-gold-ink">{member.categoryName}</p>}
