@@ -2,8 +2,8 @@ import type { TeamCategoryItem, TeamMemberItem } from "@/lib/types";
 
 // Generated from the client's design data files (docs/design/*.js). Edit the content here,
 // or manage it in the admin panel once the database is connected.
-// Placeholder profiles only. Replace every [ bracketed ] value with client-supplied
-// details — never invent names, qualifications or biographies.
+// Profiles and photos are taken from the firm's Profile 2026 (v5). Do not add details that
+// are not in client-supplied material — never invent names, qualifications or biographies.
 export const teamCategories: TeamCategoryItem[] = [
   {
     "slug": "leadership",
@@ -16,232 +16,161 @@ export const teamCategories: TeamCategoryItem[] = [
     "note": "Client-facing advisory across practices."
   },
   {
-    "slug": "functional",
-    "name": "Functional Specialists",
-    "note": "Deep expertise in a single discipline."
-  },
-  {
     "slug": "associates",
-    "name": "Strategic Associates",
-    "note": "Engaged for specific assignments and mandates."
-  },
-  {
-    "slug": "domain",
-    "name": "Domain Experts",
-    "note": "Sector and regulatory perspective."
+    "name": "Associates",
+    "note": "Research, compliance mapping and governance support."
   }
 ];
 
 export const team: TeamMemberItem[] = [
   {
-    "slug": "leadership-1",
-    "name": "[ Team Member Name ]",
-    "designation": "[ Designated Partner ]",
-    "qualification": "[ Qualifications ]",
+    "slug": "vinod-hans",
+    "name": "Vinod Hans",
+    "designation": "Managing Partner",
+    "qualification": "B.E., MBA, GMP INSEAD (France), Leadership Cranefield (UK)",
     "category": "leadership",
     "categoryName": "Leadership",
     "expertise": [
-      "Strategy",
-      "Operations",
-      "Corporate Advisory"
-    ],
-    "bio": "[ Short biography — 80 to 120 words. Describe professional background, the kinds of engagements this person leads, the disciplines they bring together and the perspective they contribute to client work. Keep it factual: roles held, functional depth and areas of focus, without claims that cannot be evidenced. ]",
-    "focus": [
-      "[ Professional focus — two or three sentences on the problems this person works on most often and how they approach them. ]"
-    ],
-    "photo": null,
-    "linkedin": null,
-    "featured": true
-  },
-  {
-    "slug": "leadership-2",
-    "name": "[ Team Member Name ]",
-    "designation": "[ Designated Partner ]",
-    "qualification": "[ Qualifications ]",
-    "category": "leadership",
-    "categoryName": "Leadership",
-    "expertise": [
-      "ESG",
-      "EHS",
-      "Sustainability"
-    ],
-    "bio": "[ Short biography — 80 to 120 words. Describe professional background, the kinds of engagements this person leads, the disciplines they bring together and the perspective they contribute to client work. ]",
-    "focus": [
-      "[ Professional focus — two or three sentences on the problems this person works on most often and how they approach them. ]"
-    ],
-    "photo": null,
-    "linkedin": null,
-    "featured": true
-  },
-  {
-    "slug": "advisory-1",
-    "name": "[ Team Member Name ]",
-    "designation": "[ Designation ]",
-    "qualification": "[ Qualifications ]",
-    "category": "advisory",
-    "categoryName": "Advisory Team",
-    "expertise": [
+      "P&L Leadership",
+      "Business Turnaround",
+      "Growth Strategy",
       "Operational Excellence",
-      "Process Improvement"
+      "M&A / Joint Ventures"
     ],
-    "bio": "[ Short biography — 80 to 120 words. ]",
+    "bio": "Automotive and manufacturing leader with 40 years of experience, P&L management, strategic transactions, business turnaround and growth. Combines engineering depth with commercial leadership and operational improvement. P&L responsibility for a ₹4,000 Cr automotive business vertical (JBM) and a ₹2,200 Cr Powertrain vertical (Tenneco) during last assignments.",
     "focus": [
-      "[ Professional focus. ]"
+      "Secured 100% ownership of two joint ventures and managed transitions across 2 ownership changes and 3 JVs",
+      "Built a stable leadership culture with no strikes or industrial relations issues over a 5-year period",
+      "Improved EBITDA margins, delivered growth and launched 4 new product lines",
+      "Cut development lead time by 6 months and development cost by 30% through a local testing centre",
+      "Member of the Global Leadership Group and Strategic Management Group"
     ],
-    "photo": null,
+    "photo": "/team/vinod-hans.jpg",
     "linkedin": null,
     "featured": true
   },
   {
-    "slug": "advisory-2",
-    "name": "[ Team Member Name ]",
-    "designation": "[ Designation ]",
-    "qualification": "[ Qualifications ]",
+    "slug": "khalid-iqbal-khan",
+    "name": "Dr. Khalid Iqbal Khan",
+    "designation": "Advisor",
+    "qualification": "Advocate • FCS • Ph.D. in Corporate Governance",
     "category": "advisory",
     "categoryName": "Advisory Team",
     "expertise": [
-      "M&A",
-      "Due Diligence",
-      "Integration"
+      "IPO & Capital Markets",
+      "M&A, Joint Ventures & Restructuring",
+      "ESG & Sustainability Governance",
+      "Corporate Governance & Boards",
+      "Ethics & Compliance"
     ],
-    "bio": "[ Short biography — 80 to 120 words. ]",
+    "bio": "Over 33 years of experience across IPOs and capital markets, M&A, corporate governance, ESG and compliance, including more than a decade as Whole-time Director of a listed company and General Counsel of a global automotive group.",
     "focus": [
-      "[ Professional focus. ]"
+      "At Insight Advora his work centres on taking companies to market and through transactions: IPO readiness and listing strategy, mergers, acquisitions and restructurings, and the governance and ESG foundations that listed companies and investors expect."
     ],
-    "photo": null,
+    "photo": "/team/khalid-iqbal-khan.jpg",
     "linkedin": null,
-    "featured": false
+    "featured": true
   },
   {
-    "slug": "advisory-3",
-    "name": "[ Team Member Name ]",
-    "designation": "[ Designation ]",
-    "qualification": "[ Qualifications ]",
+    "slug": "prasanna-kumar-dh",
+    "name": "Prasanna Kumar D.H.",
+    "designation": "Advisor",
+    "qualification": "Senior Principal Consultant – EHS Strategy & Global Compliance",
     "category": "advisory",
     "categoryName": "Advisory Team",
     "expertise": [
-      "Business Growth",
-      "Transformation"
+      "EHS Strategy & Governance",
+      "ISO 14001 & ISO 45001 Audits",
+      "Regulatory Compliance & Legal Mapping",
+      "Environmental Due Diligence",
+      "Risk Assessment & Safety Culture"
     ],
-    "bio": "[ Short biography — 80 to 120 words. ]",
+    "bio": "Over 29 years of leadership in Environmental, Health & Safety, including senior roles as Executive Director and Global EHS Director in Fortune 500 manufacturing organisations.",
     "focus": [
-      "[ Professional focus. ]"
+      "At Insight Advora he leads the EHS Advisory and supports the ESG & Sustainability practice, helping organisations translate complex regulations into practical EHS strategy, risk management and sustainability alignment across manufacturing, renewable energy and global operations."
     ],
-    "photo": null,
+    "photo": "/team/prasanna-kumar-dh.jpg",
     "linkedin": null,
-    "featured": false
+    "featured": true
   },
   {
-    "slug": "functional-1",
-    "name": "[ Team Member Name ]",
-    "designation": "[ Designation ]",
-    "qualification": "[ Qualifications ]",
-    "category": "functional",
-    "categoryName": "Functional Specialists",
+    "slug": "mohammad-sazid",
+    "name": "FCS Mohammad Sazid",
+    "designation": "Advisor",
+    "qualification": "FCS • LL.B. • B.Com. • Governance, Risk, Compliance & Sustainability",
+    "category": "advisory",
+    "categoryName": "Advisory Team",
     "expertise": [
-      "EHS Compliance",
-      "Audits",
-      "Risk"
+      "Corporate Governance",
+      "Risk Management & Internal Controls",
+      "Regulatory Compliance & Assurance",
+      "Sustainability & ESG Governance",
+      "Due Diligence & Transaction Readiness"
     ],
-    "bio": "[ Short biography — 80 to 120 words. ]",
+    "bio": "A Company Secretary with over 10 years of experience in corporate compliance, secretarial governance and regulatory affairs across large corporate groups.",
     "focus": [
-      "[ Professional focus. ]"
+      "At Insight Advora he supports governance, risk, compliance and sustainability work: regulatory compliance and governance frameworks, enterprise risk and internal-control reviews, sustainability and ESG governance, transaction readiness and due diligence, and cross-border compliance, helping boards and management build sound, resilient and sustainable systems."
     ],
-    "photo": null,
+    "photo": "/team/mohammad-sazid.jpg",
     "linkedin": null,
     "featured": false
   },
   {
-    "slug": "functional-2",
-    "name": "[ Team Member Name ]",
-    "designation": "[ Designation ]",
-    "qualification": "[ Qualifications ]",
-    "category": "functional",
-    "categoryName": "Functional Specialists",
+    "slug": "syed-mantasha-abid",
+    "name": "Syed Mantasha Abid",
+    "designation": "Advisor",
+    "qualification": "LL.B. • M.Com. • B.Com. • Governance, Risk, Compliance & Sustainability",
+    "category": "advisory",
+    "categoryName": "Advisory Team",
     "expertise": [
-      "Sustainability Reporting",
-      "ESG Assessment"
+      "Regulatory Compliance",
+      "Corporate Governance",
+      "Risk & Compliance Assessment",
+      "ESG & Sustainability Support",
+      "Policy Development & Training",
+      "POSH & Ethics Awareness"
     ],
-    "bio": "[ Short biography — 80 to 120 words. ]",
+    "bio": "A legal and compliance professional experienced in corporate legal, secretarial and compliance functions.",
     "focus": [
-      "[ Professional focus. ]"
+      "At Insight Advora she supports governance, regulatory compliance, risk, and ESG and sustainability work. She also develops workplace policies and delivers policy and compliance training, including POSH and ethics awareness programmes, that strengthen ethics, safety and inclusion within client organisations."
     ],
-    "photo": null,
+    "photo": "/team/syed-mantasha-abid.jpg",
     "linkedin": null,
     "featured": false
   },
   {
-    "slug": "associates-1",
-    "name": "[ Team Member Name ]",
-    "designation": "[ Strategic Associate ]",
-    "qualification": "[ Qualifications ]",
+    "slug": "ashish",
+    "name": "Ashish",
+    "designation": "Associate",
+    "qualification": "Corporate Governance • Compliance & Advisory",
     "category": "associates",
-    "categoryName": "Strategic Associates",
+    "categoryName": "Associates",
     "expertise": [
-      "Strategy",
-      "Decision Support"
+      "Compliance Management",
+      "Governance Documentation",
+      "Advisory Research"
     ],
-    "bio": "[ Short biography — 80 to 120 words. ]",
-    "focus": [
-      "[ Professional focus. ]"
-    ],
-    "photo": null,
+    "bio": "Supports Insight Advora's advisory engagements with research, compliance mapping and governance documentation, bringing a practical, detail-focused approach to helping clients strengthen their compliance and governance frameworks.",
+    "focus": [],
+    "photo": "/team/ashish.jpg",
     "linkedin": null,
     "featured": false
   },
   {
-    "slug": "associates-2",
-    "name": "[ Team Member Name ]",
-    "designation": "[ Strategic Associate ]",
-    "qualification": "[ Qualifications ]",
+    "slug": "mansi-yadav",
+    "name": "Mansi Yadav",
+    "designation": "Associate",
+    "qualification": "Governance • Compliance & Sustainability Advisory",
     "category": "associates",
-    "categoryName": "Strategic Associates",
+    "categoryName": "Associates",
     "expertise": [
-      "Performance Management"
+      "Compliance Reviews",
+      "Corporate Governance",
+      "Research & Reporting"
     ],
-    "bio": "[ Short biography — 80 to 120 words. ]",
-    "focus": [
-      "[ Professional focus. ]"
-    ],
-    "photo": null,
-    "linkedin": null,
-    "featured": false
-  },
-  {
-    "slug": "domain-1",
-    "name": "[ Team Member Name ]",
-    "designation": "[ Domain Expert ]",
-    "qualification": "[ Qualifications ]",
-    "category": "domain",
-    "categoryName": "Domain Experts",
-    "expertise": [
-      "Manufacturing",
-      "Infrastructure"
-    ],
-    "bio": "[ Short biography — 80 to 120 words. ]",
-    "focus": [
-      "[ Professional focus. ]"
-    ],
-    "photo": null,
-    "linkedin": null,
-    "featured": false
-  },
-  {
-    "slug": "domain-2",
-    "name": "[ Team Member Name ]",
-    "designation": "[ Domain Expert ]",
-    "qualification": "[ Qualifications ]",
-    "category": "domain",
-    "categoryName": "Domain Experts",
-    "expertise": [
-      "Energy & Environment",
-      "Regulatory"
-    ],
-    "bio": "[ Short biography — 80 to 120 words. ]",
-    "focus": [
-      "[ Professional focus. ]"
-    ],
-    "photo": null,
+    "bio": "Supports Insight Advora's advisory engagements with compliance reviews, research and reporting, helping clients strengthen governance processes and promote transparency and accountability.",
+    "focus": [],
+    "photo": "/team/mansi-yadav.jpg",
     "linkedin": null,
     "featured": false
   }

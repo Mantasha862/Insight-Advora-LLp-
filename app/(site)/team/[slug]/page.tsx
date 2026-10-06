@@ -61,7 +61,7 @@ export default async function TeamProfilePage({ params }: PageProps<"/team/[slug
             <Reveal>
               {member.photo ? (
                 <div className="relative aspect-[4/5] overflow-hidden bg-card-alt">
-                  <Image src={member.photo} alt={member.name} fill priority sizes="420px" className="object-cover" />
+                  <Image src={member.photo} alt={member.name} fill priority sizes="420px" className="object-cover object-top" />
                 </div>
               ) : (
                 <PhotoPlaceholder className="aspect-[4/5]" />

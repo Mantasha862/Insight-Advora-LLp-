@@ -12,7 +12,7 @@ export function TeamCard({ member, compact = false }: { member: TeamMemberItem; 
       <span aria-hidden className="absolute inset-x-0 top-0 z-10 h-[2px] w-0 bg-gold transition-[width] duration-[520ms] group-hover:w-full" />
       {member.photo ? (
         <div className="relative h-[304px] overflow-hidden bg-card-alt">
-          <Image src={member.photo} alt={member.name} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover" />
+          <Image src={member.photo} alt={member.name} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover object-top" />
         </div>
       ) : (
         <PhotoPlaceholder className="h-[304px]" />
