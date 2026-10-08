@@ -10,6 +10,12 @@ export function TeamGrid({ members, categories }: { members: TeamMemberItem[]; c
   const tabs = [{ slug: "all", name: "All" }, ...categories];
   const count = (slug: string) => (slug === "all" ? members.length : members.filter((m) => m.category === slug).length);
   const shown = active === "all" ? members : members.filter((m) => m.category === active);
+  // In the "All" view the last category (Associates) starts its own row, so it is not mixed into a partly filled advisory row.
+  const lastSlug = categories.at(-1)?.slug;
+  const groups =
+    active === "all" && lastSlug && categories.length > 1
+      ? [shown.filter((m) => m.category !== lastSlug), shown.filter((m) => m.category === lastSlug)].filter((g) => g.length > 0)
+      : [shown];
 
   return (
     <>
@@ -30,9 +36,13 @@ export function TeamGrid({ members, categories }: { members: TeamMemberItem[]; c
           </button>
         ))}
       </div>
-      <div id="team-grid" role="tabpanel" className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {shown.map((m) => (
-          <TeamCard key={m.slug} member={m} />
+      <div id="team-grid" role="tabpanel" className="mt-10 space-y-6">
+        {groups.map((g, i) => (
+          <div key={i} className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {g.map((m) => (
+              <TeamCard key={m.slug} member={m} />
+            ))}
+          </div>
         ))}
         {shown.length === 0 && <p className="body-copy">Profiles in this category will be added soon.</p>}
       </div>

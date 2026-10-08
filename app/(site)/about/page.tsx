@@ -39,7 +39,7 @@ const partnership = [
 ];
 
 export default async function AboutPage() {
-  const [services, team, articles] = await Promise.all([getServices(), getFeaturedTeam(3), getArticles()]);
+  const [services, team, articles] = await Promise.all([getServices(), getFeaturedTeam(5), getArticles()]);
 
   return (
     <>
