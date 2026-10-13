@@ -99,9 +99,9 @@ export default async function HomePage() {
                 />
               </div>
               <div className="absolute bottom-0 right-0 max-w-[300px] bg-forest-deep px-[26px] py-6 shadow-[0_26px_50px_-30px_rgba(14,41,33,0.7)]">
-                <p className="text-[10.5px] font-semibold uppercase tracking-[0.22em] text-sage">Partnering for Smarter Decisions</p>
+                <p className="text-[10.5px] font-semibold uppercase tracking-[0.22em] text-sage">Insight Advora LLP</p>
                 <p className="mt-2.5 font-serif text-[22px] italic leading-[1.3] text-ivory">
-                  Responsible Growth. <span className="text-gold-pale">Sustainable Progress.</span>
+                  Partnering for <span className="text-gold-pale">Smarter Decisions.</span>
                 </p>
               </div>
             </Reveal>
@@ -376,7 +376,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <Ticker tone="dark" items={["Smart Business", "Responsible Growth", "Sustainable Progress", "People", "Process", "Planet", "Progress"]} />
+      <Ticker tone="dark" items={["Partnering for Smarter Decisions", "People", "Process", "Planet", "Progress"]} />
 
       {/* 09 CTA */}
       <section id="cta" aria-labelledby="cta-title" className="relative isolate overflow-hidden bg-forest text-ivory">
@@ -391,7 +391,7 @@ export default async function HomePage() {
         <Emblem variant="dark" className="-z-10" style={{ left: "-4%", top: "50%", transform: "translateY(-50%)", width: "min(40%, 470px)" }} />
         <Reveal className="container-site relative grid items-center gap-[clamp(30px,5vw,80px)] py-[clamp(68px,8vw,124px)] md:grid-cols-2">
           <div className="min-w-0">
-            <p className={`${eyebrow} text-gold-pale`}>Smart Business · Responsible Growth · Sustainable Progress</p>
+            <p className={`${eyebrow} text-gold-pale`}>Partnering for Smarter Decisions</p>
             <h2 id="cta-title" className="mt-[22px] max-w-[24ch] text-[clamp(34px,4.2vw,60px)] leading-[1.07] text-ivory">
               {home.cta.heading}
             </h2>
