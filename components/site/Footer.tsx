@@ -2,7 +2,7 @@ import Link from "next/link";
 import { getServices, getSettings } from "@/lib/data";
 import { isPlaceholder } from "@/lib/utils";
 import { LinkedInIcon } from "@/components/ui/Icons";
-import { MAPS_LINK, telHref } from "@/content/site";
+import { MAPS_LINK, phoneList, telHref } from "@/content/site";
 
 const company = [
   { href: "/about", label: "About Us" },
@@ -62,9 +62,18 @@ export async function Footer() {
             {settings.email && (
               <li>{isPlaceholder(settings.email) ? settings.email : <a className={linkCls} href={`mailto:${settings.email}`}>{settings.email}</a>}</li>
             )}
-            {settings.phone && (
-              <li>{isPlaceholder(settings.phone) ? settings.phone : <a className={linkCls} href={telHref(settings.phone)}>{settings.phone}</a>}</li>
-            )}
+            {settings.phone &&
+              (isPlaceholder(settings.phone) ? (
+                <li>{settings.phone}</li>
+              ) : (
+                phoneList(settings.phone).map((n) => (
+                  <li key={n}>
+                    <a className={linkCls} href={telHref(n)}>
+                      {n}
+                    </a>
+                  </li>
+                ))
+              ))}
             {settings.address && (
               <li className="whitespace-pre-line">
                 {isPlaceholder(settings.address) ? (

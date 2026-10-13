@@ -6,7 +6,7 @@ import { Reveal } from "@/components/ui/Motion";
 import { Section } from "@/components/ui/Section";
 import { getServices, getSettings } from "@/lib/data";
 import { pageMetadata } from "@/lib/seo";
-import { MAPS_LINK, telHref } from "@/content/site";
+import { MAPS_LINK, phoneList, telHref } from "@/content/site";
 import { isPlaceholder } from "@/lib/utils";
 
 export const revalidate = 300;
@@ -62,6 +62,9 @@ export default async function ContactPage({ searchParams }: PageProps<"/contact"
             <h2 id="enquiry" className="text-[34px]">
               Send an <em className="font-normal italic text-charcoal">Enquiry</em>
             </h2>
+            <p className="body-copy mt-5 max-w-[48ch]">
+              Book a 30-minute conversation. We will tell you where we can help and where we cannot.
+            </p>
             <div className="mt-10">
               <ContactForm defaultArea={area} fallbackEmail={settings.email} />
             </div>
@@ -72,7 +75,17 @@ export default async function ContactPage({ searchParams }: PageProps<"/contact"
             </h2>
             <dl className="mt-6 border-t border-hairline">
               {settings.email && <Detail label="Email">{link(settings.email, `mailto:${settings.email}`)}</Detail>}
-              {settings.phone && <Detail label="Phone">{link(settings.phone, telHref(settings.phone))}</Detail>}
+              {settings.phone && (
+                <Detail label="Phone">
+                  <span className="flex flex-col gap-1">
+                    {phoneList(settings.phone).map((n) => (
+                      <a key={n} href={telHref(n)} className="hover:text-gold-ink">
+                        {n}
+                      </a>
+                    ))}
+                  </span>
+                </Detail>
+              )}
               {settings.address && <Detail label="Registered Office">{settings.address}</Detail>}
               {settings.officeHours && <Detail label="Hours">{settings.officeHours}</Detail>}
               {settings.linkedin && !isPlaceholder(settings.linkedin) && (

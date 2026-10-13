@@ -55,7 +55,7 @@ export default async function HomePage() {
     logo: `${SITE_URL}/assets/logo-v.png`,
     slogan: "Partnering for Smarter Decisions",
     ...(settings.email && !isPlaceholder(settings.email) ? { email: settings.email } : {}),
-    ...(settings.phone && !isPlaceholder(settings.phone) ? { telephone: settings.phone } : {}),
+    ...(settings.phone && !isPlaceholder(settings.phone) ? { telephone: settings.phone.split(",")[0].trim() } : {}),
     ...(settings.linkedin && !isPlaceholder(settings.linkedin) ? { sameAs: [settings.linkedin] } : {}),
   };
 

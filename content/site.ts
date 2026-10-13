@@ -8,8 +8,8 @@ export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.insigh
 export const defaultSettings: SiteSettingsItem = {
   firmName: "Insight Advora LLP",
   tagline: "Partnering for Smarter Decisions",
-  email: "info@insightjuris.in",
-  phone: "+91 124-4462410",
+  email: "info@insightadvora.com",
+  phone: "+91 124-4462410, +91 9650191459",
   address: "363A, JMD Empire, 3rd Floor, Block D,\nSector 62, Gurugram, Haryana 122102",
   officeHours: "Monday to Friday, 10:00 – 18:00 IST",
   mapEmbedUrl: "https://maps.google.com/maps?q=JMD%20Empire%2C%20Sector%2062%2C%20Gurugram%2C%20Haryana%20122102&z=16&output=embed",
@@ -28,6 +28,9 @@ export const MAPS_LINK =
 
 /** tel: href from a display phone number, e.g. "+91 124-4462410" → "tel:+911244462410". */
 export const telHref = (phone: string) => `tel:${phone.replace(/[^\d+]/g, "")}`;
+
+/** Split a settings phone field (comma / newline separated) into individual numbers. */
+export const phoneList = (phone: string) => phone.split(/[,\n]/).map((p) => p.trim()).filter(Boolean);
 
 export const nav = [
   { href: "/", label: "Home" },
@@ -51,11 +54,11 @@ export const areasOfInterest = [
 ] as const;
 
 export const approach = [
-  { title: "Understand", text: "Context, objectives and constraints, clarified with the people who run the business." },
-  { title: "Diagnose", text: "Structured analysis of processes, performance, risk and compliance realities." },
-  { title: "Strategize", text: "Options framed with trade-offs, sequencing and decision criteria made explicit." },
-  { title: "Transform", text: "Execution support that turns decisions into operating changes on the ground." },
-  { title: "Sustain", text: "Governance, measurement and capability so improvement holds over time." },
+  { title: "Understand", text: "Context, objectives and constraints, clarified with the people who run the business. You get a shared view of scope and priorities to work from." },
+  { title: "Diagnose", text: "Structured analysis of processes, performance, risk and compliance. You get a gap report and risk ranking, typically in three to four weeks." },
+  { title: "Strategize", text: "Options framed with trade-offs and sequencing. You get a recommended path with clear decision criteria and owners." },
+  { title: "Transform", text: "Execution support on the ground. You get decisions turned into operating changes, tracked against agreed measures." },
+  { title: "Sustain", text: "Governance, measurement and capability built in. You get the means to hold the gains after our involvement ends." },
 ];
 
 export const howWeWork = [

@@ -2,7 +2,7 @@ import type { ServiceItem } from "@/lib/types";
 
 // Generated from the client's design data files (docs/design/*.js). Edit the content here,
 // or manage it in the admin panel once the database is connected.
-// Regulated-services wording is deliberate — see docs/HANDOFF.md "CRITICAL CREDIBILITY RULE".
+// Regulated-services wording is deliberate, see docs/HANDOFF.md "CRITICAL CREDIBILITY RULE".
 export const services: ServiceItem[] = [
     {
       "slug": "strategy-corporate-advisory",
@@ -61,7 +61,7 @@ export const services: ServiceItem[] = [
         "Competing priorities with no explicit trade-off",
         "Plans built on assumptions nobody has revisited"
       ],
-      "perspective": "Most leadership teams are not short of information. What helps is structure — the question framed properly, the options made comparable, and the trade-offs stated plainly.",
+      "perspective": "Most leadership teams are not short of information. What helps is structure, the question framed properly, the options made comparable, and the trade-offs stated plainly.",
       "outcomes": [
         "The decision framed with explicit criteria",
         "Options set out with trade-offs and dependencies",
@@ -85,7 +85,7 @@ export const services: ServiceItem[] = [
         },
         {
           "q": "Do you work with boards as well as management?",
-          "a": "Yes — often the value is in presenting the same analysis to both in a form each can act on."
+          "a": "Yes, often the value is in presenting the same analysis to both in a form each can act on."
         }
       ]
     },
@@ -96,7 +96,7 @@ export const services: ServiceItem[] = [
       "shortTitle": "M&A & IPO",
       "headline": "Clarity Across the Transaction Lifecycle.",
       "short": "Advisory support for mergers, acquisitions, IPOs and capital markets transactions, restructuring, due diligence and integration.",
-      "description": "Supporting organizations through strategic transactions — from mergers and acquisitions to initial public offerings and other capital markets transactions — with structured analysis, due diligence support, listing readiness and integration perspectives. Regulated legal, audit, tax and financial services are carried out by the appropriate licensed professionals, and we work alongside them.",
+      "description": "Supporting organizations through strategic transactions, from mergers and acquisitions to initial public offerings and other capital markets transactions, with structured analysis, due diligence support, listing readiness and integration perspectives. Regulated legal, audit, tax and financial services are carried out by the appropriate licensed professionals, and we work alongside them.",
       "icon": "transactions",
       "challenge": "Considering a transaction or IPO",
       "offerings": [
@@ -114,11 +114,11 @@ export const services: ServiceItem[] = [
         },
         {
           "title": "IPO & Capital Markets Support",
-          "body": "Initial public offerings, qualified institutional placements, offers for sale, debt listings, and listings and restructuring transactions under Indian securities laws."
+          "body": "Readiness and coordination support for IPOs, QIPs and offers for sale, working alongside SEBI-registered merchant bankers and legal counsel."
         },
         {
           "title": "End-to-End Transaction Support",
-          "body": "Integrated support through the transaction lifecycle — from planning and structuring to documentation, execution and closing — working alongside investment banks and law firms."
+          "body": "Integrated support through the transaction lifecycle, from planning and structuring to documentation, execution and closing, working alongside investment banks and law firms."
         },
         {
           "title": "Restructuring Advisory",
@@ -162,7 +162,7 @@ export const services: ServiceItem[] = [
         "Synergy expectations without an owner or a baseline",
         "Governance and compliance gaps that surface only at the listing stage"
       ],
-      "perspective": "Transaction value is usually created or lost in the operating detail — what was assumed in the model and what the business can actually deliver after close. We work on that gap, before and after the transaction.",
+      "perspective": "Transaction value is usually created or lost in the operating detail, what was assumed in the model and what the business can actually deliver after close. We work on that gap, before and after the transaction.",
       "outcomes": [
         "Operational and commercial assumptions examined independently",
         "Diligence findings carried through into integration planning",
@@ -183,7 +183,7 @@ export const services: ServiceItem[] = [
       "faq": [
         {
           "q": "Do you provide legal, accounting or investment banking services?",
-          "a": "No. Insight Advora provides advisory support — business, operational and commercial perspectives on a transaction. Regulated legal, audit, tax and financial services are carried out by the appropriate licensed professionals, and we work alongside them."
+          "a": "No. Insight Advora provides advisory support, business, operational and commercial perspectives on a transaction. Regulated legal, audit, tax and financial services are carried out by the appropriate licensed professionals, and we work alongside them."
         },
         {
           "q": "At what stage should you be involved?",
@@ -263,7 +263,7 @@ export const services: ServiceItem[] = [
         "Transformation programmes that stall after the design phase",
         "Competing initiatives with no agreed sequence"
       ],
-      "perspective": "Growth and transformation fail in the same place — between the decision and the operating change it requires. We frame the opportunity, then sequence what has to change in people, process and governance for it to hold.",
+      "perspective": "Growth and transformation fail in the same place, between the decision and the operating change it requires. We frame the opportunity, then sequence what has to change in people, process and governance for it to hold.",
       "outcomes": [
         "A growth or transformation path with explicit sequencing",
         "Investment and capability requirements made visible",
@@ -283,7 +283,7 @@ export const services: ServiceItem[] = [
       "faq": [
         {
           "q": "How is this different from a strategy document?",
-          "a": "The output is a path, not a position paper — stages, dependencies, owners and decision points, described so the organization can act on it."
+          "a": "The output is a path, not a position paper, stages, dependencies, owners and decision points, described so the organization can act on it."
         },
         {
           "q": "Can you work alongside an internal transformation team?",
@@ -355,7 +355,7 @@ export const services: ServiceItem[] = [
         "Effort duplicated across functions with unclear ownership",
         "Improvement initiatives that fade once attention moves on"
       ],
-      "perspective": "Efficiency work only matters when it connects to a commercial outcome. We start from how the operation actually runs — not how the process map says it should — and work back to the decisions, hand-offs and measures that determine performance.",
+      "perspective": "Efficiency work only matters when it connects to a commercial outcome. We start from how the operation actually runs, not how the process map says it should, and work back to the decisions, hand-offs and measures that determine performance.",
       "outcomes": [
         "Clearer process ownership and hand-offs",
         "A defined baseline and measures that management trusts",
@@ -452,7 +452,7 @@ export const services: ServiceItem[] = [
         "Risk assessments that do not reflect current operations",
         "Training that satisfies a requirement without changing behaviour"
       ],
-      "perspective": "EHS performance follows the operating system, not the policy document. We look at how work is planned, supervised and reviewed — which is where compliance either holds or quietly erodes.",
+      "perspective": "EHS performance follows the operating system, not the policy document. We look at how work is planned, supervised and reviewed, which is where compliance either holds or quietly erodes.",
       "outcomes": [
         "A consolidated view of applicable obligations",
         "Audit and corrective-action cycles that close properly",
@@ -487,7 +487,7 @@ export const services: ServiceItem[] = [
       "shortTitle": "ESG",
       "headline": "Embedding Sustainability Into Business Thinking.",
       "short": "ESG strategy, BRSR and sustainability reporting, governance, climate risk and stakeholder engagement.",
-      "description": "Helping organizations integrate environmental, social and governance considerations into strategy, operations and stakeholder engagement.",
+      "description": "BRSR reporting is now mandatory for India\u2019s top 1,000 listed companies by market capitalisation. We help organizations integrate environmental, social and governance considerations into strategy, operations and stakeholder engagement, and meet their reporting obligations.",
       "icon": "esg",
       "challenge": "Building an ESG framework",
       "offerings": [
@@ -521,7 +521,7 @@ export const services: ServiceItem[] = [
         },
         {
           "title": "Stakeholder Engagement",
-          "body": "Engagement approaches for stakeholder expectations that differ by audience — customers, lenders, regulators and communities."
+          "body": "Engagement approaches for stakeholder expectations that differ by audience, customers, lenders, regulators and communities."
         }
       ],
       "capabilities": [
@@ -554,7 +554,7 @@ export const services: ServiceItem[] = [
         "Unclear governance over who owns which metric",
         "Stakeholder expectations that differ by audience"
       ],
-      "perspective": "ESG becomes useful when it is an operating discipline rather than a reporting obligation — when the same data informs a decision and a disclosure.",
+      "perspective": "ESG becomes useful when it is an operating discipline rather than a reporting obligation, when the same data informs a decision and a disclosure.",
       "outcomes": [
         "A material-issues view specific to the business",
         "Data ownership and definitions agreed internally",
@@ -574,7 +574,7 @@ export const services: ServiceItem[] = [
       "faq": [
         {
           "q": "Do you prepare sustainability reports?",
-          "a": "We provide reporting support — framework selection, data structure, narrative and review. Assurance, where required, is provided by an independent assurance provider."
+          "a": "We provide reporting support, framework selection, data structure, narrative and review. Assurance, where required, is provided by an independent assurance provider."
         },
         {
           "q": "Is this relevant for a mid-sized business?",

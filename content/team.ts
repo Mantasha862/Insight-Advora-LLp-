@@ -27,7 +27,7 @@ export const team: TeamMemberItem[] = [
     "slug": "vinod-hans",
     "name": "Vinod Hans",
     "designation": "Managing Partner",
-    "qualification": "B.E., MBA, GMP INSEAD (France), Leadership Cranefield (UK)",
+    "qualification": "B.E., MBA, GMP INSEAD (France), Leadership Programme, Cranfield (UK)",
     "category": "leadership",
     "categoryName": "Leadership",
     "expertise": [
@@ -37,11 +37,11 @@ export const team: TeamMemberItem[] = [
       "Operational Excellence",
       "M&A / Joint Ventures"
     ],
-    "bio": "Automotive and manufacturing leader with 40 years of experience in P&L management, strategic transactions, business turnaround and growth. Combines engineering depth with commercial leadership and operational improvement. Held P&L responsibility for a ₹4,000 Cr automotive business vertical (JBM) and a ₹2,200 Cr Powertrain vertical (Tenneco) in his last assignments.\n\n## At Insight Advora\n\nAs Managing Partner, brings operating and transaction experience to the firm's Strategy, Growth, Operational Excellence and M&A work.",
+    "bio": "Automotive and manufacturing leader with 40 years of experience in P&L management, strategic transactions, business turnaround and growth. Combines engineering depth with commercial leadership and operational improvement. Held P&L responsibility for a ₹4,000 Cr automotive business vertical at JBM (2024–2026) and a ₹2,200 Cr Powertrain vertical at Tenneco (2015–2024).\n\n## At Insight Advora\n\nAt Insight Advora, Vinod leads engagements on turnaround, growth and joint-venture decisions.",
     "focus": [
-      "Secured 100% ownership of two joint ventures and managed transitions across 2 ownership changes and 3 JVs",
+      "Secured 100% ownership of two joint ventures and managed transitions across three ownership changes",
       "Built a stable leadership culture with no strikes or industrial relations issues over a 5-year period",
-      "Improved EBITDA margins, delivered growth and launched 4 new product lines",
+      "Raised EBITDA margins from 8% to 10%, delivered growth and launched four new product lines",
       "Cut development lead time by 6 months and development cost by 30% through a local testing centre",
       "Member of the Global Leadership Group and Strategic Management Group"
     ],
@@ -66,7 +66,7 @@ export const team: TeamMemberItem[] = [
       "Enterprise Risk Management",
       "Ethics, Compliance & Whistleblower Frameworks"
     ],
-    "bio": "Over 33 years of experience across IPOs and capital markets, M&A, corporate governance, ESG and compliance, including more than a decade as Whole-time Director of a listed company and General Counsel of a global automotive group. Fellow Member of the Institute of Company Secretaries of India and member of the Chartered Governance Institute (UK & Ireland), with a doctorate in corporate governance.\n\n## IPO & Capital Markets\n\nPlayed a significant leadership role in the Initial Public Offering of Tenneco Clean Air Limited, valued at approximately ₹4,040 crore, overseeing its governance, regulatory and stakeholder aspects. Experienced across mergers and acquisitions, divestitures, joint ventures, restructurings, rights issues, offers for sale and open offers.\n\n## ESG & Sustainability Governance\n\nAdvances ESG principles in board decision-making, with experience overseeing environmental compliance, workplace safety, ethical conduct, diversity and inclusion and stakeholder engagement. Member of Corporate Social Responsibility Committees overseeing education, healthcare, skill development and community initiatives.\n\n## Recognitions\n\n- In-House Counsel of the Year (Manufacturing), Indian Business Law Journal, 2025–26\n- Most Influential Corporate Counsel, Alliance for Corporate Counsel and Company Secretaries, 2026 and 2019",
+    "bio": "Over 33 years of experience across IPOs and capital markets, M&A, corporate governance, ESG and compliance, including more than a decade as Whole-time Director of a listed company and General Counsel of a global automotive group. Fellow Member of the Institute of Company Secretaries of India and member of the Chartered Governance Institute (UK & Ireland), with a doctorate in corporate governance.\n\n## IPO & Capital Markets\n\nLed governance, regulatory and stakeholder aspects of landmark capital market transactions, including the rights issue of SRF Ltd, the IPO of VLS Finance Limited, and the IPO of Tenneco Clean Air Limited (valued at approximately ₹4,040 crore). Experienced across mergers and acquisitions, divestitures, joint ventures, restructurings, rights issues, offers for sale and open offers.\n\n## ESG & Sustainability Governance\n\nAdvances ESG principles in board decision-making, with experience overseeing environmental compliance, workplace safety, ethical conduct, diversity and inclusion and stakeholder engagement. Member of Corporate Social Responsibility Committees overseeing education, healthcare, skill development and community initiatives.\n\n## Recognitions\n\n- In-House Counsel of the Year (Manufacturing), Indian Business Law Journal, 2025–26\n- Most Influential Corporate Counsel, Alliance for Corporate Counsel and Company Secretaries, 2026 and 2019",
     "focus": [
       "At Insight Advora his work centres on taking companies to market and through transactions: IPO readiness and listing strategy, mergers, acquisitions and restructurings, and the governance and ESG foundations that listed companies and investors expect."
     ],
@@ -88,7 +88,7 @@ export const team: TeamMemberItem[] = [
       "Environmental Due Diligence",
       "Risk Assessment & Safety Culture"
     ],
-    "bio": "Over 29 years of leadership in Environmental, Health & Safety, including senior roles as Executive Director and Global EHS Director in Fortune 500 manufacturing organisations.",
+    "bio": "Over 29 years of leadership in Environmental, Health & Safety, including senior roles as Executive Director and Global EHS Director in large multinational manufacturing organisations.",
     "focus": [
       "At Insight Advora he leads the EHS Advisory and supports the ESG & Sustainability practice, helping organisations translate complex regulations into practical EHS strategy, risk management and sustainability alignment across manufacturing, renewable energy and global operations."
     ],
@@ -98,7 +98,7 @@ export const team: TeamMemberItem[] = [
   },
   {
     "slug": "mohammad-sazid",
-    "name": "FCS Mohammad Sazid",
+    "name": "Mohammad Sazid",
     "designation": "Advisor",
     "qualification": "FCS • LL.B. • B.Com. • Governance, Risk, Compliance & Sustainability",
     "category": "advisory",

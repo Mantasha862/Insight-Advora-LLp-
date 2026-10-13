@@ -35,8 +35,17 @@ export default async function ServicesPage() {
         eyebrow="Our Services"
         lead="Integrated Advisory for"
         accent="Measurable Progress."
-        intro="Six connected practices helping organisations move from complexity to clarity — and from clarity to action."
+        intro="Six connected practices helping organisations move from complexity to clarity, and from clarity to action."
       />
+
+      <div className="border-b border-hairline bg-forest text-ivory">
+        <div className="container-site flex items-start gap-4 py-5">
+          <span aria-hidden className="mt-[0.45em] h-px w-6 flex-none bg-gold-light" />
+          <p className="text-[14px] font-light leading-[1.6] text-ivory/90">
+            We are not a law, audit, tax or merchant-banking firm; we work alongside licensed professionals.
+          </p>
+        </div>
+      </div>
 
       <Section tone="ivory-2" labelledBy="our-approach">
         <div className="grid gap-14 lg:grid-cols-2 lg:items-center">

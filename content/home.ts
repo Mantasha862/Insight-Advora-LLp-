@@ -15,8 +15,8 @@ export const home = {
   "about": {
     "heading": "Where Insight Meets Action.",
     "paragraphs": [
-      "Insight Advora LLP is a strategic advisory and consulting firm helping organizations improve performance, navigate transformation, manage risk and create sustainable long-term value.",
-      "We bring together strategic thinking, operational understanding and sustainability-focused perspectives — working alongside leadership teams to turn informed decisions into practical action."
+      "Insight Advora advises promoter-led and listed industrial companies in India on transactions, governance, EHS and ESG. Our advisors have run these functions inside large manufacturing groups.",
+      "By connecting these perspectives, we help leadership teams see the whole picture and act with confidence."
     ],
     "pillars": [
       {

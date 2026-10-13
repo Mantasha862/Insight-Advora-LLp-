@@ -37,7 +37,7 @@ export default async function TeamPage() {
         eyebrow="Our Team"
         lead="Expertise With"
         accent="Perspective."
-        intro="A multidisciplinary team bringing complementary experience to every engagement."
+        intro="Our senior advisors have run strategy, governance, EHS and transactions inside large organisations, supported by a team of compliance and governance professionals."
       />
 
       <Section tone="ivory-2" labelledBy="perspective">

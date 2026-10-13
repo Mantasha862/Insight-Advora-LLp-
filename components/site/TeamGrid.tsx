@@ -36,14 +36,21 @@ export function TeamGrid({ members, categories }: { members: TeamMemberItem[]; c
           </button>
         ))}
       </div>
-      <div id="team-grid" role="tabpanel" className="mt-10 space-y-6">
-        {groups.map((g, i) => (
-          <div key={i} className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {g.map((m) => (
-              <TeamCard key={m.slug} member={m} />
-            ))}
-          </div>
-        ))}
+      <div id="team-grid" role="tabpanel" className="mt-10 space-y-10">
+        {groups.map((g, i) => {
+          // Associates sit on their own row as smaller, compact cards so the senior team stays the focus.
+          const isAssociates = lastSlug != null && g.every((m) => m.category === lastSlug);
+          return (
+            <div
+              key={i}
+              className={cn("grid gap-6", isAssociates ? "sm:grid-cols-2 lg:grid-cols-4" : "md:grid-cols-2 lg:grid-cols-3")}
+            >
+              {g.map((m) => (
+                <TeamCard key={m.slug} member={m} compact={isAssociates} />
+              ))}
+            </div>
+          );
+        })}
         {shown.length === 0 && <p className="body-copy">Profiles in this category will be added soon.</p>}
       </div>
     </>

@@ -68,12 +68,11 @@ export default async function AboutPage() {
           </Reveal>
           <Reveal index={1} className="body-copy space-y-5">
             <p>
-              Insight Advora LLP brings together expertise in strategy, operational excellence, business growth, transaction
-              advisory support, environment, health &amp; safety, and ESG &amp; sustainability.
+              Insight Advora advises promoter-led and listed industrial companies in India on transactions, governance, EHS and
+              ESG. Our advisors have run these functions inside large manufacturing groups.
             </p>
             <p>
-              We believe the most important business challenges rarely sit neatly within one discipline. By connecting perspectives,
-              we help leadership teams see the whole picture and act with confidence.
+              By connecting these perspectives, we help leadership teams see the whole picture and act with confidence.
             </p>
           </Reveal>
         </div>
@@ -86,7 +85,7 @@ export default async function AboutPage() {
             <Heading id="why" lead="From Complexity" accent="to Progress." className="mt-5" />
             <GoldRule className="mt-7" />
             <blockquote className="statement mt-10 border-l border-gold pl-6 text-forest">
-              Organisations do not need more information. They need clarity — and a practical path from insight to action.
+              Organisations do not need more information. They need clarity, and a practical path from insight to action.
             </blockquote>
           </Reveal>
           <Reveal index={1}>
@@ -102,7 +101,7 @@ export default async function AboutPage() {
             <Reveal>
               <p className="eyebrow eyebrow-dark">Our Vision</p>
               <h2 id="vision" className="h-section mt-5 text-ivory">
-                To be a trusted partner for <em className="font-normal italic text-gold-pale">smarter, more sustainable decisions.</em>
+                To be the first call for industrial leaders facing a <em className="font-normal italic text-gold-pale">transaction, a listing or a compliance reset.</em>
               </h2>
               <GoldRule className="mt-7" dark />
             </Reveal>
@@ -128,7 +127,7 @@ export default async function AboutPage() {
 
       <Section labelledBy="mission">
         <SectionIntro eyebrow="Our Mission" lead="Clarity, Action," accent="Impact." id="mission">
-          To help organisations make better decisions and turn them into practical, measurable progress — responsibly and in
+          To help organisations make better decisions and turn them into practical, measurable progress, responsibly and in
           partnership.
         </SectionIntro>
         <div className="ruled-grid mt-14 md:grid-cols-3">
