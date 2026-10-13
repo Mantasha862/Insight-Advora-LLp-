@@ -53,3 +53,42 @@ export const home = {
 
 /** Conventional locations picked up automatically when the files exist in /public. */
 export const DEFAULT_VIDEO = { mp4: "/videos/advisory-meeting.mp4", poster: "/videos/advisory-meeting-poster.jpg" };
+
+/**
+ * Fixed-scope entry engagements — the low-risk first step a buyer can say yes to.
+ * Duration/fee are left as bracketed placeholders until the firm sets them (edit here).
+ * Keep these mandated / time-bound, not open-ended strategy.
+ */
+export const entryOffers = [
+  {
+    title: "IPO Readiness Diagnostic",
+    meta: "[ set duration ]",
+    body: "A structured review of listing readiness — governance, compliance, disclosures and the gaps to close before going to market.",
+    href: "/services/ma-corporate-transactions",
+  },
+  {
+    title: "BRSR & ESG Reporting Readiness",
+    meta: "[ set duration ]",
+    body: "A review of your BRSR and ESG disclosure obligations, the data you can support today and a sequenced plan to close the gap.",
+    href: "/services/esg-sustainability",
+  },
+  {
+    title: "EHS Compliance Audit",
+    meta: "[ set duration ]",
+    body: "An independent audit against applicable EHS laws and standards, with a prioritised list of risks and corrective actions.",
+    href: "/services/ehs-advisory",
+  },
+] as const;
+
+/** Sector focus — where the firm's leadership pairing is most distinctive. */
+export const sectorFocus = {
+  eyebrow: "A Focused Strength",
+  heading: "Built for Manufacturing & Auto-Sector Leaders",
+  lead: "Our leadership pairs four decades of automotive and manufacturing operating experience with governance leadership from a listed global auto group — a combination suited to promoter-led, mid-sized manufacturers.",
+  points: [
+    "IPO and listing readiness, from governance to disclosures",
+    "Joint ventures, acquisitions and ownership transitions",
+    "EV and energy-transition decisions",
+    "Board governance and ESG foundations the public markets expect",
+  ],
+} as const;

@@ -9,6 +9,7 @@ import { LinkedInIcon } from "@/components/ui/Icons";
 import { DrawLine, Reveal } from "@/components/ui/Motion";
 import { Timeline } from "@/components/ui/Timeline";
 import { approach, SITE_URL } from "@/content/site";
+import { entryOffers, sectorFocus } from "@/content/home";
 import { getArticles, getFeaturedTeam, getHome, getServices, getSettings } from "@/lib/data";
 import { pageMetadata } from "@/lib/seo";
 import { formatDate, isPlaceholder } from "@/lib/utils";
@@ -128,6 +129,36 @@ export default async function HomePage() {
         </div>
       </section>
 
+
+      {/* 03 Sector focus */}
+      <section id="sector" aria-labelledby="sector-title" className="relative isolate overflow-hidden bg-forest text-ivory">
+        <div className="container-site section-y grid items-center gap-[clamp(36px,5vw,80px)] lg:grid-cols-[1fr_1fr]">
+          <Reveal className="min-w-0">
+            <p className={`${eyebrow} text-gold-pale`}>{sectorFocus.eyebrow}</p>
+            <h2 id="sector-title" className="mt-5 text-[clamp(32px,3.7vw,52px)] leading-[1.1] text-ivory">
+              {sectorFocus.heading}
+            </h2>
+            <span aria-hidden className="mt-7 block h-px w-[72px] bg-gold-light" />
+            <p className="mt-7 max-w-[52ch] text-[clamp(15.5px,1.15vw,17px)] font-light leading-[1.86] text-ivory/80">
+              {sectorFocus.lead}
+            </p>
+            <Link href="/team" className="group mt-9 inline-flex items-center gap-3 border-b border-gold-light/60 pb-2 text-[12.5px] font-semibold uppercase tracking-[0.1em] text-gold-pale hover:text-ivory">
+              Meet the Team Behind It {lineArrow}
+            </Link>
+          </Reveal>
+          <Reveal index={1} className="min-w-0">
+            <ul className="grid gap-px bg-ivory/12">
+              {sectorFocus.points.map((pt) => (
+                <li key={pt} className="flex items-start gap-4 bg-forest px-[clamp(20px,2.4vw,30px)] py-6">
+                  <span aria-hidden className="mt-[0.7em] h-px w-5 flex-none bg-gold-light" />
+                  <span className="text-[15.5px] font-light leading-[1.6] text-ivory/90">{pt}</span>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+        </div>
+      </section>
+
       {/* 04 Services */}
       <section id="expertise" aria-labelledby="exp-title" className="border-t border-forest/8 bg-ivory-2">
         <div className="container-site section-y">
@@ -158,6 +189,41 @@ export default async function HomePage() {
                   <p className="mb-[26px] mt-3.5 text-[14.5px] font-light leading-[1.75] text-body">{s.short || s.headline}</p>
                   <span className="mt-auto inline-flex items-center gap-2.5 text-[11.5px] font-semibold uppercase tracking-[0.12em] text-forest">
                     Explore
+                    <span aria-hidden className="block h-px w-4 bg-gold transition-transform duration-300 group-hover:translate-x-2" />
+                  </span>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+      {/* 04b Where to start */}
+      <section id="start" aria-labelledby="start-title" className="border-t border-forest/8 bg-ivory">
+        <div className="container-site section-y">
+          <Reveal className="mb-[clamp(38px,5vw,60px)] max-w-[60ch]">
+            <p className={`${eyebrow} text-gold-ink`}>Where to Start</p>
+            <h2 id="start-title" className={`mt-5 ${h2}`}>
+              A Clear First Step
+            </h2>
+            <p className="mt-6 text-[clamp(15.5px,1.15vw,17px)] font-light leading-[1.8] text-body">
+              Fixed-scope engagements for the decisions that cannot wait — a defined review, a clear output, and a practical path forward.
+            </p>
+          </Reveal>
+          <div className="grid gap-px bg-hairline md:grid-cols-3">
+            {entryOffers.map((o, i) => (
+              <Reveal key={o.title} index={i} className="bg-ivory">
+                <Link
+                  href={o.href}
+                  className="group relative flex h-full min-h-[260px] flex-col overflow-hidden bg-ivory p-[clamp(28px,3vw,40px)] transition-all duration-300 hover:-translate-y-1.5 hover:bg-white hover:shadow-[0_26px_50px_-30px_rgba(14,41,33,0.5)]"
+                >
+                  {cardLine}
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-gold-ink">{o.meta}</span>
+                  <h3 className="mt-4 text-[23px] leading-[1.2]">{o.title}</h3>
+                  <p className="mb-[26px] mt-3.5 text-[14.5px] font-light leading-[1.75] text-body">{o.body}</p>
+                  <span className="mt-auto inline-flex items-center gap-2.5 text-[11.5px] font-semibold uppercase tracking-[0.12em] text-forest">
+                    Learn More
                     <span aria-hidden className="block h-px w-4 bg-gold transition-transform duration-300 group-hover:translate-x-2" />
                   </span>
                 </Link>
