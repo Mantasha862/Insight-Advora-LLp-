@@ -71,7 +71,7 @@ export default async function HomePage() {
             <Reveal className="min-w-0">
               <p className="eyebrow">About Insight Advora</p>
               <h2 id="about-title" className="mt-6 text-[clamp(38px,4.8vw,70px)] leading-[1.04]">
-                Where Insight <em className="font-normal italic text-charcoal">Meets Action.</em>
+                Who <em className="font-normal italic text-charcoal">We Are.</em>
               </h2>
               <span aria-hidden className="mt-8 block h-px w-[72px] bg-gold" />
               {home.about.paragraphs.map((p) => (

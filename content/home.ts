@@ -13,7 +13,7 @@ export const home = {
     "Transformation"
   ],
   "about": {
-    "heading": "Where Insight Meets Action.",
+    "heading": "Who We Are.",
     "paragraphs": [
       "Insight Advora advises promoter-led and listed companies in India on strategy, transactions, governance, EHS and ESG. Our advisors have run these functions inside large organisations.",
       "By connecting these perspectives, we help leadership teams see the whole picture and act with confidence."
