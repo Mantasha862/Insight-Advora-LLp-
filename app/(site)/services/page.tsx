@@ -10,7 +10,7 @@ import { GoldRule, Reveal } from "@/components/ui/Motion";
 import { Chips, Section, SectionIntro } from "@/components/ui/Section";
 import { Chain, Timeline } from "@/components/ui/Timeline";
 import { howWeWork } from "@/content/site";
-import { getArticles, getIndustries, getServices } from "@/lib/data";
+import { getArticles, getServices } from "@/lib/data";
 import { pageMetadata } from "@/lib/seo";
 import { serviceArea } from "@/lib/areas";
 
@@ -26,7 +26,7 @@ export function generateMetadata() {
 }
 
 export default async function ServicesPage() {
-  const [services, industries, articles] = await Promise.all([getServices(), getIndustries(), getArticles()]);
+  const [services, articles] = await Promise.all([getServices(), getArticles()]);
 
   return (
     <>
@@ -156,18 +156,6 @@ export default async function ServicesPage() {
         <div className="mt-16">
           <Timeline steps={howWeWork} />
         </div>
-      </Section>
-
-      <Section tone="ivory-2" labelledBy="sectors">
-        <SectionIntro eyebrow="Sectors" lead="Industries" accent="We Serve." id="sectors" />
-        <ul className="ruled-grid mt-14 sm:grid-cols-2 lg:grid-cols-4">
-          {industries.map((ind) => (
-            <li key={ind.slug} className="flex items-center justify-between gap-4 bg-ivory p-7 transition-colors hover:bg-forest [&:hover>span:first-child]:text-gold-pale">
-              <span className="font-serif text-[22px] text-forest transition-colors">{ind.name}</span>
-              <span className="numeral text-[22px] text-gold">{ind.number}</span>
-            </li>
-          ))}
-        </ul>
       </Section>
 
       {articles.length > 0 && (
