@@ -15,7 +15,7 @@ export const home = {
   "about": {
     "heading": "Where Insight Meets Action.",
     "paragraphs": [
-      "Insight Advora advises promoter-led and listed industrial companies in India on transactions, governance, EHS and ESG. Our advisors have run these functions inside large manufacturing groups.",
+      "Insight Advora advises promoter-led and listed companies in India on strategy, transactions, governance, EHS and ESG. Our advisors have run these functions inside large organisations.",
       "By connecting these perspectives, we help leadership teams see the whole picture and act with confidence."
     ],
     "pillars": [
@@ -79,16 +79,3 @@ export const entryOffers = [
     href: "/services/ehs-advisory",
   },
 ] as const;
-
-/** Sector focus — where the firm's leadership pairing is most distinctive. */
-export const sectorFocus = {
-  eyebrow: "A Focused Strength",
-  heading: "Built for Manufacturing & Auto-Sector Leaders",
-  lead: "Our leadership pairs four decades of automotive and manufacturing operating experience with governance leadership from a listed global auto group — a combination suited to promoter-led, mid-sized manufacturers.",
-  points: [
-    "IPO and listing readiness, from governance to disclosures",
-    "Joint ventures, acquisitions and ownership transitions",
-    "EV and energy-transition decisions",
-    "Board governance and ESG foundations the public markets expect",
-  ],
-} as const;

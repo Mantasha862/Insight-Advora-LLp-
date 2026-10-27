@@ -68,8 +68,8 @@ export default async function AboutPage() {
           </Reveal>
           <Reveal index={1} className="body-copy space-y-5">
             <p>
-              Insight Advora advises promoter-led and listed industrial companies in India on transactions, governance, EHS and
-              ESG. Our advisors have run these functions inside large manufacturing groups.
+              Insight Advora advises promoter-led and listed companies in India on strategy, transactions, governance, EHS and
+              ESG. Our advisors have run these functions inside large organisations.
             </p>
             <p>
               By connecting these perspectives, we help leadership teams see the whole picture and act with confidence.
@@ -101,7 +101,7 @@ export default async function AboutPage() {
             <Reveal>
               <p className="eyebrow eyebrow-dark">Our Vision</p>
               <h2 id="vision" className="h-section mt-5 text-ivory">
-                To be the first call for industrial leaders facing a <em className="font-normal italic text-gold-pale">transaction, a listing or a compliance reset.</em>
+                To be the first call for leaders facing a <em className="font-normal italic text-gold-pale">transaction, a listing or a compliance reset.</em>
               </h2>
               <GoldRule className="mt-7" dark />
             </Reveal>
