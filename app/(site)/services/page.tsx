@@ -131,25 +131,6 @@ export default async function ServicesPage() {
         </div>
       </Section>
 
-      <Section tone="ivory-2" labelledBy="together">
-        <SectionIntro eyebrow="Integrated Delivery" lead="Where Disciplines" accent="Come Together." id="together">
-          Many engagements draw on more than one practice. A growth strategy may need operational readiness; an acquisition may
-          raise EHS and ESG considerations. We assemble the right combination for each situation.
-        </SectionIntro>
-        <div className="ruled-grid mt-14 md:grid-cols-3">
-          {[
-            ["Strategy + Operations", "Connecting direction with the processes and routines that deliver it."],
-            ["Growth + Transactions", "Evaluating organic and inorganic routes to growth side by side."],
-            ["EHS + ESG", "Aligning safety, environmental performance and sustainability reporting processes."],
-          ].map(([t, d], i) => (
-            <Reveal key={t} index={i} className="p-10">
-              <h3 className="h-card">{t}</h3>
-              <p className="card-copy mt-3">{d}</p>
-            </Reveal>
-          ))}
-        </div>
-      </Section>
-
       <Section labelledBy="how">
         <SectionIntro eyebrow="How We Work" lead="A Structured," accent="Collaborative Process." id="how" />
         <div className="mt-16">
