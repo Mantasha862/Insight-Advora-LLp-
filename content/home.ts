@@ -38,7 +38,7 @@ export const home = {
     ]
   },
   "cta": {
-    "heading": "Ready to Turn Insight Into Action?",
+    "heading": "Let’s Talk.",
     "body": "Let’s discuss the challenge, opportunity or transformation ahead.",
     "button": "Start a Conversation"
   },
