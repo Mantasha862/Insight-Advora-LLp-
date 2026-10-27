@@ -35,7 +35,7 @@ export default async function ServicesPage() {
         eyebrow="Our Services"
         lead="Integrated Advisory for"
         accent="Measurable Progress."
-        intro="Six connected practices helping organisations move from complexity to clarity, and from clarity to action."
+        intro="Five connected practices helping organisations move from complexity to clarity, and from clarity to action."
       />
 
       <div className="border-b border-hairline bg-forest text-ivory">
@@ -67,7 +67,7 @@ export default async function ServicesPage() {
       </Section>
 
       <Section tone="forest" labelledBy="eco">
-        <SectionIntro eyebrow="Services Ecosystem" lead="Six Practices," accent="One Integrated View." dark id="eco">
+        <SectionIntro eyebrow="Services Ecosystem" lead="Five Practices," accent="One Integrated View." dark id="eco">
           Hover or focus a practice to see what it covers.
         </SectionIntro>
         <div className="mt-16">

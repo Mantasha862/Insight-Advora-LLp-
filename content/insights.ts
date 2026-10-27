@@ -195,7 +195,7 @@ export const articles: SeedArticle[] = [
     ],
     "services": [
       "ma-corporate-transactions",
-      "business-growth-transformation"
+      "strategy-corporate-advisory"
     ],
     "tags": [
       "due diligence",
@@ -236,8 +236,7 @@ export const articles: SeedArticle[] = [
       "technology-services"
     ],
     "services": [
-      "strategy-corporate-advisory",
-      "business-growth-transformation"
+      "strategy-corporate-advisory"
     ],
     "tags": [
       "strategy execution",
@@ -357,7 +356,7 @@ export const articles: SeedArticle[] = [
       "diversified-enterprises"
     ],
     "services": [
-      "business-growth-transformation"
+      "strategy-corporate-advisory"
     ],
     "tags": [
       "transformation"

@@ -18,7 +18,7 @@ export const revalidate = 300;
 
 /** Practices each person is stated to work in, per the firm profile. */
 const PRACTICES: Record<string, string[]> = {
-  "vinod-hans": ["strategy-corporate-advisory", "business-growth-transformation", "operational-excellence", "ma-corporate-transactions"],
+  "vinod-hans": ["strategy-corporate-advisory", "operational-excellence", "ma-corporate-transactions"],
   "khalid-iqbal-khan": ["ma-corporate-transactions", "esg-sustainability"],
   "prasanna-kumar-dh": ["ehs-advisory", "esg-sustainability"],
   "mohammad-sazid": ["esg-sustainability", "ma-corporate-transactions"],

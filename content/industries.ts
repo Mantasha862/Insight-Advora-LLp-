@@ -34,7 +34,7 @@ export const industries: IndustryItem[] = [
       "operational-excellence",
       "ehs-advisory",
       "esg-sustainability",
-      "business-growth-transformation"
+      "strategy-corporate-advisory"
     ]
   },
   {
@@ -127,7 +127,6 @@ export const industries: IndustryItem[] = [
       "business-transformation"
     ],
     "services": [
-      "business-growth-transformation",
       "strategy-corporate-advisory",
       "operational-excellence"
     ]
@@ -191,7 +190,7 @@ export const industries: IndustryItem[] = [
     ],
     "services": [
       "operational-excellence",
-      "business-growth-transformation",
+      "strategy-corporate-advisory",
       "esg-sustainability"
     ]
   },
@@ -222,7 +221,6 @@ export const industries: IndustryItem[] = [
     ],
     "services": [
       "strategy-corporate-advisory",
-      "business-growth-transformation",
       "operational-excellence",
       "esg-sustainability"
     ]

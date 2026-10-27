@@ -45,11 +45,10 @@ export const philosophy = ["People", "Process", "Planet", "Progress"] as const;
 
 export const areasOfInterest = [
   "Operational Excellence",
-  "Business Growth",
   "M&A / Transactions",
   "EHS",
   "ESG & Sustainability",
-  "Strategy & Advisory",
+  "Strategy & Growth",
   "Other",
 ] as const;
 

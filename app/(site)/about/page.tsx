@@ -157,7 +157,7 @@ export default async function AboutPage() {
       </Section>
 
       <Section labelledBy="expertise">
-        <SectionIntro eyebrow="Our Expertise" lead="Six Practices," accent="Working Together." id="expertise" />
+        <SectionIntro eyebrow="Our Expertise" lead="Five Practices," accent="Working Together." id="expertise" />
         <div className="ruled-grid mt-14 md:grid-cols-2 lg:grid-cols-3">
           {services.map((s, i) => (
             <Reveal key={s.slug} index={i}>

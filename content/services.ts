@@ -3,73 +3,78 @@ import type { ServiceItem } from "@/lib/types";
 // Generated from the client's design data files (docs/design/*.js). Edit the content here,
 // or manage it in the admin panel once the database is connected.
 // Regulated-services wording is deliberate, see docs/HANDOFF.md "CRITICAL CREDIBILITY RULE".
+// Structure follows the 2026 profile (v15): five practices, with Strategy and Business Growth
+// combined into a single lead practice.
 export const services: ServiceItem[] = [
     {
       "slug": "strategy-corporate-advisory",
       "number": "01",
-      "title": "Strategy & Corporate Advisory",
+      "title": "Strategy, Business Growth & Transformation",
       "shortTitle": "Strategy",
       "headline": "Helping Leaders Navigate Complexity.",
-      "short": "Business strategy, management consulting and strategic decision support.",
-      "description": "Strategy and Advisory services form a critical pillar in helping businesses navigate complex challenges and seize growth opportunities. Our guidance is designed to equip organizations with actionable insights, strategic clarity and sustainable solutions tailored to their unique needs. Regulated legal, audit, tax and financial services are carried out by the appropriate licensed professionals, and we work alongside them.",
+      "short": "Business strategy, growth and expansion planning, transformation and performance improvement.",
+      "description": "Strategy, growth and transformation services help organisations navigate complex challenges and seize growth opportunities, with actionable insights, strategic clarity and execution support tailored to each business. Regulated legal, audit, tax and financial services are carried out by the appropriate licensed professionals, and we work alongside them.",
       "icon": "strategy",
-      "challenge": "Facing a strategic decision",
+      "challenge": "Facing a strategic or growth decision",
       "offerings": [
         {
-          "title": "Business Growth & Expansion",
-          "body": "Guidance on scaling operations, entering new markets and structuring growth strategies."
+          "title": "Market Entry & Expansion Strategy",
+          "body": "Advising on scaling operations, domestic and international market entry, new markets, regulatory frameworks and growth roadmaps."
         },
         {
-          "title": "Mergers & Acquisitions",
-          "body": "Advisory on deal structuring, due diligence, integration planning and post-transaction support."
+          "title": "Strategic Partnerships & Alliances",
+          "body": "Identifying and structuring collaborations, joint ventures and alliances to accelerate growth."
         },
         {
           "title": "Global Expansion Advisory",
           "body": "Assistance with cross-border entry strategies, regulatory navigation and international compliance."
         },
         {
-          "title": "Operational Excellence",
-          "body": "Consulting on process improvement, organizational efficiency and performance optimization."
-        },
-        {
           "title": "Startups & Emerging Businesses",
           "body": "Guiding entrepreneurs and emerging businesses on fundraising, compliance and operational scaling."
+        },
+        {
+          "title": "Brand Positioning & Market Development",
+          "body": "Crafting strategies for brand differentiation, customer acquisition and market penetration."
+        },
+        {
+          "title": "Performance & Profitability Enhancement",
+          "body": "Identifying growth levers, optimising pricing strategies and improving margins."
         }
       ],
       "capabilities": [
         "Business Strategy",
         "Corporate Strategy",
         "Strategic Planning",
+        "Business Growth Strategy",
+        "Market & Opportunity Assessment",
+        "Expansion Strategy",
+        "Business Transformation",
+        "Performance Improvement",
         "Management Consulting",
-        "Organizational Strategy",
-        "Corporate Advisory",
-        "Decision Support",
-        "Business Model Review",
-        "Performance Strategy",
-        "Strategic Transformation"
+        "Decision Support"
       ],
       "flow": [
-        "Question",
-        "Insight",
-        "Options",
-        "Decision",
-        "Action"
+        "Vision",
+        "Strategy",
+        "Execution",
+        "Growth"
       ],
       "challenges": [
         "Decisions delayed because the options are not comparable",
-        "Strategy that is understood at the top and not below it",
-        "Competing priorities with no explicit trade-off",
-        "Plans built on assumptions nobody has revisited"
+        "Ambition that is clear at board level but unclear in execution",
+        "Expansion decisions taken without an operating readiness view",
+        "Competing priorities with no explicit trade-off"
       ],
-      "perspective": "Most leadership teams are not short of information. What helps is structure, the question framed properly, the options made comparable, and the trade-offs stated plainly.",
+      "perspective": "Most leadership teams are not short of information. What helps is structure, the question framed properly, the options made comparable, and the trade-offs stated plainly, then sequenced into a growth path the organisation can actually deliver.",
       "outcomes": [
         "The decision framed with explicit criteria",
         "Options set out with trade-offs and dependencies",
-        "A clear line from priority to initiative to measure",
-        "A basis for revisiting the decision as conditions change"
+        "A growth or transformation path with explicit sequencing",
+        "A clear line from priority to initiative to measure"
       ],
       "related": [
-        "business-growth-transformation",
+        "ma-corporate-transactions",
         "operational-excellence"
       ],
       "industries": [
@@ -81,7 +86,7 @@ export const services: ServiceItem[] = [
       "faq": [
         {
           "q": "How long is a typical strategy engagement?",
-          "a": "It depends on the decision. A focused decision-support piece can be short; a full strategy review with implementation planning runs longer and is usually staged."
+          "a": "It depends on the decision. A focused decision-support piece can be short; a full strategy or growth review with implementation planning runs longer and is usually staged."
         },
         {
           "q": "Do you work with boards as well as management?",
@@ -171,7 +176,7 @@ export const services: ServiceItem[] = [
         "Governance and compliance foundations ready for the public markets"
       ],
       "related": [
-        "business-growth-transformation",
+        "strategy-corporate-advisory",
         "esg-sustainability"
       ],
       "industries": [
@@ -192,108 +197,8 @@ export const services: ServiceItem[] = [
       ]
     },
     {
-      "slug": "business-growth-transformation",
-      "number": "03",
-      "title": "Business Growth & Transformation",
-      "shortTitle": "Growth",
-      "headline": "Turning Ambition Into a Structured Path Forward.",
-      "short": "Growth strategy, expansion planning, transformation initiatives and performance improvement.",
-      "description": "Our Business Growth Advisory services are designed to empower organizations with strategies, insights and execution support that drive expansion, profitability and long-term sustainability. We help businesses unlock new opportunities, strengthen market presence and achieve scalable success.",
-      "icon": "growth",
-      "challenge": "Need a growth strategy",
-      "offerings": [
-        {
-          "title": "Market Entry & Expansion Strategy",
-          "body": "Advising on domestic and international market entry, regulatory frameworks and growth roadmaps."
-        },
-        {
-          "title": "Strategic Partnerships & Alliances",
-          "body": "Identifying and structuring collaborations, joint ventures and alliances to accelerate growth."
-        },
-        {
-          "title": "Mergers, Acquisitions & Integration",
-          "body": "Supporting deal structuring, due diligence and seamless post-merger integration for value creation."
-        },
-        {
-          "title": "Startup & Scale-Up Advisory",
-          "body": "Guiding entrepreneurs and emerging businesses on fundraising, compliance and operational scaling."
-        },
-        {
-          "title": "Capital Raising & Investor Relations",
-          "body": "Advisory support for equity, debt and venture financing, while strengthening investor communication."
-        },
-        {
-          "title": "Brand Positioning & Market Development",
-          "body": "Crafting strategies for brand differentiation, customer acquisition and market penetration."
-        },
-        {
-          "title": "Digital Transformation for Growth",
-          "body": "Leveraging technology, data analytics and automation to unlock new revenue streams."
-        },
-        {
-          "title": "Regulatory & Compliance Support for Expansion",
-          "body": "Supporting smooth navigation of legal, tax and compliance requirements during growth initiatives, alongside licensed professionals."
-        },
-        {
-          "title": "Performance & Profitability Enhancement",
-          "body": "Identifying growth levers, optimizing pricing strategies and improving margins."
-        }
-      ],
-      "capabilities": [
-        "Business Growth Strategy",
-        "Strategic Planning",
-        "Market & Opportunity Assessment",
-        "Expansion Strategy",
-        "Business Transformation",
-        "Organizational Transformation",
-        "Change Management Support",
-        "Transformation Roadmaps",
-        "Performance Improvement",
-        "New Market Entry Strategy"
-      ],
-      "flow": [
-        "Vision",
-        "Strategy",
-        "Execution",
-        "Growth"
-      ],
-      "challenges": [
-        "Ambition that is clear at board level but unclear in execution",
-        "Expansion decisions taken without an operating readiness view",
-        "Transformation programmes that stall after the design phase",
-        "Competing initiatives with no agreed sequence"
-      ],
-      "perspective": "Growth and transformation fail in the same place, between the decision and the operating change it requires. We frame the opportunity, then sequence what has to change in people, process and governance for it to hold.",
-      "outcomes": [
-        "A growth or transformation path with explicit sequencing",
-        "Investment and capability requirements made visible",
-        "Agreed ownership for each stage of delivery",
-        "Progress measures leadership can govern against"
-      ],
-      "related": [
-        "operational-excellence",
-        "ma-corporate-transactions"
-      ],
-      "industries": [
-        "Technology & Services",
-        "Consumer & Retail",
-        "Diversified Enterprises",
-        "Manufacturing"
-      ],
-      "faq": [
-        {
-          "q": "How is this different from a strategy document?",
-          "a": "The output is a path, not a position paper, stages, dependencies, owners and decision points, described so the organization can act on it."
-        },
-        {
-          "q": "Can you work alongside an internal transformation team?",
-          "a": "Yes. In most cases that is the better structure: we bring the external perspective and structure, the internal team carries the delivery."
-        }
-      ]
-    },
-    {
       "slug": "operational-excellence",
-      "number": "04",
+      "number": "03",
       "title": "Operational Excellence",
       "shortTitle": "Operations",
       "headline": "Turning Processes Into Performance.",
@@ -304,11 +209,11 @@ export const services: ServiceItem[] = [
       "offerings": [
         {
           "title": "Process Optimization & Workflow Design",
-          "body": "Identifying inefficiencies, redesigning workflows and implementing best practices to maximize productivity."
+          "body": "Identifying inefficiencies, redesigning workflows and implementing best practices to maximise productivity."
         },
         {
-          "title": "Performance Management Systems",
-          "body": "Developing KPIs, dashboards and reporting frameworks to monitor and improve organizational performance."
+          "title": "Cost Efficiency & Resource Optimization",
+          "body": "Identifying cost-saving opportunities, optimising resource allocation and improving ROI across functions."
         },
         {
           "title": "Technology & Automation Advisory",
@@ -319,16 +224,8 @@ export const services: ServiceItem[] = [
           "body": "Enhancing supply chain resilience, vendor evaluation and contract management for smoother business continuity."
         },
         {
-          "title": "Quality Assurance & Continuous Improvement",
-          "body": "Establishing quality standards, conducting audits and fostering a culture of continuous improvement."
-        },
-        {
-          "title": "Change Management & Capacity Building",
-          "body": "Supporting organizational transformation through structured change management programmes and employee training."
-        },
-        {
-          "title": "Cost Efficiency & Resource Optimization",
-          "body": "Identifying cost-saving opportunities, optimizing resource allocation and improving ROI across functions."
+          "title": "Performance Management Systems",
+          "body": "Developing KPIs, dashboards and reporting frameworks to monitor and improve organisational performance."
         }
       ],
       "capabilities": [
@@ -363,8 +260,8 @@ export const services: ServiceItem[] = [
         "A mechanism for improvement to continue internally"
       ],
       "related": [
-        "business-growth-transformation",
-        "strategy-corporate-advisory"
+        "strategy-corporate-advisory",
+        "ma-corporate-transactions"
       ],
       "industries": [
         "Manufacturing",
@@ -385,7 +282,7 @@ export const services: ServiceItem[] = [
     },
     {
       "slug": "ehs-advisory",
-      "number": "05",
+      "number": "04",
       "title": "EHS Advisory",
       "shortTitle": "EHS",
       "headline": "Building Safer, More Responsible Operations.",
@@ -399,8 +296,8 @@ export const services: ServiceItem[] = [
           "body": "Guidance on EHS laws, rules and standards, including industry-specific regulations."
         },
         {
-          "title": "Environmental Management & Sustainability",
-          "body": "Support in environmental audits, pollution control, waste management and ESG-aligned sustainability initiatives."
+          "title": "Policy Development & Implementation",
+          "body": "Drafting and implementing EHS policies, codes of conduct and compliance frameworks tailored to business needs."
         },
         {
           "title": "Occupational Health & Safety Programmes",
@@ -411,16 +308,12 @@ export const services: ServiceItem[] = [
           "body": "Conducting independent audits to identify gaps, mitigate risks and support adherence to statutory requirements."
         },
         {
-          "title": "Policy Development & Implementation",
-          "body": "Drafting and implementing EHS policies, codes of conduct and compliance frameworks tailored to business needs."
-        },
-        {
           "title": "Incident Management & Crisis Response",
           "body": "Advisory on accident investigation, root-cause analysis and corrective action planning."
         },
         {
           "title": "Training & Capacity Building",
-          "body": "Conducting workshops and awareness programmes to embed a culture of compliance and safety across the organization."
+          "body": "Conducting workshops and awareness programmes to embed a culture of compliance and safety across the organisation."
         },
         {
           "title": "Continuous Monitoring & Governance",
@@ -482,12 +375,12 @@ export const services: ServiceItem[] = [
     },
     {
       "slug": "esg-sustainability",
-      "number": "06",
+      "number": "05",
       "title": "ESG & Sustainability",
       "shortTitle": "ESG",
       "headline": "Embedding Sustainability Into Business Thinking.",
-      "short": "ESG strategy, BRSR and sustainability reporting, governance, climate risk and stakeholder engagement.",
-      "description": "BRSR reporting is now mandatory for India\u2019s top 1,000 listed companies by market capitalisation. We help organizations integrate environmental, social and governance considerations into strategy, operations and stakeholder engagement, and meet their reporting obligations.",
+      "short": "ESG strategy, BRSR and sustainability reporting, governance, climate risk and environmental management.",
+      "description": "BRSR reporting is now mandatory for India’s top 1,000 listed companies by market capitalisation. We help organizations integrate environmental, social and governance considerations into strategy, operations and stakeholder engagement, and meet their reporting obligations. Sustainability reporting and assurance support covers framework selection, data structure, narrative and review, with assurance provided by an independent assurance provider where required.",
       "icon": "esg",
       "challenge": "Building an ESG framework",
       "offerings": [
@@ -496,32 +389,24 @@ export const services: ServiceItem[] = [
           "body": "ESG disclosures, Business Responsibility and Sustainability Reporting (BRSR) and integrated reporting for Indian and multinational companies."
         },
         {
-          "title": "Sustainability Reporting & Assurance Support",
-          "body": "Framework selection, data structure, narrative and review, with assurance provided by an independent assurance provider where required."
+          "title": "Sustainable Finance & ESG Due Diligence",
+          "body": "Guidance on sustainable finance and investment, and ESG due diligence in transactions."
         },
         {
           "title": "ESG Strategy & Roadmaps",
           "body": "ESG assessment, material-issues view, sustainability strategy and a sequenced roadmap rather than a single disclosure push."
         },
         {
+          "title": "Environmental Management & Sustainability",
+          "body": "Support in environmental audits, pollution control, waste management and ESG-aligned sustainability initiatives."
+        },
+        {
           "title": "ESG Governance",
           "body": "Governance structures that set out who owns which metric and connect commitments to decisions."
         },
         {
-          "title": "Human Rights & Responsible Business Conduct",
-          "body": "Advisory on human rights, corporate social responsibility and responsible business conduct."
-        },
-        {
-          "title": "Sustainable Finance & ESG Due Diligence",
-          "body": "Guidance on sustainable finance and investment, and ESG due diligence in transactions."
-        },
-        {
           "title": "Climate Risk & Energy Transition",
           "body": "Identifying and addressing climate-related risks, and advising on renewable energy, technology and infrastructure initiatives that support energy transition."
-        },
-        {
-          "title": "Stakeholder Engagement",
-          "body": "Engagement approaches for stakeholder expectations that differ by audience, customers, lenders, regulators and communities."
         }
       ],
       "capabilities": [
@@ -530,15 +415,13 @@ export const services: ServiceItem[] = [
         "Sustainability Strategy",
         "Sustainability Frameworks",
         "ESG Policy Development",
-        "Stakeholder Engagement",
+        "Environmental Management",
         "Corporate Responsibility",
-        "Sustainability Reporting Support",
+        "Sustainability Reporting & Assurance Support",
         "Environmental & Social Risk Advisory",
         "ESG Governance",
         "Sustainability Roadmaps",
         "BRSR & ESG Disclosures",
-        "Sustainability Reporting & Assurance Support",
-        "Human Rights & Responsible Business Conduct",
         "Sustainable Finance & ESG Due Diligence",
         "Climate Risk & Energy Transition"
       ],
@@ -552,7 +435,7 @@ export const services: ServiceItem[] = [
         "Reporting demands arriving faster than internal data can support",
         "ESG commitments without an operating plan behind them",
         "Unclear governance over who owns which metric",
-        "Stakeholder expectations that differ by audience"
+        "Environmental performance managed separately from reporting"
       ],
       "perspective": "ESG becomes useful when it is an operating discipline rather than a reporting obligation, when the same data informs a decision and a disclosure.",
       "outcomes": [
