@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { HomeHero } from "@/components/site/HomeHero";
-import { PhilosophyPanels } from "@/components/site/PhilosophyPanels";
 import { JsonLd, Ticker } from "@/components/ui/Blocks";
 import { PhotoPlaceholder } from "@/components/ui/Cards";
 import { Emblem } from "@/components/ui/Emblem";
@@ -201,28 +200,6 @@ export default async function HomePage() {
               </Reveal>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* 05 Philosophy */}
-      <section id="philosophy" aria-labelledby="ppp-title" className="relative isolate overflow-hidden bg-forest-deep text-ivory">
-        <Emblem variant="dark" className="-z-10" style={{ right: "-5%", bottom: "-12%", width: "min(46%, 540px)" }} />
-        <div className="container-site section-y relative">
-          <Reveal className="mb-[clamp(44px,5vw,70px)] grid items-end gap-[clamp(24px,5vw,80px)] md:grid-cols-2">
-            <div className="min-w-0">
-              <p className={`${eyebrow} text-gold-light`}>Our Philosophy</p>
-              <h2 id="ppp-title" className="mt-5 text-[clamp(34px,4.2vw,62px)] leading-[1.06] tracking-[0.02em] text-ivory">
-                People. Process.
-                <br />
-                <em className="font-normal italic text-gold-pale">Planet. Progress.</em>
-              </h2>
-            </div>
-            <p className="max-w-[50ch] text-[clamp(15px,1.1vw,16.5px)] font-light leading-[1.85] text-ivory/76">
-              Four connected forces behind every engagement. Strong organizations are built by capable people, run on clear
-              processes, respect the planet they operate in — and turn all three into lasting progress.
-            </p>
-          </Reveal>
-          <PhilosophyPanels />
         </div>
       </section>
 
