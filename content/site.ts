@@ -9,7 +9,7 @@ export const defaultSettings: SiteSettingsItem = {
   firmName: "Insight Advora LLP",
   tagline: "Partnering for Smarter Decisions",
   email: "info@insightadvora.com",
-  phone: "+91 124-4462410, +91 9650191459",
+  phone: "+91 124-4462410, +91 9810503658",
   address: "363A, JMD Empire, 3rd Floor, Block D,\nSector 62, Gurugram, Haryana 122102",
   officeHours: "Monday to Friday, 10:00 – 18:00 IST",
   mapEmbedUrl: "https://maps.google.com/maps?q=JMD%20Empire%2C%20Sector%2062%2C%20Gurugram%2C%20Haryana%20122102&z=16&output=embed",

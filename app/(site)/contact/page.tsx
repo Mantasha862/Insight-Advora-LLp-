@@ -39,12 +39,20 @@ function safeMapUrl(url: string | null) {
   }
 }
 
+// Direct line for the Managing Partner, per the firm profile.
+const MANAGING_PARTNER = {
+  name: "Vinod Hans",
+  title: "Managing Partner",
+  phone: "+91 9810503658",
+  email: "vinod.hans@insightadvora.com",
+};
+const digits = (s: string) => s.replace(/[^\d]/g, "");
+
 export default async function ContactPage({ searchParams }: PageProps<"/contact">) {
   const sp = await searchParams;
   const area = typeof sp.area === "string" ? sp.area : undefined;
   const [settings, services] = await Promise.all([getSettings(), getServices()]);
   const map = safeMapUrl(settings.mapEmbedUrl);
-  const link = (v: string | null, href: string) => (v && !isPlaceholder(v) ? <a href={href} className="hover:text-gold-ink">{v}</a> : v);
 
   return (
     <>
@@ -74,15 +82,37 @@ export default async function ContactPage({ searchParams }: PageProps<"/contact"
               Firm <em className="font-normal italic text-charcoal">Details</em>
             </h2>
             <dl className="mt-6 border-t border-hairline">
-              {settings.email && <Detail label="Email">{link(settings.email, `mailto:${settings.email}`)}</Detail>}
+              <Detail label="Email">
+                <span className="flex flex-col gap-2">
+                  {settings.email && !isPlaceholder(settings.email) && (
+                    <a href={`mailto:${settings.email}`} className="hover:text-gold-ink">
+                      {settings.email} <span className="text-[13px] text-body-2">· General enquiries</span>
+                    </a>
+                  )}
+                  <a href={`mailto:${MANAGING_PARTNER.email}`} className="hover:text-gold-ink">
+                    {MANAGING_PARTNER.email}{" "}
+                    <span className="text-[13px] text-body-2">
+                      · {MANAGING_PARTNER.name}, {MANAGING_PARTNER.title}
+                    </span>
+                  </a>
+                </span>
+              </Detail>
               {settings.phone && (
                 <Detail label="Phone">
                   <span className="flex flex-col gap-1">
-                    {phoneList(settings.phone).map((n) => (
-                      <a key={n} href={telHref(n)} className="hover:text-gold-ink">
-                        {n}
-                      </a>
-                    ))}
+                    {phoneList(settings.phone).map((n) => {
+                      const isMp = digits(n) === digits(MANAGING_PARTNER.phone);
+                      return (
+                        <a key={n} href={telHref(n)} className="hover:text-gold-ink">
+                          {n}
+                          {isMp && (
+                            <span className="text-[13px] text-body-2">
+                              {" "}· {MANAGING_PARTNER.name}, {MANAGING_PARTNER.title}
+                            </span>
+                          )}
+                        </a>
+                      );
+                    })}
                   </span>
                 </Detail>
               )}
