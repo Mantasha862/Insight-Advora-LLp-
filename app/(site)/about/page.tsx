@@ -7,7 +7,6 @@ import { ServiceIcon } from "@/components/ui/Icons";
 import { GoldRule, Reveal } from "@/components/ui/Motion";
 import { Heading, Section, SectionIntro } from "@/components/ui/Section";
 import { Chain, Timeline } from "@/components/ui/Timeline";
-import { AboutPhilosophy } from "@/components/site/AboutPhilosophy";
 import { approach } from "@/content/site";
 import { getArticles, getFeaturedTeam, getServices } from "@/lib/data";
 import { pageMetadata } from "@/lib/seo";
@@ -144,8 +143,6 @@ export default async function AboutPage() {
           ))}
         </div>
       </Section>
-
-      <AboutPhilosophy />
 
       <Section tone="forest" labelledBy="integrated">
         <SectionIntro eyebrow="Integrated Perspective" lead="Seven Disciplines," accent="One View." dark id="integrated">

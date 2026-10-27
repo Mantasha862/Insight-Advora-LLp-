@@ -33,8 +33,7 @@ export default async function ServicesPage() {
       <PageHero
         crumbs={[{ href: "/", label: "Home" }, { label: "Our Services" }]}
         eyebrow="Our Services"
-        lead="Integrated Advisory for"
-        accent="Measurable Progress."
+        lead="What We Do"
         intro="Five connected practices helping organisations move from complexity to clarity, and from clarity to action."
       />
 

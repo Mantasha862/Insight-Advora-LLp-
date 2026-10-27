@@ -54,8 +54,7 @@ export default async function KnowledgeHubPage() {
       <PageHero
         crumbs={[{ href: "/", label: "Home" }, { label: "Knowledge Hub" }]}
         eyebrow="Knowledge Hub"
-        lead="Perspectives for"
-        accent="Smarter Decisions."
+        lead="Knowledge Hub"
         intro="Practical thinking on strategy, operations, growth, transactions, EHS and sustainability."
       />
 

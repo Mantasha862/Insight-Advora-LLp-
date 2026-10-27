@@ -41,8 +41,6 @@ export const nav = [
   { href: "/contact", label: "Contact" },
 ];
 
-export const philosophy = ["People", "Process", "Planet", "Progress"] as const;
-
 export const areasOfInterest = [
   "Operational Excellence",
   "M&A / Transactions",

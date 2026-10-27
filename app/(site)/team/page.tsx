@@ -35,8 +35,7 @@ export default async function TeamPage() {
       <PageHero
         crumbs={[{ href: "/", label: "Home" }, { label: "Our Team" }]}
         eyebrow="Our Team"
-        lead="Expertise With"
-        accent="Perspective."
+        lead="Our Team"
         intro="Our senior advisors have run strategy, governance, EHS and transactions inside large organisations, supported by a team of compliance and governance professionals."
       />
 
@@ -82,12 +81,6 @@ export default async function TeamPage() {
             ]}
           />
         </div>
-      </Section>
-
-      <Section tone="ivory-2" labelledBy="philosophy">
-        <SectionIntro eyebrow="Our Shared Philosophy" lead="People | Process |" accent="Planet | Progress." id="philosophy">
-          Whatever their discipline, our people share a commitment to clarity, practicality and responsible progress.
-        </SectionIntro>
       </Section>
 
       <Section labelledBy="network">

@@ -5,7 +5,7 @@ import { JsonLd, Ticker } from "@/components/ui/Blocks";
 import { PhotoPlaceholder } from "@/components/ui/Cards";
 import { Emblem } from "@/components/ui/Emblem";
 import { LinkedInIcon } from "@/components/ui/Icons";
-import { DrawLine, Reveal } from "@/components/ui/Motion";
+import { Reveal } from "@/components/ui/Motion";
 import { Timeline } from "@/components/ui/Timeline";
 import { approach, SITE_URL } from "@/content/site";
 import { entryOffers } from "@/content/home";
@@ -105,26 +105,6 @@ export default async function HomePage() {
               </div>
             </Reveal>
           </div>
-
-          <Reveal className="relative mt-[clamp(56px,7vw,96px)] overflow-hidden bg-forest text-ivory">
-            <DrawLine className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-sage to-gold-light" />
-            <div className="flex flex-wrap items-baseline justify-between gap-x-[30px] gap-y-3 px-[clamp(24px,3.4vw,50px)] pt-[clamp(30px,3.4vw,46px)]">
-              <span className={`${eyebrow} text-gold-pale`}>Our Integrated Philosophy</span>
-              <span className="whitespace-nowrap font-serif text-[clamp(14px,1.7vw,23px)] uppercase tracking-[clamp(0.06em,0.9vw,0.16em)] text-ivory/80">
-                People <span className="text-gold-light">|</span> Process <span className="text-gold-light">|</span> Planet{" "}
-                <span className="text-gold-light">|</span> Progress
-              </span>
-            </div>
-            <ul className="grid gap-x-[clamp(18px,2vw,30px)] px-[clamp(24px,3.4vw,50px)] pb-[clamp(34px,3.8vw,52px)] pt-[clamp(22px,2.6vw,34px)] sm:grid-cols-2 lg:grid-cols-4">
-              {home.about.pillars.map((p, i) => (
-                <li key={p.title} className="min-w-0 border-t border-ivory/14 pb-1.5 pr-[clamp(14px,1.8vw,26px)] pt-[22px]">
-                  <span className="font-serif text-[30px] leading-none text-gold-light">{String(i + 1).padStart(2, "0")}</span>
-                  <h3 className="mt-3.5 text-[clamp(26px,2.3vw,32px)] uppercase tracking-[0.08em] text-ivory">{p.title}</h3>
-                  <p className="mt-2.5 max-w-[30ch] text-[14px] font-light leading-[1.72] text-ivory/76">{p.body}</p>
-                </li>
-              ))}
-            </ul>
-          </Reveal>
         </div>
       </section>
 
